@@ -1,4 +1,7 @@
 package com.api.air_quality.repository;
 
-public class LandUseRepository {
+import com.api.air_quality.model.LandUseModel;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface LandUseRepository extends MongoRepository<LandUseModel, String> {
 }
