@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -72,6 +76,32 @@ public class AirQualityController {
 
         ApiResponse response = new ApiResponse("Approved Code:" + id + " successfully");
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/api/v1/importAirQuality")
+    public ResponseEntity<ApiResponse> importMetrological(@RequestPart("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(new ApiResponse("File is empty"));
+        }
+
+        // Assuming you can convert MultipartFile to File
+        File convertedFile = convertMultiPartToFile(file);
+
+        airQualityRepository.deleteAll();
+        airQualityService.importDataFromCSV(convertedFile.getAbsolutePath());
+
+        ApiResponse response = new ApiResponse("Imported successfully");
+        return ResponseEntity.ok(response);
+    }
+
+    private File convertMultiPartToFile(MultipartFile file) {
+        File convertedFile = new File(file.getOriginalFilename());
+        try (FileOutputStream fos = new FileOutputStream(convertedFile)) {
+            fos.write(file.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return convertedFile;
     }
 
     // GET REQUEST for all data
@@ -157,4 +187,43 @@ public class AirQualityController {
         return airQualityService.getAverageWindSpeedByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
+    @GetMapping("/api/v1/getMedianAirQualityPm25")
+    public Double getMedianAirQualityPm25() {
+        return airQualityService.calculateMedianPm25();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityPm10")
+    public Double getMedianAirQualityPm10() {
+        return airQualityService.calculateMedianPm10();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityCo2")
+    public Double getMedianAirQualityCo2() {
+        return airQualityService.calculateMedianCo2();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityOzone")
+    public Double getMedianAirQualityOzone() {
+        return airQualityService.calculateMedianOzone();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityNo2")
+    public Double getMedianAirQualityNo2() {
+        return airQualityService.calculateMedianNo2();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityTemperature")
+    public Double getMedianAirQualityTemperature() {
+        return airQualityService.calculateMedianTemperature();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityHumidity")
+    public Double getMedianAirQualityHumidity() {
+        return airQualityService.calculateMedianHumidity();
+    }
+
+    @GetMapping("/api/v1/getMedianAirQualityWindSpeed")
+    public Double getMedianAirQualityWindSpeed() {
+        return airQualityService.calculateMedianWindSpeed();
+    }
 }
