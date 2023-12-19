@@ -14,10 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class LandUseModel {
     @Id
     private String id;
-    private String timestamp;
     private String location;
-    private String temperature;
-    private String humidity;
-    private String windSpeed;
-    private String precipitation;
+    private String land_type;
 }

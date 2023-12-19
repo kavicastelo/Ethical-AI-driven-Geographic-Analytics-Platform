@@ -42,23 +42,19 @@ public class LandUseController {
     }
 
     @PutMapping("/api/v1/updateLandUse/{id}")
-    public ResponseEntity<ApiResponse> updateLandUse(@PathVariable String id, @RequestBody LandUseModel landUseModel) {
+    public ResponseEntity<ApiResponse> updateMetrological(@PathVariable String id, @RequestBody LandUseModel landUseModel) {
         Optional<LandUseModel> selectedLandUse = landUseRepository.findById(id);
 
         if (selectedLandUse.isPresent()){
             LandUseModel l = selectedLandUse.get();
 
-            l.setTimestamp(landUseModel.getTimestamp());
             l.setLocation(landUseModel.getLocation());
-            l.setTemperature(landUseModel.getTemperature());
-            l.setHumidity(landUseModel.getHumidity());
-            l.setWindSpeed(landUseModel.getWindSpeed());
-            l.setPrecipitation(landUseModel.getPrecipitation());
+            l.setLand_type(landUseModel.getLand_type());
 
             landUseRepository.save(l);
         }
 
-        ApiResponse response = new ApiResponse("Approved Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Updated Code:"+id+" successfully");
         return ResponseEntity.ok(response);
     }
 }
