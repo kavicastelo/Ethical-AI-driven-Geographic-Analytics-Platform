@@ -42,4 +42,56 @@ public class MetrologicalService {
             throw new RuntimeException(e);
         }
     }
+
+    public Double getAverageTemperatureByDateRange(String startDate, String endDate) {
+        List<MetrologicalModel> airQualityList = metrologicalRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (MetrologicalModel metrologicalModel : airQualityList) {
+            double temp = Double.parseDouble(metrologicalModel.getTemperature());
+            sumAirQuality += temp;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size()-1;
+    }
+
+    public Double getAverageHumidityByDateRange(String startDate, String endDate) {
+        List<MetrologicalModel> airQualityList = metrologicalRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (MetrologicalModel metrologicalModel : airQualityList) {
+            double humidity = Double.parseDouble(metrologicalModel.getHumidity());
+            sumAirQuality += humidity;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size()-1;
+    }
+
+    public Double getAverageWindSpeedByDateRange(String startDate, String endDate) {
+        List<MetrologicalModel> airQualityList = metrologicalRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (MetrologicalModel metrologicalModel : airQualityList) {
+            double windSpeed = Double.parseDouble(metrologicalModel.getWindSpeed());
+            sumAirQuality += windSpeed;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size()-1;
+    }
+
+    public Double getAveragePrecipitationByDateRange(String startDate, String endDate) {
+        List<MetrologicalModel> airQualityList = metrologicalRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (MetrologicalModel metrologicalModel : airQualityList) {
+            double precipitation = Double.parseDouble(metrologicalModel.getPrecipitation());
+            sumAirQuality += precipitation;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size()-1;
+    }
 }

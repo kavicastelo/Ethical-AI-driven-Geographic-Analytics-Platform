@@ -1,10 +1,12 @@
 package com.api.air_quality.controller;
 
 import com.api.air_quality.dto.ApiResponse;
+import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.model.MetrologicalModel;
 import com.api.air_quality.repository.MetrologicalRepository;
 import com.api.air_quality.service.MetrologicalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +32,7 @@ public class MetrologicalController {
     public ResponseEntity<ApiResponse> saveMetrological(@RequestBody MetrologicalModel metrologicalModel) {
         metrologicalRepository.save(metrologicalModel);
 
-        ApiResponse response = new ApiResponse("Saved "+metrologicalModel.getId()+" successfully");
+        ApiResponse response = new ApiResponse("Saved " + metrologicalModel.getId() + " successfully");
         return ResponseEntity.ok(response);
     }
 
@@ -45,7 +50,7 @@ public class MetrologicalController {
     public ResponseEntity<ApiResponse> deleteMetrological(@PathVariable String id) {
         metrologicalRepository.deleteById(id);
 
-        ApiResponse response = new ApiResponse("Deleted Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Deleted Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
 
@@ -53,7 +58,7 @@ public class MetrologicalController {
     public ResponseEntity<ApiResponse> updateLandUse(@PathVariable String id, @RequestBody MetrologicalModel metrologicalModel) {
         Optional<MetrologicalModel> selectedMetrological = metrologicalRepository.findById(id);
 
-        if (selectedMetrological.isPresent()){
+        if (selectedMetrological.isPresent()) {
             MetrologicalModel m = selectedMetrological.get();
 
             m.setTimestamp(metrologicalModel.getTimestamp());
@@ -66,7 +71,7 @@ public class MetrologicalController {
             metrologicalRepository.save(m);
         }
 
-        ApiResponse response = new ApiResponse("Approved Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Approved Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
 
@@ -94,5 +99,52 @@ public class MetrologicalController {
             e.printStackTrace();
         }
         return convertedFile;
+    }
+
+    // GET REQUEST for all data
+    @GetMapping("/api/v1/getMetrologicalByDate")
+    public List<MetrologicalModel> getMetrologicalByDate(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return metrologicalRepository.findByTimestampBetween(String.valueOf(sDate), String.valueOf(eDate));
+    }
+    // GET REQUEST for all data
+
+    @GetMapping("/api/v1/getAverageTemperatureByDateRange")
+    public Double getAverageTemperatureByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return metrologicalService.getAverageTemperatureByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageHumidityByDateRange")
+    public Double getAverageHumidityByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return metrologicalService.getAverageHumidityByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageWindSpeedByDateRange")
+    public Double getAverageWindSpeedByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return metrologicalService.getAverageWindSpeedByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAveragePrecipitationByDateRange")
+    public Double getAveragePrecipitationByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return metrologicalService.getAveragePrecipitationByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 }

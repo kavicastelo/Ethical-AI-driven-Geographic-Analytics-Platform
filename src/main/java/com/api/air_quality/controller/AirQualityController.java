@@ -4,9 +4,13 @@ import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,5 +68,14 @@ public class AirQualityController {
 
         ApiResponse response = new ApiResponse("Approved Code:"+id+" successfully");
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/api/v1/getAirQualityByDate")
+    public List<AirQualityModel> getAirQualityByDate(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityRepository.findByTimestampBetween(String.valueOf(sDate), String.valueOf(eDate));
     }
 }

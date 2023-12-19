@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,5 +48,18 @@ public class AirQualityService {
         } catch (CsvValidationException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Double getAverageCo2ByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double co2 = Double.parseDouble(airQualityModel.getCo2());
+            sumAirQuality += co2;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
     }
 }
