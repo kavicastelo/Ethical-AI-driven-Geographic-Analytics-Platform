@@ -14,6 +14,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MetrologicalModel {
     @Id
     private String id;
+    private String timestamp;
     private String location;
-    private String land_type;
+    private String temperature;
+    private String humidity;
+    private String windSpeed;
+    private String precipitation;
 }

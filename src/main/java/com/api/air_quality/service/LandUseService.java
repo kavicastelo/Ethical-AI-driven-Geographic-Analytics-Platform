@@ -1,6 +1,5 @@
 package com.api.air_quality.service;
 
-import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.model.LandUseModel;
 import com.api.air_quality.repository.LandUseRepository;
 import com.opencsv.CSVReader;
@@ -25,12 +24,8 @@ public class LandUseService {
             while ((line = reader.readNext()) != null) {
                 // Map CSV fields to YourModelClass attributes
                 LandUseModel model = new LandUseModel();
-                model.setTimestamp(line[0]);
-                model.setLocation(line[1]);
-                model.setTemperature(line[2]);
-                model.setHumidity(line[3]);
-                model.setWindSpeed(line[4]);
-                model.setPrecipitation(line[5]);
+                model.setLocation(line[0]);
+                model.setLand_type(line[1]);
 
                 data.add(model);
             }

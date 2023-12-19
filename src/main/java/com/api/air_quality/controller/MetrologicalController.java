@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -51,21 +50,49 @@ public class MetrologicalController {
     }
 
     @PutMapping("/api/v1/updateMetrological/{id}")
-    public ResponseEntity<ApiResponse> updateMetrological(@PathVariable String id, @RequestBody MetrologicalModel metrologicalModel) {
+    public ResponseEntity<ApiResponse> updateLandUse(@PathVariable String id, @RequestBody MetrologicalModel metrologicalModel) {
         Optional<MetrologicalModel> selectedMetrological = metrologicalRepository.findById(id);
 
         if (selectedMetrological.isPresent()){
             MetrologicalModel m = selectedMetrological.get();
 
+            m.setTimestamp(metrologicalModel.getTimestamp());
             m.setLocation(metrologicalModel.getLocation());
-            m.setLand_type(metrologicalModel.getLand_type());
+            m.setTemperature(metrologicalModel.getTemperature());
+            m.setHumidity(metrologicalModel.getHumidity());
+            m.setWindSpeed(metrologicalModel.getWindSpeed());
+            m.setPrecipitation(metrologicalModel.getPrecipitation());
 
             metrologicalRepository.save(m);
         }
 
-        ApiResponse response = new ApiResponse("Updated Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Approved Code:"+id+" successfully");
         return ResponseEntity.ok(response);
     }
 
-    
+    @PostMapping("/api/v1/importMetrological")
+    public ResponseEntity<ApiResponse> importMetrological(@RequestPart("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(new ApiResponse("File is empty"));
+        }
+
+        // Assuming you can convert MultipartFile to File
+        File convertedFile = convertMultiPartToFile(file);
+
+        metrologicalRepository.deleteAll();
+        metrologicalService.importDataFromCSV(convertedFile.getAbsolutePath());
+
+        ApiResponse response = new ApiResponse("Imported successfully");
+        return ResponseEntity.ok(response);
+    }
+
+    private File convertMultiPartToFile(MultipartFile file) {
+        File convertedFile = new File(file.getOriginalFilename());
+        try (FileOutputStream fos = new FileOutputStream(convertedFile)) {
+            fos.write(file.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return convertedFile;
+    }
 }
