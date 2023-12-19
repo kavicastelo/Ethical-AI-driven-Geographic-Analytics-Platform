@@ -3,6 +3,7 @@ package com.api.air_quality.controller;
 import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
+import com.api.air_quality.service.AirQualityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,14 @@ public class AirQualityController {
     @Autowired
     AirQualityRepository airQualityRepository;
 
+    @Autowired
+    AirQualityService airQualityService;
+
     @PostMapping("/api/v1/saveAirQuality")
     public ResponseEntity<ApiResponse> saveAirQuality(@RequestBody AirQualityModel airQualityModel) {
         airQualityRepository.save(airQualityModel);
 
-        ApiResponse response = new ApiResponse("Saved "+airQualityModel.getId()+" successfully");
+        ApiResponse response = new ApiResponse("Saved " + airQualityModel.getId() + " successfully");
         return ResponseEntity.ok(response);
     }
 
@@ -41,7 +45,7 @@ public class AirQualityController {
     public ResponseEntity<ApiResponse> deleteAppointment(@PathVariable String id) {
         airQualityRepository.deleteById(id);
 
-        ApiResponse response = new ApiResponse("Deleted Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Deleted Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
 
@@ -49,7 +53,7 @@ public class AirQualityController {
     public ResponseEntity<ApiResponse> updateAppointment(@PathVariable String id, @RequestBody AirQualityModel airQualityModel) {
         Optional<AirQualityModel> selectedAppointment = airQualityRepository.findById(id);
 
-        if (selectedAppointment.isPresent()){
+        if (selectedAppointment.isPresent()) {
             AirQualityModel a = selectedAppointment.get();
 
             a.setTimestamp(airQualityModel.getTimestamp());
@@ -66,10 +70,11 @@ public class AirQualityController {
             airQualityRepository.save(a);
         }
 
-        ApiResponse response = new ApiResponse("Approved Code:"+id+" successfully");
+        ApiResponse response = new ApiResponse("Approved Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
 
+    // GET REQUEST for all data
     @GetMapping("/api/v1/getAirQualityByDate")
     public List<AirQualityModel> getAirQualityByDate(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
@@ -78,4 +83,78 @@ public class AirQualityController {
         LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
         return airQualityRepository.findByTimestampBetween(String.valueOf(sDate), String.valueOf(eDate));
     }
+    // GET REQUEST for all data
+
+    @GetMapping("/api/v1/getAveragePm25ByDateRange")
+    public Double getAveragePm25ByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAveragePm25ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAveragePm10ByDateRange")
+    public Double getAveragePm10ByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAveragePm10ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageCo2ByDateRange")
+    public Double getAverageCo2ByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageCo2ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageOzoneByDateRange")
+    public Double getAverageOzoneByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageOzoneByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageNo2ByDateRange")
+    public Double getAverageNo2ByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageNo2ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageTemperatureByDateRange")
+    public Double getAverageTemperatureByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageTemperatureByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageHumidityByDateRange")
+    public Double getAverageHumidityByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageHumidityByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getAverageWindSpeedByDateRange")
+    public Double getAverageWindSpeedByDateRange(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        LocalDateTime sDate = startDate.atStartOfDay();
+        LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
+        return airQualityService.getAverageWindSpeedByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+    
 }

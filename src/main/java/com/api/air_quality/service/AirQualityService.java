@@ -50,6 +50,32 @@ public class AirQualityService {
         }
     }
 
+    public Double getAveragePm25ByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double pm25 = Double.parseDouble(airQualityModel.getPm25());
+            sumAirQuality += pm25;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAveragePm10ByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double pm10 = Double.parseDouble(airQualityModel.getPm10());
+            sumAirQuality += pm10;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
     public Double getAverageCo2ByDateRange(String startDate, String endDate) {
         List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
 
@@ -58,6 +84,71 @@ public class AirQualityService {
         for (AirQualityModel airQualityModel : airQualityList) {
             double co2 = Double.parseDouble(airQualityModel.getCo2());
             sumAirQuality += co2;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAverageOzoneByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double ozone = Double.parseDouble(airQualityModel.getOzone());
+            sumAirQuality += ozone;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAverageNo2ByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double no2 = Double.parseDouble(airQualityModel.getNo2());
+            sumAirQuality += no2;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAverageTemperatureByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double temperature = Double.parseDouble(airQualityModel.getTemperature());
+            sumAirQuality += temperature;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAverageHumidityByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double humidity = Double.parseDouble(airQualityModel.getHumidity());
+            sumAirQuality += humidity;
+        }
+
+        return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
+    }
+
+    public Double getAverageWindSpeedByDateRange(String startDate, String endDate) {
+        List<AirQualityModel> airQualityList = airQualityRepository.findByTimestampBetween(startDate, endDate);
+
+        // Calculate the average air quality
+        double sumAirQuality = 0.0;
+        for (AirQualityModel airQualityModel : airQualityList) {
+            double windSpeed = Double.parseDouble(airQualityModel.getWindSpeed());
+            sumAirQuality += windSpeed;
         }
 
         return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size();
