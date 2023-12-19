@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -146,5 +147,25 @@ public class MetrologicalController {
         LocalDateTime sDate = startDate.atStartOfDay();
         LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
         return metrologicalService.getAveragePrecipitationByDateRange(String.valueOf(sDate), String.valueOf(eDate));
+    }
+
+    @GetMapping("/api/v1/getMedianMetrologicalTemperature")
+    public Double getMedianMetrologicalTemperature() {
+        return metrologicalService.calculateMedianTemperature();
+    }
+
+    @GetMapping("/api/v1/getMedianMetrologicalHumidity")
+    public Double getMedianMetrologicalHumidity() {
+        return metrologicalService.calculateMedianHumidity();
+    }
+
+    @GetMapping("/api/v1/getMedianMetrologicalWindSpeed")
+    public Double getMedianMetrologicalWindSpeed() {
+        return metrologicalService.calculateMedianWindSpeed();
+    }
+
+    @GetMapping("/api/v1/getMedianMetrologicalPrecipitation")
+    public Double getMedianMetrologicalPrecipitation() {
+        return metrologicalService.calculateMedianPrecipitation();
     }
 }
