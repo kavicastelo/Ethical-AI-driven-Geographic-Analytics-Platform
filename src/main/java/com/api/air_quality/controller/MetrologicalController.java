@@ -3,17 +3,26 @@ package com.api.air_quality.controller;
 import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.MetrologicalModel;
 import com.api.air_quality.repository.MetrologicalRepository;
+import com.api.air_quality.service.MetrologicalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
 public class MetrologicalController {
     @Autowired
     MetrologicalRepository metrologicalRepository;
+
+    @Autowired
+    MetrologicalService metrologicalService;
 
     @PostMapping("/api/v1/saveMetrological")
     public ResponseEntity<ApiResponse> saveMetrological(@RequestBody MetrologicalModel metrologicalModel) {
@@ -47,7 +56,7 @@ public class MetrologicalController {
 
         if (selectedMetrological.isPresent()){
             MetrologicalModel m = selectedMetrological.get();
-            
+
             m.setLocation(metrologicalModel.getLocation());
             m.setLand_type(metrologicalModel.getLand_type());
 
@@ -57,4 +66,6 @@ public class MetrologicalController {
         ApiResponse response = new ApiResponse("Updated Code:"+id+" successfully");
         return ResponseEntity.ok(response);
     }
+
+    
 }
