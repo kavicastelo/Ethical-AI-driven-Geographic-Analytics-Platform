@@ -85,7 +85,7 @@ public class AirQualityController {
     }
     // GET REQUEST for all data
 
-    @GetMapping("/api/v1/getAveragePm25ByDateRange")
+    @GetMapping("/api/v1/getAQAveragePm25ByDateRange")
     public Double getAveragePm25ByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -94,7 +94,7 @@ public class AirQualityController {
         return airQualityService.getAveragePm25ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAveragePm10ByDateRange")
+    @GetMapping("/api/v1/getAQAveragePm10ByDateRange")
     public Double getAveragePm10ByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -103,7 +103,7 @@ public class AirQualityController {
         return airQualityService.getAveragePm10ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageCo2ByDateRange")
+    @GetMapping("/api/v1/getAQAverageCo2ByDateRange")
     public Double getAverageCo2ByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -112,7 +112,7 @@ public class AirQualityController {
         return airQualityService.getAverageCo2ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageOzoneByDateRange")
+    @GetMapping("/api/v1/getAQAverageOzoneByDateRange")
     public Double getAverageOzoneByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -121,7 +121,7 @@ public class AirQualityController {
         return airQualityService.getAverageOzoneByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageNo2ByDateRange")
+    @GetMapping("/api/v1/getAQAverageNo2ByDateRange")
     public Double getAverageNo2ByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -130,7 +130,7 @@ public class AirQualityController {
         return airQualityService.getAverageNo2ByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageTemperatureByDateRange")
+    @GetMapping("/api/v1/getAQAverageTemperatureByDateRange")
     public Double getAverageTemperatureByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -139,7 +139,7 @@ public class AirQualityController {
         return airQualityService.getAverageTemperatureByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageHumidityByDateRange")
+    @GetMapping("/api/v1/getAQAverageHumidityByDateRange")
     public Double getAverageHumidityByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -148,7 +148,7 @@ public class AirQualityController {
         return airQualityService.getAverageHumidityByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
 
-    @GetMapping("/api/v1/getAverageWindSpeedByDateRange")
+    @GetMapping("/api/v1/getAQAverageWindSpeedByDateRange")
     public Double getAverageWindSpeedByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
@@ -156,5 +156,5 @@ public class AirQualityController {
         LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
         return airQualityService.getAverageWindSpeedByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
-    
+
 }

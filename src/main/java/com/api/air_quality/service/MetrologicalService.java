@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class MetrologicalService {
@@ -43,6 +45,7 @@ public class MetrologicalService {
         }
     }
 
+//    calculate the average (mean) air quality
     public Double getAverageTemperatureByDateRange(String startDate, String endDate) {
         List<MetrologicalModel> airQualityList = metrologicalRepository.findByTimestampBetween(startDate, endDate);
 
@@ -93,5 +96,90 @@ public class MetrologicalService {
         }
 
         return airQualityList.isEmpty() ? 0.0 : sumAirQuality / airQualityList.size()-1;
+    }
+//    calculate the average (mean) air quality
+
+//    calculate the median formula
+    private Double calculateMedian(List<Double> values) {
+        if (values.isEmpty()) {
+            return 0.0; // or throw an exception, depending on your requirements
+        }
+        values.sort(Double::compareTo);
+        int size = values.size();
+        if (size % 2 == 0) {
+            int mid = size / 2;
+            return (values.get(mid - 1) + values.get(mid)) / 2.0;
+        } else {
+            return values.get(size / 2);
+        }
+    }
+//    calculate the median formula
+
+    public Double calculateMedianTemperature() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllTemperatureValues();
+        List<Double> temperatureValues = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getTemperature());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the temperature is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        return calculateMedian(temperatureValues);
+    }
+
+    public Double calculateMedianHumidity() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllHumidityValues();
+        List<Double> humidityValues = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getHumidity());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the humidity is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        return calculateMedian(humidityValues);
+    }
+
+    public Double calculateMedianWindSpeed() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllWindSpeedValues();
+        List<Double> windSpeedValues = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getWindSpeed());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the wind speed is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        return calculateMedian(windSpeedValues);
+    }
+
+    public Double calculateMedianPrecipitation() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllPrecipitationValues();
+        List<Double> precipitationValues = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getPrecipitation());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the precipitation is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        return calculateMedian(precipitationValues);
     }
 }
