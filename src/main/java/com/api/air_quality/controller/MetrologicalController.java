@@ -196,4 +196,36 @@ public class MetrologicalController {
         return metrologicalService.calculateModePrecipitation();
     }
     // get mode
+
+    // correlations
+    @GetMapping("/api/v1/metrological/correlation/temperatureAndHumidity")
+    public List<Double> correlationTemperatureAndHumidity() {
+        return metrologicalService.calculateCorrelationTemperatureAndHumidity();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/temperatureAndWindSpeed")
+    public List<Double> correlationTemperatureAndWindSpeed() {
+        return metrologicalService.calculateCorrelationTemperatureAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/temperatureAndPrecipitation")
+    public List<Double> correlationTemperatureAndPrecipitation() {
+        return metrologicalService.calculateCorrelationTemperatureAndPrecipitation();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/humidityAndWindSpeed")
+    public List<Double> correlationHumidityAndWindSpeed() {
+        return metrologicalService.calculateCorrelationHumidityAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/humidityAndPrecipitation")
+    public List<Double> correlationHumidityAndPrecipitation() {
+        return metrologicalService.calculateCorrelationHumidityAndPrecipitation();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/windSpeedAndPrecipitation")
+    public List<Double> correlationWindSpeedAndPrecipitation() {
+        return metrologicalService.calculateCorrelationWindSpeedAndPrecipitation();
+    }
+    // correlations
 }

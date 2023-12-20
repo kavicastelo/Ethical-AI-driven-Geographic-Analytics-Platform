@@ -21,4 +21,22 @@ public interface MetrologicalRepository extends MongoRepository<MetrologicalMode
 
     @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'precipitation': 1}")
     List<MetrologicalModel> findAllPrecipitationValues();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'temperature': 1, 'humidity': 1}")
+    List<MetrologicalModel> findAllByTemperatureAndHumidity();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'temperature': 1, 'windSpeed': 1}")
+    List<MetrologicalModel> findAllByTemperatureAndWindSpeed();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'temperature': 1, 'precipitation': 1}")
+    List<MetrologicalModel> findAllByTemperatureAndPrecipitation();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'humidity': 1, 'windSpeed': 1}")
+    List<MetrologicalModel> findAllByHumidityAndWindSpeed();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'humidity': 1, 'precipitation': 1}")
+    List<MetrologicalModel> findAllByHumidityAndPrecipitation();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'windSpeed': 1, 'precipitation': 1}")
+    List<MetrologicalModel> findAllByWindSpeedAndPrecipitation();
 }
