@@ -1,7 +1,6 @@
 package com.api.air_quality.service;
 
 import com.api.air_quality.model.AirQualityModel;
-import com.api.air_quality.model.MetrologicalModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
@@ -10,10 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -307,5 +305,149 @@ public class AirQualityService {
                 .collect(Collectors.toList());
 
         return calculateMedian(windSpeedValues);
+    }
+
+    // calculate mode formula
+    private Double calculateMode(List<Double> values) {
+        if (values.isEmpty()) {
+            return 0.0; // or throw an exception, depending on your requirements
+        }
+        Map<Double, Long> frequencyMap = values.stream()
+                .collect(Collectors.groupingBy(Double::doubleValue, Collectors.counting()));
+        long maxFrequency = frequencyMap.values().stream().max(Long::compareTo).orElse(0L);
+        return frequencyMap.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxFrequency)
+                .mapToDouble(Map.Entry::getKey)
+                .average()
+                .orElse(0.0);
+    }
+    // calculate mode formula
+
+    public Double calculateModePm25() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllPm25Values();
+        List<Double> pm25Vals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getPm25());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the pm25 is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(pm25Vals);
+    }
+
+    public Double calculateModePm10() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllPm10Values();
+        List<Double> pm10Vals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getPm10());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the pm10 is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(pm10Vals);
+    }
+
+    public Double calculateModeCo2() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllCo2Values();
+        List<Double> co2Vals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getCo2());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the co2 is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(co2Vals);
+    }
+
+    public Double calculateModeOzone() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllOzoneValues();
+        List<Double> ozoneVals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getOzone());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the ozone is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(ozoneVals);
+    }
+
+    public Double calculateModeNo2() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllNo2Values();
+        List<Double> no2Vals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getNo2());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the no2 is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(no2Vals);
+    }
+
+    public Double calculateModeTemperature() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllTemperatureValues();
+        List<Double> temperatureVals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getTemperature());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the temperature is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(temperatureVals);
+    }
+
+    public Double calculateModeHumidity() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllHumidityValues();
+        List<Double> humidityVals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getHumidity());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the humidity is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(humidityVals);
+    }
+
+    public Double calculateModeWindSpeed() {
+        List<AirQualityModel> airQualityModels = airQualityRepository.findAllWindSpeedValues();
+        List<Double> windSpeedVals = airQualityModels.stream()
+                .map(airQualityModel -> {
+                    try {
+                        return Double.parseDouble(airQualityModel.getWindSpeed());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the windSpeed is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(windSpeedVals);
     }
 }

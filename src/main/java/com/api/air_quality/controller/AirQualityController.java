@@ -35,6 +35,7 @@ public class AirQualityController {
         return ResponseEntity.ok(response);
     }
 
+    //    Basic CRUD
     @GetMapping("/api/v1/getAllAirQuality")
     public List<AirQualityModel> getAllAirQuality() {
         return airQualityRepository.findAll();
@@ -46,15 +47,15 @@ public class AirQualityController {
     }
 
     @DeleteMapping("/api/v1/deleteAirQuality/{id}")
-    public ResponseEntity<ApiResponse> deleteAppointment(@PathVariable String id) {
+    public ResponseEntity<ApiResponse> deleteAirQuality(@PathVariable String id) {
         airQualityRepository.deleteById(id);
 
         ApiResponse response = new ApiResponse("Deleted Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/api/v1/updateAppointment/{id}")
-    public ResponseEntity<ApiResponse> updateAppointment(@PathVariable String id, @RequestBody AirQualityModel airQualityModel) {
+    @PutMapping("/api/v1/updateAirQuality/{id}")
+    public ResponseEntity<ApiResponse> updateAirQuality(@PathVariable String id, @RequestBody AirQualityModel airQualityModel) {
         Optional<AirQualityModel> selectedAppointment = airQualityRepository.findById(id);
 
         if (selectedAppointment.isPresent()) {
@@ -77,9 +78,11 @@ public class AirQualityController {
         ApiResponse response = new ApiResponse("Approved Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
+    //    Basic CRUD
 
+    //    CSV IMPORT
     @PostMapping("/api/v1/importAirQuality")
-    public ResponseEntity<ApiResponse> importMetrological(@RequestPart("file") MultipartFile file) {
+    public ResponseEntity<ApiResponse> importAirQuality(@RequestPart("file") MultipartFile file) {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body(new ApiResponse("File is empty"));
         }
@@ -103,6 +106,7 @@ public class AirQualityController {
         }
         return convertedFile;
     }
+    //    CSV IMPORT
 
     // GET REQUEST for all data
     @GetMapping("/api/v1/getAirQualityByDate")
@@ -115,6 +119,7 @@ public class AirQualityController {
     }
     // GET REQUEST for all data
 
+    // Means of Air Quality
     @GetMapping("/api/v1/getAQAveragePm25ByDateRange")
     public Double getAveragePm25ByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
@@ -186,7 +191,9 @@ public class AirQualityController {
         LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
         return airQualityService.getAverageWindSpeedByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
+    // Means of Air Quality
 
+    // Medians of Air Quality
     @GetMapping("/api/v1/getMedianAirQualityPm25")
     public Double getMedianAirQualityPm25() {
         return airQualityService.calculateMedianPm25();
@@ -226,4 +233,47 @@ public class AirQualityController {
     public Double getMedianAirQualityWindSpeed() {
         return airQualityService.calculateMedianWindSpeed();
     }
+    // Medians of Air Quality
+
+    // Mode of Air Quality
+    @GetMapping("/api/v1/getModeAirQualityPm25")
+    public Double getModeAirQualityPm25() {
+        return airQualityService.calculateModePm25();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityPm10")
+    public Double getModeAirQualityPm10() {
+        return airQualityService.calculateModePm10();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityCo2")
+    public Double getModeAirQualityCo2() {
+        return airQualityService.calculateModeCo2();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityOzone")
+    public Double getModeAirQualityOzone() {
+        return airQualityService.calculateModeOzone();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityNo2")
+    public Double getModeAirQualityNo2() {
+        return airQualityService.calculateModeNo2();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityTemperature")
+    public Double getModeAirQualityTemperature() {
+        return airQualityService.calculateModeTemperature();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityHumidity")
+    public Double getModeAirQualityHumidity() {
+        return airQualityService.calculateModeHumidity();
+    }
+
+    @GetMapping("/api/v1/getModeAirQualityWindSpeed")
+    public Double getModeAirQualityWindSpeed() {
+        return airQualityService.calculateModeWindSpeed();
+    }
+    // Mode of Air Quality
 }
