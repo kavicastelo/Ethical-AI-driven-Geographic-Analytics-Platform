@@ -111,3 +111,41 @@
    - /api/v1/getModeMetrologicalHumidity
    - /api/v1/getModeMetrologicalWindSpeed
    - /api/v1/getModeMetrologicalPrecipitation
+
+### Get Correlations
+1. Air Quality
+   - /api/v1/airQuality/correlation/pm25AndPm10
+   - /api/v1/airQuality/correlation/pm25AndCo2
+   - /api/v1/airQuality/correlation/pm25AndOzone
+   - /api/v1/airQuality/correlation/pm25AndNo2
+   - /api/v1/airQuality/correlation/pm25AndTemperature
+   - /api/v1/airQuality/correlation/pm25AndHumidity
+   - /api/v1/airQuality/correlation/pm25AndWindSpeed
+   - /api/v1/airQuality/correlation/pm10AndCo2
+   - /api/v1/airQuality/correlation/pm10AndOzone
+   - /api/v1/airQuality/correlation/pm10AndNo2
+   - /api/v1/airQuality/correlation/pm10AndTemperature
+   - /api/v1/airQuality/correlation/pm10AndHumidity
+   - /api/v1/airQuality/correlation/pm10AndWindSpeed
+   - /api/v1/airQuality/correlation/co2AndOzone
+   - /api/v1/airQuality/correlation/co2AndNo2
+   - /api/v1/airQuality/correlation/co2AndTemperature
+   - /api/v1/airQuality/correlation/co2AndHumidity
+   - /api/v1/airQuality/correlation/co2AndWindSpeed
+   - /api/v1/airQuality/correlation/ozoneAndNo2
+   - /api/v1/airQuality/correlation/ozoneAndTemperature
+   - /api/v1/airQuality/correlation/ozoneAndHumidity
+   - /api/v1/airQuality/correlation/ozoneAndWindSpeed
+   - /api/v1/airQuality/correlation/no2AndTemperature
+   - /api/v1/airQuality/correlation/no2AndHumidity
+   - /api/v1/airQuality/correlation/no2AndWindSpeed
+   - /api/v1/airQuality/correlation/temperatureAndHumidity
+   - /api/v1/airQuality/correlation/temperatureAndWindSpeed
+   - /api/v1/airQuality/correlation/humidityAndWindSpeed
+2. Metrological
+   - /api/v1/metrological/correlation/temperatureAndHumidity
+   - /api/v1/metrological/correlation/temperatureAndWindSpeed
+   - /api/v1/metrological/correlation/temperatureAndPrecipitation
+   - /api/v1/metrological/correlation/humidityAndWindSpeed
+   - /api/v1/metrological/correlation/humidityAndPrecipitation
+   - /api/v1/metrological/correlation/windSpeedAndPrecipitation
