@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -182,4 +183,85 @@ public class MetrologicalService {
 
         return calculateMedian(precipitationValues);
     }
+
+    // calculate mode formula
+    private Double calculateMode(List<Double> values) {
+        if (values.isEmpty()) {
+            return 0.0; // or throw an exception, depending on your requirements
+        }
+        Map<Double, Long> frequencyMap = values.stream()
+                .collect(Collectors.groupingBy(Double::doubleValue, Collectors.counting()));
+        long maxFrequency = frequencyMap.values().stream().max(Long::compareTo).orElse(0L);
+        return frequencyMap.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxFrequency)
+                .mapToDouble(Map.Entry::getKey)
+                .average()
+                .orElse(0.0);
+    }
+    // calculate mode formula
+
+    public Double calculateModeTemperature() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllTemperatureValues();
+        List<Double> temperatureVals = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getTemperature());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the temperature is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(temperatureVals);
+    }
+
+    public Double calculateModeHumidity() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllHumidityValues();
+        List<Double> humidityVals = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getHumidity());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the humidity is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(humidityVals);
+    }
+
+    public Double calculateModeWindSpeed() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllWindSpeedValues();
+        List<Double> windSpeedVals = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getWindSpeed());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the wind speed is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(windSpeedVals);
+    }
+
+    public Double calculateModePrecipitation() {
+        List<MetrologicalModel> metrologicalModels = metrologicalRepository.findAllPrecipitationValues();
+        List<Double> precipitationVals = metrologicalModels.stream()
+                .map(metrologicalModel -> {
+                    try {
+                        return Double.parseDouble(metrologicalModel.getPrecipitation());
+                    } catch (NumberFormatException e) {
+                        // Handle the case where the precipitation is not a valid double
+                        return null; // or any other appropriate value
+                    }
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return calculateMode(precipitationVals);
+    }
+
 }
