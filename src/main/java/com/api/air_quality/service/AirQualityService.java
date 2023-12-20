@@ -4,15 +4,13 @@ import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -450,4 +448,62 @@ public class AirQualityService {
                 .collect(Collectors.toList());
         return calculateMode(windSpeedVals);
     }
+
+    // calculate correlations
+    public List<Double> calculateCorrelation() {
+        // Retrieve documents with the specified factors
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndPm10();
+
+        // Log the size of factorValues
+//        System.out.println("Factor Values Size: " + factorValues.size());
+
+        // Extract the values from the documents for both factors
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        // Log the size of factor1Values
+//        System.out.println("Factor 1 Values Size: " + factor1Values.size());
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        // Log the size of factor2Values
+//        System.out.println("Factor 2 Values Size: " + factor2Values.size());
+
+        // Log the parsed values for debugging
+//        System.out.println("Factor 1 Values: " + factor1Values);
+//        System.out.println("Factor 2 Values: " + factor2Values);
+
+        // Perform correlation calculation using Pearson correlation coefficient
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        // Return the result
+        return List.of(correlationValue);
+    }
+
+    private Double parseDoubleOrDefault(String value) {
+        // Check if the value is not null and not empty
+        if (value != null && !value.trim().isEmpty()) {
+            try {
+                return Double.parseDouble(value);
+            } catch (NumberFormatException e) {
+                // Log the error for debugging
+//                System.out.println("Error parsing value: " + value);
+                return null; // or any other appropriate value
+            }
+        } else {
+            // Log the error for debugging
+//            System.out.println("Value is null or empty: " + value);
+            return null; // or any other appropriate value
+        }
+    }
+    // calculate correlations
 }

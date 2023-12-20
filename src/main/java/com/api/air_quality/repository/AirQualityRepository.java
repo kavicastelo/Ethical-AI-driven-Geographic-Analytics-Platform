@@ -33,4 +33,7 @@ public interface AirQualityRepository extends MongoRepository<AirQualityModel, S
 
     @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'windSpeed': 1}")
     List<AirQualityModel> findAllWindSpeedValues();
+
+    @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'pm25': 1, 'pm10': 1}")
+    List<AirQualityModel> findAllByPm25AndPm10();
 }

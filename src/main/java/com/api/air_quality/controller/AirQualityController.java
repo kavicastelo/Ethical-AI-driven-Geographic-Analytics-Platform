@@ -1,6 +1,7 @@
 package com.api.air_quality.controller;
 
 import com.api.air_quality.dto.ApiResponse;
+import com.api.air_quality.dto.CorrelationResultDTO;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import com.api.air_quality.service.AirQualityService;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -276,4 +278,11 @@ public class AirQualityController {
         return airQualityService.calculateModeWindSpeed();
     }
     // Mode of Air Quality
+
+    // correlation
+    @GetMapping("/api/v1/airQuality/correlation")
+    public List<Double> getCorrelation() {
+        return airQualityService.calculateCorrelation();
+    }
+    // correlation
 }
