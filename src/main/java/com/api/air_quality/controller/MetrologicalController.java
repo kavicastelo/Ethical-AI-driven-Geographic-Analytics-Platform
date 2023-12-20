@@ -1,7 +1,6 @@
 package com.api.air_quality.controller;
 
 import com.api.air_quality.dto.ApiResponse;
-import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.model.MetrologicalModel;
 import com.api.air_quality.repository.MetrologicalRepository;
 import com.api.air_quality.service.MetrologicalService;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +27,7 @@ public class MetrologicalController {
     @Autowired
     MetrologicalService metrologicalService;
 
+    // Basic CRUD
     @PostMapping("/api/v1/saveMetrological")
     public ResponseEntity<ApiResponse> saveMetrological(@RequestBody MetrologicalModel metrologicalModel) {
         metrologicalRepository.save(metrologicalModel);
@@ -56,7 +55,7 @@ public class MetrologicalController {
     }
 
     @PutMapping("/api/v1/updateMetrological/{id}")
-    public ResponseEntity<ApiResponse> updateLandUse(@PathVariable String id, @RequestBody MetrologicalModel metrologicalModel) {
+    public ResponseEntity<ApiResponse> updateMetrological(@PathVariable String id, @RequestBody MetrologicalModel metrologicalModel) {
         Optional<MetrologicalModel> selectedMetrological = metrologicalRepository.findById(id);
 
         if (selectedMetrological.isPresent()) {
@@ -75,7 +74,9 @@ public class MetrologicalController {
         ApiResponse response = new ApiResponse("Approved Code:" + id + " successfully");
         return ResponseEntity.ok(response);
     }
+    // Basic CRUD
 
+    // IMPORT CSV
     @PostMapping("/api/v1/importMetrological")
     public ResponseEntity<ApiResponse> importMetrological(@RequestPart("file") MultipartFile file) {
         if (file.isEmpty()) {
@@ -101,6 +102,7 @@ public class MetrologicalController {
         }
         return convertedFile;
     }
+    // IMPORT CSV
 
     // GET REQUEST for all data
     @GetMapping("/api/v1/getMetrologicalByDate")
@@ -113,6 +115,7 @@ public class MetrologicalController {
     }
     // GET REQUEST for all data
 
+    // get mean by date range
     @GetMapping("/api/v1/getAverageTemperatureByDateRange")
     public Double getAverageTemperatureByDateRange(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
@@ -148,7 +151,9 @@ public class MetrologicalController {
         LocalDateTime eDate = endDate.atTime(LocalTime.MAX);
         return metrologicalService.getAveragePrecipitationByDateRange(String.valueOf(sDate), String.valueOf(eDate));
     }
+    // get mean by date range
 
+    // get median
     @GetMapping("/api/v1/getMedianMetrologicalTemperature")
     public Double getMedianMetrologicalTemperature() {
         return metrologicalService.calculateMedianTemperature();
@@ -168,7 +173,9 @@ public class MetrologicalController {
     public Double getMedianMetrologicalPrecipitation() {
         return metrologicalService.calculateMedianPrecipitation();
     }
+    // get median
 
+    // get mode
     @GetMapping("/api/v1/getModeMetrologicalTemperature")
     public Double getModeMetrologicalTemperature() {
         return metrologicalService.calculateModeTemperature();
@@ -188,4 +195,5 @@ public class MetrologicalController {
     public Double getModeMetrologicalPrecipitation() {
         return metrologicalService.calculateModePrecipitation();
     }
+    // get mode
 }

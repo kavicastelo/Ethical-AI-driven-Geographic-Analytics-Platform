@@ -50,7 +50,7 @@ public class LandUseController {
     }
 
     @PutMapping("/api/v1/updateLandUse/{id}")
-    public ResponseEntity<ApiResponse> updateMetrological(@PathVariable String id, @RequestBody LandUseModel landUseModel) {
+    public ResponseEntity<ApiResponse> updateLandUse(@PathVariable String id, @RequestBody LandUseModel landUseModel) {
         Optional<LandUseModel> selectedLandUse = landUseRepository.findById(id);
 
         if (selectedLandUse.isPresent()){
@@ -67,7 +67,7 @@ public class LandUseController {
     }
 
     @PostMapping("/api/v1/importLandUse")
-    public ResponseEntity<ApiResponse> importMetrological(@RequestPart("file") MultipartFile file) {
+    public ResponseEntity<ApiResponse> importLandUse(@RequestPart("file") MultipartFile file) {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body(new ApiResponse("File is empty"));
         }
