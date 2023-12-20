@@ -450,33 +450,18 @@ public class AirQualityService {
     }
 
     // calculate correlations
-    public List<Double> calculateCorrelation() {
+    public List<Double> calculateCorrelationPm25AndPm10() {
         // Retrieve documents with the specified factors
         List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndPm10();
-
-        // Log the size of factorValues
-//        System.out.println("Factor Values Size: " + factorValues.size());
 
         // Extract the values from the documents for both factors
         List<Double> factor1Values = factorValues.stream()
                 .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-
-        // Log the size of factor1Values
-//        System.out.println("Factor 1 Values Size: " + factor1Values.size());
+                .filter(Objects::nonNull).toList();
 
         List<Double> factor2Values = factorValues.stream()
                 .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-
-        // Log the size of factor2Values
-//        System.out.println("Factor 2 Values Size: " + factor2Values.size());
-
-        // Log the parsed values for debugging
-//        System.out.println("Factor 1 Values: " + factor1Values);
-//        System.out.println("Factor 2 Values: " + factor2Values);
+                .filter(Objects::nonNull).toList();
 
         // Perform correlation calculation using Pearson correlation coefficient
         PearsonsCorrelation correlation = new PearsonsCorrelation();
@@ -486,6 +471,550 @@ public class AirQualityService {
         );
 
         // Return the result
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndCo2() {
+        // Retrieve documents with the specified factors
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndCo2();
+
+        // Extract the values from the documents for both factors
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        // Perform correlation calculation using Pearson correlation coefficient
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        // Return the result
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndOzone() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndOzone();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndNo2() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndNo2();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndTemperature() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndTemperature();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm25AndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm25AndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm25()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndCo2() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndCo2();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndOzone() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndOzone();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndNo2() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndNo2();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndTemperature() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndTemperature();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationPm10AndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByPm10AndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getPm10()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationCo2AndOzone() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByCo2AndOzone();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationCo2AndNo2() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByCo2AndNo2();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationCo2AndTemperature() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByCo2AndTemperature();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationCo2AndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByCo2AndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationCo2AndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByCo2AndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getCo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationOzoneAndNo2() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByOzoneAndNo2();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationOzoneAndTemperature() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByOzoneAndTemperature();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationOzoneAndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByOzoneAndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationOzoneAndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByOzoneAndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getOzone()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationNo2AndTemperature() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByNo2AndTemperature();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationNo2AndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByNo2AndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationNo2AndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByNo2AndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getNo2()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationTemperatureAndHumidity() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByTemperatureAndHumidity();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationTemperatureAndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByTemperatureAndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getTemperature()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
+        return List.of(correlationValue);
+    }
+
+    public List<Double> calculateCorrelationHumidityAndWindSpeed() {
+        List<AirQualityModel> factorValues = airQualityRepository.findAllByHumidityAndWindSpeed();
+
+        List<Double> factor1Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getHumidity()))
+                .filter(Objects::nonNull).toList();
+
+        List<Double> factor2Values = factorValues.stream()
+                .map(airQualityModel -> parseDoubleOrDefault(airQualityModel.getWindSpeed()))
+                .filter(Objects::nonNull).toList();
+
+        PearsonsCorrelation correlation = new PearsonsCorrelation();
+        double correlationValue = correlation.correlation(
+                factor1Values.stream().mapToDouble(Double::doubleValue).toArray(),
+                factor2Values.stream().mapToDouble(Double::doubleValue).toArray()
+        );
+
         return List.of(correlationValue);
     }
 

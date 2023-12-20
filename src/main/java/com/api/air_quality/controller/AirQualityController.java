@@ -1,7 +1,6 @@
 package com.api.air_quality.controller;
 
 import com.api.air_quality.dto.ApiResponse;
-import com.api.air_quality.dto.CorrelationResultDTO;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import com.api.air_quality.service.AirQualityService;
@@ -18,7 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -100,7 +99,7 @@ public class AirQualityController {
     }
 
     private File convertMultiPartToFile(MultipartFile file) {
-        File convertedFile = new File(file.getOriginalFilename());
+        File convertedFile = new File(Objects.requireNonNull(file.getOriginalFilename()));
         try (FileOutputStream fos = new FileOutputStream(convertedFile)) {
             fos.write(file.getBytes());
         } catch (IOException e) {
@@ -280,9 +279,144 @@ public class AirQualityController {
     // Mode of Air Quality
 
     // correlation
-    @GetMapping("/api/v1/airQuality/correlation")
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndPm10")
     public List<Double> getCorrelation() {
-        return airQualityService.calculateCorrelation();
+        return airQualityService.calculateCorrelationPm25AndPm10();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndCo2")
+    public List<Double> getCorrelationPm25AndCo2() {
+        return airQualityService.calculateCorrelationPm25AndCo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndOzone")
+    public List<Double> getCorrelationPm25AndOzone() {
+        return airQualityService.calculateCorrelationPm25AndOzone();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndNo2")
+    public List<Double> getCorrelationPm25AndNo2() {
+        return airQualityService.calculateCorrelationPm25AndNo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndTemperature")
+    public List<Double> getCorrelationPm25AndTemperature() {
+        return airQualityService.calculateCorrelationPm25AndTemperature();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndHumidity")
+    public List<Double> getCorrelationPm25AndHumidity() {
+        return airQualityService.calculateCorrelationPm25AndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm25AndWindSpeed")
+    public List<Double> getCorrelationPm25AndWindSpeed() {
+        return airQualityService.calculateCorrelationPm25AndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndCo2")
+    public List<Double> getCorrelationPm10AndCo2() {
+        return airQualityService.calculateCorrelationPm10AndCo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndOzone")
+    public List<Double> getCorrelationPm10AndOzone() {
+        return airQualityService.calculateCorrelationPm10AndOzone();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndNo2")
+    public List<Double> getCorrelationPm10AndNo2() {
+        return airQualityService.calculateCorrelationPm10AndNo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndTemperature")
+    public List<Double> getCorrelationPm10AndTemperature() {
+        return airQualityService.calculateCorrelationPm10AndTemperature();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndHumidity")
+    public List<Double> getCorrelationPm10AndHumidity() {
+        return airQualityService.calculateCorrelationPm10AndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/pm10AndWindSpeed")
+    public List<Double> getCorrelationPm10AndWindSpeed() {
+        return airQualityService.calculateCorrelationPm10AndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/co2AndOzone")
+    public List<Double> getCorrelationCo2AndOzone() {
+        return airQualityService.calculateCorrelationCo2AndOzone();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/co2AndNo2")
+    public List<Double> getCorrelationCo2AndNo2() {
+        return airQualityService.calculateCorrelationCo2AndNo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/co2AndTemperature")
+    public List<Double> getCorrelationCo2AndTemperature() {
+        return airQualityService.calculateCorrelationCo2AndTemperature();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/co2AndHumidity")
+    public List<Double> getCorrelationCo2AndHumidity() {
+        return airQualityService.calculateCorrelationCo2AndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/co2AndWindSpeed")
+    public List<Double> getCorrelationCo2AndWindSpeed() {
+        return airQualityService.calculateCorrelationCo2AndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/ozoneAndNo2")
+    public List<Double> getCorrelationOzoneAndNo2() {
+        return airQualityService.calculateCorrelationOzoneAndNo2();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/ozoneAndTemperature")
+    public List<Double> getCorrelationOzoneAndTemperature() {
+        return airQualityService.calculateCorrelationOzoneAndTemperature();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/ozoneAndHumidity")
+    public List<Double> getCorrelationOzoneAndHumidity() {
+        return airQualityService.calculateCorrelationOzoneAndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/ozoneAndWindSpeed")
+    public List<Double> getCorrelationOzoneAndWindSpeed() {
+        return airQualityService.calculateCorrelationOzoneAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/no2AndTemperature")
+    public List<Double> getCorrelationNo2AndTemperature() {
+        return airQualityService.calculateCorrelationNo2AndTemperature();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/no2AndHumidity")
+    public List<Double> getCorrelationNo2AndHumidity() {
+        return airQualityService.calculateCorrelationNo2AndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/no2AndWindSpeed")
+    public List<Double> getCorrelationNo2AndWindSpeed() {
+        return airQualityService.calculateCorrelationNo2AndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/temperatureAndHumidity")
+    public List<Double> getCorrelationTemperatureAndHumidity() {
+        return airQualityService.calculateCorrelationTemperatureAndHumidity();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/temperatureAndWindSpeed")
+    public List<Double> getCorrelationTemperatureAndWindSpeed() {
+        return airQualityService.calculateCorrelationTemperatureAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/airQuality/correlation/humidityAndWindSpeed")
+    public List<Double> getCorrelationHumidityAndWindSpeed() {
+        return airQualityService.calculateCorrelationHumidityAndWindSpeed();
     }
     // correlation
 }
