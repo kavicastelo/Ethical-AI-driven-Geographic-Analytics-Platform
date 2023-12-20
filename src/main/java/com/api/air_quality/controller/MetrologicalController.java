@@ -168,4 +168,24 @@ public class MetrologicalController {
     public Double getMedianMetrologicalPrecipitation() {
         return metrologicalService.calculateMedianPrecipitation();
     }
+
+    @GetMapping("/api/v1/getModeMetrologicalTemperature")
+    public Double getModeMetrologicalTemperature() {
+        return metrologicalService.calculateModeTemperature();
+    }
+
+    @GetMapping("/api/v1/getModeMetrologicalHumidity")
+    public Double getModeMetrologicalHumidity() {
+        return metrologicalService.calculateModeHumidity();
+    }
+
+    @GetMapping("/api/v1/getModeMetrologicalWindSpeed")
+    public Double getModeMetrologicalWindSpeed() {
+        return metrologicalService.calculateModeWindSpeed();
+    }
+
+    @GetMapping("/api/v1/getModeMetrologicalPrecipitation")
+    public Double getModeMetrologicalPrecipitation() {
+        return metrologicalService.calculateModePrecipitation();
+    }
 }
