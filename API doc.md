@@ -459,3 +459,312 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
+
+31. #### Get Air Quality Correlation Between Pm25 and Pm10
+    - **Endpoint:** `/airQuality/correlation/pm25AndPm10`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and pm10
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+ 
+32. #### Get Air Quality Correlation Between Pm25 and Co2
+    - **Endpoint:** `/airQuality/correlation/pm25AndCo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and co2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+33. #### Get Air Quality Correlation Between Pm25 and Ozone
+    - **Endpoint:** `/airQuality/correlation/pm25AndOzone`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and ozone
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+34. #### Get Air Quality Correlation Between Pm25 and No2
+    - **Endpoint:** `/airQuality/correlation/pm25AndNo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and no2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+35. #### Get Air Quality Correlation Between Pm25 and Temperature
+    - **Endpoint:** `/airQuality/correlation/pm25AndTemperature`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and temperature
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+36. #### Get Air Quality Correlation Between Pm25 and Humidity
+    - **Endpoint:** `/airQuality/correlation/pm25AndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+37. #### Get Air Quality Correlation Between Pm25 and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/pm25AndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm25 and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+38. #### Get Air Quality Correlation Between Pm10 and Co2
+    - **Endpoint:** `/airQuality/correlation/pm10AndCo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and co2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+39. #### Get Air Quality Correlation Between Pm10 and Ozone
+    - **Endpoint:** `/airQuality/correlation/pm10AndOzone`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and ozone
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+40. #### Get Air Quality Correlation Between Pm10 and No2
+    - **Endpoint:** `/airQuality/correlation/pm10AndNo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and no2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+41. #### Get Air Quality Correlation Between Pm10 and Temperature
+    - **Endpoint:** `/airQuality/correlation/pm10AndTemperature`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and temperature
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+42. #### Get Air Quality Correlation Between Pm10 and Humidity
+    - **Endpoint:** `/airQuality/correlation/pm10AndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+43. #### Get Air Quality Correlation Between Pm10 and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/pm10AndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+44. #### Get Air Quality Correlation Between Co2 and Ozone
+    - **Endpoint:** `/airQuality/correlation/co2AndOzone`
+    - **Method:** `GET`
+    - **Description:** Get correlation between co2 and ozone
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+45. #### Get Air Quality Correlation Between Pm10 and No2
+    - **Endpoint:** `/airQuality/correlation/pm10AndNo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and no2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+46. #### Get Air Quality Correlation Between Pm10 and Temperature
+    - **Endpoint:** `/airQuality/correlation/pm10AndTemperature`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and temperature
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+47. #### Get Air Quality Correlation Between Pm10 and Humidity
+    - **Endpoint:** `/airQuality/correlation/pm10AndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+48. #### Get Air Quality Correlation Between Pm10 and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/pm10AndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between pm10 and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+49. #### Get Air Quality Correlation Between Ozone and No2
+    - **Endpoint:** `/airQuality/correlation/ozoneAndNo2`
+    - **Method:** `GET`
+    - **Description:** Get correlation between ozone and no2
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+50. #### Get Air Quality Correlation Between Ozone and Temperature
+    - **Endpoint:** `/airQuality/correlation/ozoneAndTemperature`
+    - **Method:** `GET`
+    - **Description:** Get correlation between ozone and temperature
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+51. #### Get Air Quality Correlation Between Ozone and Humidity
+    - **Endpoint:** `/airQuality/correlation/ozoneAndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between ozone and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+52. #### Get Air Quality Correlation Between Ozone and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/ozoneAndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between ozone and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+53. #### Get Air Quality Correlation Between No2 and Temperature
+    - **Endpoint:** `/airQuality/correlation/no2AndTemperature`
+    - **Method:** `GET`
+    - **Description:** Get correlation between no2 and temperature
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+54. #### Get Air Quality Correlation Between No2 and Humidity
+    - **Endpoint:** `/airQuality/correlation/no2AndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between no2 and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+55. #### Get Air Quality Correlation Between No2 and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/no2AndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between no2 and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+56. #### Get Air Quality Correlation Between Temperature and Humidity
+    - **Endpoint:** `/airQuality/correlation/temperatureAndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between temperature and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+57. #### Get Air Quality Correlation Between Temperature and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/temperatureAndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between temperature and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+58. #### Get Air Quality Correlation Between Humidity and WindSpeed
+    - **Endpoint:** `/airQuality/correlation/humidityAndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between humidity and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
