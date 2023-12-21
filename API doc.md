@@ -21,7 +21,7 @@ Authorization: Bearer YOUR_API_KEY
 ```
 
 ## API Endpoints
-### Air Quality
+### Air Quality API
 1. #### Save Air Quality Data
    - **Endpoint:** `/saveAirQuality`
    - **Method:** `POST`
@@ -127,8 +127,8 @@ Authorization: Bearer YOUR_API_KEY
    
 6. #### Bulk import Air Quality Data
     - **Endpoint:** `/updateAirQuality/{id}`
-    - **Method:** `PUT`
-    - **Description:** Update one air quality data row by id
+    - **Method:** `POST`
+    - **Description:** Import bulk air quality data from a CSV file
     - **Request:**
     ```markdown
    File
@@ -768,3 +768,337 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
     
+### Metrological API
+1. #### Save Metrological Data
+    - **Endpoint:** `/saveMetrological`
+    - **Method:** `POST`
+    - **Description:** Save metrological data.
+    - **Request:**
+    ```json
+    {
+    "timestamp": "2023-01-01T12:00:00Z",
+    "temperature": 25.0,
+    "humidity": 50.0,
+    "windSpeed": 10.0,
+    "precipitation": 0.0
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Data saved successfully"
+    }
+    ```
+
+2. #### Get All Metrological Data
+    - **Endpoint:** `/getAllMetrological`
+    - **Method:** `GET`
+    - **Description:** Retrieve all metrological data.
+    - **Response:**
+   ```json
+    [
+      {
+      "id": "123",
+      "timestamp": "2023-01-01T12:00:00Z",
+      "temperature": 25.0,
+      "humidity": 50.0,
+      "windSpeed": 10.0,
+      "precipitation": 0.0
+      }
+    ]
+    ```
+
+3. #### Get Metrological Data By ID
+    - **Endpoint:** `/getMetrologicalById/{id}`
+    - **Method:** `GET`
+    - **Description:** Retrieve one metrological data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/getMetrologicalById/id=123
+    ```
+    - **Response:**
+    ```json
+    [
+      {
+      "id": "123",
+      "timestamp": "2023-01-01T12:00:00Z",
+      "temperature": 25.0,
+      "humidity": 50.0,
+      "windSpeed": 10.0,
+      "precipitation": 0.0
+      }
+    ]
+    ```
+
+4. #### Delete Metrological Data By ID
+    - **Endpoint:** `/deleteMetrological/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete one metrological data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/deleteMetrological/id=123
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "123 Data Deleted"
+    }
+    ```
+
+5. #### Update Metrological Data By ID
+    - **Endpoint:** `/updateMetrological/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update one metrological data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/updateMetrological/id=123
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "123 Data Updated"
+    }
+    ```
+
+6. #### Bulk import Metrological Data
+    - **Endpoint:** `/updateMetrological/{id}`
+    - **Method:** `POST`
+    - **Description:** Import bulk metrological data from CSV file
+    - **Request:**
+    ```markdown
+   File
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Data Imported Successfully"
+    }
+    ```
+
+7. #### Get Mean Value of Metrological Temperature column by Date Range
+    - **Endpoint:** `/getAverageTemperatureByDateRange`
+    - **Method:** `GET`
+    - **Description:** Get mean value of temperature column data by date range
+    - **Request:**
+    ```json
+   {
+   "startDate": "2022-01-01",
+   "endDate": "2024-01-01"
+   }
+    ```
+    - **Response:**
+    ```json
+    {
+    "data": "24.5676436"
+    }
+    ```
+   
+8. #### Get Mean Value of Metrological Humidity column by Date Range
+    - **Endpoint:** `/getAverageHumidityByDateRange`
+    - **Method:** `GET`
+    - **Description:** Get mean value of humidity column data by date range
+    - **Request:**
+    ```json
+   {
+   "startDate": "2022-01-01",
+   "endDate": "2024-01-01"
+   }
+    ```
+    - **Response:**
+    ```json
+    {
+    "data": "50.5676436"
+    }
+    ```
+   
+9. #### Get Mean Value of Metrological WindSpeed column by Date Range
+    - **Endpoint:** `/getAverageWindSpeedByDateRange`
+    - **Method:** `GET`
+    - **Description:** Get mean value of windSpeed column data by date range
+    - **Request:**
+    ```json
+   {
+   "startDate": "2022-01-01",
+   "endDate": "2024-01-01"
+   }
+    ```
+    - **Response:**
+    ```json
+    {
+    "data": "10.5676436"
+    }
+    ```
+   
+10. #### Get Mean Value of Metrological Precipitation column by Date Range
+    - **Endpoint:** `/getAveragePrecipitationByDateRange`
+    - **Method:** `GET`
+    - **Description:** Get mean value of precipitation column data by date range
+    - **Request:**
+    ```json
+    {
+    "startDate": "2022-01-01",
+    "endDate": "2024-01-01"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "data": "0.5676436"
+    }
+    ```
+
+11. #### Get Median Value of Metrological Temperature column
+    - **Endpoint:** `/getMedianMetrologicalTemperature`
+    - **Method:** `GET`
+    - **Description:** Get median value of temperature column data
+    - **Response:**
+    ```json
+    {
+    "data": "24.5676436"
+    }
+    ```
+    
+12. #### Get Median Value of Metrological Humidity column
+    - **Endpoint:** `/getMedianMetrologicalHumidity`
+    - **Method:** `GET`
+    - **Description:** Get median value of humidity column data
+    - **Response:**
+    ```json
+    {
+    "data": "50.5676436"
+    }
+    ```
+    
+13. #### Get Median Value of Metrological WindSpeed column
+    - **Endpoint:** `/getMedianMetrologicalWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get median value of windSpeed column data
+    - **Response:**
+    ```json
+    {
+    "data": "10.5676436"
+    }
+    ```
+    
+14. #### Get Median Value of Metrological Precipitation column
+    - **Endpoint:** `/getMedianMetrologicalPrecipitation`
+    - **Method:** `GET`
+    - **Description:** Get median value of precipitation column data
+    - **Response:**
+    ```json
+    {
+    "data": "0.5676436"
+    }
+    ```
+
+15. #### Get Mode Value of Metrological Temperature column
+    - **Endpoint:** `/getModeMetrologicalTemperature`
+    - **Method:** `GET`
+    - **Description:** Get average mode value of temperature column data
+    - **Response:**
+    ```json
+    {
+    "data": "24.5676436"
+    }
+    ```
+    
+16. #### Get Mode Value of Metrological Humidity column
+    - **Endpoint:** `/getModeMetrologicalHumidity`
+    - **Method:** `GET`
+    - **Description:** Get average mode value of humidity column data
+    - **Response:**
+    ```json
+    {
+    "data": "50.5676436"
+    }
+    ```
+    
+17. #### Get Mode Value of Metrological WindSpeed column
+    - **Endpoint:** `/getModeMetrologicalWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get average mode value of windSpeed column data
+    - **Response:**
+    ```json
+    {
+    "data": "10.5676436"
+    }
+    ```
+    
+18. #### Get Mode Value of Metrological Precipitation column
+    - **Endpoint:** `/getModeMetrologicalPrecipitation`
+    - **Method:** `GET`
+    - **Description:** Get average mode value of precipitation column data
+    - **Response:**
+    ```json
+    {
+    "data": "0.5676436"
+    }
+    ```
+
+19. #### Get Metrological Correlation Between Temperature and Humidity
+    - **Endpoint:** `/metrological/correlation/temperatureAndHumidity`
+    - **Method:** `GET`
+    - **Description:** Get correlation between temperature and humidity
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+20. #### Get Metrological Correlation Between Temperature and WindSpeed
+    - **Endpoint:** `/metrological/correlation/temperatureAndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between temperature and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+21. #### Get Metrological Correlation Between Temperature and Precipitation
+    - **Endpoint:** `/metrological/correlation/temperatureAndPrecipitation`
+    - **Method:** `GET`
+    - **Description:** Get correlation between temperature and precipitation
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+
+22. #### Get Metrological Correlation Between Humidity and WindSpeed
+    - **Endpoint:** `/metrological/correlation/humidityAndWindSpeed`
+    - **Method:** `GET`
+    - **Description:** Get correlation between humidity and windSpeed
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+23. #### Get Metrological Correlation Between Humidity and Precipitation
+    - **Endpoint:** `/metrological/correlation/humidityAndPrecipitation`
+    - **Method:** `GET`
+    - **Description:** Get correlation between humidity and precipitation
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+24. #### Get Metrological Correlation Between WindSpeed and Precipitation
+    - **Endpoint:** `/metrological/correlation/windSpeedAndPrecipitation`
+    - **Method:** `GET`
+    - **Description:** Get correlation between windSpeed and precipitation
+    - **Response:**
+    ```json
+    {
+    "data": "0.84358380"
+    }
+    ```
+    
+
