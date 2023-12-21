@@ -126,7 +126,7 @@ Authorization: Bearer YOUR_API_KEY
     ```
    
 6. #### Bulk import Air Quality Data
-    - **Endpoint:** `/updateAirQuality/{id}`
+    - **Endpoint:** `/importAirQuality`
     - **Method:** `POST`
     - **Description:** Import bulk air quality data from a CSV file
     - **Request:**
@@ -768,6 +768,35 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
     
+59. #### Get All Air Quality Data by Date Range
+    - **Endpoint:** `/getAirQualityByDate`
+    - **Method:** `GET`
+    - **Description:** Get all air quality data by date range.
+    - **Request:**
+    ```json
+    {
+    "startDate": "2022-01-01",
+    "endDate": "2024-01-01"
+    }
+    ```
+    - **Response:**
+    ```json
+    [
+      {
+      "id": "123",
+      "timestamp": "2023-01-01T12:00:00Z",
+      "pm25": 10.5,
+      "pm10": 25.2,
+      "co2": 400,
+      "ozone": 20,
+      "no2": 15,
+      "temperature": 25.0,
+      "humidity": 50.0,
+      "windSpeed": 10.0
+      }
+    ]
+    ```
+    
 ### Metrological API
 1. #### Save Metrological Data
     - **Endpoint:** `/saveMetrological`
@@ -861,7 +890,7 @@ Authorization: Bearer YOUR_API_KEY
     ```
 
 6. #### Bulk import Metrological Data
-    - **Endpoint:** `/updateMetrological/{id}`
+    - **Endpoint:** `/importMetrological`
     - **Method:** `POST`
     - **Description:** Import bulk metrological data from CSV file
     - **Request:**
@@ -1101,4 +1130,131 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
     
+25. #### Get All Metrological Data by Date Range
+    - **Endpoint:** `/getMetrologicalByDate`
+    - **Method:** `GET`
+    - **Description:** Get all Metrological data by date range
+    - **Request:**
+    ```json
+    {
+    "startDate": "2022-01-01",
+    "endDate": "2024-01-01"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "data": [
+        {
+        "id": "123",
+        "timestamp": "2023-01-01T12:00:00Z",
+        "location": "123 Main St",
+        "temperature": "24.5676436",
+        "humidity": "50.5676436",
+        "windSpeed": "10.5676436",
+        "precipitation": "0.5676436"
+        }
+    ]
+    }
+    ```
+    
+### Land Use API
+1. #### Save Land Use Data
+    - **Endpoint:** `/saveLandUse`
+    - **Method:** `POST`
+    - **Description:** Save land use data.
+    - **Request:**
+    ```json
+    {
+    "timestamp": "2023-01-01T12:00:00Z",
+    "location": "123 Main St",
+    "landType": "Industrial"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Data saved successfully"
+    }
+    ```
 
+2. #### Get All Land Use Data
+    - **Endpoint:** `/getAllLandUse`
+    - **Method:** `GET`
+    - **Description:** Retrieve all land use data.
+    - **Response:**
+   ```json
+    [
+      {
+      "id": "123",
+      "timestamp": "2023-01-01T12:00:00Z",
+      "location": "123 Main St",
+      "landType": "Industrial"
+      }
+    ]
+    ```
+
+3. #### Get Land Use Data By ID
+    - **Endpoint:** `/getLandUseById/{id}`
+    - **Method:** `GET`
+    - **Description:** Retrieve one land use data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/getLandUseById/id=123
+    ```
+    - **Response:**
+    ```json
+    [
+      {
+      "id": "123",
+      "timestamp": "2023-01-01T12:00:00Z",
+      "location": "123 Main St",
+      "landType": "Industrial"
+      }
+    ]
+    ```
+
+4. #### Delete Land use Data By ID
+    - **Endpoint:** `/deleteLandUse/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete one land use data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/deleteLandUse/id=123
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "123 Data Deleted"
+    }
+    ```
+
+5. #### Update Land Use Data By ID
+    - **Endpoint:** `/updateLandUse/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update one land use data row by id
+    - **Request:**
+    ```http request
+   https://your-api-base-url.com/api/v1/updateLandUse/id=123
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "123 Data Updated"
+    }
+    ```
+
+6. #### Bulk import Land Use Data
+    - **Endpoint:** `/importLandUse`
+    - **Method:** `POST`
+    - **Description:** Import bulk land use data from CSV file
+    - **Request:**
+    ```markdown
+   File
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Data Imported Successfully"
+    }
+    ```
