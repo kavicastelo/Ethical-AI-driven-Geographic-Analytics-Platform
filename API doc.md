@@ -1258,3 +1258,22 @@ Authorization: Bearer YOUR_API_KEY
     "message": "Data Imported Successfully"
     }
     ```
+   
+## Error Handling
+- ### HTTP Status Codes:
+  - **200 OK:** Successful request.
+  - **400 Bad Request:** Malformed request.
+  - **401 Unauthorized:** Authentication failure.
+  - **403 Forbidden:** Insufficient permissions.
+  - **404 Not Found:** Resource not found.
+  - **500 Internal Server Error:** Unexpected server error.
+
+- ### Error Codes:
+  - **E001:** Invalid request.
+  - **E002:** Authentication failure.
+  - **E003:** Insufficient permissions.
+  - **E004:** Resource not found.
+  - **E005:** Unexpected server error.
+
+## Contact Us
+If you have any questions or concerns, please contact us at [kavindu.kokila.info@gmail.com](mailto:kavindu.kokila.info@gmail.com).
