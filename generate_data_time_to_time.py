@@ -6,6 +6,10 @@ import time
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 from joblib import dump
 
@@ -14,8 +18,8 @@ fake = Faker()
 
 # Function to generate improved dummy air quality data
 def generate_improved_air_quality_data(locations, start_time, end_time, frequency):
-    fieldnames = ['timestamp', 'location', 'pm25', 'pm10', 'co2', 'ozone', 'no2', 'temperature', 'humidity',
-                  'wind_speed']
+    fieldnames = ['timestamp', 'location', 'pm25', 'pm10', 'co2', 'ozone', 'no2', 'airTemperature', 'airHumidity',
+                  'airWind_speed']
     with open('improved_air_quality_data.csv', 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -24,7 +28,7 @@ def generate_improved_air_quality_data(locations, start_time, end_time, frequenc
         while current_time <= end_time:
             for location in locations:
                 temperature = random.uniform(20, 30)
-                humidity = random.uniform(50, 80)
+                humidity = random.uniform(15, 20)
 
                 # Simulate rush hour increase in pollution
                 if 8 <= current_time.hour <= 10 or 17 <= current_time.hour <= 19:
@@ -37,12 +41,12 @@ def generate_improved_air_quality_data(locations, start_time, end_time, frequenc
                     'location': location,
                     'pm25': temperature + humidity + pollution_increase + random.uniform(-2, 2),
                     'pm10': temperature + humidity + pollution_increase + random.uniform(-2, 2),
-                    'co2': temperature + humidity + pollution_increase + random.uniform(-5, 5),
+                    'co2': temperature + humidity + pollution_increase + random.uniform(-3, 3),
                     'ozone': temperature + humidity + pollution_increase + random.uniform(-2, 2),
                     'no2': temperature + humidity + pollution_increase + random.uniform(-1, 1),
-                    'temperature': temperature,
-                    'humidity': humidity,
-                    'wind_speed': random.uniform(3, 8)
+                    'airTemperature': temperature,
+                    'airHumidity': humidity,
+                    'airWind_speed': random.uniform(3, 8)
                 })
 
             # Sleep for 5 minutes before generating data for the next interval
@@ -61,7 +65,7 @@ def generate_improved_meteorological_data(locations, start_time, end_time, frequ
         while current_time <= end_time:
             for location in locations:
                 temperature = random.uniform(20, 30)
-                humidity = random.uniform(50, 80)
+                humidity = random.uniform(15, 20)
 
                 # Simulate higher precipitation during colder months
                 precipitation = random.uniform(0, 0.5) + max(0, (25 - temperature) / 25)
@@ -94,40 +98,29 @@ def generate_improved_land_use_data(locations):
             })
 
 
-dfAirQuality = pd.read_csv('improved_air_quality_data.csv')
-dfMeteorological = pd.read_csv('improved_meteorological_data.csv')
+# Train and save a model for a given feature
+def train_and_save_model(df, feature_name):
+    X = df.drop(['timestamp', 'location', feature_name], axis=1)
+    y = df[feature_name]
 
-# Separate features and target variable
-X1 = dfAirQuality.drop(['timestamp', 'location'], axis=1)
-y1 = dfAirQuality['pm25']
+    # Split the dataset into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-X2 = dfMeteorological.drop(['timestamp', 'location'], axis=1)
-y2 = dfMeteorological['temperature']
+    # Train a model (example: Random Forest Regressor)
+    model = RandomForestRegressor()
+    model.fit(X_train, y_train)
 
-# Split the dataset into training and testing sets
-X_train1, X_test1, y_train1, y_test1 = train_test_split(X1, y1, test_size=0.2, random_state=42)
-X_train2, X_test2, y_train2, y_test2 = train_test_split(X2, y2, test_size=0.2, random_state=42)
+    # Make predictions
+    predictions = model.predict(X_test)
 
-# Train a model (example: Random Forest Regressor)
-model1 = RandomForestRegressor()
-model1.fit(X_train1, y_train1)
+    # Evaluate the model
+    mse = mean_squared_error(y_test, predictions)
+    print(f'Mean Squared Error for {feature_name}: {mse}')
 
-model2 = RandomForestRegressor()
-model2.fit(X_train2, y_train2)
-
-# Make predictions
-predictions1 = model1.predict(X_test1)
-predictions2 = model2.predict(X_test2)
-
-# Evaluate the model
-mse1 = mean_squared_error(y_test1, predictions1)
-mse2 = mean_squared_error(y_test2, predictions2)
-print(f'Mean Squared Error Air Quality: {mse1}')
-print(f'Mean Squared Error Meteorological: {mse2}')
-
-# Save the trained model
-dump(model1, 'airQualityPm25.joblib')
-dump(model2, 'meteorologicalTemperature.joblib')
+    # Save the trained model
+    model_filename = f'{feature_name}_model.joblib'
+    dump(model, model_filename)
+    print(f'Model saved as {model_filename}')
 
 
 if __name__ == "__main__":
@@ -141,3 +134,20 @@ if __name__ == "__main__":
     generate_improved_air_quality_data(locations, start_time, end_time, frequency)
     generate_improved_meteorological_data(locations, start_time, end_time, frequency)
     generate_improved_land_use_data(locations)
+
+    # Load datasets for each factor
+    df_air_quality = pd.read_csv('improved_air_quality_data.csv')
+    df_meteorological = pd.read_csv('improved_meteorological_data.csv')
+
+    # Train and save models for each factor
+    for feature in ['pm25', 'pm10', 'co2', 'ozone', 'no2', 'temperature', 'humidity', 'airHumidity', 'wind_speed', 'precipitation']:
+        if feature in df_meteorological.columns:
+            train_and_save_model(df_meteorological, feature)
+        else:
+            print(f"Warning: {feature} not found in meteorological dataset. Skipping...")
+
+        if feature in df_air_quality.columns:
+            train_and_save_model(df_air_quality, feature)
+        else:
+            print(f"Warning: {feature} not found in air quality dataset. Skipping...")
+
