@@ -4,6 +4,7 @@ import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
 import com.api.air_quality.service.AirQualityService;
+import com.api.air_quality.service.PythonIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,9 @@ public class AirQualityController {
 
     @Autowired
     AirQualityService airQualityService;
+
+    @Autowired
+    PythonIntegrationService pythonIntegrationService;
 
     @PostMapping("/api/v1/saveAirQuality")
     public ResponseEntity<ApiResponse> saveAirQuality(@RequestBody AirQualityModel airQualityModel) {
@@ -419,4 +423,13 @@ public class AirQualityController {
         return airQualityService.calculateCorrelationHumidityAndWindSpeed();
     }
     // correlation
+
+    @PostMapping("/api/v1/airQuality/startPythonServer")
+    public void startPythonServer() {
+        pythonIntegrationService.startPythonGateway();
+    }
+    @PostMapping("/api/v1/airQuality/stopPythonServer")
+    public void stopPythonServer() {
+        pythonIntegrationService.stopPythonGateway();
+    }
 }
