@@ -1,4 +1,4 @@
-package com.api.air_quality.python;
+package com.api.air_quality.model.ai_models;
 
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
