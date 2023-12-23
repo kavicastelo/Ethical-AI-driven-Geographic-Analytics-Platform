@@ -3,6 +3,7 @@ package com.api.air_quality.controller;
 import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.repository.AirQualityRepository;
+import com.api.air_quality.service.AirQualityPredictionService;
 import com.api.air_quality.service.AirQualityService;
 import com.api.air_quality.service.PythonIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class AirQualityController {
     AirQualityService airQualityService;
 
     @Autowired
-    PythonIntegrationService pythonIntegrationService;
+    AirQualityPredictionService pythonIntegrationService;
 
     @PostMapping("/api/v1/saveAirQuality")
     public ResponseEntity<ApiResponse> saveAirQuality(@RequestBody AirQualityModel airQualityModel) {
