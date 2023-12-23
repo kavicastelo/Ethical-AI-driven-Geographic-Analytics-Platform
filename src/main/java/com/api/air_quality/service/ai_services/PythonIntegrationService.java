@@ -1,4 +1,4 @@
-package com.api.air_quality.service;
+package com.api.air_quality.service.ai_services;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import py4j.GatewayServer;
-import com.api.air_quality.python.AIModel;
+import com.api.air_quality.model.ai_models.AIModel;
 
 @Service
 public class PythonIntegrationService {
