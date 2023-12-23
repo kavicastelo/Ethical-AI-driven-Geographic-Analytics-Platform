@@ -1,21 +1,21 @@
 package com.api.air_quality.service;
 
-import jakarta.annotation.PostConstruct;
+import com.api.air_quality.model.AirQualityPredictionModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import py4j.GatewayServer;
-import com.api.air_quality.python.AIModel;
+
 
 @Service
-public class PythonIntegrationService {
+public class AirQualityPredictionService {
+
     private GatewayServer gatewayServer;
 
-    @PostConstruct
     public void startPythonGateway() {
-        // Start the Py4J gateway server in a separate thread
         Thread gatewayThread = new Thread(() -> {
-            gatewayServer = new GatewayServer(new AIModel());
+            AirQualityPredictionModel model = new AirQualityPredictionModel();
+            gatewayServer = new GatewayServer(model);
             gatewayServer.start();
-            System.out.println("Py4J Gateway Server Started");
         });
 
         gatewayThread.start();
@@ -27,4 +27,10 @@ public class PythonIntegrationService {
             gatewayServer.shutdown();
         }
     }
+
+    public double predictAirQuality(String location, double[] features) {
+        // Call the predict method on the Python model
+        return 0.0; // Placeholder, replace with actual implementation
+    }
 }
+
