@@ -10,3 +10,7 @@ class AIModelPython:
         return self.model.predict(features)
 
 
+if __name__ == "__main__":
+    gateway = JavaGateway()
+    msgObjectFromJavaApp = gateway.entry_point
+    print(msgObjectFromJavaApp.Message())
