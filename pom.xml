@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,22 +16,15 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
-	<repositories>
-		<repository>
-			<id>spring</id>
-			<name>Spring Repository</name>
-			<url>https://repo.spring.io/plugins-release/</url>
-		</repository>
-	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+		<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -52,11 +45,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.security</groupId>-->
+		<!--			<artifactId>spring-security-test</artifactId>-->
+		<!--			<scope>test</scope>-->
+		<!--		</dependency>-->
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
@@ -72,22 +65,24 @@
 			<artifactId>py4j</artifactId>
 			<version>0.10.9.7</version>
 		</dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
 		<dependency>
-			<groupId>org.jpmml</groupId>
-			<artifactId>jpmml-evaluator</artifactId>
-			<version>1.6.4</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jpmml</groupId>
-			<artifactId>jpmml-sklearn</artifactId>
+			<artifactId>pmml-sklearn</artifactId>
 			<version>1.7.45</version>
 		</dependency>
-    </dependencies>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>2.0.9</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
