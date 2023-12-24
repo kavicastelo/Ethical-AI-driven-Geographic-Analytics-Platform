@@ -20,6 +20,7 @@ public class PythonIntegrationService {
     }
 
     @Bean
+    @Lazy
     public GatewayServer gatewayServer(AIModel aiModel) {
         return new GatewayServer(aiModel);
     }
