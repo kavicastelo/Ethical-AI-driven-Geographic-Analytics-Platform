@@ -12,11 +12,13 @@ import com.api.air_quality.model.ai_models.AIModel;
 public class PythonIntegrationService {
 
     private final GatewayServer gatewayServer;
+    private final AIModel aiModel;
 
     @Autowired
     @Lazy
     public PythonIntegrationService(GatewayServer gatewayServer) {
         this.gatewayServer = gatewayServer;
+        this.aiModel = new AIModel();
     }
 
     @Bean
@@ -41,5 +43,10 @@ public class PythonIntegrationService {
             System.out.println("Py4J Gateway Server Stopped");
             gatewayServer.shutdown();
         }
+    }
+
+    public double predictAirHumidity(double[] features) {
+        // Call the predict method on the Java model
+        return aiModel.predictAirHumidity(features);
     }
 }

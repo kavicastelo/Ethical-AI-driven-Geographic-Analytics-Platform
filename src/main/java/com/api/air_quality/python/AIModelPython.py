@@ -14,3 +14,4 @@ if __name__ == "__main__":
     gateway = JavaGateway()
     msgObjectFromJavaApp = gateway.entry_point
     print(msgObjectFromJavaApp.Message())
+    print(msgObjectFromJavaApp.AirHumidity())

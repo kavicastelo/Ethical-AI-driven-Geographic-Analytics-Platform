@@ -6,6 +6,11 @@ import py4j.GatewayServer;
 @Component
 public class AIModel {
     public String Message() { return "Server Get The Response From Here"; }
+
+    public String AirHumidity() {
+        return "Server Get The Response From Here air Humidity";
+    }
+
     public static void main(String[] args) {
 
         AIModel aiModel = new AIModel();
@@ -18,5 +23,9 @@ public class AIModel {
     public double predict(double[] features) {
         // Replace this with your actual prediction logic
         return 0.0;
+    }
+
+    public double predictAirHumidity(double[] features) {
+        return predict(features);
     }
 }
