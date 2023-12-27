@@ -1,5 +1,5 @@
 location,land_type
-CentralPark,Commercial
-Downtown,Residential
-SuburbA,Residential
-SuburbB,Park
+CentralPark,Industrial
+Downtown,Commercial
+SuburbA,Park
+SuburbB,Residential

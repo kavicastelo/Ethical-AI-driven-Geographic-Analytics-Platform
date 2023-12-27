@@ -5,13 +5,14 @@ from datetime import datetime, timedelta
 import time
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 from joblib import dump
+import pickle
 
 fake = Faker()
 
@@ -107,7 +108,7 @@ def train_and_save_model(df, feature_name):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Train a model (example: Random Forest Regressor)
-    model = RandomForestRegressor()
+    model = LinearRegression()
     model.fit(X_train, y_train)
 
     # Make predictions
@@ -118,8 +119,10 @@ def train_and_save_model(df, feature_name):
     print(f'Mean Squared Error for {feature_name}: {mse}')
 
     # Save the trained model
-    model_filename = f'{feature_name}_model.joblib'
-    dump(model, model_filename)
+    model_filename = f'{feature_name}_model.pkl'
+    with open(model_filename, 'wb') as f:
+        pickle.dump(model, f)
+
     print(f'Model saved as {model_filename}')
 
 
@@ -140,7 +143,8 @@ if __name__ == "__main__":
     df_meteorological = pd.read_csv('improved_meteorological_data.csv')
 
     # Train and save models for each factor
-    for feature in ['pm25', 'pm10', 'co2', 'ozone', 'no2', 'temperature', 'humidity', 'airHumidity', 'wind_speed', 'precipitation']:
+    for feature in ['pm25', 'pm10', 'co2', 'ozone', 'no2', 'temperature', 'humidity', 'airHumidity', 'wind_speed',
+                    'precipitation', 'airWind_speed', 'airTemperature']:
         if feature in df_meteorological.columns:
             train_and_save_model(df_meteorological, feature)
         else:
@@ -150,4 +154,3 @@ if __name__ == "__main__":
             train_and_save_model(df_air_quality, feature)
         else:
             print(f"Warning: {feature} not found in air quality dataset. Skipping...")
-
