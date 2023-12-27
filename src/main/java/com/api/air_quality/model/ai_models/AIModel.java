@@ -34,4 +34,14 @@ public class AIModel {
         System.out.println(prediction);
         return prediction;
     }
+
+    public double receivedAirTemperaturePrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedAirWindSpeedPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
 }
