@@ -22,10 +22,16 @@ public class AIModel {
 
     public double predict(double[] features) {
         // Replace this with your actual prediction logic
+        double[] test_data = {1.0, 2.0, 4.0, 5.0, 7.0, 9.0, 10.0};
         return 0.0;
     }
 
     public double predictAirHumidity(double[] features) {
         return predict(features);
+    }
+
+    public double receivedAirHumidityPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
     }
 }

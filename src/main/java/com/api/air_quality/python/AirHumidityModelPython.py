@@ -1,67 +1,41 @@
-from pyspark.sql import SparkSession
-from joblib import load
+import joblib
 from py4j.java_gateway import JavaGateway
 import numpy as np
-from pyspark.sql.functions import udf
-from pyspark.sql.types import BooleanType
+import pickle
 
 
 class AirHumidityModelPython:
-    def __init__(self, spark):
+    def __init__(self):
         # Connect to the Py4J gateway server
         self.gateway = JavaGateway()
 
         # Retrieve the Java instance of the model
         self.java_model = self.gateway.entry_point
 
-        # Load the PMML model or any other necessary initialization logic
-        self.model = load("../../../../../../../AI_Models/airHumidity_model.joblib")
-
-        # Define the UDF for point_inside_polygon
-        self.point_inside_polygon_udf = udf(self.point_inside_polygon, BooleanType())
-
-        # Example Spark DataFrame
-        self.df = spark.createDataFrame([(1.0, 2.0)], ["lat", "long"])
-
-    def point_inside_polygon(self, lat, long, polygon):
-        # Implement your point_inside_polygon logic here
-        # Return True if the point is inside the polygon, else False
-        pass
+        # Load the PMML model
+        # self.model = joblib.load("../../../../../../../AI_Models/airHumidity_model.sav")
+        with open("../../../../../../../AI_Models/linear_regression_model.pkl", 'rb') as f:
+            self.model = pickle.load(f)
 
     def predict_air_humidity(self, features):
         try:
-            # Explicitly convert NumPy array to Python list
-            features_list = [float(val) for val in np.array(features)]
+            features_2d = np.array(features).reshape(1, -1)
 
             # Perform prediction using the loaded model
-            prediction = self.model.predict([features_list])
+            prediction = self.model.predict(features_2d)
 
-            # Example usage of UDF for point_inside_polygon
-            # Replace lat and long with actual features from the model
-            inside_polygon_result = self.df.where(self.point_inside_polygon_udf('lat', 'long', features_list))
-
-            # Pass the prediction and result to the Java side
-            return self.java_model.receivePrediction(prediction, inside_polygon_result)
+            # Pass the prediction to the Java side
+            return self.java_model.receivedAirHumidityPrediction(prediction[0])
         except Exception as e:
             # Handle any errors during prediction
             return str(e)
 
 
-def main():
-    # Initialize Spark session
-    spark = SparkSession.builder.appName("AirHumidityModelApp").getOrCreate()
-
-    # Create an instance of the Python class
-    air_humidity_model = AirHumidityModelPython(spark)
-
-    # Example prediction
-    features = [1.0, 2.0, 4.0, 5.0, 7.0, 9.0, 10.0]
-    result = air_humidity_model.predict_air_humidity(features)
-    print(result)
-
-    # Stop the Spark session
-    spark.stop()
-
-
 if __name__ == "__main__":
-    main()
+    # Create an instance of the Python class
+    air_humidity_model = AirHumidityModelPython()
+    # Example: Make a prediction with dummy features
+    dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
+    result = air_humidity_model.predict_air_humidity(dummy_features)
+    # result = air_humidity_model.java_model.predictAirHumidity()
+    print(result)
