@@ -424,12 +424,15 @@ public class AirQualityController {
     }
     // correlation
 
-    @PostMapping("/api/v1/airQuality/startPythonServer")
-    public void startPythonServer() {
-        pythonIntegrationService.startPythonGateway();
-    }
-    @PostMapping("/api/v1/airQuality/stopPythonServer")
-    public void stopPythonServer() {
-        pythonIntegrationService.stopPythonGateway();
+    @PostMapping("/api/v1/airQuality/predict/pm25")
+    public ResponseEntity<Double[]> predictPm25(@RequestBody Double[] predictRequest) {
+        try {
+            Double[] prediction = pythonIntegrationService.predictAirQuality(predictRequest);
+            return ResponseEntity.ok(prediction);
+        } catch (Exception e) {
+            // Log the exception for debugging purposes
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(new Double[0]); // Return an empty array or handle it as needed
+        }
     }
 }
