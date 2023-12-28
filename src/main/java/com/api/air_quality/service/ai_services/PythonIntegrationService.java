@@ -29,9 +29,12 @@ public class PythonIntegrationService {
 
     @PostConstruct
     public void startPythonGateway() {
+        AIModel aiModel = new AIModel();
+
         // Start the Py4J gateway server in a separate thread
         Thread gatewayThread = new Thread(() -> {
-            gatewayServer.start();
+            GatewayServer server = new GatewayServer(aiModel);
+            server.start();
             System.out.println("Py4J Gateway Server Started");
         });
 
@@ -45,8 +48,11 @@ public class PythonIntegrationService {
         }
     }
 
-    public double predictAirHumidity(double[] features) {
-        // Call the predict method on the Java model
-        return aiModel.predictAirHumidity(features);
+    public Double[] predictAirQuality(Double[] features) {
+        return aiModel.predictAirQuality(features);
+    }
+
+    public double predictMetrological(double[] features) {
+        return aiModel.predictMetrological(features);
     }
 }

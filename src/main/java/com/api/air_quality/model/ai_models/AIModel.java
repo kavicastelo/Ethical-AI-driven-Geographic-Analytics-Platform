@@ -3,8 +3,11 @@ package com.api.air_quality.model.ai_models;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
+import java.util.Arrays;
+
 @Component
 public class AIModel {
+    public Double[] airQualityData;
     public String Message() { return "Server Get The Response From Here"; }
 
     public String AirHumidity() {
@@ -22,11 +25,18 @@ public class AIModel {
 
     public Double[] predict() {
         // Replace this with your actual prediction logic
-        Double[][] test_data = {{1.0, 2.0, 4.0, 5.0, 7.0, 9.0, 10.0}};
+        Double[][] test_data = {airQualityData};
+
         return test_data[0];
     }
 
-    public double predictAirHumidity(double[] features) {
+    public Double[] predictAirQuality(Double[] features) {
+        airQualityData = features;
+        System.out.println(Arrays.toString(airQualityData));
+        return features;
+    }
+
+    public double predictMetrological(double[] features) {
         return 0.0;
     }
 
