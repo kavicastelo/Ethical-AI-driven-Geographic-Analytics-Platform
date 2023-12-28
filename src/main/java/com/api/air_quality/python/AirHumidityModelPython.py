@@ -13,7 +13,7 @@ class AirHumidityModelPython:
         self.java_model = self.gateway.entry_point
 
         # Load the PMML model
-        with open("../../../../../../../AI_Models/airHumidity_model.pkl", 'rb') as f:
+        with open("./AI_Models/airHumidity_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_air_humidity(self, features):
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     air_humidity_model = AirHumidityModelPython()
     # test data
     # dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
-    test_data = air_humidity_model.java_model.predict()
+    test_data = air_humidity_model.java_model.predictAQ()
     result = air_humidity_model.predict_air_humidity(test_data)
-    # result = air_humidity_model.java_model.predictAirHumidity()
+    # result = air_humidity_model.java_model.Message()
     print(result)
