@@ -20,14 +20,14 @@ public class AIModel {
         System.out.println("Py4J Gateway Server Started");
     }
 
-    public double predict(double[] features) {
+    public Double[] predict() {
         // Replace this with your actual prediction logic
-        double[] test_data = {1.0, 2.0, 4.0, 5.0, 7.0, 9.0, 10.0};
-        return 0.0;
+        Double[][] test_data = {{1.0, 2.0, 4.0, 5.0, 7.0, 9.0, 10.0}};
+        return test_data[0];
     }
 
     public double predictAirHumidity(double[] features) {
-        return predict(features);
+        return 0.0;
     }
 
     public double receivedAirHumidityPrediction(double prediction) {
@@ -41,6 +41,51 @@ public class AIModel {
     }
 
     public double receivedAirWindSpeedPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedHumidityPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedWindSpeedPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedTemperaturePrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedPrecipitationPrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedCo2Prediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedNo2Prediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedOzonePrediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedPm10Prediction(double prediction) {
+        System.out.println(prediction);
+        return prediction;
+    }
+
+    public double receivedPm25Prediction(double prediction) {
         System.out.println(prediction);
         return prediction;
     }

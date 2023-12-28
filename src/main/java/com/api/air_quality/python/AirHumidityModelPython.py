@@ -34,7 +34,8 @@ if __name__ == "__main__":
     # Create an instance of the Python class
     air_humidity_model = AirHumidityModelPython()
     # test data
-    dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
-    result = air_humidity_model.predict_air_humidity(dummy_features)
+    # dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
+    test_data = air_humidity_model.java_model.predict()
+    result = air_humidity_model.predict_air_humidity(test_data)
     # result = air_humidity_model.java_model.predictAirHumidity()
     print(result)
