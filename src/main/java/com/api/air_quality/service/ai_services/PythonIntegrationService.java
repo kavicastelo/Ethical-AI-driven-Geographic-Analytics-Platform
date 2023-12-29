@@ -48,8 +48,8 @@ public class PythonIntegrationService {
         }
     }
 
-    public Double[] predictAirQuality(Double[] features) {
-        return aiModel.predictAirQuality(features);
+    public Double[] predictPm25(Double[] features) {
+        return aiModel.predictPm25(features);
     }
 
     public double predictMetrological(double[] features) {

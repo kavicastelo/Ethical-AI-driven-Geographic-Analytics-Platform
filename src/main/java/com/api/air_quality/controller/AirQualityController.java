@@ -427,7 +427,7 @@ public class AirQualityController {
     @PostMapping("/api/v1/airQuality/predict/pm25")
     public ResponseEntity<Double[]> predictPm25(@RequestBody Double[] predictRequest) {
         try {
-            Double[] prediction = pythonIntegrationService.predictAirQuality(predictRequest);
+            Double[] prediction = pythonIntegrationService.predictPm25(predictRequest);
             return ResponseEntity.ok(prediction);
         } catch (Exception e) {
             // Log the exception for debugging purposes
