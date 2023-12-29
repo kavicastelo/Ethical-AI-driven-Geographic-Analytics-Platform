@@ -7,11 +7,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class AIModel {
-    Double[] airQualityData;
-    public String Message() { return "Server Get The Response From Here"; }
+    public final AtomicReference<Double[]> airQualityDataCache = new AtomicReference<>();
+    public String Message() {
+        return "Server Get The Response From Here";
+    }
 
     public String AirHumidity() {
         return "Server Get The Response From Here air Humidity";
@@ -28,15 +31,21 @@ public class AIModel {
 
     public Double[] predictAQ() {
         // Replace this with your actual prediction logic
-        Double[][] test_data = {airQualityData};
+        Double[][] test_data = {airQualityDataCache.get()};
+        System.out.println(Arrays.toString(test_data[0]));
 
         return test_data[0];
     }
 
-    public Double[] predictAirQuality(Double[] features) {
-        airQualityData = features;
+    public Double[] predictPm25(Double[] features) {
+        System.out.println(Arrays.toString(features));
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
         runScript();
-        return airQualityData;
+        System.out.println(Arrays.toString(airQualityDataCache.get()));
+        return airQualityDataCache.get();
     }
 
     public double predictMetrological(double[] features) {
