@@ -1,5 +1,6 @@
 package com.api.air_quality.model.ai_models;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
@@ -29,22 +30,12 @@ public class AIModel {
         System.out.println("Py4J Gateway Server Started");
     }
 
-    public Double[] predictAQ() {
-        // Replace this with your actual prediction logic
-        Double[][] test_data = {airQualityDataCache.get()};
-        System.out.println(Arrays.toString(test_data[0]));
-
-        return test_data[0];
-    }
-
     public Double[] predictPm25(Double[] features) {
-        System.out.println(Arrays.toString(features));
         if (features != null && features.length > 0) {
             airQualityDataCache.set(features);
         }
 
         runScript();
-        System.out.println(Arrays.toString(airQualityDataCache.get()));
         return airQualityDataCache.get();
     }
 
@@ -118,6 +109,11 @@ public class AIModel {
             String pythonScriptPath = "./src/main/java/com/api/air_quality/python/AirHumidityModelPython.py";
             String pythonExecutablePath = "C:\\Users\\KAVI\\AppData\\Local\\Programs\\Python\\Python310\\python.exe";
             String command = pythonExecutablePath + " " + pythonScriptPath;
+
+            // Append the cached data to the command
+            for (Double value : airQualityDataCache.get()) {
+                command += " " + value;
+            }
 
             // Execute the command and get the process
             Process process = Runtime.getRuntime().exec(command);
