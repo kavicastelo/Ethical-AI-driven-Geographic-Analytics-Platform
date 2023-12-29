@@ -4,6 +4,7 @@ import joblib
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
+import sys
 
 
 class AirHumidityModelPython:
@@ -37,9 +38,10 @@ if __name__ == "__main__":
     air_humidity_model = AirHumidityModelPython()
     # test data
     # dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
-    sleep(1)
-    test_data = air_humidity_model.java_model.predictAQ()
-    sleep(1)
-    # result = air_humidity_model.predict_air_humidity(test_data)
-    result = air_humidity_model.java_model.Message()
+    data_from_java = [float(arg) for arg in sys.argv[1:]]
+    print("Received data from Java:", data_from_java)
+
+    result = air_humidity_model.predict_air_humidity(data_from_java)
+    # result = air_humidity_model.java_model.Message()
     print(result)
+
