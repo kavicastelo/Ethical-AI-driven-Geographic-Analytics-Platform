@@ -1,3 +1,4 @@
+import requests
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
@@ -21,7 +22,11 @@ class AirTemperatureModelPython:
 
             prediction = self.model.predict(features_2d)
 
-            return self.java_model.receivedAirTemperaturePrediction(prediction[0])
+            spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/airTemperature"
+            response = requests.post(spring_boot_url, json=float(prediction))
+            print(response.text)
+
+            return prediction
         except Exception as e:
             return str(e)
 
