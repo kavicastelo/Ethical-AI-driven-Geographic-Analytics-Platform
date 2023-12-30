@@ -53,7 +53,95 @@ public class AIModel {
         return airQualityDataCache.get();
     }
 
+    public Double[] predictPm10(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
 
+        runScript("Pm10ModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictCo2(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("Co2ModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictOzone(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("OzoneModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictNo2(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("No2ModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictAirTemperature(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("AirTemperatureModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictAirWindSpeed(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("AirWindSpeedPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictTemperature(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("TemperatureModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictHumidity(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("HumidityModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictWindSpeed(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("WindSpeedModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictPrecipitation(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("PrecipitationModelPython");
+        return airQualityDataCache.get();
+    }
 
     public void runScript(String file){
         try {
