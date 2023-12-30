@@ -52,6 +52,16 @@ public class PythonIntegrationService {
         return aiModel.predictPm25(features);
     }
 
+    public Double[] predictAirHumidity(Double[] features) {
+        return aiModel.predictAirHumidity(features);
+    }
+
+    public double responsePm25(Double response) {
+        double val = aiModel.receivedAirHumidityPrediction(response);
+        System.out.println(val);
+        return val;
+    }
+
     public double predictMetrological(double[] features) {
         return aiModel.predictMetrological(features);
     }

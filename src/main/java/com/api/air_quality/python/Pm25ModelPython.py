@@ -1,3 +1,5 @@
+import sys
+
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
@@ -7,7 +9,7 @@ class Pm25ModelPython:
     def __init__(self):
         self.gateway = JavaGateway()
         self.java_model = self.gateway.entry_point
-        with open("../../../../../../../AI_Models/pm25_model.pkl", 'rb') as f:
+        with open("./AI_Models/pm25_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_pm25(self, features):
@@ -21,6 +23,5 @@ class Pm25ModelPython:
 
 if __name__ == "__main__":
     pm25_model = Pm25ModelPython()
-    test_data = pm25_model.java_model.predict()
-    result = pm25_model.predict_pm25(test_data)
-    print(result)
+    data_from_java = [float(arg) for arg in sys.argv[1:]]
+    result = pm25_model.predict_pm25(data_from_java)

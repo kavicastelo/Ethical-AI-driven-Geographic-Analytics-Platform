@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component
 public class AIModel {
     public final AtomicReference<Double[]> airQualityDataCache = new AtomicReference<>();
+    public final AtomicReference<Double> receivedDataCache = new AtomicReference<>();
     public String Message() {
         return "Server Get The Response From Here";
     }
@@ -35,7 +36,16 @@ public class AIModel {
             airQualityDataCache.set(features);
         }
 
-        runScript();
+        runScript("Pm25ModelPython");
+        return airQualityDataCache.get();
+    }
+
+    public Double[] predictAirHumidity(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("AirHumidityModelPython");
         return airQualityDataCache.get();
     }
 
@@ -45,6 +55,7 @@ public class AIModel {
 
     public double receivedAirHumidityPrediction(double prediction) {
         System.out.println(prediction);
+        receivedDataCache.set(prediction);
         return prediction;
     }
 
@@ -103,10 +114,10 @@ public class AIModel {
         return prediction;
     }
 
-    public void runScript(){
+    public void runScript(String file){
         try {
             // Assuming your Python script is in the same directory as the JAR file
-            String pythonScriptPath = "./src/main/java/com/api/air_quality/python/AirHumidityModelPython.py";
+            String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py";
             String pythonExecutablePath = "C:\\Users\\KAVI\\AppData\\Local\\Programs\\Python\\Python310\\python.exe";
             String command = pythonExecutablePath + " " + pythonScriptPath;
 
