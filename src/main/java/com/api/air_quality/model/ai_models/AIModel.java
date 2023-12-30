@@ -1,11 +1,6 @@
 package com.api.air_quality.model.ai_models;
 
-import com.api.air_quality.repository.PredictionRepository;
-import com.api.air_quality.model.PredictionModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
@@ -17,11 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component
 public class AIModel {
 
-    @Autowired
-    PredictionRepository predictionRepository;
-
     public final AtomicReference<Double[]> airQualityDataCache = new AtomicReference<>();
-    public final AtomicReference<Double> receivedDataCache = new AtomicReference<>();
     public String Message() {
         return "Server Get The Response From Here";
     }
