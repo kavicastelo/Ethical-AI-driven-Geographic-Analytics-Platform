@@ -1,7 +1,14 @@
+from time import sleep
+
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
 import sys
+import requests
+import json
+# to ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class AirHumidityModelPython:
@@ -21,10 +28,16 @@ class AirHumidityModelPython:
             features_2d = np.array(features).reshape(1, -1)
 
             # Perform prediction using the loaded model
-            prediction = self.model.predict(features_2d)
+            prediction = self.model.predict(features_2d)[0]
 
-            # Pass the prediction to the Java side
-            return self.java_model.receivedAirHumidityPrediction(prediction[0])
+            spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/airHumidity"
+
+            # Send the prediction to the Spring Boot endpoint
+            response = requests.post(spring_boot_url, json=float(prediction))
+            print(response.text)
+
+            # Return the prediction
+            return prediction
         except Exception as e:
             # Handle any errors during prediction
             return str(e)
@@ -39,4 +52,3 @@ if __name__ == "__main__":
 
     result = air_humidity_model.predict_air_humidity(data_from_java)
     # result = air_humidity_model.java_model.Message()
-

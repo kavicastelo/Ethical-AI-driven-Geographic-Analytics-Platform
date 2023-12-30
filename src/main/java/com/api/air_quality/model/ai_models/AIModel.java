@@ -1,25 +1,29 @@
 package com.api.air_quality.model.ai_models;
 
-import org.springframework.cache.annotation.Cacheable;
+import com.api.air_quality.repository.PredictionRepository;
+import com.api.air_quality.model.PredictionModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class AIModel {
+
+    @Autowired
+    PredictionRepository predictionRepository;
+
     public final AtomicReference<Double[]> airQualityDataCache = new AtomicReference<>();
     public final AtomicReference<Double> receivedDataCache = new AtomicReference<>();
     public String Message() {
         return "Server Get The Response From Here";
-    }
-
-    public String AirHumidity() {
-        return "Server Get The Response From Here air Humidity";
     }
 
     public static void main(String[] args) {
@@ -54,8 +58,30 @@ public class AIModel {
     }
 
     public double receivedAirHumidityPrediction(double prediction) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AIModel.class);
         System.out.println(prediction);
-        receivedDataCache.set(prediction);
+        // Create an instance of PredictionModel and set values
+        PredictionModel predictionModel = new PredictionModel();
+
+        predictionModel.setPm25("0.0");
+        predictionModel.setPm10("0.0");
+        predictionModel.setCo2("0.0");
+        predictionModel.setOzone("0.0");
+        predictionModel.setNo2("0.0");
+        predictionModel.setAirTemperature("0.0");
+        predictionModel.setAirHumidity(String.valueOf(prediction));
+        predictionModel.setAirWindSpeed("0.0");
+        predictionModel.setTemperature("0.0");
+        predictionModel.setHumidity("0.0");
+        predictionModel.setWindSpeed("0.0");
+        predictionModel.setPrecipitation("0.0");
+
+        try {
+            PredictionRepository predictionRepository = context.getBean(PredictionRepository.class);
+            predictionRepository.save(predictionModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return prediction;
     }
 

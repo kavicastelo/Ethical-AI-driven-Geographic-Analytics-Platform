@@ -3,6 +3,9 @@ import sys
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
+# to ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class Pm25ModelPython:
