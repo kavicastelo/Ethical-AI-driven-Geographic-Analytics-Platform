@@ -53,91 +53,94 @@ public class AIModel {
         return airQualityDataCache.get();
     }
 
-    public double predictMetrological(double[] features) {
-        return 0.0;
-    }
-
-    public double receivedAirHumidityPrediction(double prediction) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AIModel.class);
-        System.out.println(prediction);
-        // Create an instance of PredictionModel and set values
-        PredictionModel predictionModel = new PredictionModel();
-
-        predictionModel.setPm25("0.0");
-        predictionModel.setPm10("0.0");
-        predictionModel.setCo2("0.0");
-        predictionModel.setOzone("0.0");
-        predictionModel.setNo2("0.0");
-        predictionModel.setAirTemperature("0.0");
-        predictionModel.setAirHumidity(String.valueOf(prediction));
-        predictionModel.setAirWindSpeed("0.0");
-        predictionModel.setTemperature("0.0");
-        predictionModel.setHumidity("0.0");
-        predictionModel.setWindSpeed("0.0");
-        predictionModel.setPrecipitation("0.0");
-
-        try {
-            PredictionRepository predictionRepository = context.getBean(PredictionRepository.class);
-            predictionRepository.save(predictionModel);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public Double[] predictPm10(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
         }
-        return prediction;
+
+        runScript("Pm10ModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedAirTemperaturePrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictCo2(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("Co2ModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedAirWindSpeedPrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictOzone(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("OzoneModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedHumidityPrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictNo2(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("No2ModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedWindSpeedPrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictAirTemperature(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("AirTemperatureModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedTemperaturePrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictAirWindSpeed(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("AirWindSpeedPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedPrecipitationPrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictTemperature(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("TemperatureModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedCo2Prediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictHumidity(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("HumidityModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedNo2Prediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+    public Double[] predictWindSpeed(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
+
+        runScript("WindSpeedModelPython");
+        return airQualityDataCache.get();
     }
 
-    public double receivedOzonePrediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
-    }
+    public Double[] predictPrecipitation(Double[] features) {
+        if (features != null && features.length > 0) {
+            airQualityDataCache.set(features);
+        }
 
-    public double receivedPm10Prediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
-    }
-
-    public double receivedPm25Prediction(double prediction) {
-        System.out.println(prediction);
-        return prediction;
+        runScript("PrecipitationModelPython");
+        return airQualityDataCache.get();
     }
 
     public void runScript(String file){
