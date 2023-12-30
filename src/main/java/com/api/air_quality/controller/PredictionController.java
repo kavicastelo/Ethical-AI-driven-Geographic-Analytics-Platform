@@ -1,40 +1,51 @@
 package com.api.air_quality.controller;
-
 import com.api.air_quality.service.ai_services.PythonIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicReference;
+
+
 @RestController
+@RequestMapping("/api/v1/airQuality/predict")
 public class PredictionController {
     @Autowired
     private PythonIntegrationService pythonIntegrationService;
 
-    @PostMapping("/api/v1/airQuality/predict/airHumidity")
-    public ResponseEntity<Double[]> predictAirHumidity(@RequestBody Double[] predictRequest) {
+    public final AtomicReference<Double> receivedDataCache = new AtomicReference<>();
+
+
+    @PostMapping("/airHumidity")
+    public ResponseEntity<String> predictAndReceiveAirHumidity(@RequestBody Double[] predictRequest) {
         try {
-            Double[] prediction = pythonIntegrationService.predictAirHumidity(predictRequest);
-            Double[] receivedData = {pythonIntegrationService.responsePm25(0.0)};
-            return ResponseEntity.ok(receivedData);
+            pythonIntegrationService.predictAirHumidity(predictRequest);
+            ResponseEntity<String> responseEntity = receiveAirHumidityPrediction(receivedDataCache.get());
+            String processedResult = responseEntity.getBody();
+            return ResponseEntity.ok(processedResult);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body(new Double[0]); // Return an empty array or handle it as needed
+            return ResponseEntity.badRequest().body("Error processing air humidity prediction");
         }
     }
 
-    @PostMapping("/api/v1/airQuality/predict/pm25")
-    public ResponseEntity<Double[]> predictPm25(@RequestBody Double[] predictRequest) {
-        try {
-            Double[] prediction = pythonIntegrationService.predictPm25(predictRequest);
-            Double[] receivedData = {pythonIntegrationService.responsePm25(0.0)};
-            return ResponseEntity.ok(receivedData);
-        } catch (Exception e) {
-            // Log the exception for debugging purposes
-            e.printStackTrace();
-            return ResponseEntity.badRequest().body(new Double[0]); // Return an empty array or handle it as needed
-        }
+    @PostMapping("/res/airHumidity")
+    public ResponseEntity<String> receiveAirHumidityPrediction(@RequestBody Double prediction) {
+        String processedResult = processPrediction(prediction);
+        receivedDataCache.set(prediction);
+
+        return ResponseEntity.ok(processedResult);
     }
+
+    // Customize
+    private String processPrediction(Double prediction) {
+        // Example: Concatenate the prediction value into a string
+        return "Processed result: " + prediction;
+    }
+
+
 }
