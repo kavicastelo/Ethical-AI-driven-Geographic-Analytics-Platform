@@ -49,6 +49,5 @@ if __name__ == "__main__":
     # test data
     # dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
     data_from_java = [float(arg) for arg in sys.argv[1:]]
-
     result = air_humidity_model.predict_air_humidity(data_from_java)
     # result = air_humidity_model.java_model.Message()
