@@ -4,6 +4,17 @@
 
 Welcome to the documentation for the Air Quality and Meteorological Data APIs. This set of APIs provides functionalities for managing air quality, meteorological data, land use information, and various statistical analyses.
 
+## Table Of Contents
+- [Base URL](#base-url)
+- [Authentication](#authentication)
+- [API Endpoints](#api-endpoints)
+    - [Air Quality API](#air-quality-api)
+    - [Meteorological API](#metrological-api)
+    - [Land Use API](#land-use-api)
+    - [System API](#system-api-not-recommend-for-users)
+- [Error Handling](#error-handling)
+- [Contact](#contact-us)
+
 ## Base URL
 
 All endpoints are relative to the base URL:
@@ -771,7 +782,7 @@ Authorization: Bearer YOUR_API_KEY
 59. #### Get All Air Quality Data by Date Range
     - **Endpoint:** `/getAirQualityByDate`
     - **Method:** `GET`
-    - **Description:** Get all air quality data by date range.
+    - **Description:** Get all Air quality data by date range
     - **Request:**
     ```json
     {
@@ -781,20 +792,127 @@ Authorization: Bearer YOUR_API_KEY
     ```
     - **Response:**
     ```json
-    [
-      {
-      "id": "123",
-      "timestamp": "2023-01-01T12:00:00Z",
-      "pm25": 10.5,
-      "pm10": 25.2,
-      "co2": 400,
-      "ozone": 20,
-      "no2": 15,
-      "temperature": 25.0,
-      "humidity": 50.0,
-      "windSpeed": 10.0
-      }
+    {
+    "data": [
+        {
+        "id": "123",
+        "timestamp": "2023-01-01T12:00:00Z",
+        "location": "123 Main St",
+        "pm25": "10.5676436",
+        "pm10": "10.5676436",
+        "co2": "10.5676436",
+        "ozone": "10.5676436",
+        "no2": "10.5676436",
+        "temperature": "24.5676436",
+        "humidity": "50.5676436",
+        "windSpeed": "10.5676436"
+        }
     ]
+    }
+    ```
+
+60. #### Get pm25 prediction
+    - **Endpoint:** `/airQuality/predict/pm25`
+    - **Method:** `POST`
+    - **Description:** Get pm25 value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+61. #### Get pm10 prediction
+    - **Endpoint:** `/airQuality/predict/pm10`
+    - **Method:** `POST`
+    - **Description:** Get pm10 value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+62. #### Get co2 prediction
+    - **Endpoint:** `/airQuality/predict/co2`
+    - **Method:** `POST`
+    - **Description:** Get co2 value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+63. #### Get ozone prediction
+    - **Endpoint:** `/airQuality/predict/ozone`
+    - **Method:** `POST`
+    - **Description:** Get ozone value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+64. #### Get no2 prediction
+    - **Endpoint:** `/airQuality/predict/no2`
+    - **Method:** `POST`
+    - **Description:** Get no2 value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+65. #### Get temperature prediction
+    - **Endpoint:** `/airQuality/predict/airTemperature`
+    - **Method:** `POST`
+    - **Description:** Get temperature value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+66. #### Get humidity prediction
+    - **Endpoint:** `/airQuality/predict/airHumidity`
+    - **Method:** `POST`
+    - **Description:** Get humidity value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+67. #### Get windSpeed prediction
+    - **Endpoint:** `/airQuality/predict/airWindSpeed`
+    - **Method:** `POST`
+    - **Description:** Get windSpeed value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
     ```
     
 ### Metrological API
@@ -1158,6 +1276,58 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
     
+26. #### Get Temperature Prediction
+    - **Endpoint:** `/airQuality/predict/temperature`
+    - **Method:** `POST`
+    - **Description:** Get temperature value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+27. #### Get Humidity Prediction
+    - **Endpoint:** `/airQuality/predict/humidity`
+    - **Method:** `POST`
+    - **Description:** Get humidity value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+28. #### Get WindSpeed Prediction
+    - **Endpoint:** `/airQuality/predict/windSpeed`
+    - **Method:** `POST`
+    - **Description:** Get windSpeed value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
+29. #### Get Precipitation Prediction
+    - **Endpoint:** `/airQuality/predict/precipitation`
+    - **Method:** `POST`
+    - **Description:** Get precipitation value prediction according to other factor values.
+    - **Request:**
+    ```json
+    [1.0, 2.0, 3.0]
+    ```
+    - **Response:**
+    ```md
+    Processed result: 4.602289711583845
+    ```
+    
 ### Land Use API
 1. #### Save Land Use Data
     - **Endpoint:** `/saveLandUse`
@@ -1256,6 +1426,211 @@ Authorization: Bearer YOUR_API_KEY
     ```json
     {
     "message": "Data Imported Successfully"
+    }
+    ```
+   
+### System API (Not Recommend for users)
+1. #### Send pm 25 predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/pm25`
+    - **Method:** `POST`
+    - **Description:** Send pm 25 predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+2. #### Send pm 10 predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/pm10`
+    - **Method:** `POST`
+    - **Description:** Send pm 10 predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+3. #### Send co2 predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/co2`
+    - **Method:** `POST`
+    - **Description:** Send co2 predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+4. #### Send ozone predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/ozone`
+    - **Method:** `POST`
+    - **Description:** Send ozone predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+5. #### Send no2 predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/no2`
+    - **Method:** `POST`
+    - **Description:** Send no2 predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+6. #### Send airTemperature predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/airTemperature`
+    - **Method:** `POST`
+    - **Description:** Send airTemperature predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+7. #### Send airHumidity predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/airHumidity`
+    - **Method:** `POST`
+    - **Description:** Send airHumidity predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+8. #### Send airWindSpeed predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/airWindSpeed`
+    - **Method:** `POST`
+    - **Description:** Send airWindSpeed predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+9. #### Send temperature predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/temperature`
+    - **Method:** `POST`
+    - **Description:** Send temperature predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+10. #### Send humidity predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/humidity`
+    - **Method:** `POST`
+    - **Description:** Send humidity predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+11. #### Send windSpeed predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/windSpeed`
+    - **Method:** `POST`
+    - **Description:** Send windSpeed predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
+    }
+    ```
+   
+12. #### Send precipitation predicted value to the server
+    - **Endpoint:** `/airQuality/predict/res/precipitation`
+    - **Method:** `POST`
+    - **Description:** Send precipitation predicted value from python file to the server
+    - **Request:**
+    ```json
+    {
+    "DoubleValue": "4.602289711583845"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "Processed result": "4.602289711583845"
     }
     ```
    
