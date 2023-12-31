@@ -164,7 +164,9 @@ public class AIModel {
 
             // Wait for the Python script to finish
             int exitCode = process.waitFor();
-            System.out.println("Python script exited with code: " + exitCode);
+            if (exitCode != 0) {
+                System.out.println("Python script exited with code: " + exitCode);
+            }
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

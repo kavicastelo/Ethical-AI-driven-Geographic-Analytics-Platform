@@ -1,14 +1,19 @@
+import sys
+
 import requests
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
+# to ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class Co2ModelPython:
     def __init__(self):
         self.gateway = JavaGateway()
         self.java_model = self.gateway.entry_point
-        with open("../../../../../../../AI_Models/co2_model.pkl", 'rb') as f:
+        with open("./AI_Models/co2_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_co2(self, features):
@@ -17,7 +22,7 @@ class Co2ModelPython:
             prediction = self.model.predict(features_2d)
             spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/co2"
             response = requests.post(spring_boot_url, json=float(prediction))
-            print(response.text)
+            # print(response.text)
 
             return prediction
         except Exception as e:
@@ -26,6 +31,5 @@ class Co2ModelPython:
 
 if __name__ == "__main__":
     co2_model = Co2ModelPython()
-    test_data = co2_model.java_model.predict()
-    result = co2_model.predict_co2(test_data)
-    print(result)
+    data_from_java = [float(arg) for arg in sys.argv[1:]]
+    result = co2_model.predict_co2(data_from_java)

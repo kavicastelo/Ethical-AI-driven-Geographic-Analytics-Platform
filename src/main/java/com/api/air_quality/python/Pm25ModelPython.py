@@ -22,7 +22,7 @@ class Pm25ModelPython:
             prediction = self.model.predict(features_2d)
             spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/pm25"
             response = requests.post(spring_boot_url, json=float(prediction))
-            print(response.text)
+            # print(response.text)
 
             return prediction
         except Exception as e:

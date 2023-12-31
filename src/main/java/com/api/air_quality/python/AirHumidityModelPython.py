@@ -34,7 +34,7 @@ class AirHumidityModelPython:
 
             # Send the prediction to the Spring Boot endpoint
             response = requests.post(spring_boot_url, json=float(prediction))
-            print(response.text)
+            # print(response.text)
 
             # Return the prediction
             return prediction
