@@ -56,7 +56,44 @@ public class PythonIntegrationService {
         return aiModel.predictAirHumidity(features);
     }
 
-    public double predictMetrological(double[] features) {
-        return aiModel.predictMetrological(features);
+    public Double[] predictPm10(Double[] features) {
+        return aiModel.predictPm10(features);
     }
+
+    public Double[] predictCo2(Double[] features) {
+        return aiModel.predictCo2(features);
+    }
+
+    public Double[] predictOzone(Double[] features) {
+        return aiModel.predictOzone(features);
+    }
+
+    public Double[] predictNo2(Double[] features) {
+        return aiModel.predictNo2(features);
+    }
+
+    public Double[] predictAirTemperature(Double[] features) {
+        return aiModel.predictAirTemperature(features);
+    }
+
+    public Double[] predictAirWindSpeed(Double[] features) {
+        return aiModel.predictAirWindSpeed(features);
+    }
+
+    public Double[] predictTemperature(Double[] features) {
+        return aiModel.predictTemperature(features);
+    }
+
+    public Double[] predictHumidity(Double[] features) {
+        return aiModel.predictHumidity(features);
+    }
+
+    public Double[] predictWindSpeed(Double[] features) {
+        return aiModel.predictWindSpeed(features);
+    }
+
+    public Double[] predictPrecipitation(Double[] features) {
+        return aiModel.predictPrecipitation(features);
+    }
+
 }
