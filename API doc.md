@@ -779,26 +779,36 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
     
-59. #### Get All Air Quality Data by Month
-    - **Endpoint:** `/getAirQualityByMonth`
+59. #### Get All Air Quality Data by Date Range
+    - **Endpoint:** `/getAirQualityByDate`
     - **Method:** `GET`
-    - **Description:** Get all air quality data by month.
+    - **Description:** Get all Air quality data by date range
+    - **Request:**
+    ```json
+    {
+    "startDate": "2022-01-01",
+    "endDate": "2024-01-01"
+    }
+    ```
     - **Response:**
     ```json
-    [
-      {
-      "id": "123",
-      "timestamp": "2023-01-01T12:00:00Z",
-      "pm25": 10.5,
-      "pm10": 25.2,
-      "co2": 400,
-      "ozone": 20,
-      "no2": 15,
-      "temperature": 25.0,
-      "humidity": 50.0,
-      "windSpeed": 10.0
-      }
+    {
+    "data": [
+        {
+        "id": "123",
+        "timestamp": "2023-01-01T12:00:00Z",
+        "location": "123 Main St",
+        "pm25": "10.5676436",
+        "pm10": "10.5676436",
+        "co2": "10.5676436",
+        "ozone": "10.5676436",
+        "no2": "10.5676436",
+        "temperature": "24.5676436",
+        "humidity": "50.5676436",
+        "windSpeed": "10.5676436"
+        }
     ]
+    }
     ```
 
 60. #### Get pm25 prediction
