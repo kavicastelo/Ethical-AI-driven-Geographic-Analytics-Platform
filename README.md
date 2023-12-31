@@ -149,3 +149,37 @@
    - /api/v1/metrological/correlation/humidityAndWindSpeed
    - /api/v1/metrological/correlation/humidityAndPrecipitation
    - /api/v1/metrological/correlation/windSpeedAndPrecipitation
+
+### Make Prediction
+1. Air Quality
+   - /api/v1/airQuality/predict/pm25
+   - /api/v1/airQuality/predict/pm10
+   - /api/v1/airQuality/predict/co2
+   - /api/v1/airQuality/predict/ozone
+   - /api/v1/airQuality/predict/no2
+   - /api/v1/airQuality/predict/airTemperature
+   - /api/v1/airQuality/predict/airHumidity
+   - /api/v1/airQuality/predict/airWindSpeed
+
+2. Metrological
+   - /api/v1/metrological/predict/temperature
+   - /api/v1/metrological/predict/humidity
+   - /api/v1/metrological/predict/windSpeed
+   - /api/v1/metrological/predict/precipitation
+
+### Make Prediction (System Use : Not recommended for users)
+1. Air Quality
+   - /api/v1/airQuality/predict/res/pm25
+   - /api/v1/airQuality/predict/res/pm10
+   - /api/v1/airQuality/predict/res/co2
+   - /api/v1/airQuality/predict/res/ozone
+   - /api/v1/airQuality/predict/res/no2
+   - /api/v1/airQuality/predict/res/airTemperature
+   - /api/v1/airQuality/predict/res/airHumidity
+   - /api/v1/airQuality/predict/res/airWindSpeed
+
+2. Metrological
+   - /api/v1/metrological/predict/res/temperature
+   - /api/v1/metrological/predict/res/humidity
+   - /api/v1/metrological/predict/res/windSpeed
+   - /api/v1/metrological/predict/res/precipitation
