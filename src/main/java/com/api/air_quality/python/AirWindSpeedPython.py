@@ -1,7 +1,12 @@
+import sys
+
 import requests
 from py4j.java_gateway import JavaGateway
 import numpy as np
 import pickle
+# to ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class AirWindSpeedModelPython:
@@ -10,7 +15,7 @@ class AirWindSpeedModelPython:
 
         self.java_model = self.gateway.entry_point
 
-        with open("../../../../../../../AI_Models/airWind_speed_model.pkl", 'rb') as f:
+        with open("./AI_Models/airWind_speed_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_air_wind_speed(self, features):
@@ -21,7 +26,7 @@ class AirWindSpeedModelPython:
 
             spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/airWindSpeed"
             response = requests.post(spring_boot_url, json=float(prediction))
-            print(response.text)
+            # print(response.text)
 
             return prediction
         except Exception as e:
@@ -31,6 +36,5 @@ class AirWindSpeedModelPython:
 
 if __name__ == "__main__":
     air_wind_speed_model = AirWindSpeedModelPython()
-    dummy_features = [[1.5, 2.3, 4.2, 5.1, 7.7, 9.4, 10.0]]
-    result = air_wind_speed_model.predict_air_wind_speed(dummy_features)
-    print(result)
+    data_from_java = [float(arg) for arg in sys.argv[1:]]
+    result = air_wind_speed_model.predict_air_wind_speed(data_from_java)
