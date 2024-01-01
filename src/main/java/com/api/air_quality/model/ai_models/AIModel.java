@@ -1,17 +1,11 @@
 package com.api.air_quality.model.ai_models;
 
-import com.api.air_quality.shared.EnvConfig;
-import me.paulschwarz.springdotenv.DotenvPropertySource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputFilter;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Component
@@ -140,29 +134,20 @@ public class AIModel {
     }
 
     public void runScript(String file){
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-
-        // Add DotenvPropertySource to environment before registering components
-        DotenvPropertySource.addToEnvironment(applicationContext.getEnvironment());
-
-        applicationContext.register(EnvConfig.class);
-        applicationContext.refresh();
-
-        EnvConfig config = applicationContext.getBean(EnvConfig.class);
-        System.out.println(config.PYTHON_EXE_PATH);
 
         try {
+            String venvPath = "./venv";
+            String pythonExecutablePath = venvPath + "/Scripts/python.exe";
             String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py";
-            String pythonExecutablePath = config.PYTHON_EXE_PATH;
-            String command = pythonExecutablePath + " " + pythonScriptPath;
+            StringBuilder command = new StringBuilder(pythonExecutablePath + " " + pythonScriptPath);
 
             // Append the cached data to the command
             for (Double value : airQualityDataCache.get()) {
-                command += " " + value;
+                command.append(" ").append(value);
             }
 
             // Execute the command
-            Process process = Runtime.getRuntime().exec(command);
+            Process process = Runtime.getRuntime().exec(command.toString());
 
             // Read the output from the Python script
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
