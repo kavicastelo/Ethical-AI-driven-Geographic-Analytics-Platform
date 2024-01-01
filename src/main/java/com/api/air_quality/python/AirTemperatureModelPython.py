@@ -47,4 +47,3 @@ if __name__ == "__main__":
     air_temperature_model = AirTemperatureModelPython()
     data_from_java = [float(arg) for arg in sys.argv[1:]]
     result = air_temperature_model.predict_air_temperature(data_from_java)
-    print(result)
