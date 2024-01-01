@@ -1,5 +1,6 @@
 import sys
-
+import os
+from dotenv import load_dotenv
 import requests
 from py4j.java_gateway import JavaGateway
 import numpy as np
@@ -24,7 +25,8 @@ class AirWindSpeedModelPython:
 
             prediction = self.model.predict(features_2d)
 
-            spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/airWindSpeed"
+            url = os.getenv("SPRINGBOOT_URL_PYTHON")
+            spring_boot_url = url+"/airWindSpeed"
             response = requests.post(spring_boot_url, json=float(prediction))
             # print(response.text)
 
@@ -35,6 +37,7 @@ class AirWindSpeedModelPython:
 
 
 if __name__ == "__main__":
+    load_dotenv()
     air_wind_speed_model = AirWindSpeedModelPython()
     data_from_java = [float(arg) for arg in sys.argv[1:]]
     result = air_wind_speed_model.predict_air_wind_speed(data_from_java)
