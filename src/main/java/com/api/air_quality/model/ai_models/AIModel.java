@@ -1,12 +1,17 @@
 package com.api.air_quality.model.ai_models;
 
+import com.api.air_quality.shared.EnvConfig;
+import me.paulschwarz.springdotenv.DotenvPropertySource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputFilter;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Component
@@ -18,7 +23,6 @@ public class AIModel {
     }
 
     public static void main(String[] args) {
-
         AIModel aiModel = new AIModel();
         // Start the Py4J gateway server
         GatewayServer server = new GatewayServer(aiModel);
@@ -40,6 +44,7 @@ public class AIModel {
             airQualityDataCache.set(features);
         }
 
+        System.out.println();
         runScript("AirHumidityModelPython");
         return airQualityDataCache.get();
     }
@@ -135,10 +140,20 @@ public class AIModel {
     }
 
     public void runScript(String file){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+
+        // Add DotenvPropertySource to environment before registering components
+        DotenvPropertySource.addToEnvironment(applicationContext.getEnvironment());
+
+        applicationContext.register(EnvConfig.class);
+        applicationContext.refresh();
+
+        EnvConfig config = applicationContext.getBean(EnvConfig.class);
+        System.out.println(config.PYTHON_EXE_PATH);
+
         try {
-            // Assuming your Python script is in the same directory as the JAR file
             String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py";
-            String pythonExecutablePath = "C:\\Users\\KAVI\\AppData\\Local\\Programs\\Python\\Python310\\python.exe";
+            String pythonExecutablePath = config.PYTHON_EXE_PATH;
             String command = pythonExecutablePath + " " + pythonScriptPath;
 
             // Append the cached data to the command
@@ -146,7 +161,7 @@ public class AIModel {
                 command += " " + value;
             }
 
-            // Execute the command and get the process
+            // Execute the command
             Process process = Runtime.getRuntime().exec(command);
 
             // Read the output from the Python script
