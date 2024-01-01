@@ -1,5 +1,6 @@
 import sys
-
+import os
+from dotenv import load_dotenv
 import requests
 from py4j.java_gateway import JavaGateway
 import numpy as np
@@ -7,6 +8,9 @@ import pickle
 # to ignore warnings
 import warnings
 warnings.filterwarnings('ignore')
+
+venv_path = "../../../../../../../venv"
+sys.path.append(venv_path + '/Lib/site-packages')
 
 
 class Pm10ModelPython:
@@ -20,7 +24,8 @@ class Pm10ModelPython:
         try:
             features_2d = np.array(features).reshape(1, -1)
             prediction = self.model.predict(features_2d)
-            spring_boot_url = "http://localhost:3269/api/v1/airQuality/predict/res/pm10"
+            url = os.getenv("SPRINGBOOT_URL_PYTHON")
+            spring_boot_url = url+"/pm10"
             response = requests.post(spring_boot_url, json=float(prediction))
             # print(response.text)
 
@@ -30,6 +35,7 @@ class Pm10ModelPython:
 
 
 if __name__ == "__main__":
+    load_dotenv()
     pm10_model = Pm10ModelPython()
     data_from_java = [float(arg) for arg in sys.argv[1:]]
     result = pm10_model.predict_pm10(data_from_java)

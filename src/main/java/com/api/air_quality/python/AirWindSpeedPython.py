@@ -9,6 +9,9 @@ import pickle
 import warnings
 warnings.filterwarnings('ignore')
 
+venv_path = "../../../../../../../venv"
+sys.path.append(venv_path + '/Lib/site-packages')
+
 
 class AirWindSpeedModelPython:
     def __init__(self):
