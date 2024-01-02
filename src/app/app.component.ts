@@ -8,13 +8,9 @@ import {ThemeService} from "./services/theme.service";
 })
 export class AppComponent {
   title = 'client';
-  constructor(private themeService: ThemeService) {}
+  constructor(public themeService: ThemeService) {}
 
   toggleTheme() {
     this.themeService.toggleTheme();
-  }
-
-  isDarkTheme() {
-    return this.themeService.isDarkTheme();
   }
 }
