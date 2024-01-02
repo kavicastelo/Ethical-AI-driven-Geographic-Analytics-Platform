@@ -11,6 +11,74 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.theme-light {
+  --color-primary-100: #3498db;
+  --color-primary-200: #5faee3;
+  --color-primary-300: #7db9e8;
+  --color-primary-400: #9cc3ed;
+  --color-primary-500: #b7d4f2;
+  --color-primary-600: #d1e6f7;
+  --color-surface-100: #ffffff;
+  --color-surface-200: #f7f7f7;
+  --color-surface-300: #f0f0f0;
+  --color-surface-400: #e7e7e7;
+  --color-surface-500: #dcdcdc;
+  --color-surface-600: #cfcfcf;
+  --color-surface-mixed-100: #f7f7f7;
+  --color-surface-mixed-200: #f0f0f0;
+  --color-surface-mixed-300: #e7e7e7;
+  --color-surface-mixed-400: #dcdcdc;
+  --color-surface-mixed-500: #cfcfcf;
+  --color-surface-mixed-600: #bfbfbf;
+  --color-secondary-100: #2c3e50;
+  --color-secondary-200: #34495e;
+  --color-secondary-300: #3a546e;
+  --color-secondary-400: #415a77;
+  --color-secondary-500: #4b6a86;
+  --color-secondary-600: #54718e;
+  --color-text-100: #000000;
+  --color-text-200: #2c3e50;
+  --color-text-300: #4b6a86;
+  --color-text-400: #54718e;
+  --color-text-500: #4b6a86;
+  --color-text-600: #54718e;
+}
+
+.theme-dark {
+  --color-primary-100: #382bf0;
+  --color-primary-200: #5e43f3;
+  --color-primary-300: #7a5af5;
+  --color-primary-400: #9171f8;
+  --color-primary-500: #a688fa;
+  --color-primary-600: #ba9ffb;
+  --color-surface-100: #121212;
+  --color-surface-200: #282828;
+  --color-surface-300: #3f3f3f;
+  --color-surface-400: #575757;
+  --color-surface-500: #717171;
+  --color-surface-600: #8b8b8b;
+  --color-surface-mixed-100: #1a1625;
+  --color-surface-mixed-200: #2f2b3a;
+  --color-surface-mixed-300: #46424f;
+  --color-surface-mixed-400: #5e5a66;
+  --color-surface-mixed-500: #76737e;
+  --color-surface-mixed-600: #908d96;
+  --color-secondary-100: #a688fa;
+  --color-secondary-200: #9171f8;
+  --color-secondary-300: #7a5af5;
+  --color-secondary-400: #5e43f3;
+  --color-secondary-500: #382bf0;
+  --color-secondary-600: #1a1625;
+  --color-text-100: #ffffff;
+  --color-text-200: #e6e6e6;
+  --color-text-300: #bfbfbf;
+  --color-text-400: #a6a6a6;
+  --color-text-500: #8b8b8b;
+  --color-text-600: #717171;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
+
+

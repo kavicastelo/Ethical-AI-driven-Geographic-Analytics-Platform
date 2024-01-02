@@ -41,4 +41,11 @@
   </div>
 </div>
 
-<router-outlet></router-outlet>
+<div class="notice" [ngClass]="{'theme-light': !isDarkTheme(), 'theme-dark': isDarkTheme()}">
+  <span>Notice : &nbsp;</span>
+  <marquee behavior="slide" direction="left">This is a university student project. All values are generated test data. Not actual data provided!</marquee>
+</div>
+
+<button (click)="toggleTheme()">Toggle Theme</button>
+
+<router-outlet [ngClass]="{'theme-light': !isDarkTheme(), 'theme-dark': isDarkTheme()}"></router-outlet>
