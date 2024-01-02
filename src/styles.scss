@@ -42,6 +42,9 @@ body {
   --color-text-400: #54718e;
   --color-text-500: #4b6a86;
   --color-text-600: #54718e;
+  --color-danger-100: #e74c3c;
+  --color-danger-200: #c0392b;
+  --color-danger-300: #e67e22;
 }
 
 .theme-dark {
@@ -75,6 +78,9 @@ body {
   --color-text-400: #a6a6a6;
   --color-text-500: #8b8b8b;
   --color-text-600: #717171;
+  --color-danger-100: #c0392b;
+  --color-danger-200: #e74c3c;
+  --color-danger-300: #e67e22;
 }
 
 ::-webkit-scrollbar {

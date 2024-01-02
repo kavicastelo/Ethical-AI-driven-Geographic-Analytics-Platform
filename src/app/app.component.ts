@@ -8,9 +8,14 @@ import {ThemeService} from "./services/theme.service";
 })
 export class AppComponent {
   title = 'client';
+  isNavbar: boolean = true;
   constructor(public themeService: ThemeService) {}
 
   toggleTheme() {
     this.themeService.toggleTheme();
+  }
+
+  closeNoticeBar() {
+    this.isNavbar = false;
   }
 }
