@@ -3,17 +3,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--color-primary-300);
+  color: var(--color-text-200);
 
   a {
     text-decoration: none;
-    color: #fff;
+    color: var(--color-text-200);
     font-size: 12px;
     transition: .3s ease-in-out;
 
     &:hover{
-      color: #3fd2f2;
+      color: var(--color-primary-600);
     }
   }
 }
@@ -22,12 +22,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f8f9fa;
+  background-color: var(--color-surface-mixed-100);
+
+  .menu{
+    width: 100%;
+    .navbar{
+      background-color: var(--color-surface-mixed-100) !important;
+      .navbar-nav{
+        text-align: right;
+        .nav-item{
+          .nav-link{
+            color: var(--color-text-200) !important;
+          }
+          .nav-link.active{
+            color: var(--color-primary-300) !important;
+          }
+        }
+      }
+    }
+
+    .navbar-toggler{
+      align-self: flex-end;
+      right: 0;
+      border-color: var(--color-primary-300) !important;
+
+      .navbar-toggler-icon{
+        border-color: var(--color-primary-300) !important;
+      }
+    }
+  }
 
   .logo{
     width: 100px;
     height: 50px;
-    background-color: #333;
+    background-color: var(--color-surface-600);
     margin: 0 20px;
   }
 }
@@ -42,7 +70,10 @@
 
   span{
     white-space: nowrap;
-    //position: absolute;
+    color: var(--color-danger-100);
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 10px;
   }
 
   marquee{
@@ -50,4 +81,23 @@
     margin: 0;
     font-size: 12px;
   }
+
+  .small-close-btn{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-danger-100);
+  }
+}
+
+.theme-btn{
+  position: fixed;
+  //position: absolute;
+  right: 5px;
+  top: calc(30% - 50px);
+  border: none;
+  color: var(--color-surface-mixed-100);
+  background-color: var(--color-text-200);
+  border-radius: 5px;
 }
