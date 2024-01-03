@@ -10,6 +10,7 @@ import {ThemeService} from "../../services/theme.service";
 export class AboutComponent implements OnDestroy {
   private themeSubscription: Subscription;
   isDarkMode: boolean | undefined;
+  platformName = 'Ethical AI-driven Geographic Analytics Platform';
 
   constructor(private themeService: ThemeService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
