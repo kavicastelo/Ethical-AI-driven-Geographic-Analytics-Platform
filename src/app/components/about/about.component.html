@@ -1,7 +1,18 @@
 <div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
   <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>About Our Platform</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/about">About</a>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <h2>About Our Platform</h2>
 
       <h3>Welcome to [Your Platform Name]</h3>
       <p>[Your Platform Name] is an advanced Geographic Analytics Platform driven by Ethical AI. Designed to provide
@@ -28,37 +39,76 @@
       <ul>
         <li>Air Quality Metrics</li>
         <ul class="sub-list">
-          <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Air Humidity:</span> Understand the moisture content in the air, a crucial factor in various environmental processes.</li>
-          <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Temperature:</span> Explore temperature patterns and trends, aiding in weather analysis.</li>
-          <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Wind Speed:</span> Learn about the speed of the wind, crucial for predicting weather conditions.</li>
-          <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Precipitation:</span> Stay informed about rainfall and other forms of precipitation in your area.</li>
+          <li
+            [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+            <span>Air Humidity:</span> Understand the moisture content in the air, a crucial factor in various
+            environmental processes.
+          </li>
+          <li
+            [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+            <span>Temperature:</span> Explore temperature patterns and trends, aiding in weather analysis.
+          </li>
+          <li
+            [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+            <span>Wind Speed:</span> Learn about the speed of the wind, crucial for predicting weather conditions.
+          </li>
+          <li
+            [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+            <span>Precipitation:</span> Stay informed about rainfall and other forms of precipitation in your area.
+          </li>
         </ul>
       </ul>
 
       <h3>Our Purpose and Aim</h3>
-      <p>At [Your Platform Name], our primary purpose is to empower individuals and communities with accurate and actionable environmental insights. We aim to:</p>
+      <p>At [Your Platform Name], our primary purpose is to empower individuals and communities with accurate and
+        actionable environmental insights. We aim to:</p>
       <ul class="sub-list">
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">Provide accessible and reliable air quality and meteorological data.</li>
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">Foster a community of environmentally conscious individuals.</li>
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">Support research and initiatives focused on sustainable living.</li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          Provide accessible and reliable air quality and meteorological data.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          Foster a community of environmentally conscious individuals.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          Support research and initiatives focused on sustainable living.
+        </li>
       </ul>
 
       <h3>Ethical Concerns</h3>
       <p>We prioritize ethical considerations in all aspects of our platform:</p>
       <ul class="sub-list">
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Privacy:</span> User data is handled with utmost care, ensuring privacy and confidentiality.</li>
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Transparency:</span> We are transparent about the sources of our data and the methodologies behind our predictions.</li>
-        <li [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}"><span>Fairness:</span> Our algorithms are designed to be fair and unbiased, ensuring equitable results.</li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Privacy:</span> User data is handled with utmost care, ensuring privacy and confidentiality.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Transparency:</span> We are transparent about the sources of our data and the methodologies behind our
+          predictions.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Fairness:</span> Our algorithms are designed to be fair and unbiased, ensuring equitable results.
+        </li>
       </ul>
 
       <h3>Meet the Creator</h3>
-      <p>[Your Platform Name] is the brainchild of a dedicated individual who envisioned and brought this project to life as a culmination of their university final project. Meet the mind behind the platform:</p>
-<!--      my self-->
-      <p>As the sole creator of [Your Platform Name], [Your Full Name] poured their passion for technology, environmental science, and ethical AI into every aspect of the platform. From conceptualization to development, this project reflects their commitment to creating an innovative solution for environmental awareness.</p>
-      <p>Join [Your Full Name] on this academic journey, exploring the intersection of technology and environmental consciousness through [Your Platform Name].</p>
+      <p>[Your Platform Name] is the brainchild of a dedicated individual who envisioned and brought this project to
+        life as a culmination of their university final project. Meet the mind behind the platform:</p>
+      <!--      my self-->
+      <p>As the sole creator of [Your Platform Name], [Your Full Name] poured their passion for technology,
+        environmental science, and ethical AI into every aspect of the platform. From conceptualization to development,
+        this project reflects their commitment to creating an innovative solution for environmental awareness.</p>
+      <p>Join [Your Full Name] on this academic journey, exploring the intersection of technology and environmental
+        consciousness through [Your Platform Name].</p>
 
       <h3>Join Us on the Journey</h3>
-      <p>Whether you're a weather enthusiast, researcher, or someone passionate about environmental awareness, we invite you to join us on this journey. Explore [Your Platform Name] and discover the fascinating world of Geographic Analytics and Ethical AI.</p>
+      <p>Whether you're a weather enthusiast, researcher, or someone passionate about environmental awareness, we invite
+        you to join us on this journey. Explore [Your Platform Name] and discover the fascinating world of Geographic
+        Analytics and Ethical AI.</p>
       <p>[Sign Up] [Explore Features] [Contact Us]</p>
     </div>
   </div>
