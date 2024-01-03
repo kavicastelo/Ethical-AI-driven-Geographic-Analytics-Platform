@@ -83,6 +83,25 @@ body {
   --color-danger-300: #e67e22;
 }
 
+.bg{
+  min-height: calc(100vh - 115px);
+  background-color: var(--color-surface-mixed-200);
+
+  .container{
+    padding-top: 2.5vw;
+    padding-bottom: 1vw;
+  }
+}
+
+p, ul{
+  color: var(--color-text-200);
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: var(--color-text-100);
+  font-weight: bold;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
