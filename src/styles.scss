@@ -164,22 +164,6 @@ h1, h2, h3, h4, h5, h6 {
   .signup-form-full-width {
     width: 100%;
   }
-
-  .signup-form-btn{
-    width: 100%;
-    color: var(--color-text-100);
-    background-color: var(--color-primary-600);
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 6px 8px;
-    transition: background-color .3s ease-in-out;
-
-    &:hover{
-      background-color: var(--color-primary-500);
-    }
-  }
 }
 
 .button-1{
