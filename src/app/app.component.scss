@@ -33,6 +33,10 @@
         .nav-item{
           .nav-link{
             color: var(--color-text-200) !important;
+
+            &:hover{
+              color: var(--color-surface-mixed-600) !important;
+            }
           }
           .nav-link.active{
             color: var(--color-primary-300) !important;
