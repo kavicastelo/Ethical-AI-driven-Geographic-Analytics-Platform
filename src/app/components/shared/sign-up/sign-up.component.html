@@ -2,12 +2,12 @@
   <div class="bg">
     <div class="container">
       <h3>Sign Up</h3>
+    </div>
+    <mat-dialog-content class="mat-typography">
       <p>Are you willing to join the Ethical AI-driven Geographic Analytics Platform, Here is your opportunity. You can
         join us if you're a weather enthusiast, researcher, or someone passionate about environmental awareness. Submit
-        the registration form below. Our administration will accept your request as soon as possible.</p>
-    </div>
-    <div class="container">
-      <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="submit()">
+        the registration form below. Our administration will accept your request as soon as possible.</p><br>
+      <form class="signup-form" [formGroup]="signupForm">
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
@@ -42,11 +42,13 @@
               <textarea matInput formControlName="remarks" placeholder="Ex. I'm a university student"></textarea>
             </mat-form-field>
           </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <button class="signup-form-btn" type="submit">Request</button>
-          </div>
         </div>
       </form>
-    </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <div class="col-12 col-sm-6 col-md-3">
+        <button class="button-1" type="submit" (click)="submit()">Request</button>
+      </div>
+    </mat-dialog-actions>
   </div>
 </div>
