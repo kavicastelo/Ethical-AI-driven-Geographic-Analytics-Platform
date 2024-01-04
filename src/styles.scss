@@ -164,39 +164,61 @@ h1, h2, h3, h4, h5, h6 {
   .signup-form-full-width {
     width: 100%;
 
-    .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{
-      color: white !important;
-    }
+    //.mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above{
+    //  color: white !important;
+    //}
+    //
+    //input, textarea {
+    //  color: var(--color-text-100) !important;
+    //
+    //  &::placeholder {
+    //    color: var(--color-text-200) !important;
+    //  }
+    //}
+    //
+    //.mat-mdc-select-value {
+    //  color: var(--color-text-100) !important;
+    //
+    //  .mat-mdc-select-placeholder {
+    //    color: var(--color-text-200) !important;
+    //  }
+    //
+    //  &:focus{
+    //    color: var(--color-text-100) !important;
+    //  }
+    //  &:active{
+    //    color: var(--color-text-100) !important;
+    //  }
+    //}
+    //
+    //.mdc-notched-outline__leading {
+    //  //border: 1px solid var(--color-text-200);
+    //  //border-radius: 4px;
+    //  //border-color: var(--color-text-200) !important;
+    //
+    //  .mdc-notched-outline__leading, .mdc-notched-outline__trailing{
+    //    //border-color: var(--color-text-200) !important;
+    //  }
+    //}
+    //
+    //.mdc-text-field--invalid .mdc-text-field__input {
+    //  color: var(--color-text-100) !important;
+    //}
+  }
 
-    input, textarea {
-      color: var(--color-text-100) !important;
+  .signup-form-btn{
+    width: 100%;
+    color: var(--color-text-100);
+    background-color: var(--color-primary-600);
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: background-color .3s ease-in-out;
 
-      &::placeholder {
-        color: var(--color-text-200) !important;
-      }
-    }
-
-    .mat-mdc-select-value {
-      color: var(--color-text-100) !important;
-
-      .mat-mdc-select-placeholder {
-        color: var(--color-text-200) !important;
-      }
-
-      &:focus{
-        color: var(--color-text-100) !important;
-      }
-      &:active{
-        color: var(--color-text-100) !important;
-      }
-    }
-
-    .mdc-notched-outline {
-      border: 1px solid var(--color-text-200);
-      border-radius: 4px;
-    }
-    .mdc-text-field--invalid .mdc-text-field__input {
-      color: var(--color-text-100) !important;
+    &:hover{
+      background-color: var(--color-primary-500);
     }
   }
 }
@@ -213,4 +235,59 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+
+
+.mat-focus-indicator::before {
+  border: 3px var(--color-input-focus, solid) var(--color-input-focus, transparent) !important;
+}
+
+.mat-mdc-focus-indicator::before {
+  border: 3px var(--color-input-focus, solid) var(--color-input-focus, transparent) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--color-text-200) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--color-text-100) !important;
+}
+
+.mat-mdc-select-value {
+  color: var(--color-text-100) !important;
+}
+
+.mat-mdc-select-placeholder {
+  color: var(--color-text-200) !important;
+}
+
+.mat-mdc-select-disabled .mat-mdc-select-value {
+  color: var(--color-text-300) !important;
+}
+
+.mat-mdc-select-arrow {
+  color: var(--color-text-200) !important;
+}
+
+@media all {
+  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder {
+    color: var(--color-text-200) !important;
+  }
+}
+
+@media all {
+  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input:-ms-input-placeholder {
+    color: var(--color-text-100) !important;
+  }
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--color-primary-200)
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: var(--color-primary-100)
 }
