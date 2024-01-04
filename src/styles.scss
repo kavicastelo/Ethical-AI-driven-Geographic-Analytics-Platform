@@ -160,8 +160,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.signup-form {
-  .signup-form-full-width {
+.signup-form, .contact-form {
+  .signup-form-full-width, .contact-form-full-width {
     width: 100%;
   }
 }
