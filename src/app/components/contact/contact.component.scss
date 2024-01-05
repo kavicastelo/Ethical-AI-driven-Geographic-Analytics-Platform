@@ -1,0 +1,28 @@
+.con-column{
+  width: 100%;
+  padding: 12px;
+
+  img{
+    width: 100%;
+    transition: .3s ease-in-out;
+
+    &:hover{
+      transform: scale(1.02);
+      box-shadow: var(--color-secondary-100) 2px 5px 15px;
+    }
+  }
+
+  span{
+    font-weight: bold;
+    color: var(--color-text-200);
+  }
+
+  a{
+    text-decoration: none;
+    color: var(--color-primary-200);
+
+    &:hover{
+      color: var(--color-primary-600);
+    }
+  }
+}

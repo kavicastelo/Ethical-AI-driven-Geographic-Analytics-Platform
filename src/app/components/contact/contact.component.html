@@ -1,1 +1,50 @@
-<p>contact works!</p>
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>Contact Us</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="d-md-flex justify-content-center align-items-center">
+        <div class="con-column">
+          <h4>General Inquiries</h4>
+          <p>If you have any general inquiries or feedback regarding our platform, please don't hesitate to reach out to
+            us. We appreciate your thoughts and suggestions!</p>
+          <div class="d-flex align-items-center">
+            <span>Email: </span>&nbsp;
+            <a href="mailto:contact@analytics-platform.com">contact@analytics-platform.com</a>
+          </div>
+          <div class="d-flex align-items-center">
+            <span>Phone: </span>&nbsp;
+            <a href="tel:+94 77 343 1660">+94 (77) 343 1660</a>
+          </div>
+        </div>
+        <div class="con-column">
+          <img src="./assets/images/contact/banner-1.jpg" alt="banner">
+        </div>
+      </div>
+      <div class="d-md-flex justify-content-center align-items-center flex-row-reverse">
+        <div class="con-column">
+          <h4>Business Inquiries</h4>
+          <p>For business-related inquiries, partnerships, or collaborations, please contact our business development team.</p>
+          <div class="d-flex align-items-center">
+            <span>Email: </span>&nbsp;
+            <a href="mailto:business@analytics-platform.com">business@analytics-platform.com</a>
+          </div>
+        </div>
+        <div class="con-column">
+          <img src="./assets/images/contact/banner-2.jpg" alt="banner">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
