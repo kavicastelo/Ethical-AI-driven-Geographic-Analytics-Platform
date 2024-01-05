@@ -35,6 +35,40 @@
         fake <span class="val">= </span><span class="lib">Faker</span>()<br>
       </div>
 
+      <h4>Function to generate data</h4>
+      <p>I improved the method for generate random data with more correlations.</p>
+      <div class="py-code-snippet">
+        <span class="import">def </span><span class="name">generate_improved_air_quality_data </span>(locations, start_time, end_time, frequency):<br>
+        &nbsp;&nbsp;&nbsp;fieldnames <span class="val">= </span>[<span class="val">'timestamp'</span>, <span class="val">'location'</span>, <span class="val">'pm25'</span>, <span class="val">'pm10'</span>, <span class="val">'co2'</span> ...]<br>
+        &nbsp;&nbsp;&nbsp;<span class="import">with </span><span class="name">open </span>(<span class="val">'improved_air_quality_data.csv'</span>, <span class="val">'w'</span>, newline <span class="val">=''</span>) <span class="import">as </span>csvfile:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer <span class="val">= </span>csv.<span class="lib">DictWriter</span>(csvfile, fieldnames <span class="val">= </span>fieldnames)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.<span class="name">writeheader</span>()<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_time <span class="val">= </span>start_time<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">while </span>current_time <span class="val"><=</span> end_time:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">for </span>location <span class="val">in </span>locations:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">20</span>, <span class="val">30</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">15</span>, <span class="val">20</span>)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">if </span><span class="val">8 <= </span>current_time.hour <span class="val"><= 10 or 17 <= </span>current_time.hour <span class="val"><= 19</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">5</span>, <span class="val">15</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">else</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase <span class="val">= 0</span><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.<span class="name">writerow</span>(&lcub;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'timestamp'</span>: current_time.<span class="name">strftime</span>(<span class="val">'%Y-%m-%d %H:%M:%S'</span>),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'location'</span>: location,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'pm25'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span class="val">2</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'pm10'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span class="val">2</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'co2'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-3</span>, <span class="val">3</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'temperature'</span>: temperature,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'humidity'</span>: humidity<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rcub;)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_time <span class="val">+= </span>frequency<br><br>
+        <span class="comment"># Other datasets generate methods</span>
+      </div>
+      <p>PS: You can replace with '...' with all other factors for data sets</p>
+
+      <h4>Train & save model</h4>
+      
       <h3>Utilized Libraries</h3>
       <h4>Python</h4>
       <ul class="sub-list">
