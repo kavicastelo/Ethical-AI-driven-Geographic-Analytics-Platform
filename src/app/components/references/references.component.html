@@ -8,7 +8,7 @@
         </div>
         <div class="banner-route-div">
           <a routerLink="/home">Home</a> /
-          <a routerLink="/about">References</a>
+          <a routerLink="/references">References</a>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
         explicitly for educational purposes. Given the extensive range of factors influencing air quality and the
         associated high costs of obtaining real-world data, we have developed Python scripts to simulate model values
         for statistical calculations and training purposes.</p>
-      <!--      sample code -->
+
       <h4>Import Libraries</h4>
       <div class="py-code-snippet">
         <span class="import">from </span>faker <span class="import">import </span><span class="lib">Faker</span><br>
@@ -27,10 +27,12 @@
         <span class="import">from </span>datetime <span class="import">import </span>datetime, timedelta <br>
         <span class="import">import </span>time <br>
         <span class="import">import </span>pandas <span class="import">as </span>pd <br>
-        <span class="import">from </span>sklearn.model_selection <span class="import">import </span>train_test_split <br>
-        <span class="import">from </span>sklearn.linear_model <span class="import">import </span><span class="lib">LinearRegression</span> <br>
+        <span class="import">from </span>sklearn.model_selection <span class="import">import </span>train_test_split
+        <br>
+        <span class="import">from </span>sklearn.linear_model <span class="import">import </span><span class="lib">LinearRegression</span>
+        <br>
         <span class="import">from </span>sklearn.metrics <span class="import">import </span>mean_squared_error <br>
-        <span class="import">from </span>joblib  <span class="import">import </span>dump <br>
+        <span class="import">from </span>joblib <span class="import">import </span>dump <br>
         <span class="import">import </span>pickle <br><br>
         fake <span class="val">= </span><span class="lib">Faker</span>()<br>
       </div>
@@ -38,29 +40,59 @@
       <h4>Function to generate data</h4>
       <p>I improved the method for generate random data with more correlations.</p>
       <div class="py-code-snippet">
-        <span class="import">def </span><span class="name">generate_improved_air_quality_data </span>(locations, start_time, end_time, frequency):<br>
-        &nbsp;&nbsp;&nbsp;fieldnames <span class="val">= </span>[<span class="val">'timestamp'</span>, <span class="val">'location'</span>, <span class="val">'pm25'</span>, <span class="val">'pm10'</span>, <span class="val">'co2'</span> ...]<br>
-        &nbsp;&nbsp;&nbsp;<span class="import">with </span><span class="name">open </span>(<span class="val">'improved_air_quality_data.csv'</span>, <span class="val">'w'</span>, newline <span class="val">=''</span>) <span class="import">as </span>csvfile:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer <span class="val">= </span>csv.<span class="lib">DictWriter</span>(csvfile, fieldnames <span class="val">= </span>fieldnames)<br>
+        <span class="import">def </span><span class="name">generate_improved_air_quality_data </span>(locations,
+        start_time, end_time, frequency):<br>
+        &nbsp;&nbsp;&nbsp;fieldnames <span class="val">= </span>[<span class="val">'timestamp'</span>, <span
+        class="val">'location'</span>, <span class="val">'pm25'</span>, <span class="val">'pm10'</span>, <span
+        class="val">'co2'</span> ...]<br>
+        &nbsp;&nbsp;&nbsp;<span class="import">with </span><span class="name">open </span>(<span class="val">'improved_air_quality_data.csv'</span>,
+        <span class="val">'w'</span>, newline <span class="val">=''</span>) <span class="import">as </span>csvfile:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer <span class="val">= </span>csv.<span class="lib">DictWriter</span>(csvfile,
+        fieldnames <span class="val">= </span>fieldnames)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.<span class="name">writeheader</span>()<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_time <span class="val">= </span>start_time<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">while </span>current_time <span class="val"><=</span> end_time:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">for </span>location <span class="val">in </span>locations:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">20</span>, <span class="val">30</span>)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">15</span>, <span class="val">20</span>)<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">if </span><span class="val">8 <= </span>current_time.hour <span class="val"><= 10 or 17 <= </span>current_time.hour <span class="val"><= 19</span>:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">5</span>, <span class="val">15</span>)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">else</span>:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase <span class="val">= 0</span><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">while </span>current_time <span class="val"><=</span>
+        end_time:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="import">for </span>location <span
+        class="val">in </span>locations:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature <span
+        class="val">= </span>random.<span class="name">uniform</span>(<span class="val">20</span>, <span
+        class="val">30</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity <span
+        class="val">= </span>random.<span class="name">uniform</span>(<span class="val">15</span>, <span
+        class="val">20</span>)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="import">if </span><span class="val">8 <= </span>current_time.hour <span
+        class="val"><= 10 or 17 <= </span>current_time.hour <span class="val"><= 19</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase
+        <span class="val">= </span>random.<span class="name">uniform</span>(<span class="val">5</span>, <span
+        class="val">15</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="import">else</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pollution_increase
+        <span class="val">= 0</span><br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.<span class="name">writerow</span>(&lcub;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'timestamp'</span>: current_time.<span class="name">strftime</span>(<span class="val">'%Y-%m-%d %H:%M:%S'</span>),<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'location'</span>: location,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'pm25'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span class="val">2</span>)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'pm10'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span class="val">2</span>)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'co2'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-3</span>, <span class="val">3</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'timestamp'</span>: current_time.<span class="name">strftime</span>(<span class="val">'%Y-%m-%d %H:%M:%S'</span>),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'location'</span>: location,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'pm25'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase
+        <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span
+        class="val">2</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'pm10'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase
+        <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-2</span>, <span
+        class="val">2</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'co2'</span>: temperature <span class="val">+ </span>humidity <span class="val">+ </span>pollution_increase
+        <span class="val">+ </span>random.<span class="name">uniform</span>(<span class="val">-3</span>, <span
+        class="val">3</span>)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'temperature'</span>: temperature,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'humidity'</span>: humidity<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'temperature'</span>: temperature,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+        class="val">'humidity'</span>: humidity<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rcub;)<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_time <span class="val">+= </span>frequency<br><br>
         <span class="comment"># Other datasets generate methods</span>
@@ -68,7 +100,39 @@
       <p>PS: You can replace with '...' with all other factors for data sets</p>
 
       <h4>Train & save model</h4>
-      
+      <p>I used the scikit-learn LinerRegression model to train and save the model. My statistical analysis of this
+        generated dataset confirmed the most suitable Linear regression to train them. Here is the <a
+          href="https://github.com/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform/blob/data/generate_data_time_to_time.py">
+          statistical analysis part</a> and explanations.</p>
+      <div class="py-code-snippet">
+        <span class="import">def </span><span class="name">train_and_save_model</span>(df, feature_name):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="lib">X </span><span class="val">= </span>df.<span class="name">drop</span>([<span
+        class="val">'timestamp'</span>, <span class="val">'location'</span>], axis<span class="val">=</span><span
+        class="val">1</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;y <span class="val">= </span>df[[feature_name]]<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="lib">X_train</span>, <span class="lib">X_test</span>, y_train, y_test <span
+        class="val">= </span><span class="name">train_test_split</span>(<span class="lib">X</span>, y, test_size<span
+        class="val">= 0.2 </span>, random_state<span class="val">= 42</span>)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;model <span class="val">= </span><span class="lib">LinearRegression</span>()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;model.<span class="name">fit</span>(<span class="lib">X_train</span>, y_train)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;predictions <span class="val">= </span>model.<span class="name">predict</span>(<span
+        class="lib">X_test</span>)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;mse <span class="val">= </span><span class="name">mean_squared_error</span>(y_test,
+        predictions)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="name">print</span>(<span class="val">f'Mean Squared Error for </span>&lcub;feature_name}<span
+        class="val">: </span>&lcub;mse}<span class="val">'</span>)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;model_filename <span class="val">= f'</span>&lcub;feature_name}<span class="val">_model.pkl'</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="import">with </span><span class="name">open</span>(model_filename, <span
+        class="val">'wb'</span>) <span class="import">as </span>f:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pickle.<span class="name">dump</span>(model, f)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="name">print</span>(<span class="val">f'Model saved as </span>&lcub;model_filename}<span
+        class="val">'</span>)<br><br>
+      </div>
+
+      <p>Get the full code from here <a href="https://gist.github.com/kavicastelo/824cae2e1df5b9fc2e7e55799fdeb092"
+                                        target="_blank">Complete Code</a></p>
+
+
       <h3>Utilized Libraries</h3>
       <h4>Python</h4>
       <ul class="sub-list">
