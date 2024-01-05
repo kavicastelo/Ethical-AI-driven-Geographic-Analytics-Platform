@@ -1,5 +1,17 @@
 <div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
   <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>References</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/about">References</a>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <h3>Data Generation for Educational Purposes</h3>
       <p>The statistical calculations and predictions presented on this platform are based on generated data created
@@ -45,6 +57,10 @@
           [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
           <span>Py4J:</span> A bridge between Python and Java, enabling seamless communication between the two
           languages.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Python Dotenv:</span> A Python library for loading environment variables from a .env file.
         </li>
       </ul>
 
