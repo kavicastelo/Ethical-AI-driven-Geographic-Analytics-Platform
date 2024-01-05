@@ -170,6 +170,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.py-code-snippet{
+  color: var(--color-text-200);
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--color-surface-mixed-300);
+  margin-bottom: 20px;
+
+  .import{
+    color: var(--color-danger-100);
+  }
+  .lib{
+    color: var(--color-danger-300);
+  }
+  .val{
+    color: var(--color-primary-300);
+  }
+}
+
 .signup-form, .contact-form {
   .signup-form-full-width, .contact-form-full-width {
     width: 100%;

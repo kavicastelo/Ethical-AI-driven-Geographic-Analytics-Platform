@@ -19,6 +19,21 @@
         associated high costs of obtaining real-world data, we have developed Python scripts to simulate model values
         for statistical calculations and training purposes.</p>
       <!--      sample code -->
+      <h4>Import Libraries</h4>
+      <div class="py-code-snippet">
+        <span class="import">from </span>faker <span class="import">import </span><span class="lib">Faker</span><br>
+        <span class="import">import </span>csv<br>
+        <span class="import">import </span>random<br>
+        <span class="import">from </span>datetime <span class="import">import </span>datetime, timedelta <br>
+        <span class="import">import </span>time <br>
+        <span class="import">import </span>pandas <span class="import">as </span>pd <br>
+        <span class="import">from </span>sklearn.model_selection <span class="import">import </span>train_test_split <br>
+        <span class="import">from </span>sklearn.linear_model <span class="import">import </span><span class="lib">LinearRegression</span> <br>
+        <span class="import">from </span>sklearn.metrics <span class="import">import </span>mean_squared_error <br>
+        <span class="import">from </span>joblib  <span class="import">import </span>dump <br>
+        <span class="import">import </span>pickle <br><br>
+        fake <span class="val">= </span><span class="lib">Faker</span>()<br>
+      </div>
 
       <h3>Utilized Libraries</h3>
       <h4>Python</h4>
