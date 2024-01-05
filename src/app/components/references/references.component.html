@@ -1,1 +1,89 @@
-<p>references works!</p>
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="container">
+      <h3>Data Generation for Educational Purposes</h3>
+      <p>The statistical calculations and predictions presented on this platform are based on generated data created
+        explicitly for educational purposes. Given the extensive range of factors influencing air quality and the
+        associated high costs of obtaining real-world data, we have developed Python scripts to simulate model values
+        for statistical calculations and training purposes.</p>
+      <!--      sample code -->
+
+      <h3>Utilized Libraries</h3>
+      <h4>Python</h4>
+      <ul class="sub-list">
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>NumPy:</span> A fundamental package for scientific computing, providing support for large,
+          multi-dimensional arrays and matrices.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Pandas:</span> A versatile data manipulation and analysis library, facilitating the handling of
+          structured data.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>scikit-learn:</span> An open-source machine learning library that provides simple and efficient tools
+          for data analysis and modeling.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Faker:</span> A Python library for generating fake data, useful for creating realistic datasets for
+          testing and educational purposes.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Joblib:</span> A library for lightweight pipelining in Python, particularly with regard to data parallel
+          computing.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Pickle:</span> A standard Python library for serializing and deserializing objects, commonly used for
+          saving and loading machine learning models.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Py4J:</span> A bridge between Python and Java, enabling seamless communication between the two
+          languages.
+        </li>
+      </ul>
+
+      <h4>Spring Boot</h4>
+      <ul class="sub-list">
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Spring Boo:</span> A powerful framework for building Java-based enterprise applications. Its simplicity
+          and convention-over-configuration approach make it an excellent choice for developing robust and scalable
+          backend systems.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>OpenCSV:</span> A simple library for reading and writing CSV files in Java.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Commons Math3:</span> A library of lightweight, self-contained mathematics and statistics components
+          addressing the most common problems not available in the Java programming language.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Py4J:</span> A bridge between Python and Java, enabling seamless communication between the two
+          languages.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>JUnit:</span> A widely used testing framework for Java.
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>PMML-sklearn:</span> A library for exporting scikit-learn models to the Predictive Model Markup Language
+          (PMML).
+        </li>
+        <li
+          [style]="{'list-style':isDarkMode?'url(./assets/images/icons/list-2-dark.png)':'url(./assets/images/icons/list-2.png)'}">
+          <span>Spring Dotenv:</span> A Spring Boot library for loading environment variables from a .env file.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
