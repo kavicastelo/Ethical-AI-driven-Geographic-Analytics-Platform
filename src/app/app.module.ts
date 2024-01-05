@@ -14,6 +14,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import { ContactFormComponent } from './components/shared/contact-form/contact-form.component';
+import { ReferencesComponent } from './components/references/references.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactFormComponent } from './components/shared/contact-form/contact-f
     HomeComponent,
     AboutComponent,
     SignUpComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ReferencesComponent
   ],
   imports: [
     BrowserModule,
