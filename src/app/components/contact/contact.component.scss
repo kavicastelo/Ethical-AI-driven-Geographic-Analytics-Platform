@@ -26,3 +26,66 @@
     }
   }
 }
+
+.contact-social-wrapper{
+  width: 100%;
+  background-image: url("../../../assets/images/contact/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+
+  .contact-social-div{
+    width: 60%;
+    height: 100%;
+    clip-path: polygon(100% 0, 80% 100%, 0 100%, 0 0);
+    opacity: 0.8;
+    background-color: var(--color-primary-600);
+
+    ul{
+      padding: 0;
+      li{
+        list-style: none;
+
+        a{
+          text-decoration: none;
+          color: var(--color-text-200);
+
+          &:hover{
+            color: var(--color-primary-200);
+          }
+        }
+
+        i{
+          width: 20px;
+        }
+
+        .fa-facebook{
+          color: #382bf0;
+        }
+        .fa-twitter{
+          color: #00acee;
+        }
+        .fa-linkedin{
+          color: #0e76a8;
+        }
+        .fa-instagram{
+          color: #bc2a8d;
+        }
+      }
+    }
+
+    @media screen and (max-width: 560px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 400px) {
+      width: 95%;
+    }
+    @media screen and (min-width: 1100px){
+      background-image: url("../../../assets/images/shared/logo-extended.png");
+      background-size: 500px;
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+  }
+}
