@@ -16,6 +16,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { ContactFormComponent } from './components/shared/contact-form/contact-form.component';
 import { ReferencesComponent } from './components/references/references.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactComponent } from './components/contact/contact.component';
     SignUpComponent,
     ContactFormComponent,
     ReferencesComponent,
-    ContactComponent
+    ContactComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
