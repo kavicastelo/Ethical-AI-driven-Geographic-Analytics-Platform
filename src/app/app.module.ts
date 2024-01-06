@@ -19,6 +19,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetComponent } from './components/blog-det/blog-det.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashbordComponent } from './components/dashbord/dashbord.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './components/login/login.component';
     ContactComponent,
     BlogComponent,
     BlogDetComponent,
-    LoginComponent
+    LoginComponent,
+    DashbordComponent
   ],
   imports: [
     BrowserModule,
