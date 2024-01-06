@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
 import {ThemeService} from "../../services/theme.service";
 import {blogDataStore} from "../../shared/store/blog-data-store";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog',
@@ -14,7 +15,7 @@ export class BlogComponent {
 
   blogData:any = blogDataStore;
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private router: Router) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -25,5 +26,9 @@ export class BlogComponent {
   }
 
   ngOnInit(): void {
+  }
+
+  OpenBlog(id:any) {
+    this.router.navigate(['/blog-det', id]);
   }
 }

@@ -5,6 +5,7 @@ import {AboutComponent} from "./components/about/about.component";
 import {ReferencesComponent} from "./components/references/references.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import {BlogComponent} from "./components/blog/blog.component";
+import {BlogDetComponent} from "./components/blog-det/blog-det.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'references', component: ReferencesComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'blog', component: BlogComponent }
+  { path: 'blog', component: BlogComponent },
+  { path: 'blog-det/:id', component: BlogDetComponent }
 ];
 
 @NgModule({

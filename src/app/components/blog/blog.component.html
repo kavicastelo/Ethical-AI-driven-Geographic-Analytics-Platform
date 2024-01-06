@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 blog-div" *ngFor="let blog of blogData">
-          <div class="card mb-3">
+          <div class="card mb-3" (click)="OpenBlog(blog.id)">
             <img src="{{blog.image}}" class="card-img-top" alt="{{blog.image}}">
             <div class="card-body">
               <h5 class="card-title">{{blog.title}}</h5>
