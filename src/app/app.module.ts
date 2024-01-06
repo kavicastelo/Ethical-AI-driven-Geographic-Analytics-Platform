@@ -17,6 +17,7 @@ import { ContactFormComponent } from './components/shared/contact-form/contact-f
 import { ReferencesComponent } from './components/references/references.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogDetComponent } from './components/blog-det/blog-det.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BlogComponent } from './components/blog/blog.component';
     ContactFormComponent,
     ReferencesComponent,
     ContactComponent,
-    BlogComponent
+    BlogComponent,
+    BlogDetComponent
   ],
   imports: [
     BrowserModule,
