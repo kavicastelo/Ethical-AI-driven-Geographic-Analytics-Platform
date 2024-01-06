@@ -8,6 +8,7 @@ import {BlogComponent} from "./components/blog/blog.component";
 import {BlogDetComponent} from "./components/blog-det/blog-det.component";
 import {LoginComponent} from "./components/login/login.component";
 import {DashbordComponent} from "./components/dashbord/dashbord.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog-det/:id', component: BlogDetComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashbordComponent }
+  { path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
