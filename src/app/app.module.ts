@@ -18,6 +18,7 @@ import { ReferencesComponent } from './components/references/references.componen
 import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetComponent } from './components/blog-det/blog-det.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BlogDetComponent } from './components/blog-det/blog-det.component';
     ReferencesComponent,
     ContactComponent,
     BlogComponent,
-    BlogDetComponent
+    BlogDetComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
