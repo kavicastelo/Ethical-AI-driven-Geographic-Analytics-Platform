@@ -1,0 +1,20 @@
+.blog-content-wrapper{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 6px;
+
+  .blog-top-details, .blog-bottom-details{
+    margin-bottom: 20px;
+    span{
+      font-size: 11px;
+      color: var(--color-text-300);
+    }
+  }
+  .blog-bottom-details{
+    margin-top: 20px;
+  }
+
+  img{
+    width: 100%;
+  }
+}
