@@ -34,8 +34,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
       })
     });
 
-    this.subTitlesArray = this.blogData.content[1].subTitle;
-    this.subContentArray = this.blogData.content[2].subContent;
+    this.subTitlesArray = this.blogData.content[2].subTitle;
+    this.subContentArray = this.blogData.content[3].subContent;
   }
 
   ngOnDestroy() {

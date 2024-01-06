@@ -13,15 +13,40 @@
       </div>
     </div>
     <div class="container">
-      <div class="d-md-flex align-items-center justify-content-between">
-        <div>{{blogData.content[0].mainTitle}}</div>
-        <div>
+      <div class="d-md-flex align-items-start justify-content-between">
+        <div class="blog-content-wrapper">
+          <div class="blog-top-details">
+            <div class="d-flex align-items-center justify-content-between">
+              <div style="min-width: 50%; display: flex; align-items: center; justify-content: flex-start">
+                <div>
+                  <img src="https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png" alt="author" height="50">
+                </div>
+                <div>
+                  <span>Author : {{blogData.author}}</span><br>
+                  <span>Created at : {{blogData.created_at}}</span>
+                </div>
+              </div>
+              <span>Tags : {{blogData.tags}}</span>
+            </div>
+          </div>
+          <hr style="color: var(--color-primary-600)">
+          <h2>{{blogData.content[0].mainTitle}}</h2>
+          <p>{{blogData.content[1].mainContent}}</p>
+        </div>
+        <div class="blog-content-wrapper">
           <img src="{{blogData.image}}" alt="{{blogData.title}}">
         </div>
       </div>
       <div *ngFor="let sb of subTitlesArray; let i = index">
-        <div>{{sb}}</div>
-        <div>{{subContentArray[i]}}</div>
+        <div class="blog-content-wrapper">
+          <h3>{{sb}}</h3>
+          <p>{{subContentArray[i]}}</p>
+        </div>
+      </div>
+      <div class="blog-content-wrapper">
+        <div class="blog-bottom-details">
+          <span>Last update at : {{blogData.updated_at}}</span>
+        </div>
       </div>
     </div>
   </div>

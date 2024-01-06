@@ -170,6 +170,10 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
   }
+
+  @media screen and (max-width: 768px) {
+    min-height: 50vh;
+  }
 }
 
 .py-code-snippet{
