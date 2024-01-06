@@ -1,17 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {blogDataStore} from "../../shared/store/blog-data-store";
+import {ThemeService} from "../../services/theme.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-blog-det',
   templateUrl: './blog-det.component.html',
   styleUrls: ['./blog-det.component.scss']
 })
-export class BlogDetComponent implements OnInit {
+export class BlogDetComponent implements OnInit, OnDestroy {
+  private themeSubscription: Subscription;
+  isDarkMode: boolean | undefined;
+
   blogId: string | null | undefined;
   blogData:any = blogDataStore;
+  subTitlesArray:any = [];
+  subContentArray:any = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private themeService: ThemeService, private route: ActivatedRoute) {
+    this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
+      this.isDarkMode = isDarkMode;
+    });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -22,5 +33,12 @@ export class BlogDetComponent implements OnInit {
         }
       })
     });
+
+    this.subTitlesArray = this.blogData.content[1].subTitle;
+    this.subContentArray = this.blogData.content[2].subContent;
+  }
+
+  ngOnDestroy() {
+    this.themeSubscription.unsubscribe();
   }
 }
