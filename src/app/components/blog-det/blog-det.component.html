@@ -1,1 +1,30 @@
-<p>{{blogData.content}}</p>
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>{{blogData.title}}</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/blog-det/{{blogData.id}}">{{blogData.title}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="d-md-flex align-items-center justify-content-between">
+        <div>{{blogData.content[0].mainTitle}}</div>
+        <div>
+          <img src="{{blogData.image}}" alt="{{blogData.title}}">
+        </div>
+      </div>
+      <div *ngFor="let sb of subTitlesArray; let i = index">
+        <div>{{sb}}</div>
+        <div>{{subContentArray[i]}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
