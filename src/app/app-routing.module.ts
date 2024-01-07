@@ -9,6 +9,8 @@ import {BlogDetComponent} from "./components/blog-det/blog-det.component";
 import {LoginComponent} from "./components/login/login.component";
 import {DashbordComponent} from "./components/dashbord/dashbord.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {SigninFormComponent} from "./components/shared/signin-form/signin-form.component";
+import {SignupFormComponent} from "./components/shared/signup-form/signup-form.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +20,11 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog-det/:id', component: BlogDetComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, children: [
+    { path: '', redirectTo: '/login/signin', pathMatch: 'full' },
+    { path: 'signin', component: SigninFormComponent },
+    { path: 'signup', component: SignupFormComponent }
+  ]},
   { path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard] },
 ];
 

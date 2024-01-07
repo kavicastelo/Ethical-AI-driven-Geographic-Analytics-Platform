@@ -20,6 +20,8 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetComponent } from './components/blog-det/blog-det.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
+import { SignupFormComponent } from './components/shared/signup-form/signup-form.component';
+import { SigninFormComponent } from './components/shared/signin-form/signin-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { DashbordComponent } from './components/dashbord/dashbord.component';
     BlogComponent,
     BlogDetComponent,
     LoginComponent,
-    DashbordComponent
+    DashbordComponent,
+    SignupFormComponent,
+    SigninFormComponent
   ],
   imports: [
     BrowserModule,
