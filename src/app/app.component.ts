@@ -8,7 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'client';
+  title = 'Ethical AI driven Geographic Analytics Platform';
   isNavbar: boolean = true;
   constructor(public themeService: ThemeService, private router: Router) {}
 
