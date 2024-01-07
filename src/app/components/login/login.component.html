@@ -1,13 +1,15 @@
 <div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
   <div class="bg">
     <div class="container">
-      <div class="login-container">
-        <div class="login-selection">
-          <button class="login-selection-btn">Signin</button>
-          <button class="login-selection-btn">Signup</button>
-        </div>
-        <div class="login-loader">
-          <app-sign-up></app-sign-up>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="login-container">
+          <div class="login-selection">
+            <button class="login-selection-btn">Signin</button>
+            <button class="login-selection-btn">Signup</button>
+          </div>
+          <div class="login-loader">
+            <router-outlet></router-outlet>
+          </div>
         </div>
       </div>
     </div>
