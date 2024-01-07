@@ -1,36 +1,43 @@
-.login-container{
-  width: 528px;
-  height: 100%;
-  border: 2px solid var(--color-primary-600);
-  border-radius: 10px;
+.bg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  .login-selection{
-    width: 100%;
-    display: flex;
+  .login-container{
+    width: 528px;
+    height: 100%;
+    border: 2px solid var(--color-primary-600);
+    border-radius: 10px;
 
-    .login-selection-btn{
-      width: 50%;
-      padding: 4px;
-      border: none;
-      outline: none;
-      background-color: var(--color-primary-600);
-      color: var(--color-text-200);
-      text-align: center;
-      transition: all .3s ease-in-out;
-      border-bottom: 2px solid var(--color-primary-600);
+    .login-selection{
+      width: 100%;
+      display: flex;
 
-      &:first-child{
-        border-top-left-radius: 8px;
-      }
-      &:last-child{
-        border-top-right-radius: 8px;
+      .login-selection-btn{
+        width: 50%;
+        padding: 4px;
+        border: none;
+        outline: none;
+        background-color: var(--color-primary-600);
+        color: var(--color-text-200);
+        text-align: center;
+        transition: all .3s ease-in-out;
+        border-bottom: 2px solid var(--color-primary-600);
+
+        &:first-child{
+          border-top-left-radius: 8px;
+        }
+        &:last-child{
+          border-top-right-radius: 8px;
+        }
       }
     }
-  }
 
-  .login-loader{
-    width: 100%;
-    height: 100%;
-    padding: 2vw;
+    .login-loader{
+      width: 100%;
+      height: 100%;
+      padding: 2vw;
+    }
   }
 }
