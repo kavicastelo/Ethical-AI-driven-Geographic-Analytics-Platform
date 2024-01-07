@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Subscription} from "rxjs";
 import {ThemeService} from "../../services/theme.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   signInBtn = true;
   signUpBtn = false;
 
-  constructor(private themeService: ThemeService, private router: Router) {
+  constructor(private themeService: ThemeService, private router: Router, private cookieService: AuthService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -25,7 +26,12 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['/login/signin']);
+    if (this.cookieService.isExists()){
+      this.router.navigate(['/dashboard']);
+    }
+    else{
+      this.router.navigate(['/login/signin']);
+    }
   }
 
   signIn(){
