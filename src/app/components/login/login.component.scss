@@ -1,0 +1,27 @@
+.login-container{
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--color-primary-600);
+  border-radius: 10px;
+
+  .login-selection{
+    width: 100%;
+    display: flex;
+
+    .login-selection-btn{
+      width: 50%;
+      padding: 4px;
+      border: none;
+      outline: none;
+      background-color: var(--color-primary-600);
+      color: var(--color-text-100);
+      text-align: center;
+    }
+  }
+
+  .login-loader{
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+  }
+}

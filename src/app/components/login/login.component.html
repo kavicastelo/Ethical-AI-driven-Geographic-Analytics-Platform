@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="container">
+      <div class="login-container">
+        <div class="login-selection">
+          <button class="login-selection-btn">Signin</button>
+          <button class="login-selection-btn">Signup</button>
+        </div>
+        <div class="login-loader">
+          <app-sign-up></app-sign-up>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
