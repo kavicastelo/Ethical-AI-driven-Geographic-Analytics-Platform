@@ -14,8 +14,17 @@
       border: none;
       outline: none;
       background-color: var(--color-primary-600);
-      color: var(--color-text-100);
+      color: var(--color-text-200);
       text-align: center;
+      transition: all .3s ease-in-out;
+      border-bottom: 2px solid var(--color-primary-600);
+
+      &:first-child{
+        border-top-left-radius: 8px;
+      }
+      &:last-child{
+        border-top-right-radius: 8px;
+      }
     }
   }
 
