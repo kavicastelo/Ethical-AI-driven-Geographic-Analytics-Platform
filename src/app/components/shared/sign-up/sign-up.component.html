@@ -1,6 +1,7 @@
 <div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
   <div class="bg">
-    <h3 style="padding: 50px 0 0 20px">Sign Up</h3>
+      <h3 style="padding: 50px 0 0 20px">Sign Up</h3>
+
     <mat-dialog-content class="mat-typography">
       <p>Are you willing to join the Ethical AI-driven Geographic Analytics Platform, Here is your opportunity. You can
         join us if you're a weather enthusiast, researcher, or someone passionate about environmental awareness. Submit
@@ -44,7 +45,7 @@
       </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <div class="col-12 col-sm-6 col-md-3">
+      <div class="col-12">
         <button class="button-1" type="submit" (click)="submit()">Request</button>
       </div>
     </mat-dialog-actions>
