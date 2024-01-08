@@ -31,7 +31,7 @@
           </div>
           <hr style="color: var(--color-primary-600)">
           <h2>{{blogData.content[0].mainTitle}}</h2>
-          <p>{{blogData.content[1].mainContent}}</p>
+          <p [innerHTML]="blogData.content[1].mainContent"></p>
         </div>
         <div class="blog-content-wrapper">
           <img src="{{blogData.image}}" alt="{{blogData.title}}">
@@ -40,7 +40,7 @@
       <div *ngFor="let sb of subTitlesArray; let i = index">
         <div class="blog-content-wrapper">
           <h3>{{sb}}</h3>
-          <p>{{subContentArray[i]}}</p>
+          <p [innerHTML]="subContentArray[i]"></p>
         </div>
       </div>
       <div class="blog-content-wrapper">

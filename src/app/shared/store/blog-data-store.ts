@@ -5,7 +5,7 @@ export var blogDataStore: BlogModel[] = [
     id: 1,
     title: "title1",
     description: "description1",
-    content: [{mainTitle: "main title 1"}, {mainContent: "main content 1"}, {subTitle: ["sub title 1", "sub title 2", "sub title 3"]}, {subContent: ["sub content 1", "sub content 2", "sub content 3"]}],
+    content: [{mainTitle: "main title 1"}, {mainContent: "main <b>content 1</b>"}, {subTitle: ["sub title 1", "sub title 2", "sub title 3"]}, {subContent: ["sub content 1</br>next line", "sub content 2", "sub content 3"]}],
     image: "https://png.pngtree.com/background/20230411/original/pngtree-natural-landscape-snow-mountain-background-picture-image_2390197.jpg",
     tags: "tags1",
     created_at: "created_at1",

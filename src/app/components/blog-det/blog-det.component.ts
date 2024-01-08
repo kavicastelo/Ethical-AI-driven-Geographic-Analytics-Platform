@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {blogDataStore} from "../../shared/store/blog-data-store";
 import {ThemeService} from "../../services/theme.service";
 import {Subscription} from "rxjs";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-blog-det',
@@ -18,7 +19,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   subTitlesArray:any = [];
   subContentArray:any = [];
 
-  constructor(private themeService: ThemeService, private route: ActivatedRoute) {
+  constructor(private themeService: ThemeService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -36,6 +37,9 @@ export class BlogDetComponent implements OnInit, OnDestroy {
 
     this.subTitlesArray = this.blogData.content[2].subTitle;
     this.subContentArray = this.blogData.content[3].subContent;
+
+    // Sanitize HTML content
+    this.blogData.content[1].mainContent = this.sanitizer.bypassSecurityTrustHtml(this.blogData.content[1].mainContent);
   }
 
   ngOnDestroy() {
