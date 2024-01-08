@@ -36,7 +36,7 @@
                   <p [innerHTML]="f.description"></p>
                 </div>
                 <div class="card-bottom">
-                  <button class="button-1" style="margin: 0 0 10px 10px"><i class="fa fa-thumbs-up" aria-hidden="true"></i> like {{f.likes}}</button>
+                  <button class="button-1" style="margin: 0 0 10px 10px" (click)="like()"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{isLiked?'Liked':'Like'}} {{f.likes}}</button>
                 </div>
               </div>
             </div>
