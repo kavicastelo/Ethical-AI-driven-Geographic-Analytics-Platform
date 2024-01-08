@@ -11,7 +11,8 @@
     <div class="menu">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid" style="justify-content: flex-end!important;">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: flex-end!important;">
@@ -28,8 +29,15 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/references" [class.active]="isActive('/references')">References</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Location</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Location
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let l of locations"><a class="nav-link" routerLink="/{{l.code}}"
+                                                     [class.active]="isActive('/')">{{l.name}}</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/contact" [class.active]="isActive('/contact')">Contact</a>
@@ -38,7 +46,7 @@
                 <a class="nav-link" routerLink="/dashboard" [class.active]="isActive('/dashboard')">Dashboard</a>
               </li>
             </ul>
-          </div >
+          </div>
         </div>
       </nav>
     </div>
@@ -46,12 +54,15 @@
 
   <div class="notice" *ngIf="isNavbar">
     <span>Notice : &nbsp;</span>
-    <marquee behavior="slide" direction="left">This is a university student project. All values are generated test data. Not actual data provided!</marquee>
+    <marquee behavior="slide" direction="left">This is a university student project. All values are generated test data.
+      Not actual data provided!
+    </marquee>
     <button class="small-close-btn" (click)="closeNoticeBar()" title="close notice bar">x</button>
   </div>
 
   <button class="theme-btn" (click)="toggleTheme()" title="Theme">
-    <img [src]="themeService.isDarkTheme()?'./assets/images/icons/light.png':'./assets/images/icons/dark.png'" alt="theme" height="40" width="40">
+    <img [src]="themeService.isDarkTheme()?'./assets/images/icons/light.png':'./assets/images/icons/dark.png'"
+         alt="theme" height="40" width="40">
   </button>
 
   <router-outlet></router-outlet>
