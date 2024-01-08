@@ -12,6 +12,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class HomeComponent implements OnInit, OnDestroy {
   private themeSubscription: Subscription;
   isDarkMode: boolean | undefined;
+  isLiked: boolean = false
 
   forecastData:any = forecastDataStore
 
@@ -27,5 +28,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.forecastData[3] = this.sanitizer.bypassSecurityTrustHtml(this.forecastData[3]);
+  }
+
+  like() {
+    this.isLiked = !this.isLiked
+    let count;
+    this.forecastData.forEach((element:any) => {
+      count = element.likes
+
+      if (this.isLiked) {
+        count++
+      }
+      else {
+        count = count - 1
+      }
+      count = element.likes
+    })
   }
 }
