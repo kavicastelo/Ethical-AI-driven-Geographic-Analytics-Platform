@@ -8,4 +8,11 @@
   .top-carousal{
     margin-bottom: 22px;
   }
+
+  .card-container{
+    .card{
+      background-color: var(--color-surface-mixed-100);
+      border: 1px solid var(--color-primary-600);
+    }
+  }
 }

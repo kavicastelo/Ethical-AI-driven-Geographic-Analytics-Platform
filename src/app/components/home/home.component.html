@@ -28,6 +28,18 @@
               </div>
             </div>
             <h3>AIR QUALITY FORECASTS</h3>
+            <div class="card-container">
+              <div class="card" *ngFor="let f of forecastData">
+                <div class="card-body">
+                  <h4>{{f.title}}</h4>
+                  <h5>Issued at {{f.dateTime}}</h5>
+                  <p [innerHTML]="f.description"></p>
+                </div>
+                <div class="card-bottom">
+                  <button class="button-1" style="margin: 0 0 10px 10px"><i class="fa fa-thumbs-up" aria-hidden="true"></i> like {{f.likes}}</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
