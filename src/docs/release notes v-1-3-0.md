@@ -1,4 +1,18 @@
 # Release Notes v1.3.0 (Generated)
+## What's New
+* This is completely frontend design
+* Removed backend for this release
+* Implemented `Home Page`, `About Page`, `Blog page`, `References Page` and `Contact Page`
+* Implemented `sign in` and `sign up` components
+* Added router guards to prevent unauthorized access for dashboard
+* Added test data models and stores to test the frontend
+* Added color theme switch (light and dark - default is light)
+
+## Libraries and Packages
+* Angular Material
+* Ngx Cookie Service
+* Bootstrap
+
 ## What's Changed
 * backend init by @kavicastelo in https://github.com/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform/pull/5
 * re-init by @kavicastelo in https://github.com/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform/pull/6
