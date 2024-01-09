@@ -25,37 +25,18 @@
         </div>
       </div>
 
-      <div class="feedback-wrapper">
+      <div class="feedback-wrapper" *ngFor="let f of feedbacks">
         <div class="feedback-writer">
           <div class="profile-wrapper">
-            <img src="{{userProfile.picture}}" alt="{{userProfile.family_name}}" width="40" height="40">
+            <img src="{{f.picture}}" alt="{{f.family_name}}" width="40" height="40">
           </div>
           <div>
-            <p class="username">{{userProfile.name}}</p>
-            <p class="post-date">2024-01-08</p>
+            <p class="username">{{f.name}}</p>
+            <p class="post-date">{{f.date}}</p>
           </div>
         </div>
         <div class="feedback">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet architecto aspernatur at cumque, dicta
-          dignissimos eos esse facilis in ipsa labore laborum modi, molestiae molestias necessitatibus neque nobis omnis
-          optio quae sequi soluta voluptate.
-        </div>
-      </div>
-
-      <div class="feedback-wrapper">
-        <div class="feedback-writer">
-          <div class="profile-wrapper">
-            <img src="{{userProfile.picture}}" alt="{{userProfile.family_name}}" width="40" height="40">
-          </div>
-          <div>
-            <p class="username">{{userProfile.name}}</p>
-            <p class="post-date">2024-01-08</p>
-          </div>
-        </div>
-        <div class="feedback">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet architecto aspernatur at cumque, dicta
-          dignissimos eos esse facilis in ipsa labore laborum modi, molestiae molestias necessitatibus neque nobis omnis
-          optio quae sequi soluta voluptate.
+          {{f.feedback}}
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FeedbackService} from "../../services/feedback.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {feedbackDataStore} from "../../shared/store/feedback-data-store";
 
 @Component({
   selector: 'app-feedback',
@@ -9,6 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class FeedbackComponent implements OnInit {
   userProfile: any;
+  feedbacks = feedbackDataStore;
 
   feedbackForm = new FormGroup({
     feedback: new FormControl(null,[
@@ -21,6 +23,7 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     this.userProfile = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
+    console.log(this.userProfile)
   }
 
   submit() {
