@@ -23,6 +23,7 @@ import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { SignupFormComponent } from './components/shared/signup-form/signup-form.component';
 import { SigninFormComponent } from './components/shared/signin-form/signin-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
