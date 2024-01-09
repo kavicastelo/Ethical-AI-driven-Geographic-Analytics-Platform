@@ -12,6 +12,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--  google api-->
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script>
+    function decodeJWTToken(token) {
+      return JSON.parse(atob(token.split(".")[1]));
+    }
+    function handleCredentialResponse(response) {
+      // to decode the credential response.
+      const responsePayload = decodeJWTToken(response.credential);
+      sessionStorage.setItem("loggedInUser", JSON.stringify(responsePayload));
+      window.location.href = "/#/feedback";
+    }
+    function handleSignout() {
+      google.accounts.id.disableAutoSelect();
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>
