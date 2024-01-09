@@ -24,6 +24,7 @@ import { SignupFormComponent } from './components/shared/signup-form/signup-form
 import { SigninFormComponent } from './components/shared/signin-form/signin-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FaqComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {HttpClientModule} from "@angular/common/http";
     DashbordComponent,
     SignupFormComponent,
     SigninFormComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
