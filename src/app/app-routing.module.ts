@@ -12,6 +12,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {SigninFormComponent} from "./components/shared/signin-form/signin-form.component";
 import {SignupFormComponent} from "./components/shared/signup-form/signup-form.component";
 import {FeedbackComponent} from "./components/feedback/feedback.component";
+import {FaqComponent} from "./components/faq/faq.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'signup', component: SignupFormComponent }
   ]},
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'faq', component: FaqComponent },
   { path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard] },
 ];
 
