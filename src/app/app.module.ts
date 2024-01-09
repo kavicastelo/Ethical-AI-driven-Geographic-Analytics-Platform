@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { SignupFormComponent } from './components/shared/signup-form/signup-form.component';
 import { SigninFormComponent } from './components/shared/signin-form/signin-form.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SigninFormComponent } from './components/shared/signin-form/signin-form
     LoginComponent,
     DashbordComponent,
     SignupFormComponent,
-    SigninFormComponent
+    SigninFormComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
