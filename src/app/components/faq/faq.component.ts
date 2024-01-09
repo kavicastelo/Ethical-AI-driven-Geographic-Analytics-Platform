@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {faqDataStore} from "../../shared/store/faq-data-store";
 
 @Component({
   selector: 'app-faq',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent {
-
+  faqs = faqDataStore
 }
