@@ -25,6 +25,7 @@ import { SigninFormComponent } from './components/shared/signin-form/signin-form
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import {HttpClientModule} from "@angular/common/http";
 import { FaqComponent } from './components/faq/faq.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FaqComponent } from './components/faq/faq.component';
     MatInputModule,
     ReactiveFormsModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
