@@ -4,6 +4,7 @@ import {blogDataStore} from "../../shared/store/blog-data-store";
 import {ThemeService} from "../../services/theme.service";
 import {Subscription} from "rxjs";
 import {DomSanitizer} from "@angular/platform-browser";
+import {commentDataStore} from "../../shared/store/comment-data-store";
 
 @Component({
   selector: 'app-blog-det',
@@ -15,9 +16,11 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   isDarkMode: boolean | undefined;
 
   blogId: string | null | undefined;
-  blogData:any = blogDataStore;
-  subTitlesArray:any = [];
-  subContentArray:any = [];
+  blogData: any = blogDataStore;
+  commentData: any = commentDataStore;
+  sortedComments: any = [];
+  subTitlesArray: any = [];
+  subContentArray: any = [];
 
   constructor(private themeService: ThemeService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -32,6 +35,16 @@ export class BlogDetComponent implements OnInit, OnDestroy {
         if (blog.id == this.blogId) {
           this.blogData = blog;
         }
+      })
+
+      this.commentData.forEach((comment: any) => {
+        if (comment.blogId == this.blogId) {
+          this.sortedComments.push(comment);
+        }
+      })
+
+      this.sortedComments.forEach((comment: any) => {
+        console.log(comment.reply)
       })
     });
 

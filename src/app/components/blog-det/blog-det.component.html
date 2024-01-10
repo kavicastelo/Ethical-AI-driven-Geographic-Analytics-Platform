@@ -49,7 +49,46 @@
         </div>
       </div>
       <div class="comment-section">
+        <div class="comment-wrapper" *ngFor="let c of sortedComments">
+          <div class="commenter">
+            <div class="profile">
+              <img src="{{c.profile}}" alt="{{c.name}}">
+            </div>
+            <div class="name-tag">
+              <p class="name">{{c.name}}</p>
+              <p class="date">{{c.date}}</p>
+            </div>
+          </div>
+          <div class="comment-content">
+            <p>{{c.comment}}</p>
+          </div>
+          <div class="comment-btns-wrapper">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center justify-content-between">
+                  <p>Like</p>
+                  <p>Reply</p>
+                  <p>Share</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="reply-wrapper" *ngFor="let r of c.reply">
+            <div class="commenter">
+              <div class="profile">
+                <img src="{{r.profile}}" alt="{{r.name}}">
+              </div>
+              <div class="name-tag">
+                <p class="name">{{r.name}}</p>
+                <p class="date">{{r.date}}</p>
+              </div>
+            </div>
+            <div class="comment-content">
+              <p>{{r.comment}}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
