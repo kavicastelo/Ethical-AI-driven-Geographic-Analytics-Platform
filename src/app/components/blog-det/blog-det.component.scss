@@ -18,3 +18,59 @@
     width: 100%;
   }
 }
+
+.comment-wrapper, .reply-wrapper{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px 25px;
+  min-height: 100px;
+  background-color: var(--color-primary-600);
+
+  .commenter{
+    display: flex;
+    align-items: center;
+
+    .profile{
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+      }
+    }
+    .name-tag{
+      margin-left: 10px;
+      .name{
+        color: var(--color-text-200);
+        margin: 0;
+      }
+      .date{
+        color: var(--color-text-300);
+        font-size: 11px;
+        margin: 0;
+      }
+    }
+  }
+  .comment-content{
+    margin-top: 10px;
+    color: var(--color-text-200);
+  }
+  .comment-btns-wrapper{
+    margin-top: 10px;
+    p{
+      color: var(--color-text-300);
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover{
+        color: var(--color-text-200);
+      }
+    }
+  }
+}
+.reply-wrapper{
+  padding-left: max(50px, 10%);
+}
