@@ -7,4 +7,5 @@ export interface CommentModel {
   date: Date;
   comment: string;
   reply: any;
+  like: number;
 }

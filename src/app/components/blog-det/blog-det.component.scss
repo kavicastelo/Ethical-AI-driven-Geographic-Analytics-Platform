@@ -88,3 +88,41 @@
     }
   }
 }
+
+.reply-comment{
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .feedback-form{
+    width: max(50%, 300px);
+    background-color: var(--color-surface-mixed-200);
+    padding: 12px 20px;
+
+    .close-btn-div{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+
+      button{
+        border: none;
+        outline: none;
+        background-color: var(--color-surface-400);
+        color: var(--color-text-200);
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin-bottom: 3px;
+        border-radius: 100%;
+      }
+    }
+  }
+}
