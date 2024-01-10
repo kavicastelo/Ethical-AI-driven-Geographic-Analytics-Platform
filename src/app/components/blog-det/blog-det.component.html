@@ -49,16 +49,18 @@
         </div>
       </div>
       <div class="comment-section">
-        <div class="comment-wrapper">
+        <div class="comment-wrapper" *ngFor="let c of sortedComments">
           <div class="commenter">
-            <div class="profile"></div>
+            <div class="profile">
+              <img src="{{c.profile}}" alt="{{c.name}}">
+            </div>
             <div class="name-tag">
-              <p class="name">john</p>
-              <p class="date">2024-01-10</p>
+              <p class="name">{{c.name}}</p>
+              <p class="date">{{c.date}}</p>
             </div>
           </div>
           <div class="comment-content">
-            <p>This is a comment</p>
+            <p>{{c.comment}}</p>
           </div>
           <div class="comment-btns-wrapper">
             <div class="row">
@@ -72,16 +74,18 @@
             </div>
           </div>
 
-          <div class="reply-wrapper">
+          <div class="reply-wrapper" *ngFor="let r of c.reply">
             <div class="commenter">
-              <div class="profile"></div>
+              <div class="profile">
+                <img src="{{r.profile}}" alt="{{r.name}}">
+              </div>
               <div class="name-tag">
-                <p class="name">john</p>
-                <p class="date">2024-01-10</p>
+                <p class="name">{{r.name}}</p>
+                <p class="date">{{r.date}}</p>
               </div>
             </div>
             <div class="comment-content">
-              <p>This is a reply</p>
+              <p>{{r.comment}}</p>
             </div>
           </div>
         </div>
