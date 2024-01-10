@@ -32,7 +32,7 @@ export class SigninFormComponent implements OnInit{
 
   submit() {
     this.authData.forEach((item:any) => {
-      if (item !== null) {
+      if (item !== null && item !== undefined) {
         if (item.email === this.signInForm.get('email')?.value) {
           if (item.password === this.signInForm.get('password')?.value) {
             this.cookieService.createUser(this.authData.email);

@@ -26,6 +26,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import {HttpClientModule} from "@angular/common/http";
 import { FaqComponent } from './components/faq/faq.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ReactiveFormsModule,
     MatSelectModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
