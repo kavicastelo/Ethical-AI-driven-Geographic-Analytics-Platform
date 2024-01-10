@@ -62,5 +62,21 @@
   .mat-drawer{
     width: 300px;
     background-color: var(--color-surface-mixed-100);
+
+    ul{
+      margin: 0;
+      padding: 0;
+
+      li{
+        list-style: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover{
+          background-color: var(--color-surface-mixed-300);
+        }
+      }
+    }
   }
 }

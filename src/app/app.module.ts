@@ -27,6 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { FaqComponent } from './components/faq/faq.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ForbiddenComponent } from './components/shared/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     SignupFormComponent,
     SigninFormComponent,
     FeedbackComponent,
-    FaqComponent
+    FaqComponent,
+    AdminLoginComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

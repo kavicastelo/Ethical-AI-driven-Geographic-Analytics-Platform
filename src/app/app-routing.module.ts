@@ -13,6 +13,8 @@ import {SigninFormComponent} from "./components/shared/signin-form/signin-form.c
 import {SignupFormComponent} from "./components/shared/signup-form/signup-form.component";
 import {FeedbackComponent} from "./components/feedback/feedback.component";
 import {FaqComponent} from "./components/faq/faq.component";
+import {AdminLoginComponent} from "./components/admin-login/admin-login.component";
+import {ForbiddenComponent} from "./components/shared/forbidden/forbidden.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,7 +31,13 @@ const routes: Routes = [
   ]},
   { path: 'feedback', component: FeedbackComponent },
   { path: 'faq', component: FaqComponent },
-  { path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
+    { path: 'administration', component: AdminLoginComponent, children: [
+      { path: '', redirectTo: '/dashboard/administration/signin', pathMatch: 'full' },
+      { path: 'signin', component: SigninFormComponent },
+      { path: 'signup', component: ForbiddenComponent }
+    ]}
+  ]},
 ];
 
 @NgModule({

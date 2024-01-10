@@ -13,25 +13,23 @@
       </div>
     </div>
   </div>
-  <mat-drawer-container class="dashboard-container" [hasBackdrop]="hasBackdrop.value">
-    <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
+  <mat-drawer-container class="dashboard-container" hasBackdrop="false">
+    <mat-drawer #drawer mode="over">
+      <ul>
+        <li routerLink="/dashboard/administration">Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li routerLink="/dashboard/administration">Administration</li>
+      </ul>
+    </mat-drawer>
     <mat-drawer-content>
-      <mat-form-field>
-        <mat-label>Sidenav mode</mat-label>
-        <mat-select #mode value="side">
-          <mat-option value="side">Side</mat-option>
-          <mat-option value="over">Over</mat-option>
-          <mat-option value="push">Push</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Has backdrop</mat-label>
-        <mat-select #hasBackdrop>
-          <mat-option>Unset</mat-option>
-          <mat-option [value]="true">True</mat-option>
-          <mat-option [value]="false">False</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
