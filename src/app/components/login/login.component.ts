@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {ThemeService} from "../../services/theme.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {authDataStore} from "../../shared/store/auth-data-store";
 
 @Component({
   selector: 'app-login',
