@@ -23,7 +23,7 @@
   width: 100%;
   margin-bottom: 20px;
   padding: 12px 25px;
-  min-height: 100px;
+  min-height: 50px;
   background-color: var(--color-primary-600);
 
   .commenter{
@@ -56,6 +56,9 @@
   .comment-content{
     margin-top: 10px;
     color: var(--color-text-200);
+    p{
+      font-size: 14px;
+    }
   }
   .comment-btns-wrapper{
     margin-top: 10px;
@@ -73,4 +76,15 @@
 }
 .reply-wrapper{
   padding-left: max(50px, 10%);
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 5px;
+
+  .comment-content{
+    margin-top: 10px;
+    color: var(--color-text-200);
+    p{
+      margin: 0;
+    }
+  }
 }
