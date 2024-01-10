@@ -9,7 +9,8 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null
+    reply: null,
+    like: 0
   },
   {
     id: 2,
@@ -31,7 +32,8 @@ export var commentDataStore: CommentModel[] = [
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
       comment: "This is a reply comment 2"
-    }]
+    }],
+    like: 1
   },
   {
     id: 3,
@@ -59,7 +61,8 @@ export var commentDataStore: CommentModel[] = [
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
       comment: "This is a reply comment 3"
-    }]
+    }],
+    like: 2
   },
   {
     id: 4,
@@ -93,7 +96,8 @@ export var commentDataStore: CommentModel[] = [
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
       comment: "This is a reply comment 4"
-    }]
+    }],
+    like: 3
   },
   {
     id: 5,
@@ -115,7 +119,8 @@ export var commentDataStore: CommentModel[] = [
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
       comment: "This is a reply comment 2"
-    }]
+    }],
+    like: 4
   },
   {
     id: 6,
@@ -125,7 +130,8 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null
+    reply: null,
+    like: 0
   },
   {
     id: 7,
@@ -135,6 +141,7 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null
+    reply: null,
+    like: 0
   },
 ]

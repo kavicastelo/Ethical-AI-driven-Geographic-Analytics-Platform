@@ -5,6 +5,7 @@ import {ThemeService} from "../../services/theme.service";
 import {Subscription} from "rxjs";
 import {DomSanitizer} from "@angular/platform-browser";
 import {commentDataStore} from "../../shared/store/comment-data-store";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-blog-det',
@@ -14,6 +15,7 @@ import {commentDataStore} from "../../shared/store/comment-data-store";
 export class BlogDetComponent implements OnInit, OnDestroy {
   private themeSubscription: Subscription;
   isDarkMode: boolean | undefined;
+  isReplyFormVisible: boolean = false;
 
   blogId: string | null | undefined;
   blogData: any = blogDataStore;
@@ -21,6 +23,17 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   sortedComments: any = [];
   subTitlesArray: any = [];
   subContentArray: any = [];
+
+  replyForm = new FormGroup({
+    reply: new FormControl(null,[
+      Validators.required
+    ])
+  });
+  commentForm = new FormGroup({
+    comment: new FormControl(null,[
+      Validators.required
+    ])
+  })
 
   constructor(private themeService: ThemeService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -42,10 +55,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           this.sortedComments.push(comment);
         }
       })
-
-      this.sortedComments.forEach((comment: any) => {
-        console.log(comment.reply)
-      })
     });
 
     this.subTitlesArray = this.blogData.content[2].subTitle;
@@ -57,5 +66,21 @@ export class BlogDetComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
+  }
+
+  submitReply() {
+
+  }
+
+  closeReplyForm() {
+    this.isReplyFormVisible = false;
+  }
+
+  replyPopup() {
+    this.isReplyFormVisible = true;
+  }
+
+  comment() {
+
   }
 }
