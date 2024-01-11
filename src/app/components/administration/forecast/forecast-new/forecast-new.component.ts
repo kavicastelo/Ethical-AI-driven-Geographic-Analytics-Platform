@@ -22,13 +22,17 @@ export class ForecastNewComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('addForecastForm')) {
-      this.draftItem = JSON.parse(sessionStorage.getItem('addForecastForm')!);
-      this.addForecastForm.setValue(JSON.parse(sessionStorage.getItem('addForecastForm')!));
-    }
+    if (localStorage.getItem('addForecastForm') != null) {
+      this.draftItem = JSON.parse(localStorage.getItem('addForecastForm')!);
+      this.addForecastForm.setValue(JSON.parse(localStorage.getItem('addForecastForm')!));
 
-    this.draftItem.cont = this.sanitizer.bypassSecurityTrustHtml(this.draftItem.cont);
-    this.draftItem.cont = this.draftItem.cont.replace(/[\r\n]+/g," ")
+      this.draftItem.cont = this.sanitizer.bypassSecurityTrustHtml(this.draftItem.cont);
+      this.draftItem.cont = this.draftItem.cont.replace(/[\r\n]+/g," ")
+    }
+    else {
+      this.draftItem = [{"title":null,"cont":null}];
+      this.addForecastForm.reset();
+    }
   }
 
   saveForecast() {
@@ -36,8 +40,12 @@ export class ForecastNewComponent implements OnInit {
   }
 
   saveDraft() {
-    sessionStorage.setItem('addForecastForm', JSON.stringify(this.addForecastForm.value));
+    localStorage.setItem('addForecastForm', JSON.stringify(this.addForecastForm.value));
     location.reload();
   }
 
+  discardDraft() {
+    localStorage.removeItem('addForecastForm');
+    location.reload();
+  }
 }
