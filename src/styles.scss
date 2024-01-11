@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.button-1{
+.button-1, .button-2{
   color: var(--color-text-200);
   background-color: var(--color-primary-500);
   border-radius: 4px;
@@ -220,6 +220,14 @@ h1, h2, h3, h4, h5, h6 {
 
   &:hover{
     background-color: var(--color-primary-400);
+  }
+}
+.button-2{
+  background-color: var(--color-danger-200);
+  color: white;
+
+  &:hover{
+    background-color: var(--color-danger-100);
   }
 }
 

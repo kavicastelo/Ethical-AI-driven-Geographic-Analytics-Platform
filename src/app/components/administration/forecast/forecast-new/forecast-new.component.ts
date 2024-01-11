@@ -27,7 +27,7 @@ export class ForecastNewComponent implements OnInit {
       this.addForecastForm.setValue(JSON.parse(localStorage.getItem('addForecastForm')!));
 
       this.draftItem.cont = this.sanitizer.bypassSecurityTrustHtml(this.draftItem.cont);
-      this.draftItem.cont = this.draftItem.cont.replace(/[\r\n]+/g," ")
+      // this.draftItem.cont = this.draftItem.cont.replace(/[\r\n]+/g," ")
     }
     else {
       this.draftItem = [{"title":null,"cont":null}];

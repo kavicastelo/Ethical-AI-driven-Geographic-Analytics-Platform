@@ -26,3 +26,24 @@
     }
   }
 }
+
+.forecast-danger-zone{
+  width: 100%;
+  margin-top: 18px;
+
+  h1{
+    color: var(--color-danger-100);
+  }
+
+  .card{
+    width: 100%;
+    border: 1px solid var(--color-danger-100);
+    background-color: var(--color-surface-mixed-100);
+
+    .card-body{
+      .card-title{
+        color: var(--color-text-200);
+      }
+    }
+  }
+}
