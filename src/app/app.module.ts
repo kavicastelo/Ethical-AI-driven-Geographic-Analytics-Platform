@@ -30,6 +30,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ForbiddenComponent } from './components/shared/forbidden/forbidden.component';
 import { AdministrationComponent } from './components/administration/administration.component';
+import { ForecastComponent } from './components/administration/forecast/forecast.component';
+import { ForecastNewComponent } from './components/administration/forecast/forecast-new/forecast-new.component';
+import { ForecastEditComponent } from './components/administration/forecast/forecast-edit/forecast-edit.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { AdministrationComponent } from './components/administration/administrat
     FaqComponent,
     AdminLoginComponent,
     ForbiddenComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    ForecastComponent,
+    ForecastNewComponent,
+    ForecastEditComponent
   ],
   imports: [
     BrowserModule,
