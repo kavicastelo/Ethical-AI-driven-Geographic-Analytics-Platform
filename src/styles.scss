@@ -282,3 +282,87 @@ h1, h2, h3, h4, h5, h6 {
 .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
   border-color: var(--color-primary-100) !important;
 }
+
+// admin
+.dashboard-top-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 50px;
+  background-color: var(--color-primary-600);
+  padding: 5px 15px;
+
+  .menu-icon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  .profile-tag{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    p{
+      margin: 0;
+      color: var(--color-text-200);
+      font-size: 14px;
+    }
+    .sign-out{
+      cursor: pointer;
+
+      &:hover{
+        color: var(--color-primary-400);
+      }
+    }
+
+    .profiler-image{
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--color-text-200);
+      font-size: 18px;
+      background-color: var(--color-primary-400);
+      font-weight: 700;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.dashboard-container{
+  width: 100%;
+  height: calc(100vh - 140px);
+  background-color: var(--color-surface-mixed-200);
+
+  .mat-drawer{
+    width: 300px;
+    background-color: var(--color-surface-mixed-100);
+
+    ul{
+      margin: 0;
+      padding: 0;
+
+      li{
+        list-style: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover{
+          background-color: var(--color-surface-mixed-300);
+        }
+      }
+    }
+  }
+}
