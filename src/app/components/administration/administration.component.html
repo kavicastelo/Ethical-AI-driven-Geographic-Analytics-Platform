@@ -1,1 +1,34 @@
-<p>administration works!</p>
+<div class="bg">
+  <div class="dashboard-top-bar">
+    <div class="menu-icon" (click)="drawer.toggle()">
+      <img src="./assets/images/icons/menu.png" alt="menu">
+    </div>
+    <div class="profile-tag">
+      <div class="profiler-image">
+        {{profileLetter}}
+      </div>
+      <div>
+        <p>{{userEmail}}</p>
+        <p class="sign-out" (click)="signOut()">sign out</p>
+      </div>
+    </div>
+  </div>
+  <mat-drawer-container class="dashboard-container" hasBackdrop="false">
+    <mat-drawer #drawer mode="over">
+      <ul>
+        <li routerLink="/admin/forecast">Forecast</li>
+        <li routerLink="/admin/users">Users</li>
+        <li routerLink="/admin/blogs">Blogs</li>
+        <li routerLink="/admin/feedback">Feedback</li>
+        <li routerLink="/admin/comments">Comments</li>
+        <li routerLink="/admin/faq">FAQ</li>
+        <li routerLink="/admin/settings">Settings</li>
+      </ul>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
