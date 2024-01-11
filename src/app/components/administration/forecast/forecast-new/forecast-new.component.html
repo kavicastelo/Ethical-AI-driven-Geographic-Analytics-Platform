@@ -1,12 +1,12 @@
 <div class="container">
   <div class="d-flex align-items-center justify-content-end w-100">
     <button class="button-1" (click)="saveDraft()">save draft</button>
-    <button class="button-1" (click)="discardDraft()">discard</button>
+    <button class="button-1" (click)="discardDraft()" style="margin-left: 5px">discard</button>
   </div>
   <div class="forecast-add-form-wrapper">
     <div class="forecast-form-wrapper-top">
       <h6>New Forecast</h6>
-      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <i class="fa fa-info-circle" aria-hidden="true" matTooltip="use <Html> tags for get better experience.  example: <b>bold</b>"></i>
     </div>
     <div class="container">
       <form class="feedback-form" [formGroup]="addForecastForm">

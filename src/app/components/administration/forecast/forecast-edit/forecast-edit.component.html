@@ -2,7 +2,7 @@
   <div class="forecast-add-form-wrapper">
     <div class="forecast-form-wrapper-top">
       <h6>Edit Forecast</h6>
-      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <i class="fa fa-info-circle" aria-hidden="true" matTooltip="use <Html> tags for get better experience.  example: <b>bold</b>"></i>
     </div>
     <div class="container">
       <form class="feedback-form" [formGroup]="editForecastForm">
@@ -26,6 +26,59 @@
       <div class="collapse" id="collapseExample">
         <h2>{{forecast[0].title}}</h2>
         <p [innerHTML]="forecast[0].description"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="forecast-danger-zone">
+    <div class="container">
+      <h1>Danger Zone</h1>
+      <hr style="color: var(--color-primary-600)">
+
+      <div class="card mb-3" style="width: 100%">
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="card-body">
+              <h5 class="card-title">Change visibility</h5>
+              <div class="d-sm-flex align-items-center justify-content-between">
+                <p class="card-text">If you make change the forecast visibility to private, it will disappear from main web page</p>
+                <button class="button-1" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility">Public</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseVisibility">
+        <div class="alert alert-warning" role="alert">
+          <div class="d-flex align-items-center justify-content-center flex-column">
+            <p style="color: black">Are you sure you want to make forecast private?</p>
+            <button class="button-2" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility">Make Private</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="width: 100%">
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="card-body">
+              <h5 class="card-title">Delete Forecast</h5>
+              <div class="d-sm-flex align-items-center justify-content-between">
+                <p class="card-text">This will completely disappear the forecast from main page. Don't delete the forecast if you don't have a new forcast to submit.</p>
+                <button class="button-1" data-bs-toggle="collapse" data-bs-target="#collapseDelete" aria-expanded="false" aria-controls="collapseDelete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapse" id="collapseDelete">
+        <div class="alert alert-danger" role="alert">
+          <div class="d-flex align-items-center justify-content-center flex-column">
+            <p style="color: black">Are you sure you want to delete main forecast?</p>
+            <button class="button-2" data-bs-toggle="collapse" data-bs-target="#collapseDelete" aria-expanded="false" aria-controls="collapseDelete">Delete</button>
+          </div>
+        </div>
       </div>
 
     </div>

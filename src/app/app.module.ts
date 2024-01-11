@@ -33,6 +33,7 @@ import { AdministrationComponent } from './components/administration/administrat
 import { ForecastComponent } from './components/administration/forecast/forecast.component';
 import { ForecastNewComponent } from './components/administration/forecast/forecast-new/forecast-new.component';
 import { ForecastEditComponent } from './components/administration/forecast/forecast-edit/forecast-edit.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -58,20 +59,21 @@ import { ForecastEditComponent } from './components/administration/forecast/fore
     ForecastNewComponent,
     ForecastEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    HttpClientModule,
-    MatSnackBarModule,
-    MatSidenavModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        HttpClientModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatTooltipModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
