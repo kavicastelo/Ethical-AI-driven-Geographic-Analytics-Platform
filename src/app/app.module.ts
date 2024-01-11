@@ -29,6 +29,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ForbiddenComponent } from './components/shared/forbidden/forbidden.component';
+import { AdministrationComponent } from './components/administration/administration.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ForbiddenComponent } from './components/shared/forbidden/forbidden.comp
     FeedbackComponent,
     FaqComponent,
     AdminLoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AdministrationComponent
   ],
   imports: [
     BrowserModule,
