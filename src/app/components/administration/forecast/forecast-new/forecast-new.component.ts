@@ -28,6 +28,7 @@ export class ForecastNewComponent implements OnInit {
     }
 
     this.draftItem.cont = this.sanitizer.bypassSecurityTrustHtml(this.draftItem.cont);
+    this.draftItem.cont = this.draftItem.cont.replace(/[\r\n]+/g," ")
   }
 
   saveForecast() {
@@ -36,6 +37,7 @@ export class ForecastNewComponent implements OnInit {
 
   saveDraft() {
     sessionStorage.setItem('addForecastForm', JSON.stringify(this.addForecastForm.value));
+    location.reload();
   }
 
 }
