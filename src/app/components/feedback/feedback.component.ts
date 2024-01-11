@@ -23,7 +23,6 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     this.userProfile = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
-    console.log(this.userProfile)
   }
 
   submit() {
