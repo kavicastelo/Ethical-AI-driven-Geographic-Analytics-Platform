@@ -15,7 +15,7 @@ export class ForecastEditComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   editForecastForm = new FormGroup({
-    description: new FormControl('',[
+    description: new FormControl(null,[
       Validators.required
     ])
   })
@@ -25,11 +25,11 @@ export class ForecastEditComponent implements OnInit {
   }
 
   loadCurrentForecast() {
-    sessionStorage.setItem('currentForm', JSON.stringify(this.forecast[0]));
+    let obj = this.forecast[0].description;
+    let arr = new Array({"description":obj});
 
     if (this.forecast[0].description != null) {
-      let item = JSON.parse(sessionStorage.getItem('currentForm')!);
-      this.editForecastForm.setValue(item);
+      this.editForecastForm.setValue(arr[0]);
     }
     this.forecast[0].description = this.sanitizer.bypassSecurityTrustHtml(this.forecast[0].description);
     // this.forecast[0].description = this.forecast[0].description.replace(/[\r\n]+/g," ")
