@@ -35,6 +35,9 @@ import { ForecastNewComponent } from './components/administration/forecast/forec
 import { ForecastEditComponent } from './components/administration/forecast/forecast-edit/forecast-edit.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { UsersComponent } from './components/administration/users/users.component';
+import { UsersListComponent } from './components/administration/users/users-list/users-list.component';
+import { UsersRequestsComponent } from './components/administration/users/users-requests/users-requests.component';
+import { UsersAdminsComponent } from './components/administration/users/users-admins/users-admins.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { UsersComponent } from './components/administration/users/users.componen
     ForecastComponent,
     ForecastNewComponent,
     ForecastEditComponent,
-    UsersComponent
+    UsersComponent,
+    UsersListComponent,
+    UsersRequestsComponent,
+    UsersAdminsComponent
   ],
     imports: [
         BrowserModule,
