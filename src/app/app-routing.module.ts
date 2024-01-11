@@ -15,6 +15,7 @@ import {FeedbackComponent} from "./components/feedback/feedback.component";
 import {FaqComponent} from "./components/faq/faq.component";
 import {AdminLoginComponent} from "./components/admin-login/admin-login.component";
 import {ForbiddenComponent} from "./components/shared/forbidden/forbidden.component";
+import {AdministrationComponent} from "./components/administration/administration.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: 'signup', component: ForbiddenComponent }
     ]}
   ]},
+  { path: 'admin', component: AdministrationComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
