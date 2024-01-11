@@ -20,6 +20,9 @@ import {ForecastComponent} from "./components/administration/forecast/forecast.c
 import {ForecastNewComponent} from "./components/administration/forecast/forecast-new/forecast-new.component";
 import {ForecastEditComponent} from "./components/administration/forecast/forecast-edit/forecast-edit.component";
 import {UsersComponent} from "./components/administration/users/users.component";
+import {UsersListComponent} from "./components/administration/users/users-list/users-list.component";
+import {UsersRequestsComponent} from "./components/administration/users/users-requests/users-requests.component";
+import {UsersAdminsComponent} from "./components/administration/users/users-admins/users-admins.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -50,7 +53,12 @@ const routes: Routes = [
       { path: 'new', component: ForecastNewComponent },
       { path: 'edit', component: ForecastEditComponent }
     ]},
-    { path: 'users', component: UsersComponent },
+    { path: 'users', component: UsersComponent, children: [
+      { path: '', redirectTo: '/admin/users/list', pathMatch: 'full' },
+      { path: 'list', component: UsersListComponent },
+      { path: 'requests', component: UsersRequestsComponent },
+      { path: 'admins', component: UsersAdminsComponent }
+    ]},
   ]},
 ];
 
