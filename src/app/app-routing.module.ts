@@ -43,7 +43,7 @@ const routes: Routes = [
     ]}
   ]},
   { path: 'admin', component: AdministrationComponent, canActivate: [AuthGuard], children: [
-    { path: '', redirectTo: '/admin/forecast', pathMatch: 'full' },
+    { path: '', redirectTo: '/admin/forecast/new', pathMatch: 'full' },
     { path: 'forecast', component: ForecastComponent, children: [
       { path: '', redirectTo: '/admin/forecast/new', pathMatch: 'full' },
       { path: 'new', component: ForecastNewComponent },
