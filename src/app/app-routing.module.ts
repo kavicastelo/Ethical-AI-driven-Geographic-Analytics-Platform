@@ -16,6 +16,9 @@ import {FaqComponent} from "./components/faq/faq.component";
 import {AdminLoginComponent} from "./components/admin-login/admin-login.component";
 import {ForbiddenComponent} from "./components/shared/forbidden/forbidden.component";
 import {AdministrationComponent} from "./components/administration/administration.component";
+import {ForecastComponent} from "./components/administration/forecast/forecast.component";
+import {ForecastNewComponent} from "./components/administration/forecast/forecast-new/forecast-new.component";
+import {ForecastEditComponent} from "./components/administration/forecast/forecast-edit/forecast-edit.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -39,7 +42,14 @@ const routes: Routes = [
       { path: 'signup', component: ForbiddenComponent }
     ]}
   ]},
-  { path: 'admin', component: AdministrationComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdministrationComponent, canActivate: [AuthGuard], children: [
+    { path: '', redirectTo: '/admin/forecast', pathMatch: 'full' },
+    { path: 'forecast', component: ForecastComponent, children: [
+      { path: '', redirectTo: '/admin/forecast/new', pathMatch: 'full' },
+      { path: 'new', component: ForecastNewComponent },
+      { path: 'edit', component: ForecastEditComponent }
+    ]},
+  ]},
 ];
 
 @NgModule({

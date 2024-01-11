@@ -366,3 +366,16 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
+.nav-tabs{
+  .nav-item{
+    .nav-link{
+      color: var(--color-text-200);
+      background-color: var(--color-surface-mixed-100);
+      border-color: var(--color-primary-600);
+    }
+    .nav-link.active{
+      background-color: var(--color-primary-600);
+    }
+  }
+}
