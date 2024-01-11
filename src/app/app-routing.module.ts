@@ -19,6 +19,7 @@ import {AdministrationComponent} from "./components/administration/administratio
 import {ForecastComponent} from "./components/administration/forecast/forecast.component";
 import {ForecastNewComponent} from "./components/administration/forecast/forecast-new/forecast-new.component";
 import {ForecastEditComponent} from "./components/administration/forecast/forecast-edit/forecast-edit.component";
+import {UsersComponent} from "./components/administration/users/users.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'new', component: ForecastNewComponent },
       { path: 'edit', component: ForecastEditComponent }
     ]},
+    { path: 'users', component: UsersComponent },
   ]},
 ];
 

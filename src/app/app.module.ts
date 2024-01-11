@@ -34,6 +34,7 @@ import { ForecastComponent } from './components/administration/forecast/forecast
 import { ForecastNewComponent } from './components/administration/forecast/forecast-new/forecast-new.component';
 import { ForecastEditComponent } from './components/administration/forecast/forecast-edit/forecast-edit.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { UsersComponent } from './components/administration/users/users.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     AdministrationComponent,
     ForecastComponent,
     ForecastNewComponent,
-    ForecastEditComponent
+    ForecastEditComponent,
+    UsersComponent
   ],
     imports: [
         BrowserModule,
