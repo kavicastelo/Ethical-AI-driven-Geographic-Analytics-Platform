@@ -23,6 +23,7 @@ import {UsersComponent} from "./components/administration/users/users.component"
 import {UsersListComponent} from "./components/administration/users/users-list/users-list.component";
 import {UsersRequestsComponent} from "./components/administration/users/users-requests/users-requests.component";
 import {UsersAdminsComponent} from "./components/administration/users/users-admins/users-admins.component";
+import {UsersNewAdminComponent} from "./components/administration/users/users-new-admin/users-new-admin.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -57,7 +58,8 @@ const routes: Routes = [
       { path: '', redirectTo: '/admin/users/list', pathMatch: 'full' },
       { path: 'list', component: UsersListComponent },
       { path: 'requests', component: UsersRequestsComponent },
-      { path: 'admins', component: UsersAdminsComponent }
+      { path: 'admins', component: UsersAdminsComponent },
+      { path: 'new', component: UsersNewAdminComponent }
     ]},
   ]},
 ];

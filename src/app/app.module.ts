@@ -38,6 +38,7 @@ import { UsersComponent } from './components/administration/users/users.componen
 import { UsersListComponent } from './components/administration/users/users-list/users-list.component';
 import { UsersRequestsComponent } from './components/administration/users/users-requests/users-requests.component';
 import { UsersAdminsComponent } from './components/administration/users/users-admins/users-admins.component';
+import { UsersNewAdminComponent } from './components/administration/users/users-new-admin/users-new-admin.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { UsersAdminsComponent } from './components/administration/users/users-ad
     UsersComponent,
     UsersListComponent,
     UsersRequestsComponent,
-    UsersAdminsComponent
+    UsersAdminsComponent,
+    UsersNewAdminComponent
   ],
     imports: [
         BrowserModule,
