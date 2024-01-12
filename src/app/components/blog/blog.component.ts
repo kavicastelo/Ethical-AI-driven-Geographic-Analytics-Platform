@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {Subscription} from "rxjs";
+import {filter, Subscription} from "rxjs";
 import {ThemeService} from "../../services/theme.service";
 import {blogDataStore} from "../../shared/store/blog-data-store";
-import {Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
+import {ScrollService} from "../../services/scroll.service";
 
 @Component({
   selector: 'app-blog',
@@ -15,7 +16,7 @@ export class BlogComponent {
 
   blogData:any = blogDataStore;
 
-  constructor(private themeService: ThemeService, private router: Router) {
+  constructor(private themeService: ThemeService, private router: Router, private scrollService: ScrollService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -26,6 +27,13 @@ export class BlogComponent {
   }
 
   ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        // Reload the page when the route changes
+        window.location.reload();
+        window.scrollTo(0, 0);
+      });
   }
 
   OpenBlog(id:any) {
