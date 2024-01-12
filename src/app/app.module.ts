@@ -39,6 +39,10 @@ import { UsersListComponent } from './components/administration/users/users-list
 import { UsersRequestsComponent } from './components/administration/users/users-requests/users-requests.component';
 import { UsersAdminsComponent } from './components/administration/users/users-admins/users-admins.component';
 import { UsersNewAdminComponent } from './components/administration/users/users-new-admin/users-new-admin.component';
+import { BlogsComponent } from './components/administration/blogs/blogs.component';
+import { BlogsNewComponent } from './components/administration/blogs/blogs-new/blogs-new.component';
+import { BlogsListComponent } from './components/administration/blogs/blogs-list/blogs-list.component';
+import { BlogsEditComponent } from './components/administration/blogs/blogs-edit/blogs-edit.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { UsersNewAdminComponent } from './components/administration/users/users-
     UsersListComponent,
     UsersRequestsComponent,
     UsersAdminsComponent,
-    UsersNewAdminComponent
+    UsersNewAdminComponent,
+    BlogsComponent,
+    BlogsNewComponent,
+    BlogsListComponent,
+    BlogsEditComponent
   ],
     imports: [
         BrowserModule,
