@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="new" [class.active]="isActive('/admin/blogs/new')">New</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="list" [class.active]="isActive('/admin/blogs/list')">List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="edit" [class.active]="isActive('/admin/blogs/edit')">Edit</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>
