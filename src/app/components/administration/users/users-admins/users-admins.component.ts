@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {adminsDataStore} from "../../../../shared/store/admin-data-store";
 
 @Component({
   selector: 'app-users-admins',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./users-admins.component.scss']
 })
 export class UsersAdminsComponent {
-
+  admins: any[] = adminsDataStore;
 }
