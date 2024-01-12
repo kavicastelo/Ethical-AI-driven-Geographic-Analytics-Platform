@@ -30,8 +30,8 @@
             </div>
           </div>
           <hr style="color: var(--color-primary-600)">
-          <h2>{{blogData.content[0].mainTitle}}</h2>
-          <p [innerHTML]="blogData.content[1].mainContent"></p>
+          <h2>{{blogData.content.mainTitle}}</h2>
+          <p [innerHTML]="blogData.content.mainContent"></p>
         </div>
         <div class="blog-content-wrapper">
           <img src="{{blogData.image}}" alt="{{blogData.title}}">
