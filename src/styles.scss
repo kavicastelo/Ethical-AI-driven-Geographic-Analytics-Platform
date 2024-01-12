@@ -236,7 +236,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
+// override bootstrap tables
+.table>:not(caption)>*>*{
+  background-color: var(--color-surface-mixed-200) !important;
+  color: var(--color-text-200) !important;
+}
 
 // override material css for forms
 .mat-focus-indicator::before {
