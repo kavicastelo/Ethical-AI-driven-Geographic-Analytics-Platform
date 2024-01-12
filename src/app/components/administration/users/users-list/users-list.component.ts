@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {usersDataStore} from "../../../../shared/store/users-data-store";
 
 @Component({
   selector: 'app-users-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent {
+  users: any = usersDataStore;
 
+  deleteUser(id:any) {
+
+  }
 }
