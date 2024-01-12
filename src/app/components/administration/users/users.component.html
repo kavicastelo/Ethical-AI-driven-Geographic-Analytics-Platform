@@ -8,6 +8,9 @@
   <li class="nav-item">
     <a class="nav-link" aria-current="page" routerLink="admins" [class.active]="isActive('/admin/users/admins')">Admins</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="new" [class.active]="isActive('/admin/users/new')">New</a>
+  </li>
 </ul>
 <div class="admin-sub-page-loader">
   <router-outlet></router-outlet>
