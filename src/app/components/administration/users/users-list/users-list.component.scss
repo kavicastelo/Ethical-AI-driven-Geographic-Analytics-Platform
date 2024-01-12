@@ -1,0 +1,4 @@
+.table>:not(caption)>*>*{
+  background-color: var(--color-surface-mixed-200) !important;
+  color: var(--color-text-200) !important;
+}
