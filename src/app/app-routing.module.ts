@@ -28,6 +28,7 @@ import {BlogsComponent} from "./components/administration/blogs/blogs.component"
 import {BlogsNewComponent} from "./components/administration/blogs/blogs-new/blogs-new.component";
 import {BlogsListComponent} from "./components/administration/blogs/blogs-list/blogs-list.component";
 import {BlogsEditComponent} from "./components/administration/blogs/blogs-edit/blogs-edit.component";
+import {FeedbacksComponent} from "./components/administration/feedbacks/feedbacks.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -84,6 +85,7 @@ const routes: Routes = [
           {path: 'edit', component: BlogsEditComponent}
         ]
       },
+      {path: 'feedback', component: FeedbacksComponent},
     ]
   },
 ];
