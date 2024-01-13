@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {blogDataStore} from "../../../../shared/store/blog-data-store";
 
 @Component({
   selector: 'app-blogs-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./blogs-list.component.scss']
 })
 export class BlogsListComponent {
+  blogs: any = blogDataStore
 
+  deleteBlog(id:any) {
+
+  }
 }

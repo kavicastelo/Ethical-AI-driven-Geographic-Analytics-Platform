@@ -1,1 +1,19 @@
-<p>blogs-list works!</p>
+<div class="container">
+  <div class="row" *ngFor="let b of blogs">
+    <div class="col-12">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="blog-image">
+          <img src="{{b.image}}" alt="{{b.title}}">
+        </div>
+        <div class="blog-content">
+          <h5>{{b.title}}</h5>
+          <p>{{b.description}}</p>
+        </div>
+        <div class="action">
+          <button class="button-2" (click)="deleteBlog(b.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+    <hr style="color: var(--color-primary-600)">
+  </div>
+</div>
