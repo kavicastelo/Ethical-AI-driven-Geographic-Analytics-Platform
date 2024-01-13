@@ -44,6 +44,7 @@ import { BlogsNewComponent } from './components/administration/blogs/blogs-new/b
 import { BlogsListComponent } from './components/administration/blogs/blogs-list/blogs-list.component';
 import { BlogsEditComponent } from './components/administration/blogs/blogs-edit/blogs-edit.component';
 import { ComingSoonComponent } from './components/shared/coming-soon/coming-soon.component';
+import { FeedbacksComponent } from './components/administration/feedbacks/feedbacks.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ComingSoonComponent } from './components/shared/coming-soon/coming-soon
     BlogsNewComponent,
     BlogsListComponent,
     BlogsEditComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    FeedbacksComponent
   ],
     imports: [
         BrowserModule,
