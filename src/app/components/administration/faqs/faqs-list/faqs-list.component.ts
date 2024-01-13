@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {faqDataStore} from "../../../../shared/store/faq-data-store";
 
 @Component({
   selector: 'app-faqs-list',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class FaqsListComponent {
 
+  faqs = faqDataStore
+
+  delete(id: any) {
+
+  }
 }
