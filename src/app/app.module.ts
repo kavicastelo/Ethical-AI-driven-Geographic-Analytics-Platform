@@ -43,6 +43,7 @@ import { BlogsComponent } from './components/administration/blogs/blogs.componen
 import { BlogsNewComponent } from './components/administration/blogs/blogs-new/blogs-new.component';
 import { BlogsListComponent } from './components/administration/blogs/blogs-list/blogs-list.component';
 import { BlogsEditComponent } from './components/administration/blogs/blogs-edit/blogs-edit.component';
+import { ComingSoonComponent } from './components/shared/coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { BlogsEditComponent } from './components/administration/blogs/blogs-edit
     BlogsComponent,
     BlogsNewComponent,
     BlogsListComponent,
-    BlogsEditComponent
+    BlogsEditComponent,
+    ComingSoonComponent
   ],
     imports: [
         BrowserModule,
