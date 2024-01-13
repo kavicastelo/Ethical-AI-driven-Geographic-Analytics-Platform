@@ -29,6 +29,10 @@ import {BlogsNewComponent} from "./components/administration/blogs/blogs-new/blo
 import {BlogsListComponent} from "./components/administration/blogs/blogs-list/blogs-list.component";
 import {BlogsEditComponent} from "./components/administration/blogs/blogs-edit/blogs-edit.component";
 import {FeedbacksComponent} from "./components/administration/feedbacks/feedbacks.component";
+import {FaqsComponent} from "./components/administration/faqs/faqs.component";
+import {FaqsNewComponent} from "./components/administration/faqs/faqs-new/faqs-new.component";
+import {FaqsListComponent} from "./components/administration/faqs/faqs-list/faqs-list.component";
+import {FaqsEditComponent} from "./components/administration/faqs/faqs-edit/faqs-edit.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -86,12 +90,24 @@ const routes: Routes = [
         ]
       },
       {path: 'feedback', component: FeedbacksComponent},
+      {
+        path: 'faq', component: FaqsComponent, children: [
+          {path: '', redirectTo: '/admin/faq/new', pathMatch: 'full'},
+          {path: 'new', component: FaqsNewComponent},
+          {path: 'list', component: FaqsListComponent},
+          {path: 'edit', component: FaqsEditComponent}
+        ]
+      }
     ]
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true, onSameUrlNavigation: 'reload', scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    onSameUrlNavigation: 'reload',
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

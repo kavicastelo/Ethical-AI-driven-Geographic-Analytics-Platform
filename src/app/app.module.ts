@@ -45,6 +45,10 @@ import { BlogsListComponent } from './components/administration/blogs/blogs-list
 import { BlogsEditComponent } from './components/administration/blogs/blogs-edit/blogs-edit.component';
 import { ComingSoonComponent } from './components/shared/coming-soon/coming-soon.component';
 import { FeedbacksComponent } from './components/administration/feedbacks/feedbacks.component';
+import { FaqsComponent } from './components/administration/faqs/faqs.component';
+import { FaqsNewComponent } from './components/administration/faqs/faqs-new/faqs-new.component';
+import { FaqsListComponent } from './components/administration/faqs/faqs-list/faqs-list.component';
+import { FaqsEditComponent } from './components/administration/faqs/faqs-edit/faqs-edit.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +83,11 @@ import { FeedbacksComponent } from './components/administration/feedbacks/feedba
     BlogsListComponent,
     BlogsEditComponent,
     ComingSoonComponent,
-    FeedbacksComponent
+    FeedbacksComponent,
+    FaqsComponent,
+    FaqsNewComponent,
+    FaqsListComponent,
+    FaqsEditComponent
   ],
     imports: [
         BrowserModule,
