@@ -49,6 +49,11 @@ import { FaqsComponent } from './components/administration/faqs/faqs.component';
 import { FaqsNewComponent } from './components/administration/faqs/faqs-new/faqs-new.component';
 import { FaqsListComponent } from './components/administration/faqs/faqs-list/faqs-list.component';
 import { FaqsEditComponent } from './components/administration/faqs/faqs-edit/faqs-edit.component';
+import { AdminSettingsComponent } from './components/administration/admin-settings/admin-settings.component';
+import { AdminSettingsPolicyComponent } from './components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component';
+import { AdminSettingsUserPolicyComponent } from './components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component';
+import { AdminSettingsUserTermsComponent } from './components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component';
+import { AdminSettingsPrivacyComponent } from './components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +92,12 @@ import { FaqsEditComponent } from './components/administration/faqs/faqs-edit/fa
     FaqsComponent,
     FaqsNewComponent,
     FaqsListComponent,
-    FaqsEditComponent
+    FaqsEditComponent,
+    AdminSettingsComponent,
+    AdminSettingsPolicyComponent,
+    AdminSettingsUserPolicyComponent,
+    AdminSettingsUserTermsComponent,
+    AdminSettingsPrivacyComponent
   ],
     imports: [
         BrowserModule,

@@ -34,6 +34,19 @@ import {FaqsNewComponent} from "./components/administration/faqs/faqs-new/faqs-n
 import {FaqsListComponent} from "./components/administration/faqs/faqs-list/faqs-list.component";
 import {FaqsEditComponent} from "./components/administration/faqs/faqs-edit/faqs-edit.component";
 import {AdminAuthGuard} from "./guards/admin-auth.guard";
+import {AdminSettingsComponent} from "./components/administration/admin-settings/admin-settings.component";
+import {
+  AdminSettingsPolicyComponent
+} from "./components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component";
+import {
+  AdminSettingsUserPolicyComponent
+} from "./components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component";
+import {
+  AdminSettingsUserTermsComponent
+} from "./components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component";
+import {
+  AdminSettingsPrivacyComponent
+} from "./components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -97,6 +110,15 @@ const routes: Routes = [
           {path: 'new', component: FaqsNewComponent},
           {path: 'list', component: FaqsListComponent},
           {path: 'edit', component: FaqsEditComponent}
+        ]
+      },
+      {
+        path: 'settings', component: AdminSettingsComponent, children: [
+          {path: '', redirectTo: '/admin/settings/policy', pathMatch: 'full'},
+          {path: 'policy', component: AdminSettingsPolicyComponent},
+          {path: 'user-policy', component: AdminSettingsUserPolicyComponent},
+          {path: 'user-terms', component: AdminSettingsUserTermsComponent},
+          {path: 'privacy', component: AdminSettingsPrivacyComponent},
         ]
       }
     ]
