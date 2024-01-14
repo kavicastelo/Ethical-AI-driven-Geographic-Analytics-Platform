@@ -49,6 +49,7 @@ import {
 } from "./components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component";
 import {CommentsComponent} from "./components/administration/comments/comments.component";
 import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy.component";
+import {TermsConditionsComponent} from "./components/terms-conditions/terms-conditions.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -67,6 +68,7 @@ const routes: Routes = [
   },
   {path: 'feedback', component: FeedbackComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'terms', component: TermsConditionsComponent},
   {path: 'faq', component: FaqComponent},
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
