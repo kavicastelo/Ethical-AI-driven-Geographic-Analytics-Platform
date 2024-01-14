@@ -1,0 +1,25 @@
+.markdown-editor {
+  .input-area,
+  .preview-area {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .input-area{
+    textarea{
+      width: 100%;
+      min-height: 220px;
+      height: 100%;
+      border: 1px solid var(--color-primary-600);
+      border-radius: 4px;
+      outline: none;
+      padding: 14px 20px;
+      background-color: var(--color-surface-mixed-100);
+      color: var(--color-text-200);
+
+      &:focus{
+        border: 2px solid var(--color-primary-600);
+      }
+    }
+  }
+}

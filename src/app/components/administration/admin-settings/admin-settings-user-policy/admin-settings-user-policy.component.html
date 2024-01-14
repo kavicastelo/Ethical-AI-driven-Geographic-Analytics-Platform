@@ -1,1 +1,20 @@
-<p>admin-settings-user-policy works!</p>
+<div class="container">
+  <div class="markdown-editor">
+    <div class="d-md-flex align-items-start justify-content-between">
+      <div class="w-100">
+        <h6>Write area (Markdown Support)</h6>
+        <div class="input-area">
+          <textarea [(ngModel)]="markdownContent" placeholder="Type your Markdown here..."></textarea>
+        </div>
+      </div>
+      <div class="w-100">
+        <h6>Preview area</h6>
+        <div class="preview-area" [innerHTML]="markdownContent | markdown"></div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="button-1" (click)="log()" style="margin-right: 5px">Save</button>
+      <button class="button-1" (click)="log()">Update</button>
+    </div>
+  </div>
+</div>
