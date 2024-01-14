@@ -57,7 +57,7 @@ export class SigninFormComponent implements OnInit{
       const testPassword = '1234';
 
       if (email === testEmail && password === testPassword) {
-        this.cookieService.createUser(email);
+        this.cookieService.createAdmin(email);
         this.router.navigate(['/admin']);
         this.openSnackBar('Admin Found','OK')
       }
