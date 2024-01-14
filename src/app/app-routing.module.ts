@@ -33,6 +33,7 @@ import {FaqsComponent} from "./components/administration/faqs/faqs.component";
 import {FaqsNewComponent} from "./components/administration/faqs/faqs-new/faqs-new.component";
 import {FaqsListComponent} from "./components/administration/faqs/faqs-list/faqs-list.component";
 import {FaqsEditComponent} from "./components/administration/faqs/faqs-edit/faqs-edit.component";
+import {AdminAuthGuard} from "./guards/admin-auth.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -63,7 +64,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdministrationComponent, canActivate: [AuthGuard], children: [
+    path: 'admin', component: AdministrationComponent, canActivate: [AdminAuthGuard], children: [
       {path: '', redirectTo: '/admin/forecast/new', pathMatch: 'full'},
       {
         path: 'forecast', component: ForecastComponent, children: [
