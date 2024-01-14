@@ -63,6 +63,7 @@ import {
   AdminSettingsPrivacyComponent
 } from './components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component';
 import {MarkdownModule} from "ngx-markdown";
+import { CommentsComponent } from './components/administration/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import {MarkdownModule} from "ngx-markdown";
     AdminSettingsPolicyComponent,
     AdminSettingsUserPolicyComponent,
     AdminSettingsUserTermsComponent,
-    AdminSettingsPrivacyComponent
+    AdminSettingsPrivacyComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
