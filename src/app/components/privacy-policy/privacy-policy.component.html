@@ -1,1 +1,19 @@
-<p>privacy-policy works!</p>
+<div class="bg">
+  <div class="sub-banner">
+    <div class="shadow-layer"></div>
+    <div class="banner-content">
+      <div>
+        <h1>Privacy Policy</h1>
+      </div>
+      <div class="banner-route-div">
+        <a routerLink="/home">Home</a> /
+        <a routerLink="/privacy-policy">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div [innerHTML]="policy[0].markdownContent | markdown"></div>
+    <hr style="color: var(--color-primary-600)">
+    <p>[last update: {{policy[0].date}}]</p>
+  </div>
+</div>
