@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {userPolicyDataStore} from "../../../../shared/store/user-policy-data-store";
 
 @Component({
   selector: 'app-admin-settings-user-policy',
@@ -7,8 +8,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AdminSettingsUserPolicyComponent implements OnInit {
   markdownContent: string = '';
+  markdownData: any = userPolicyDataStore;
 
   ngOnInit(): void {
+    if (this.markdownData !== null) {
+      this.markdownContent = this.markdownData[0].markdownContent;
+    }
   }
 
   log() {
