@@ -47,6 +47,7 @@ import {
 import {
   AdminSettingsPrivacyComponent
 } from "./components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component";
+import {CommentsComponent} from "./components/administration/comments/comments.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -112,6 +113,7 @@ const routes: Routes = [
           {path: 'edit', component: FaqsEditComponent}
         ]
       },
+      {path: 'comments', component: CommentsComponent},
       {
         path: 'settings', component: AdminSettingsComponent, children: [
           {path: '', redirectTo: '/admin/settings/user-policy', pathMatch: 'full'},
