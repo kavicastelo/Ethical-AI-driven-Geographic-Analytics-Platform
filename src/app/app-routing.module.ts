@@ -114,10 +114,10 @@ const routes: Routes = [
       },
       {
         path: 'settings', component: AdminSettingsComponent, children: [
-          {path: '', redirectTo: '/admin/settings/policy', pathMatch: 'full'},
-          {path: 'policy', component: AdminSettingsPolicyComponent},
+          {path: '', redirectTo: '/admin/settings/user-policy', pathMatch: 'full'},
           {path: 'user-policy', component: AdminSettingsUserPolicyComponent},
           {path: 'user-terms', component: AdminSettingsUserTermsComponent},
+          {path: 'policy', component: AdminSettingsPolicyComponent},
           {path: 'privacy', component: AdminSettingsPrivacyComponent},
         ]
       }
