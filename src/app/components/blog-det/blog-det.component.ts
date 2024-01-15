@@ -21,8 +21,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   blogData: any = blogDataStore;
   commentData: any = commentDataStore;
   sortedComments: any = [];
-  subTitlesArray: any = [];
-  subContentArray: any = [];
 
   replyForm = new FormGroup({
     reply: new FormControl(null,[
@@ -57,8 +55,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
       })
     });
 
-    this.subTitlesArray = this.blogData.content.subTitle;
-    this.subContentArray = this.blogData.content.subContent;
+    // this.subContentArray = this.blogData.content.subContent;
 
     // Sanitize HTML content
     this.blogData.content.mainContent = this.sanitizer.bypassSecurityTrustHtml(this.blogData.content.mainContent);

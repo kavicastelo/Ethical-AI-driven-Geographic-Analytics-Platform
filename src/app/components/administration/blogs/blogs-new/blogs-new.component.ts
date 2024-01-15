@@ -9,6 +9,7 @@ import {BlogModel} from "../../../../shared/model/Blog.model";
 })
 export class BlogsNewComponent implements OnInit {
   blogForm: FormGroup | any;
+  markdownContent = '';
 
   constructor(private fb: FormBuilder) {}
 
@@ -23,8 +24,7 @@ export class BlogsNewComponent implements OnInit {
       content: this.fb.group({
         mainTitle: '',
         mainContent: '',
-        subTitle: this.fb.array(['']),
-        subContent: this.fb.array(['']),
+        subContent: '',
       }),
       image: '',
       tags: '',
@@ -32,21 +32,9 @@ export class BlogsNewComponent implements OnInit {
     });
   }
 
-  getSubTitlesControls() {
-    return (this.blogForm.get('content.subTitle') as FormArray).controls;
-  }
-
-  getSubContentsControls() {
-    return (this.blogForm.get('content.subContent') as FormArray).controls;
-  }
-
   onSubmit() {
     // Get the form values
     const formData: BlogModel = this.blogForm?.value;
-
-    // Filter out any empty sub-titles and sub-contents
-    formData.content.subTitle = formData.content.subTitle.filter(title => title.trim() !== '');
-    formData.content.subContent = formData.content.subContent.filter(content => content.trim() !== '');
 
     // Now you can send formData to your backend or handle it as needed
     console.log(formData);

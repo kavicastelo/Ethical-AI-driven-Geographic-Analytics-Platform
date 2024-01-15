@@ -5,8 +5,7 @@ export interface BlogModel {
   content: {
     mainTitle: string;
     mainContent: string;
-    subTitle: string[];
-    subContent: string[];
+    subContent: string;
   };
   image: string;
   tags: string;
