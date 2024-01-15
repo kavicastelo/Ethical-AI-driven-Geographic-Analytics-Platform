@@ -7,7 +7,7 @@
         <div class="col-md-6">
           <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">
             <mat-label>Title</mat-label>
-            <mat-select class="blog-form-full-width" formControlName="title">
+            <mat-select class="blog-form-full-width" formControlName="title" required>
               <mat-option value="" disabled selected>Select Title &ast;</mat-option>
               <mat-option *ngFor="let b of blogData" [value]="b.title" (onSelectionChange)="loadCurrentBlog(b.title)">{{b.title}}</mat-option>
             </mat-select>
