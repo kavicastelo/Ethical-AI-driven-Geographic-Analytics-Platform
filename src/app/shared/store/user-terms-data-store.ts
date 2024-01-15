@@ -2,6 +2,7 @@ import {UserTermsModel} from "../model/UserTerms.model";
 
 export var userTermsDataStore: UserTermsModel[] = [
   {
+    id: 1,
     content: '#### Introduction\n' +
       'Welcome to Geographic Analysis Platform! These terms and conditions govern your use of our platform. By accessing and using Geographic Analysis Platform, you agree to comply with and be bound by these terms. If you disagree with any part of these terms, please refrain from using our platform.\n' +
       '\n' +
