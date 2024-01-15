@@ -2,6 +2,7 @@ import {UserPolicyModel} from "../model/UserPolicy.model";
 
 export var userPolicyDataStore: UserPolicyModel[] = [
   {
+    id: 1,
     markdownContent: '#### Information We Collect:\n' +
       '- **Personal Information:**\n' +
       '  - We may collect and store personal information, including your name, email address, and profile image, for user identification and authentication purposes.\n' +
