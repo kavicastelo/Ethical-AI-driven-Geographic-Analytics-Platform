@@ -37,11 +37,8 @@
           <img src="{{blogData.image}}" alt="{{blogData.title}}">
         </div>
       </div>
-      <div *ngFor="let sb of subTitlesArray; let i = index">
-        <div class="blog-content-wrapper">
-          <h3>{{sb}}</h3>
-          <p [innerHTML]="subContentArray[i]"></p>
-        </div>
+      <div class="blog-content-wrapper">
+        <div [innerHTML]="blogData.content.subContent | markdown"></div>
       </div>
       <div class="blog-content-wrapper">
         <div class="blog-bottom-details">
