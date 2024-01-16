@@ -1,9 +1,9 @@
 export interface UsersModel {
-  id: number;
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  remarks: string;
-  active: boolean;
+  id: any;
+  name: any;
+  email: any;
+  phone: any;
+  country: any;
+  remarks: any;
+  active: any;
 }
