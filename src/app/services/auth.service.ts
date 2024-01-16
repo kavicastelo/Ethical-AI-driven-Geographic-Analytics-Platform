@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private cookieService: CookieService) { }
 
-  public createUser(token:string){
+  public createUser(token:any){
     this.cookieService.set('user-token',token,60*60*24*5);
   }
 
