@@ -1,5 +1,5 @@
 export interface AuthModel {
-  id: number;
-  email: string;
-  password: string;
+  id: any;
+  email: any;
+  password: any;
 }
