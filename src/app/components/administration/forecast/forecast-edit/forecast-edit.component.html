@@ -41,8 +41,8 @@
             <div class="card-body">
               <h5 class="card-title">Change visibility</h5>
               <div class="d-sm-flex align-items-center justify-content-between">
-                <p class="card-text">If you make change the forecast visibility to private, it will disappear from main web page</p>
-                <button class="button-1" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility">Public</button>
+                <p class="card-text">{{visibility?'If you make change the forecast visibility to private, it will disappear from main web page':'Make visibility to public for share forecast with users'}}</p>
+                <button class="button-1" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility">{{visibility?'Private':'Public'}}</button>
               </div>
             </div>
           </div>
@@ -52,8 +52,8 @@
       <div class="collapse" id="collapseVisibility">
         <div class="alert alert-warning" role="alert">
           <div class="d-flex align-items-center justify-content-center flex-column">
-            <p style="color: black">Are you sure you want to make forecast private?</p>
-            <button class="button-2" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility">Make Private</button>
+            <p style="color: black">Are you sure you want to make forecast {{visibility?'private':'public'}}?</p>
+            <button class="button-2" data-bs-toggle="collapse" data-bs-target="#collapseVisibility" aria-expanded="false" aria-controls="collapseVisibility" (click)="changeVisibility()">{{visibility?'Make Private':'Make Public'}}</button>
           </div>
         </div>
       </div>
