@@ -8,7 +8,7 @@
       <form class="feedback-form" [formGroup]="editForecastForm">
         <div class="row">
           <div class="col-12">
-            <h4>{{forecast[0].title}}</h4>
+            <h4>{{forecast.title}}</h4>
           </div>
           <div class="col-12">
             <mat-form-field class="feedback-form-full-width" appearance="outline" color="accent">
@@ -24,8 +24,8 @@
       </form>
 
       <div class="collapse" id="collapseExample">
-        <h2>{{forecast[0].title}}</h2>
-        <p [innerHTML]="forecast[0].description"></p>
+        <h2>{{forecast.title}}</h2>
+        <p [innerHTML]="forecast.description"></p>
       </div>
     </div>
   </div>
