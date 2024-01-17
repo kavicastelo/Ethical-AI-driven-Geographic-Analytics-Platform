@@ -14,11 +14,12 @@ export class ForecastService {
   constructor(private http: HttpClient) { }
 
   public getForecast(): Observable<any> {
-    return this.http.get(this.baseUrl + 'forecast');
+    return this.http.get(this.baseUrl + 'forecast/all');
   }
 
   public createForecast(forecast: ForecastModel): Observable<any> {
     return this.http.post(this.baseUrl + 'forecast', {
+      id: 1,
       title: forecast.title,
       dateTime: forecast.dateTime,
       description: forecast.description,

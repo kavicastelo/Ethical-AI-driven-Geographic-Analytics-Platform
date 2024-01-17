@@ -1,7 +1,7 @@
 export interface ForecastModel {
-  id: number;
-  title: string;
-  dateTime: string;
-  description: string;
-  likes: number;
+  id: any;
+  title: any;
+  dateTime: any;
+  description: any;
+  likes: any;
 }
