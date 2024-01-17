@@ -45,7 +45,20 @@ export class ForecastEditComponent implements OnInit {
   }
 
   updateForecast() {
-
+    if (this.editForecastForm.valid) {
+      this.forecastService.updateForecast({
+        id: 1,
+        title: this.forecast.title,
+        dateTime: this.forecast.dateTime,
+        description: this.editForecastForm.value.description,
+        likes: this.forecast.likes,
+        visible: true
+      }).subscribe(
+        res => {
+          console.log(res)
+        }
+      )
+    }
   }
 
 }
