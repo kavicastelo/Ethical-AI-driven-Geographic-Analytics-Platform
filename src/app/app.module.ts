@@ -122,7 +122,7 @@ import { TermsConditionsComponent } from './components/terms-conditions/terms-co
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MatSelectModule,
     HttpClientModule,
     MatSnackBarModule,

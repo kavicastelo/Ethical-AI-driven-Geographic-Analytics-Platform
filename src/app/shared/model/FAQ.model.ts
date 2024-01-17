@@ -1,5 +1,5 @@
 export interface FAQModel {
-  id: string;
-  question: string;
-  answer: string;
+  id: any;
+  question: any;
+  answer: any;
 }
