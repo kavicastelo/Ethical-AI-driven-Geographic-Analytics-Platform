@@ -26,7 +26,7 @@ export class AdminService {
   }
 
   public createAdmin(admin: AdminsModel): Observable<any> {
-    return this.http.post(this.baseUrl + 'admin/request', {
+    return this.http.post(this.baseUrl + 'admin', {
       name: admin.name,
       email: admin.email,
       phone: admin.phone,
