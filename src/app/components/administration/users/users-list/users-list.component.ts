@@ -21,7 +21,7 @@ export class UsersListComponent implements OnInit {
   loadUsers() {
     this.userService.getAllUsers().subscribe((data: any) => {
       if (data) {
-        this.users = data;
+        this.users = data.filter((user: any) => user.active);
       }
     })
   }
