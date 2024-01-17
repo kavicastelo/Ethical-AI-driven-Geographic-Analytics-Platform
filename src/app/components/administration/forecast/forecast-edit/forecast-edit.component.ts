@@ -3,6 +3,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {forecastDataStore} from "../../../../shared/store/forecast-data-store";
 import {ForecastService} from "../../../../services/forecast.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-forecast-edit',
@@ -12,8 +13,9 @@ import {ForecastService} from "../../../../services/forecast.service";
 export class ForecastEditComponent implements OnInit {
   draftItem: any;
   forecast: any;
+  visibility: any;
 
-  constructor(private sanitizer: DomSanitizer, private forecastService: ForecastService) { }
+  constructor(private sanitizer: DomSanitizer, private forecastService: ForecastService, private snackBar: MatSnackBar) { }
 
   editForecastForm = new FormGroup({
     description: new FormControl(null,[
@@ -30,6 +32,7 @@ export class ForecastEditComponent implements OnInit {
       res => {
         if (res != null && res.length > 0){
           this.forecast = res[0];
+          this.visibility = this.forecast.visible
 
           let obj = this.forecast.description;
           let arr = new Array({"description":obj});
@@ -55,10 +58,39 @@ export class ForecastEditComponent implements OnInit {
         visible: true
       }).subscribe(
         res => {
-          console.log(res)
+          this.openSnackBar("Forecast Updated",'OK');
+        }, err => {
+          this.openSnackBar(err.error.message,'OK');
         }
       )
     }
+    this.loadCurrentForecast()
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action,{duration:2000});
+  }
+
+  changeVisibility() {
+    this.visibility = !this.visibility;
+
+    let changedVisibility = this.visibility;
+
+    this.forecastService.updateForecast({
+      id: 1,
+      title: this.forecast.title,
+      dateTime: this.forecast.dateTime,
+      description: this.forecast.description.toString(),
+      likes: this.forecast.likes,
+      visible: changedVisibility
+    }).subscribe(
+      res => {
+        this.openSnackBar("Visibility Updated",'OK');
+      }, err => {
+        this.openSnackBar(err.error.message,'OK');
+      }
+    )
+    this.loadCurrentForecast();
+    location.reload();
+  }
 }

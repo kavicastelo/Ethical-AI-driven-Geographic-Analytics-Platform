@@ -35,7 +35,7 @@ export class ForecastService {
       dateTime: forecast.dateTime,
       description: forecast.description,
       likes: forecast.likes,
-      visible: true
+      visible: forecast.visible
     });
   }
 
