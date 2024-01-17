@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DomSanitizer} from "@angular/platform-browser";
+import {ForecastService} from "../../../../services/forecast.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-forecast-new',
@@ -10,7 +12,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class ForecastNewComponent implements OnInit {
   draftItem: any;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private forecastService: ForecastService, private snackBar: MatSnackBar) { }
 
   addForecastForm = new FormGroup({
     title: new FormControl(null,[
@@ -35,8 +37,45 @@ export class ForecastNewComponent implements OnInit {
     }
   }
 
-  saveForecast() {
+  getDate() {
+    let date;
+    date = new Date().toString();
+    return date.split(' ').slice(1,4).join(' ');
+  }
 
+  saveForecast() {
+    this.forecastService.getForecast().subscribe(res => {
+      if (res != null && res.length > 0){
+        this.forecastService.deleteForecast(1).subscribe(res => {
+          this.forecastService.createForecast({
+            id: 1,
+            title: this.addForecastForm.get('title')?.value,
+            dateTime: this.getDate(),
+            description: this.addForecastForm.get('cont')?.value,
+            likes: 0
+          }).subscribe(res => {
+            this.openSnackBar("Forecast Created",'OK');
+          }, err => {
+            this.openSnackBar(err.error.message,'OK');
+          })
+        }, err => {
+          this.openSnackBar(err.error.message,'OK');
+        })
+      }
+      else{
+        this.forecastService.createForecast({
+          id: 1,
+          title: this.addForecastForm.get('title')?.value,
+          dateTime: this.getDate(),
+          description: this.addForecastForm.get('cont')?.value,
+          likes: 0
+        }).subscribe(res => {
+          this.openSnackBar("Forecast Created",'OK');
+        }, err => {
+          this.openSnackBar(err.error.message,'OK');
+        })
+      }
+    })
   }
 
   saveDraft() {
@@ -47,5 +86,9 @@ export class ForecastNewComponent implements OnInit {
   discardDraft() {
     localStorage.removeItem('addForecastForm');
     location.reload();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action,{duration:2000});
   }
 }
