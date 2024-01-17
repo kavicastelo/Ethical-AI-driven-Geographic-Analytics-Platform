@@ -27,6 +27,7 @@ export class AdminService {
 
   public createAdmin(admin: AdminsModel): Observable<any> {
     return this.http.post(this.baseUrl + 'admin', {
+      id: admin.id,
       name: admin.name,
       email: admin.email,
       phone: admin.phone,
@@ -36,6 +37,7 @@ export class AdminService {
 
   public updateAdmin(admin: AdminsModel): Observable<any> {
     return this.http.put(this.baseUrl + 'admin/update/' + admin.id, {
+      id: admin.id,
       name: admin.name,
       email: admin.email,
       phone: admin.phone,

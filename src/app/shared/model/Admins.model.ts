@@ -1,7 +1,7 @@
 export interface AdminsModel {
-  id: number;
-  name: string;
-  email: string;
-  phone: string;
-  password: string;
+  id: any;
+  name: any;
+  email: any;
+  phone: any;
+  password: any;
 }
