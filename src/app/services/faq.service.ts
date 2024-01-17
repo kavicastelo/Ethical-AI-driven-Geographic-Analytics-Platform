@@ -26,7 +26,7 @@ export class FaqService {
   }
 
   public createFAQ(faq: FAQModel): Observable<any> {
-    return this.http.post(this.baseUrl + 'faq/create', {
+    return this.http.post(this.baseUrl + 'faq', {
       question: faq.question,
       answer: faq.answer
     });
