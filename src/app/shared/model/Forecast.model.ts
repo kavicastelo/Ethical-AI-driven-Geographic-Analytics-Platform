@@ -4,4 +4,5 @@ export interface ForecastModel {
   dateTime: any;
   description: any;
   likes: any;
+  visible: any;
 }

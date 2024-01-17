@@ -12,6 +12,7 @@ export var forecastDataStore: ForecastModel[] = [
       'Heavy showers <b>above 100 mm</b> are likely at some places in Eastern and Uva Provinces and in Hambanthota district.<br>\n' +
       '\n' +
       '<b>The public is kindly requested to take adequate precautions to minimize damages caused by temporary localized strong winds and lightning during thundershowers.</b>',
-    likes: 1
+    likes: 1,
+    visible: true
   }
 ]

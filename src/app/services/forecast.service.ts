@@ -23,16 +23,19 @@ export class ForecastService {
       title: forecast.title,
       dateTime: forecast.dateTime,
       description: forecast.description,
-      likes: forecast.likes
+      likes: forecast.likes,
+      visible: true
     });
   }
 
   public updateForecast(forecast: ForecastModel): Observable<any> {
     return this.http.put(this.baseUrl + 'forecast/' + forecast.id, {
+      id: 1,
       title: forecast.title,
       dateTime: forecast.dateTime,
       description: forecast.description,
-      likes: forecast.likes
+      likes: forecast.likes,
+      visible: true
     });
   }
 
