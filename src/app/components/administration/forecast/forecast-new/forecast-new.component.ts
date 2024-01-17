@@ -52,7 +52,8 @@ export class ForecastNewComponent implements OnInit {
             title: this.addForecastForm.get('title')?.value,
             dateTime: this.getDate(),
             description: this.addForecastForm.get('cont')?.value,
-            likes: 0
+            likes: 0,
+            visible: true
           }).subscribe(res => {
             this.openSnackBar("Forecast Created",'OK');
           }, err => {
@@ -68,7 +69,8 @@ export class ForecastNewComponent implements OnInit {
           title: this.addForecastForm.get('title')?.value,
           dateTime: this.getDate(),
           description: this.addForecastForm.get('cont')?.value,
-          likes: 0
+          likes: 0,
+          visible: true
         }).subscribe(res => {
           this.openSnackBar("Forecast Created",'OK');
         }, err => {
