@@ -93,4 +93,21 @@ export class ForecastEditComponent implements OnInit {
     this.loadCurrentForecast();
     location.reload();
   }
+
+  deleteForecast() {
+    const msg = "Are you sure you want to delete this forecast?";
+    if (confirm(msg)) {
+      this.forecastService.deleteForecast(1).subscribe(
+        res => {
+          this.openSnackBar("Forecast Deleted",'OK');
+        }, err => {
+          this.openSnackBar(err.error.message,'OK');
+        }
+      )
+      location.reload();
+    }
+    else{
+      return
+    }
+  }
 }
