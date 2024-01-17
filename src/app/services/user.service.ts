@@ -47,6 +47,12 @@ export class UserService {
     });
   }
 
+  public approveUser(id: number): Observable<any> {
+    return this.http.put(this.baseUrl + 'user/approve/' + id, {
+      active: true
+    });
+  }
+
   public deleteUser(id: number): Observable<any> {
     return this.http.delete(this.baseUrl + 'user/delete/' + id);
   }
