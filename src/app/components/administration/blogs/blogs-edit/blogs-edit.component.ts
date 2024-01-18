@@ -4,6 +4,7 @@ import {BlogModel} from "../../../../shared/model/Blog.model";
 import {blogDataStore} from "../../../../shared/store/blog-data-store";
 import {BlogService} from "../../../../services/blog.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-blogs-edit',
@@ -16,11 +17,24 @@ export class BlogsEditComponent implements OnInit {
   blogData: any;
   private selectedBlog: any;
 
+  private destroy$ = new Subject<void>();
+
   constructor(private fb: FormBuilder, private blogService: BlogService, private matSnackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.initForm();
     this.loadBlogs();
+
+    this.blogForm.get('title')?.valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((selectedBlog: any) => {
+        this.loadCurrentBlog(selectedBlog);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   initForm() {
@@ -47,18 +61,16 @@ export class BlogsEditComponent implements OnInit {
   }
 
   loadCurrentBlog(blog: any) {
-    this.blogData.forEach((b: any) => {
-      if(blog === b.title) {
-        this.selectedBlog = b;
-        this.blogForm.get('description')?.setValue(b.description);
-        this.blogForm.get('image')?.setValue(b.image);
-        this.blogForm.get('author')?.setValue(b.author);
-        this.blogForm.get('content.mainTitle')?.setValue(b.content.mainTitle);
-        this.blogForm.get('content.mainContent')?.setValue(b.content.mainContent);
-        this.blogForm.get('content.subContent')?.setValue(b.content.subContent);
-        this.markdownContent = b.content.subContent;
-      }
-    })
+    this.selectedBlog = this.blogData.find((b: any) => b.title === blog);
+    if (this.selectedBlog) {
+      this.blogForm.get('description')?.setValue(this.selectedBlog.description);
+      this.blogForm.get('image')?.setValue(this.selectedBlog.image);
+      this.blogForm.get('author')?.setValue(this.selectedBlog.author);
+      this.blogForm.get('content.mainTitle')?.setValue(this.selectedBlog.content.mainTitle);
+      this.blogForm.get('content.mainContent')?.setValue(this.selectedBlog.content.mainContent);
+      this.blogForm.get('content.subContent')?.setValue(this.selectedBlog.content.subContent);
+      this.markdownContent = this.selectedBlog.content.subContent;
+    }
   }
 
   onSubmit() {
@@ -67,5 +79,9 @@ export class BlogsEditComponent implements OnInit {
 
     // Now you can send formData to your backend or handle it as needed
     console.log(formData);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.matSnackBar.open(message, action, {duration: 3000});
   }
 }
