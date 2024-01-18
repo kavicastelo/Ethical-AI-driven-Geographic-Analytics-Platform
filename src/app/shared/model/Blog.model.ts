@@ -1,15 +1,15 @@
 export interface BlogModel {
-  id: number;
-  title: string;
-  description: string;
+  id: any;
+  title: any;
+  description: any;
   content: {
-    mainTitle: string;
-    mainContent: string;
-    subContent: string;
+    mainTitle: any;
+    mainContent: any;
+    subContent: any;
   };
-  image: string;
-  tags: string;
-  created_at: string;
-  updated_at: string;
-  author: string;
+  image: any;
+  tags: any;
+  created_at: any;
+  updated_at: any;
+  author: any;
 }
