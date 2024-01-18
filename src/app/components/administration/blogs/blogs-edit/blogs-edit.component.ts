@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {BlogModel} from "../../../../shared/model/Blog.model";
 import {blogDataStore} from "../../../../shared/store/blog-data-store";
+import {BlogService} from "../../../../services/blog.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-blogs-edit',
@@ -11,13 +13,14 @@ import {blogDataStore} from "../../../../shared/store/blog-data-store";
 export class BlogsEditComponent implements OnInit {
   blogForm: FormGroup | any;
   markdownContent = '';
-  blogData: any = blogDataStore
+  blogData: any;
   private selectedBlog: any;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private blogService: BlogService, private matSnackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.initForm();
+    this.loadBlogs();
   }
 
   initForm() {
@@ -33,6 +36,14 @@ export class BlogsEditComponent implements OnInit {
       tags: '',
       author: '',
     });
+  }
+
+  loadBlogs() {
+    this.blogService.getAllBlogs().subscribe((data: any) => {
+      this.blogData = data;
+    }, (error: any) => {
+      console.log(error);
+    })
   }
 
   loadCurrentBlog(blog: any) {
