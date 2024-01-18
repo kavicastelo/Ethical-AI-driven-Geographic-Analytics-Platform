@@ -25,7 +25,14 @@ export class BlogsListComponent implements OnInit {
   }
 
   deleteBlog(id:any) {
-
+    if (confirm('Are you sure you want to delete this blog?')) {
+      this.blogService.deleteBlog(id).subscribe(() => {
+        this.loadBlogs();
+        this.openSnackBar('Blog deleted successfully', 'Close');
+      }, error => {
+        this.openSnackBar('Error deleting blog', 'Close');
+      });
+    }
   }
 
   openSnackBar(message: string, action: string) {
