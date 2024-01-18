@@ -34,6 +34,7 @@ export class FaqService {
 
   public updateFAQ(faq: FAQModel): Observable<any> {
     return this.http.put(this.baseUrl + 'faq/update/' + faq.id, {
+      id: faq.id,
       question: faq.question,
       answer: faq.answer
     });
