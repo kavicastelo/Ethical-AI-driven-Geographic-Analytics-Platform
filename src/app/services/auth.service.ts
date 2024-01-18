@@ -39,4 +39,8 @@ export class AuthService {
     return this.cookieService.get('user-token').toString();
   }
 
+  public adminEmail() {
+    return this.cookieService.get('admin-token').toString();
+  }
+
 }
