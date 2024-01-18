@@ -1,6 +1,9 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {faqDataStore} from "../../../../shared/store/faq-data-store";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FaqService} from "../../../../services/faq.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-faqs-edit',
@@ -8,7 +11,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./faqs-edit.component.scss']
 })
 export class FaqsEditComponent implements OnInit {
-  faqs = faqDataStore
+  faqs:any;
   selectedFAQ: any
 
   faqForm = new FormGroup({
@@ -20,22 +23,60 @@ export class FaqsEditComponent implements OnInit {
     ])
   })
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  private destroy$ = new Subject<void>();
+
+  constructor(private faqService: FaqService, private matSnackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.cdr.detectChanges();
+    this.loadFaqs();
+
+    this.faqForm.get('question')?.valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((selectedQuestion: any) => {
+        this.loadCurrentFAQ(selectedQuestion);
+      });
   }
 
-  loadCurrentFAQ(faq: any) {
-    this.faqs.forEach((f: any) => {
-      if(faq === f.question) {
-        this.selectedFAQ = f;
-        this.faqForm.get('answer')?.setValue(f.answer);
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  loadFaqs() {
+    this.faqService.getAllFAQs().subscribe((data: any) => {
+      if (data) {
+        this.faqs = data;
       }
+    }, error => {
+      this.openSnackBar('Error loading FAQs', 'Close');
     })
   }
 
+  loadCurrentFAQ(faq: any) {
+    this.selectedFAQ = this.faqs.find((f: any) => f.question === faq);
+    if (this.selectedFAQ) {
+      this.faqForm.get('answer')?.setValue(this.selectedFAQ.answer);
+    }
+  }
+
   updateFAQ() {
-    console.log("updateFAQ" + this.selectedFAQ.id);
+    if (this.faqForm.valid) {
+      this.faqService.updateFAQ({
+        id: this.selectedFAQ.id,
+        question: this.faqForm.value.question,
+        answer: this.faqForm.value.answer
+      }).subscribe((data: any) => {
+        if (data) {
+          this.loadFaqs();
+          this.openSnackBar('FAQ updated successfully', 'Close');
+        }
+      }, error => {
+        this.openSnackBar('Error updating FAQ', 'Close');
+      })
+    }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.matSnackBar.open(message, action);
   }
 }
