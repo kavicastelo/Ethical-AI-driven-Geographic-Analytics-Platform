@@ -14,22 +14,22 @@ export class UserTermsService {
   constructor(private http: HttpClient) { }
 
   public getAllUserTerms(): Observable<any> {
-    return this.http.get(this.baseUrl + 'user-terms');
+    return this.http.get(this.baseUrl + 'UserTerms');
   }
 
   public getUserTermsById(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + 'user-terms/' + id);
+    return this.http.get(this.baseUrl + 'UserTerms/' + id);
   }
 
   public createUserTerms(ut: UserTermsModel): Observable<any> {
-    return this.http.post(this.baseUrl + 'user-terms', {
+    return this.http.post(this.baseUrl + 'UserTerms/save', {
       content: ut.content,
       date: ut.date
     });
   }
 
   public updateUserTerms(ut: UserTermsModel): Observable<any> {
-    return this.http.put(this.baseUrl + 'user-terms/' + ut.id, {
+    return this.http.put(this.baseUrl + 'UserTerms/update/' + ut.id, {
       content: ut.content,
       date: ut.date
     });
