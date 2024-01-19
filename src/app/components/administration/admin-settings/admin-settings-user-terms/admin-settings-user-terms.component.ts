@@ -60,7 +60,21 @@ export class AdminSettingsUserTermsComponent {
   }
 
   updateTerms() {
-
+    if (this.markdownData.length > 0) {
+      this.userTermsService.updateUserTerms({
+        id: this.markdownData[0].id,
+        content: this.markdownContent,
+        date: this.loadDate()
+      }).subscribe(res => {
+        this.openSnackBar('Terms updated successfully', 'Close');
+        this.loadUserTerms()
+      }, error => {
+        this.openSnackBar('Error updating terms', 'Close');
+      })
+    }
+    else {
+      this.openSnackBar('No terms to update. Create one first!', 'Close');
+    }
   }
 
   openSnackBar(message: string, action: string) {
