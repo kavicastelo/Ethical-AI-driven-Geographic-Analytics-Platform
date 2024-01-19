@@ -16,6 +16,7 @@ export class BlogsEditComponent implements OnInit {
   markdownContent = '';
   blogData: any;
   private selectedBlog: any;
+  tags: any = ["Seed", "Sprout", "Root"];
 
   private destroy$ = new Subject<void>();
 
@@ -48,7 +49,6 @@ export class BlogsEditComponent implements OnInit {
       }),
       image: '',
       tags: '',
-      author: '',
     });
   }
 
@@ -60,12 +60,17 @@ export class BlogsEditComponent implements OnInit {
     })
   }
 
+  loadDate() {
+    const date = new Date().toString();
+    return date.split(' ').slice(1,4).join(' ');
+  }
+
   loadCurrentBlog(blog: any) {
     this.selectedBlog = this.blogData.find((b: any) => b.title === blog);
     if (this.selectedBlog) {
       this.blogForm.get('description')?.setValue(this.selectedBlog.description);
       this.blogForm.get('image')?.setValue(this.selectedBlog.image);
-      this.blogForm.get('author')?.setValue(this.selectedBlog.author);
+      this.blogForm.get('tags')?.setValue(this.selectedBlog.tags);
       this.blogForm.get('content.mainTitle')?.setValue(this.selectedBlog.content.mainTitle);
       this.blogForm.get('content.mainContent')?.setValue(this.selectedBlog.content.mainContent);
       this.blogForm.get('content.subContent')?.setValue(this.selectedBlog.content.subContent);
@@ -77,8 +82,28 @@ export class BlogsEditComponent implements OnInit {
     // Get the form values
     const formData: BlogModel = this.blogForm?.value;
 
-    // Now you can send formData to your backend or handle it as needed
-    console.log(formData);
+    if (this.blogForm.valid){
+      this.blogService.updateBlog({
+        id: this.selectedBlog.id,
+        title: formData.title,
+        description: formData.description,
+        content: formData.content,
+        image: formData.image,
+        tags: formData.tags,
+        created_at: null,
+        updated_at: this.loadDate(),
+        author: null
+      }).subscribe(
+        (data: any) => {
+          this.openSnackBar('Blog updated successfully', 'Close');
+          this.loadBlogs();
+          this.blogForm.reset();
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      )
+    }
   }
 
   openSnackBar(message: string, action: string) {
