@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../services/auth.service";
 import {AdminService} from "../../../../services/admin.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-settings-privacy',
@@ -20,7 +21,7 @@ export class AdminSettingsPrivacyComponent implements OnInit {
     ])
   })
 
-  constructor(private cookieService: AuthService, private adminService: AdminService, private matSnackBar: MatSnackBar) {
+  constructor(private cookieService: AuthService, private adminService: AdminService, private matSnackBar: MatSnackBar, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -57,7 +58,15 @@ export class AdminSettingsPrivacyComponent implements OnInit {
   }
 
   deleteAccount() {
-
+    if (confirm("Are you sure you want to delete your account?")) {
+      this.adminService.deleteAdminByEmail(this.loadAdmin()).subscribe(res => {
+        this.cookieService.logoutAdmin();
+        this.router.navigate(['/login']);
+        this.openSnackBar('Account deleted successfully', 'Close');
+      }, error => {
+        this.openSnackBar('Error deleting account', 'Close');
+      })
+    }
   }
 
   openSnackBar(message: string, action: string) {
