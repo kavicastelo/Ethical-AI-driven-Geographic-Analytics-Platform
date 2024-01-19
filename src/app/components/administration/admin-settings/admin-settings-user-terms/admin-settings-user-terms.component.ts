@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {userPolicyDataStore} from "../../../../shared/store/user-policy-data-store";
 import {userTermsDataStore} from "../../../../shared/store/user-terms-data-store";
+import {UserTermsService} from "../../../../services/user-terms.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-admin-settings-user-terms',
@@ -10,14 +12,31 @@ import {userTermsDataStore} from "../../../../shared/store/user-terms-data-store
 export class AdminSettingsUserTermsComponent {
   markdownContent: string = '';
   markdownData: any = userTermsDataStore;
+  saveBtnDisabled: boolean = false
+
+  constructor(
+    private userTermsService: UserTermsService,
+    private matSnackBar: MatSnackBar
+  ){}
 
   ngOnInit(): void {
-    if (this.markdownData !== null) {
-      this.markdownContent = this.markdownData[0].content;
-    }
+    this.loadUserTerms()
   }
 
-  log() {
-    console.log(this.markdownContent)
+  loadUserTerms() {
+    this.userTermsService.getAllUserTerms().subscribe(
+      (data: any) => {
+        this.markdownData = data;
+        if (this.markdownData !== null && this.markdownData.length > 0) {
+          this.markdownContent = this.markdownData[0].content;
+        }
+        return this.markdownData
+      }
+    )
+  }
+
+  loadDate() {
+    const date = new Date().toString();
+    return date.split(' ').slice(1,4).join(' ');
   }
 }
