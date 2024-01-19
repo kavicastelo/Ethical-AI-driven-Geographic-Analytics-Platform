@@ -14,7 +14,7 @@ export class UserPolicyService {
   constructor(private http: HttpClient) { }
 
   public getAllUserPolicies(): Observable<any> {
-    return this.http.get(this.baseUrl + 'UserPolicy/');
+    return this.http.get(this.baseUrl + 'UserPolicy');
   }
 
   public getUserPolicyById(id: number): Observable<any> {
@@ -22,7 +22,7 @@ export class UserPolicyService {
   }
 
   public createUserPolicy(up: UserPolicyModel): Observable<any> {
-    return this.http.post(this.baseUrl + 'UserPolicy/', {
+    return this.http.post(this.baseUrl + 'UserPolicy/save', {
       markdownContent: up.markdownContent,
       date: up.date
     });

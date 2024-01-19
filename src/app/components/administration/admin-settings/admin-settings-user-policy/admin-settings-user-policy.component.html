@@ -13,8 +13,8 @@
       </div>
     </div>
     <div class="d-flex justify-content-end align-items-center">
-      <button class="button-1" (click)="log()" style="margin-right: 5px">Save</button>
-      <button class="button-1" (click)="log()">Update</button>
+      <button class="button-1" (click)="savePolicy()" style="margin-right: 5px" [disabled]="saveBtnDisabled">Save</button>
+      <button class="button-1" (click)="updatePolicy()">Update</button>
     </div>
   </div>
 </div>

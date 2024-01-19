@@ -1,5 +1,5 @@
 export interface UserPolicyModel {
-  id: number;
-  markdownContent: string;
-  date: Date;
+  id: any;
+  markdownContent: any;
+  date: any;
 }
