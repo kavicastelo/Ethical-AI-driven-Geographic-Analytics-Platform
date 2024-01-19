@@ -16,6 +16,7 @@ export class BlogsNewComponent implements OnInit {
   blogForm: FormGroup | any;
   markdownContent = '';
   author = '';
+  tags: any = ["Seed", "Sprout", "Root"];
 
   constructor(private fb: FormBuilder, private blogService: BlogService, private matSnackBar: MatSnackBar, private cookieService: AuthService, private adminService: AdminService) {}
 
