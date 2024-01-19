@@ -57,7 +57,21 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
   }
 
   updatePolicy() {
-
+    if (this.markdownData.length > 0) {
+      this.userPolicyService.updateUserPolicy({
+        id: this.markdownData[0].id,
+        markdownContent: this.markdownContent,
+        date: this.loadDate()
+      }).subscribe(res => {
+        this.openSnackBar('Policy updated successfully', 'Close');
+        this.loadUserPolicy()
+      }, error => {
+        this.openSnackBar('Error updating policy', 'Close');
+      })
+    }
+    else {
+      this.openSnackBar('No policy to update. Create one first!', 'Close');
+    }
   }
 
   openSnackBar(message: string, action: string) {
