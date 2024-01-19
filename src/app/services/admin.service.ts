@@ -29,6 +29,10 @@ export class AdminService {
     return this.http.delete(this.baseUrl + 'admin/delete/' + id);
   }
 
+  public deleteAdminByEmail(email: string): Observable<any> {
+    return this.http.delete(this.baseUrl + 'admin/delete/email/' + email);
+  }
+
   public createAdmin(admin: AdminsModel): Observable<any> {
     return this.http.post(this.baseUrl + 'admin', {
       id: admin.id,
