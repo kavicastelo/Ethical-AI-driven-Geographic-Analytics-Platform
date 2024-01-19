@@ -9,7 +9,8 @@
             <mat-label>Title</mat-label>
             <mat-select class="blog-form-full-width" formControlName="title" required>
               <mat-option value="" disabled selected>Select Title &ast;</mat-option>
-              <mat-option *ngFor="let b of blogData" [value]="b.title" (onSelectionChange)="loadCurrentBlog(b.title)">{{b.title}}</mat-option>
+              <mat-option *ngFor="let b of blogData" [value]="b.title"
+                          (onSelectionChange)="loadCurrentBlog(b.title)">{{b.title}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -38,7 +39,8 @@
         <div class="col-md-6">
           <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">
             <mat-label>Sub Content</mat-label>
-            <textarea [(ngModel)]="markdownContent" matInput formControlName="subContent" placeholder="Sub-Content" required></textarea>
+            <textarea [(ngModel)]="markdownContent" matInput formControlName="subContent" placeholder="Sub-Content"
+                      required></textarea>
           </mat-form-field>
         </div>
 
@@ -54,18 +56,23 @@
             <input matInput formControlName="image" placeholder="Image" required>
           </mat-form-field>
         </div>
-        <!--      <div class="col-md-6">-->
-        <!--        <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">-->
-        <!--          <mat-label>Tags</mat-label>-->
-        <!--          <input matInput formControlName="tags" placeholder="Tags">-->
-        <!--        </mat-form-field>-->
-        <!--      </div>-->
         <div class="col-md-6">
           <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">
-            <mat-label>Author</mat-label>
-            <input matInput formControlName="author" placeholder="Author">
+            <mat-label>Tags</mat-label>
+            <mat-select class="blog-form-full-width" formControlName="tags">
+              <mat-option value="" disabled selected>Select Tag &ast;</mat-option>
+              <mat-option [value]="tags[0]">Seed</mat-option>
+              <mat-option [value]="tags[1]">Sprout</mat-option>
+              <mat-option [value]="tags[2]">Root</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
+        <!--        <div class="col-md-6">-->
+        <!--          <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">-->
+        <!--            <mat-label>Author</mat-label>-->
+        <!--            <input matInput formControlName="author" placeholder="Author">-->
+        <!--          </mat-form-field>-->
+        <!--        </div>-->
       </div>
 
       <button type="submit" class="button-1">Update</button>
