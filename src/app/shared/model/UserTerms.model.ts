@@ -1,5 +1,5 @@
 export interface UserTermsModel {
-  id: number;
-  content: string;
-  date: Date;
+  id: any;
+  content: any;
+  date: any;
 }
