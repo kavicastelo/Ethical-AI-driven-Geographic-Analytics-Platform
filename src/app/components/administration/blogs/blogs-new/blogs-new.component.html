@@ -54,7 +54,12 @@
       <div class="col-md-6">
         <mat-form-field class="blog-form-full-width" appearance="outline" color="accent">
           <mat-label>Tag</mat-label>
-          <input matInput formControlName="tags" placeholder="Tag: ex. Seed">
+          <mat-select class="blog-form-full-width" formControlName="tags">
+            <mat-option value="" disabled selected>Select Tag &ast;</mat-option>
+            <mat-option [value]="tags[0]">Seed</mat-option>
+            <mat-option [value]="tags[1]">Sprout</mat-option>
+            <mat-option [value]="tags[2]">Root</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div class="col-md-6">
