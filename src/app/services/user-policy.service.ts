@@ -29,7 +29,7 @@ export class UserPolicyService {
   }
 
   public updateUserPolicy(up: UserPolicyModel): Observable<any> {
-    return this.http.put(this.baseUrl + 'UserPolicy/' + up.id, {
+    return this.http.put(this.baseUrl + 'UserPolicy/update/' + up.id, {
       markdownContent: up.markdownContent,
       date: up.date
     });
