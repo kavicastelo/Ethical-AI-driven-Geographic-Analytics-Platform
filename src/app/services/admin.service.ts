@@ -48,4 +48,14 @@ export class AdminService {
       password: admin.password
     });
   }
+
+  public updateAdminPassword(admin: AdminsModel): Observable<any> {
+    return this.http.put(this.baseUrl + 'admin/password/' + admin.id, {
+      id: admin.id,
+      name: admin.name,
+      email: admin.email,
+      phone: admin.phone,
+      password: admin.password
+    });
+  }
 }
