@@ -47,6 +47,9 @@ export class ContactFormComponent {
         this.openSnackbar("Message Sent Successfully")
       });
     }
+    else {
+      this.openSnackbar("Please Fill All Details")
+    }
   }
 
   openSnackbar(message: string) {

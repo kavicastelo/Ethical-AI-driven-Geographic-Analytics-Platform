@@ -4,6 +4,8 @@ import {ThemeService} from "../../services/theme.service";
 import {blogDataStore} from "../../shared/store/blog-data-store";
 import {NavigationEnd, Router} from "@angular/router";
 import {ScrollService} from "../../services/scroll.service";
+import {BlogService} from "../../services/blog.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-blog',
@@ -14,9 +16,9 @@ export class BlogComponent {
   private themeSubscription: Subscription;
   isDarkMode: boolean | undefined;
 
-  blogData:any = blogDataStore;
+  blogData:any;
 
-  constructor(private themeService: ThemeService, private router: Router, private scrollService: ScrollService) {
+  constructor(private themeService: ThemeService, private router: Router, private scrollService: ScrollService, private blogService: BlogService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -27,6 +29,7 @@ export class BlogComponent {
   }
 
   ngOnInit(): void {
+    this.loadBlogs()
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -36,7 +39,19 @@ export class BlogComponent {
       });
   }
 
+  loadBlogs() {
+    this.blogService.getAllBlogs().subscribe((data: any) => {
+      this.blogData = data;
+    }, (error: any) => {
+      this.openSnackBar('Error loading blogs', 'Close');
+    })
+  }
+
   OpenBlog(id:any) {
     this.router.navigate(['/blog-det', id]);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.matSnackBar.open(message, action,{duration: 3000});
   }
 }
