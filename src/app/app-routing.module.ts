@@ -50,6 +50,7 @@ import {
 import {CommentsComponent} from "./components/administration/comments/comments.component";
 import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy.component";
 import {TermsConditionsComponent} from "./components/terms-conditions/terms-conditions.component";
+import {AuthorizedComponent} from "./components/shared/authorized/authorized.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'blog-det/:id', component: BlogDetComponent},
+  {path: 'authorize', component: AuthorizedComponent},
   {
     path: 'login', component: LoginComponent, children: [
       {path: '', redirectTo: '/login/signin', pathMatch: 'full'},
