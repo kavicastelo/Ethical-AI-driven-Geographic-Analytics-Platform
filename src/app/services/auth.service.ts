@@ -60,6 +60,11 @@ export class AuthService {
     return profile.length !== 0;
   }
 
+  public isUserProfileName() {
+    let profile = this.cookieService.get('profile-name');
+    return profile.length !== 0;
+  }
+
   public profileName() {
     return this.cookieService.get('profile-name').toString();
   }
