@@ -39,6 +39,17 @@ export class ForecastService {
     });
   }
 
+  public likeForecast(forecast: ForecastModel): Observable<any> {
+    return this.http.put(this.baseUrl + 'forecast/like/' + forecast.id, {
+      id: 1,
+      title: forecast.title,
+      dateTime: forecast.dateTime,
+      description: forecast.description,
+      likes: forecast.likes,
+      visible: forecast.visible
+    });
+  }
+
   public deleteForecast(id: number): Observable<any> {
     return this.http.delete(this.baseUrl + 'forecast/delete/' + id);
   }
