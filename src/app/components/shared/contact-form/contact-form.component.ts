@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Subscription} from "rxjs";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ThemeService} from "../../../services/theme.service";
+import {ContactService} from "../../../services/contact.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-contact-form',
@@ -13,19 +15,19 @@ export class ContactFormComponent {
   isDarkMode: boolean | undefined;
 
   contactForm = new FormGroup({
-    name: new FormControl(null,[
+    name: new FormControl(null, [
       Validators.required
     ]),
-    email: new FormControl(null,[
+    email: new FormControl(null, [
       Validators.required,
       Validators.email
     ]),
-    message: new FormControl(null,[
+    message: new FormControl(null, [
       Validators.required
     ])
   })
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private contactService: ContactService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -39,6 +41,17 @@ export class ContactFormComponent {
   }
 
   submit() {
+    if (this.contactForm.valid) {
+      this.contactService.sendMessage(this.contactForm.value.name, this.contactForm.value.email, this.contactForm.value.message).subscribe( res => {
+        this.contactForm.reset();
+        this.openSnackbar("Message Sent Successfully")
+      });
+    }
+  }
 
+  openSnackbar(message: string) {
+    this.matSnackBar.open(message, 'OK', {
+      duration: 3000
+    })
   }
 }
