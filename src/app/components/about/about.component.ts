@@ -10,6 +10,8 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {countries} from "../../shared/store/country-data-store";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-about',
@@ -70,13 +72,43 @@ export class SignUpComponent {
     remarks: new FormControl(null)
   })
 
-  constructor(private themeService: ThemeService, public dialog: MatDialog) {
+  constructor(private themeService: ThemeService, public dialog: MatDialog, private matSnackBar: MatSnackBar, private userService: UserService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
   }
 
   submit() {
+    if (this.signupForm.valid) {
+      this.userService.getAllUsers().subscribe(res => {
+        let selectedUser = res.find((user:any) => user.email === this.signupForm.value.email);
+        if (selectedUser) {
+          this.openSnackbar("User Already Requested")
+          return;
+        }
+        else{
+          this.userService.createUser({
+            id: null,
+            name: this.signupForm.value.name,
+            email: this.signupForm.value.email,
+            phone: this.signupForm.value.phone,
+            country: this.signupForm.value.country,
+            remarks: this.signupForm.value.remarks,
+            active: false
+          }).subscribe( res => {
+            this.signupForm.reset();
+            this.openSnackbar("User Requested Successfully")
+          })
+        }
+      })
+    } else {
+      this.openSnackbar("Please Fill All Details")
+    }
+  }
 
+  openSnackbar(msg:string){
+    this.matSnackBar.open(msg, 'OK', {
+      duration: 3000
+    })
   }
 }
