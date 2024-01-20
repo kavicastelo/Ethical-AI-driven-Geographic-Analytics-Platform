@@ -3,6 +3,8 @@ import {FeedbackService} from "../../services/feedback.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {feedbackDataStore} from "../../shared/store/feedback-data-store";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {filter} from "rxjs";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-feedback',
@@ -19,12 +21,15 @@ export class FeedbackComponent implements OnInit {
     ])
   })
 
-  constructor(private feedbackService: FeedbackService, private matSnackBar: MatSnackBar) {
+  constructor(private feedbackService: FeedbackService, private matSnackBar: MatSnackBar, private router: Router) {
   }
 
   ngOnInit(): void {
     this.loadFeedback();
     this.userProfile = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
+    if (this.userProfile === null || this.userProfile === undefined){
+      location.reload()
+    }
   }
 
   loadFeedback() {
@@ -43,31 +48,33 @@ export class FeedbackComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.userProfile)
-    if(this.userProfile.name !== undefined && this.userProfile.name !== null) {
-      this.feedbackService.createFeedback({
-        id: null,
-        name: this.userProfile.name,
-        family_name: this.userProfile.family_name,
-        email: this.userProfile.email,
-        picture: this.userProfile.picture,
-        feedback: this.feedbackForm.value.feedback,
-        date: this.loadDate()
-      }).subscribe(res => {
-        this.openSnackBar('Feedback submitted successfully', 'OK');
-        this.feedbackForm.reset();
-        this.loadFeedback();
-      }, error => {
-        this.openSnackBar('Something went wrong', 'OK');
-      })
+    if (this.feedbackForm.valid){
+      if(this.userProfile.name !== undefined && this.userProfile.name !== null) {
+        this.feedbackService.createFeedback({
+          id: null,
+          name: this.userProfile.name,
+          family_name: this.userProfile.family_name,
+          email: this.userProfile.email,
+          picture: this.userProfile.picture,
+          feedback: this.feedbackForm.value.feedback,
+          date: this.loadDate()
+        }).subscribe(res => {
+          this.openSnackBar('Feedback submitted successfully', 'OK');
+          this.feedbackForm.reset();
+          this.loadFeedback();
+        }, error => {
+          this.openSnackBar('Something went wrong', 'OK');
+        })
+      }
+      else{
+        const message = document.querySelector('.error-message') as HTMLElement;
+        message.textContent = 'Please log in to submit feedback. Try to reload the page';
+        message.style.display = 'block';
+        location.reload();
+      }
     }
-    else{
-      const message = document.querySelector('.error-message') as HTMLElement;
-      message.textContent = 'Please log in to submit feedback. Try to reload the page';
-      message.style.display = 'block';
-      setTimeout(() => {
-        message.style.display = 'none';
-      }, 3000);
+    else {
+      this.openSnackBar('Please Enter Your Feedback', 'OK')
     }
   }
 
