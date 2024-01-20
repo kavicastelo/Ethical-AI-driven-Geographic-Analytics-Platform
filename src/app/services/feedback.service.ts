@@ -14,7 +14,7 @@ export class FeedbackService {
   constructor(private httpClient:HttpClient) { }
 
   public getAllFeedback():Observable<any>{
-    return this.httpClient.get(this.baseUrl+"feedback");
+    return this.httpClient.get(this.baseUrl+"feedback/all");
   }
 
   public getFeedbackById(id:number):Observable<any>{
