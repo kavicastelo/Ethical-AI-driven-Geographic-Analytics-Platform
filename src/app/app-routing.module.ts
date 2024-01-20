@@ -51,6 +51,7 @@ import {CommentsComponent} from "./components/administration/comments/comments.c
 import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy.component";
 import {TermsConditionsComponent} from "./components/terms-conditions/terms-conditions.component";
 import {AuthorizedComponent} from "./components/shared/authorized/authorized.component";
+import {FeedbackGuard} from "./guards/feedback.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -68,7 +69,7 @@ const routes: Routes = [
       {path: 'signup', component: SignupFormComponent}
     ]
   },
-  {path: 'feedback', component: FeedbackComponent},
+  {path: 'feedback', component: FeedbackComponent, canActivate: [FeedbackGuard]},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'terms', component: TermsConditionsComponent},
   {path: 'faq', component: FaqComponent},

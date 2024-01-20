@@ -23,7 +23,7 @@
       // to decode the credential response.
       const responsePayload = decodeJWTToken(response.credential);
       sessionStorage.setItem("loggedInUser", JSON.stringify(responsePayload));
-      window.location.href = "/#/feedback";
+      window.location.href = "/#/home";
     }
     function handleSignout() {
       google.accounts.id.disableAutoSelect();

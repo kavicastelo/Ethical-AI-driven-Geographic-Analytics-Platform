@@ -5,6 +5,7 @@ import {feedbackDataStore} from "../../shared/store/feedback-data-store";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {filter} from "rxjs";
 import {NavigationEnd, Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-feedback',
@@ -12,7 +13,14 @@ import {NavigationEnd, Router} from "@angular/router";
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
-  userProfile: any;
+  userProfile: any = [
+    {
+      name: '',
+      family_name: '',
+      email: '',
+      picture: '',
+    }
+  ];
   feedbacks: any;
 
   feedbackForm = new FormGroup({
@@ -21,15 +29,27 @@ export class FeedbackComponent implements OnInit {
     ])
   })
 
-  constructor(private feedbackService: FeedbackService, private matSnackBar: MatSnackBar, private router: Router) {
+  constructor(private feedbackService: FeedbackService, private matSnackBar: MatSnackBar, private router: Router, private cookieService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.loadFeedback();
-    this.userProfile = JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
-    if (this.userProfile === null || this.userProfile === undefined){
-      location.reload()
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        // Reload the page when the route changes
+        window.location.reload();
+        window.scrollTo(0, 0);
+      });
+
+    if (!this.cookieService.isUserProfileName()){
+      this.router.navigate(['/authorize']);
     }
+
+    this.loadFeedback();
+    this.userProfile.name = this.cookieService.profileName();
+    this.userProfile.family_name = this.cookieService.profileFamilyName();
+    this.userProfile.email = this.cookieService.profileEmail();
+    this.userProfile.picture = this.cookieService.profilePicture();
   }
 
   loadFeedback() {
