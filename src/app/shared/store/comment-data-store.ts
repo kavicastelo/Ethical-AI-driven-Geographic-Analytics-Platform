@@ -9,7 +9,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null,
+    reply: {
+      id: null,
+      commentId: 1,
+      name: "John",
+      email: "a@a.com",
+      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
+      date: new Date(),
+      replyComment: "This is a reply comment"
+    },
     like: 0
   },
   {
@@ -20,19 +28,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: [{
+    reply: {
+      id: null,
+      commentId: 2,
       name: "John",
       email: "a@a.com",
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
-      comment: "This is a reply comment"
-    }, {
-      name: "Wick",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 2"
-    }],
+      replyComment: "This is a reply comment"
+    },
     like: 1
   },
   {
@@ -43,25 +47,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: [{
+    reply: {
+      id: null,
+      commentId: 3,
       name: "John",
       email: "a@a.com",
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
-      comment: "This is a reply comment"
-    }, {
-      name: "Wick",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 2"
-    }, {
-      name: "John",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 3"
-    }],
+      replyComment: "This is a reply comment"
+    },
     like: 2
   },
   {
@@ -72,31 +66,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: [{
+    reply: {
+      id: null,
+      commentId: 4,
       name: "John",
       email: "a@a.com",
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
-      comment: "This is a reply comment"
-    }, {
-      name: "Wick",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 2"
-    }, {
-      name: "John",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 3"
-    }, {
-      name: "John",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 4"
-    }],
+      replyComment: "This is a reply comment"
+    },
     like: 3
   },
   {
@@ -107,19 +85,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: [{
+    reply: {
+      id: null,
+      commentId: 5,
       name: "John",
       email: "a@a.com",
       profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
       date: new Date(),
-      comment: "This is a reply comment"
-    }, {
-      name: "Wick",
-      email: "a@a.com",
-      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
-      date: new Date(),
-      comment: "This is a reply comment 2"
-    }],
+      replyComment: "This is a reply comment"
+    },
     like: 4
   },
   {
@@ -130,7 +104,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null,
+    reply: {
+      id: null,
+      commentId: 6,
+      name: "John",
+      email: "a@a.com",
+      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
+      date: new Date(),
+      replyComment: "This is a reply comment"
+    },
     like: 0
   },
   {
@@ -141,7 +123,15 @@ export var commentDataStore: CommentModel[] = [
     profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
     date: new Date(),
     comment: "This is a comment",
-    reply: null,
+    reply: {
+      id: null,
+      commentId: 7,
+      name: "John",
+      email: "a@a.com",
+      profile: "https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png",
+      date: new Date(),
+      replyComment: "This is a reply comment"
+    },
     like: 0
   },
 ]

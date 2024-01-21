@@ -6,6 +6,14 @@ export interface CommentModel {
   profile: any;
   date: any;
   comment: any;
-  reply: any;
+  reply: {
+    id: any;
+    commentId: any;
+    name: any;
+    email: any;
+    profile: any;
+    date: any;
+    replyComment: any;
+  };
   like: any;
 }
