@@ -50,4 +50,17 @@ export class CommentService {
       like: c.like
     });
   }
+
+  public likeComment(c: CommentModel): Observable<any> {
+    return this.http.put(this.baseUrl + 'comment/like/' + c.id, {
+      blogId: c.blogId,
+      name: c.name,
+      email: c.email,
+      profile: c.profile,
+      date: c.date,
+      comment: c.comment,
+      reply: c.reply,
+      like: c.like
+    });
+  }
 }

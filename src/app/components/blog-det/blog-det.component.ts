@@ -26,6 +26,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   commentData: any = commentDataStore;
   sortedComments: any = [];
 
+  isLiked: boolean = false
+
   userProfile: any = [
     {
       name: '',
@@ -79,6 +81,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     this.userProfile.family_name = this.cookieService.profileFamilyName();
     this.userProfile.email = this.cookieService.profileEmail();
     this.userProfile.picture = this.cookieService.profilePicture();
+
+    this.checkLike();
   }
 
   ngOnDestroy() {
@@ -134,7 +138,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
               date: this.loadDate(),
               comment: selectedComment.comment,
               reply: [...selectedComment.reply,{
-                id: null,
+                id: Math.random().toString(36 ).slice( -8 ),
                 commentId: selectedComment.id,
                 name: this.userProfile.name,
                 email: this.userProfile.email,
@@ -202,6 +206,72 @@ export class BlogDetComponent implements OnInit, OnDestroy {
         this.openSnackBar('Please login to comment', 'Close');
       }
     }
+  }
+
+  loadLikes() {
+    let likes: number = 0;
+    this.commentService.getAllComments().subscribe(data => {
+      likes = data.filter((comment: any) => {
+        return comment.blogId == this.blogData.id
+      })
+    })
+  }
+
+  like() {
+    this.isLiked = !this.isLiked
+    let count: number = 0;
+
+    this.commentService.getAllComments().subscribe(data => {
+      data.forEach((comment: any) => {
+        if (comment.blogId == this.blogData.id) {
+          count = parseInt(comment.like)
+
+          if (this.isLiked) {
+            localStorage.setItem(comment.reply.id+'comment-like', JSON.stringify(true))
+            count++
+          }
+          else {
+            localStorage.setItem(comment.reply.id+'comment-like', JSON.stringify(false))
+            count = count - 1
+          }
+
+          this.commentService.likeComment({
+            id: comment.id,
+            blogId: this.blogId,
+            name: this.userProfile.name,
+            email: this.userProfile.email,
+            profile: this.userProfile.picture,
+            date: this.loadDate(),
+            comment: this.commentForm.value.comment,
+            reply: [{
+              id: Math.random().toString(36 ).slice( -8 ),
+              commentId: null,
+              name: "Geographical Analysis Platform",
+              email: null,
+              profile: "https://e7.pngegg.com/pngimages/858/1004/png-clipart-computer-icons-verified-badge-others-blue-heart-thumbnail.png",
+              date: this.loadDate(),
+              replyComment: "Thanks for your comment!"
+            }],
+            like: count
+          }).subscribe(data => {
+            this.matSnackBar.open(this.isLiked?'Liked Forecast':'Disliked Forecast', 'OK',{duration: 1500})
+            this.loadLikes()
+          })
+        }
+      })
+    })
+  }
+
+  checkLike() {
+    this.commentService.getAllComments().subscribe(data => {
+      data.forEach((comment: any) => {
+        if (comment.blogId == this.blogData.id) {
+          if (localStorage.getItem(comment.reply.id+'comment-like') == 'true') {
+            this.isLiked = true
+          }
+        }
+      })
+    })
   }
 
   openSnackBar(message: string, action: string) {
