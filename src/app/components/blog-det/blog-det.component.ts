@@ -102,7 +102,9 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           this.commentData.forEach((comment: any) => {
             if (comment.blogId == this.blogId) {
               this.sortedComments.push(comment);
-              console.log(this.sortedComments);
+              this.sortedComments.forEach((reply: any) => {
+                console.log(reply.reply)
+              })
             }
           })
         })
@@ -110,6 +112,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
 
       this.blogData.content.mainContent = this.sanitizer.bypassSecurityTrustHtml(this.blogData.content.mainContent);
     });
+
+    return this.blogData;
   }
 
   public loadDate() {
@@ -118,7 +122,41 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   }
 
   submitReply() {
-
+    let selectedComment;
+    if (this.replyForm.valid) {
+      this.commentService.getAllComments().subscribe((comments: any) => {
+        comments.forEach((comment: any) => {
+          if (comment.blogId == this.blogData.id) {
+            selectedComment = comment;
+            this.commentService.updateComment({
+              id: selectedComment.id,
+              blogId: selectedComment.blogId,
+              name: this.userProfile.name,
+              email: this.userProfile.email,
+              profile: this.userProfile.picture,
+              date: this.loadDate(),
+              comment: selectedComment.comment,
+              reply: {
+                id: null,
+                commentId: selectedComment.id,
+                name: this.userProfile.name,
+                email: this.userProfile.email,
+                profile: this.userProfile.picture,
+                date: this.loadDate(),
+                replyComment: this.replyForm.value.reply
+              },
+              like: selectedComment.like
+            }).subscribe(res => {
+              this.loadBlog();
+              this.replyForm.reset();
+              this.closeReplyForm();
+            }, error => {
+              this.openSnackBar(error.message, 'Close');
+            })
+          }
+        })
+      })
+    }
   }
 
   closeReplyForm() {
@@ -141,7 +179,15 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             profile: this.userProfile.picture,
             date: this.loadDate(),
             comment: this.commentForm.value.comment,
-            reply: '',
+            reply: {
+              id: null,
+              commentId: null,
+              name: null,
+              email: null,
+              profile: null,
+              date: null,
+              replyComment: null
+            },
             like: 0
           }).subscribe(
             (data) => {

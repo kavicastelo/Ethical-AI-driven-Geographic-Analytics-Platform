@@ -98,6 +98,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  z-index: 999;
 
   .feedback-form{
     width: max(50%, 300px);
