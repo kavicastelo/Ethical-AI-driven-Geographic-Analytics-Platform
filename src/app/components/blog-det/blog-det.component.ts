@@ -102,9 +102,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           this.commentData.forEach((comment: any) => {
             if (comment.blogId == this.blogId) {
               this.sortedComments.push(comment);
-              this.sortedComments.forEach((reply: any) => {
-                console.log(reply.reply)
-              })
             }
           })
         })
@@ -148,8 +145,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
               like: selectedComment.like
             }).subscribe(res => {
               this.loadBlog();
-              this.replyForm.reset();
-              this.closeReplyForm();
+              location.reload();
             }, error => {
               this.openSnackBar(error.message, 'Close');
             })
@@ -193,7 +189,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             (data) => {
               this.commentData.push(data);
               this.commentForm.reset();
-              this.loadBlog()
+              this.loadBlog();
+              location.reload();
             }, (error) => {
               this.openSnackBar(error.message, 'Close');
             }
