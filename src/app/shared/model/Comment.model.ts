@@ -14,6 +14,6 @@ export interface CommentModel {
     profile: any;
     date: any;
     replyComment: any;
-  };
+  }[];
   like: any;
 }
