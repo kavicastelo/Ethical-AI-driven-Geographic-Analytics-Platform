@@ -136,7 +136,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
               profile: this.userProfile.picture,
               date: this.loadDate(),
               comment: selectedComment.comment,
-              reply: {
+              reply: [...selectedComment.reply,{
                 id: null,
                 commentId: selectedComment.id,
                 name: this.userProfile.name,
@@ -144,7 +144,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
                 profile: this.userProfile.picture,
                 date: this.loadDate(),
                 replyComment: this.replyForm.value.reply
-              },
+              }],
               like: selectedComment.like
             }).subscribe(res => {
               this.loadBlog();
@@ -179,15 +179,15 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             profile: this.userProfile.picture,
             date: this.loadDate(),
             comment: this.commentForm.value.comment,
-            reply: {
+            reply: [{
               id: null,
               commentId: null,
-              name: null,
+              name: "Geographical Analysis Platform",
               email: null,
-              profile: null,
-              date: null,
-              replyComment: null
-            },
+              profile: "https://e7.pngegg.com/pngimages/858/1004/png-clipart-computer-icons-verified-badge-others-blue-heart-thumbnail.png",
+              date: this.loadDate(),
+              replyComment: "Thanks for your comment!"
+            }],
             like: 0
           }).subscribe(
             (data) => {
