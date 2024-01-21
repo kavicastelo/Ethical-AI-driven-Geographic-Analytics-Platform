@@ -8,6 +8,7 @@ import {AuthService} from "../../../services/auth.service";
 })
 export class AuthorizedComponent implements OnInit {
   userProfile: any;
+  timer:any;
 
   constructor(private cookieService: AuthService) { }
   ngOnInit(): void {
@@ -21,6 +22,19 @@ export class AuthorizedComponent implements OnInit {
       this.cookieService.googleLoginPicture(this.userProfile.picture);
       this.cookieService.googleLoginFamilyName(this.userProfile.family_name);
     }
+
+    this.calculateTime()
+  }
+
+  calculateTime(){
+    this.timer = 15;
+    setInterval(()=>{
+      this.timer = this.timer - 1
+
+      if (this.timer === 0){
+        location.reload()
+      }
+    },1000)
   }
 
 }
