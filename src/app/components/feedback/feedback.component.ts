@@ -18,7 +18,7 @@ export class FeedbackComponent implements OnInit {
       name: '',
       family_name: '',
       email: '',
-      picture: '',
+      picture: 'https://img.icons8.com/plumpy/24/user-male-circle.png',
     }
   ];
   feedbacks: any;
@@ -70,21 +70,26 @@ export class FeedbackComponent implements OnInit {
   submit() {
     if (this.feedbackForm.valid){
       if(this.userProfile.name !== undefined && this.userProfile.name !== null) {
-        this.feedbackService.createFeedback({
-          id: null,
-          name: this.userProfile.name,
-          family_name: this.userProfile.family_name,
-          email: this.userProfile.email,
-          picture: this.userProfile.picture,
-          feedback: this.feedbackForm.value.feedback,
-          date: this.loadDate()
-        }).subscribe(res => {
-          this.openSnackBar('Feedback submitted successfully', 'OK');
-          this.feedbackForm.reset();
-          this.loadFeedback();
-        }, error => {
-          this.openSnackBar('Something went wrong', 'OK');
-        })
+        if (this.userProfile.name !== 'undefined'){
+          this.feedbackService.createFeedback({
+            id: null,
+            name: this.userProfile.name,
+            family_name: this.userProfile.family_name,
+            email: this.userProfile.email,
+            picture: this.userProfile.picture,
+            feedback: this.feedbackForm.value.feedback,
+            date: this.loadDate()
+          }).subscribe(res => {
+            this.openSnackBar('Feedback submitted successfully', 'OK');
+            this.feedbackForm.reset();
+            this.loadFeedback();
+          }, error => {
+            this.openSnackBar('Something went wrong', 'OK');
+          })
+        }
+        else{
+          this.openSnackBar('Something problem have with your email. Try proper email address', 'OK');
+        }
       }
       else{
         const message = document.querySelector('.error-message') as HTMLElement;
