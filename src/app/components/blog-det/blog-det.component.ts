@@ -151,7 +151,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             }],
             like: selectedComment.like
           }).subscribe(res => {
-            this.loadBlog();
+            location.reload();
           }, error => {
             this.openSnackBar(error.message, 'Close');
           });
@@ -212,15 +212,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     }
   }
 
-  loadLikes() {
-    let likes: number = 0;
-    this.commentService.getAllComments().subscribe(data => {
-      likes = data.filter((comment: any) => {
-        return comment.blogId == this.blogData.id
-      })
-    })
-  }
-
   like(id: any) {
     this.isLiked = !this.isLiked
     let count: number = 0;
@@ -263,8 +254,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           }],
           like: count
         }).subscribe(data => {
-          this.matSnackBar.open(this.isLiked?'Liked Forecast':'Disliked Forecast', 'OK',{duration: 1500})
-          this.loadLikes()
+          this.matSnackBar.open(this.isLiked?'Liked Comment':'Disliked Comment', 'OK',{duration: 1500})
+          location.reload();
         })
 
       }
