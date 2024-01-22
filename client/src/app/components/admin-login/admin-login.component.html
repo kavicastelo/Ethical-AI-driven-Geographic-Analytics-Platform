@@ -1,0 +1,15 @@
+<div class="bg">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="login-container">
+        <div class="login-selection">
+          <button class="login-selection-btn" (click)="signIn()" [ngStyle]="{'background-color':signInBtn?'var(--color-primary-400)':'var(--color-primary-600)'}">Sign in</button>
+          <button class="login-selection-btn" (click)="signUp()" [ngStyle]="{'background-color':signUpBtn?'var(--color-primary-400)':'var(--color-primary-600)'}">Signup</button>
+        </div>
+        <div class="login-loader">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
