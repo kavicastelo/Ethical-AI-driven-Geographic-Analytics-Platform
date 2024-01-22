@@ -25,6 +25,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   blogData: any;
   commentData: any = commentDataStore;
   sortedComments: any = [];
+  selectedCommentId: any;
 
   isLiked: boolean = false
 
@@ -122,40 +123,85 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     return date.split(' ').slice(1, 4).join(' ');
   }
 
+  // submitReply() {
+  //   console.log(this.selectedCommentId)
+  //   let selectedComment;
+  //   if (this.replyForm.valid) {
+  //     this.commentService.getAllComments().subscribe((comments: any) => {
+  //       selectedComment = comments.filter((comment: any) => {
+  //         return comment.id == this.selectedCommentId
+  //       });
+  //
+  //       if (selectedComment.length > 0) {
+  //         this.commentService.updateComment({
+  //           id: selectedComment.id,
+  //           blogId: selectedComment.blogId,
+  //           name: this.userProfile.name,
+  //           email: this.userProfile.email,
+  //           profile: this.userProfile.picture,
+  //           date: this.loadDate(),
+  //           comment: selectedComment.comment,
+  //           reply: [selectedComment.reply,{
+  //             id: Math.random().toString(36 ).slice( -8 ),
+  //             commentId: selectedComment.id,
+  //             name: this.userProfile.name,
+  //             email: this.userProfile.email,
+  //             profile: this.userProfile.picture,
+  //             date: this.loadDate(),
+  //             replyComment: this.replyForm.value.reply
+  //           }],
+  //           like: selectedComment.like
+  //         }).subscribe(res => {
+  //           this.loadBlog();
+  //           // location.reload();
+  //         }, error => {
+  //           this.openSnackBar(error.message, 'Close');
+  //         })
+  //       }
+  //       else {
+  //         this.openSnackBar('Comment not found', 'Close');
+  //       }
+  //     })
+  //   }
+  // }
+
   submitReply() {
+    console.log(this.selectedCommentId);
     let selectedComment;
     if (this.replyForm.valid) {
       this.commentService.getAllComments().subscribe((comments: any) => {
-        comments.forEach((comment: any) => {
-          if (comment.blogId == this.blogData.id) {
-            selectedComment = comment;
-            this.commentService.updateComment({
-              id: selectedComment.id,
-              blogId: selectedComment.blogId,
+        const filteredComments = comments.filter((comment: any) => comment.id == this.selectedCommentId);
+
+        if (filteredComments.length > 0) {
+          selectedComment = filteredComments[0];
+
+          this.commentService.updateComment({
+            id: selectedComment.id,
+            blogId: selectedComment.blogId,
+            name: this.userProfile.name,
+            email: this.userProfile.email,
+            profile: this.userProfile.picture,
+            date: this.loadDate(),
+            comment: selectedComment.comment,
+            reply: [...selectedComment.reply, {
+              id: Math.random().toString(36).slice(-8),
+              commentId: selectedComment.id,
               name: this.userProfile.name,
               email: this.userProfile.email,
               profile: this.userProfile.picture,
               date: this.loadDate(),
-              comment: selectedComment.comment,
-              reply: [...selectedComment.reply,{
-                id: Math.random().toString(36 ).slice( -8 ),
-                commentId: selectedComment.id,
-                name: this.userProfile.name,
-                email: this.userProfile.email,
-                profile: this.userProfile.picture,
-                date: this.loadDate(),
-                replyComment: this.replyForm.value.reply
-              }],
-              like: selectedComment.like
-            }).subscribe(res => {
-              this.loadBlog();
-              location.reload();
-            }, error => {
-              this.openSnackBar(error.message, 'Close');
-            })
-          }
-        })
-      })
+              replyComment: this.replyForm.value.reply
+            }],
+            like: selectedComment.like
+          }).subscribe(res => {
+            this.loadBlog();
+          }, error => {
+            this.openSnackBar(error.message, 'Close');
+          });
+        } else {
+          this.openSnackBar('Comment not found', 'Close');
+        }
+      });
     }
   }
 
@@ -163,8 +209,9 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     this.isReplyFormVisible = false;
   }
 
-  replyPopup() {
+  replyPopup(id: any) {
     this.isReplyFormVisible = true;
+    return this.selectedCommentId = id;
   }
 
   comment() {
@@ -227,11 +274,11 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           count = parseInt(comment.like)
 
           if (this.isLiked) {
-            localStorage.setItem(comment.reply.id+'comment-like', JSON.stringify(true))
+            localStorage.setItem(comment.id+'comment-like', JSON.stringify(true))
             count++
           }
           else {
-            localStorage.setItem(comment.reply.id+'comment-like', JSON.stringify(false))
+            localStorage.setItem(comment.id+'comment-like', JSON.stringify(false))
             count = count - 1
           }
 
@@ -266,7 +313,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     this.commentService.getAllComments().subscribe(data => {
       data.forEach((comment: any) => {
         if (comment.blogId == this.blogData.id) {
-          if (localStorage.getItem(comment.reply.id+'comment-like') == 'true') {
+          if (localStorage.getItem(comment.id+'comment-like') == 'true') {
             this.isLiked = true
           }
         }

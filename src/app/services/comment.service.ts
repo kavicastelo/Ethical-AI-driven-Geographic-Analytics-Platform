@@ -27,6 +27,7 @@ export class CommentService {
 
   public createComment(c: CommentModel): Observable<any> {
     return this.http.post(this.baseUrl + 'comment/save', {
+      id: c.id,
       blogId: c.blogId,
       name: c.name,
       email: c.email,
@@ -40,6 +41,7 @@ export class CommentService {
 
   public updateComment(c: CommentModel): Observable<any> {
     return this.http.put(this.baseUrl + 'comment/update/' + c.id, {
+      id: c.id,
       blogId: c.blogId,
       name: c.name,
       email: c.email,
@@ -53,6 +55,7 @@ export class CommentService {
 
   public likeComment(c: CommentModel): Observable<any> {
     return this.http.put(this.baseUrl + 'comment/like/' + c.id, {
+      id: c.id,
       blogId: c.blogId,
       name: c.name,
       email: c.email,
