@@ -123,50 +123,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     return date.split(' ').slice(1, 4).join(' ');
   }
 
-  // submitReply() {
-  //   console.log(this.selectedCommentId)
-  //   let selectedComment;
-  //   if (this.replyForm.valid) {
-  //     this.commentService.getAllComments().subscribe((comments: any) => {
-  //       selectedComment = comments.filter((comment: any) => {
-  //         return comment.id == this.selectedCommentId
-  //       });
-  //
-  //       if (selectedComment.length > 0) {
-  //         this.commentService.updateComment({
-  //           id: selectedComment.id,
-  //           blogId: selectedComment.blogId,
-  //           name: this.userProfile.name,
-  //           email: this.userProfile.email,
-  //           profile: this.userProfile.picture,
-  //           date: this.loadDate(),
-  //           comment: selectedComment.comment,
-  //           reply: [selectedComment.reply,{
-  //             id: Math.random().toString(36 ).slice( -8 ),
-  //             commentId: selectedComment.id,
-  //             name: this.userProfile.name,
-  //             email: this.userProfile.email,
-  //             profile: this.userProfile.picture,
-  //             date: this.loadDate(),
-  //             replyComment: this.replyForm.value.reply
-  //           }],
-  //           like: selectedComment.like
-  //         }).subscribe(res => {
-  //           this.loadBlog();
-  //           // location.reload();
-  //         }, error => {
-  //           this.openSnackBar(error.message, 'Close');
-  //         })
-  //       }
-  //       else {
-  //         this.openSnackBar('Comment not found', 'Close');
-  //       }
-  //     })
-  //   }
-  // }
-
   submitReply() {
-    console.log(this.selectedCommentId);
     let selectedComment;
     if (this.replyForm.valid) {
       this.commentService.getAllComments().subscribe((comments: any) => {
@@ -264,48 +221,53 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     })
   }
 
-  like() {
+  like(id: any) {
     this.isLiked = !this.isLiked
     let count: number = 0;
+    let selectedComment;
 
     this.commentService.getAllComments().subscribe(data => {
-      data.forEach((comment: any) => {
-        if (comment.blogId == this.blogData.id) {
-          count = parseInt(comment.like)
 
-          if (this.isLiked) {
-            localStorage.setItem(comment.id+'comment-like', JSON.stringify(true))
-            count++
-          }
-          else {
-            localStorage.setItem(comment.id+'comment-like', JSON.stringify(false))
-            count = count - 1
-          }
+      const filteredComments = data.filter((comment: any) => comment.id == id);
 
-          this.commentService.likeComment({
-            id: comment.id,
-            blogId: this.blogId,
-            name: this.userProfile.name,
-            email: this.userProfile.email,
-            profile: this.userProfile.picture,
-            date: this.loadDate(),
-            comment: this.commentForm.value.comment,
-            reply: [{
-              id: Math.random().toString(36 ).slice( -8 ),
-              commentId: null,
-              name: "Geographical Analysis Platform",
-              email: null,
-              profile: "https://e7.pngegg.com/pngimages/858/1004/png-clipart-computer-icons-verified-badge-others-blue-heart-thumbnail.png",
-              date: this.loadDate(),
-              replyComment: "Thanks for your comment!"
-            }],
-            like: count
-          }).subscribe(data => {
-            this.matSnackBar.open(this.isLiked?'Liked Forecast':'Disliked Forecast', 'OK',{duration: 1500})
-            this.loadLikes()
-          })
+      if (filteredComments.length > 0) {
+        selectedComment = filteredComments[0];
+
+        count = parseInt(selectedComment.like)
+
+        if (this.isLiked) {
+          localStorage.setItem(selectedComment.id+'comment-like', JSON.stringify(true))
+          count++
         }
-      })
+        else {
+          localStorage.setItem(selectedComment.id+'comment-like', JSON.stringify(false))
+          count = count - 1
+        }
+
+        this.commentService.likeComment({
+          id: selectedComment.id,
+          blogId: this.blogId,
+          name: this.userProfile.name,
+          email: this.userProfile.email,
+          profile: this.userProfile.picture,
+          date: this.loadDate(),
+          comment: this.commentForm.value.comment,
+          reply: [{
+            id: Math.random().toString(36 ).slice( -8 ),
+            commentId: null,
+            name: "Geographical Analysis Platform",
+            email: null,
+            profile: "https://e7.pngegg.com/pngimages/858/1004/png-clipart-computer-icons-verified-badge-others-blue-heart-thumbnail.png",
+            date: this.loadDate(),
+            replyComment: "Thanks for your comment!"
+          }],
+          like: count
+        }).subscribe(data => {
+          this.matSnackBar.open(this.isLiked?'Liked Forecast':'Disliked Forecast', 'OK',{duration: 1500})
+          this.loadLikes()
+        })
+
+      }
     })
   }
 
