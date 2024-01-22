@@ -67,6 +67,7 @@ import { CommentsComponent } from './components/administration/comments/comments
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { AuthorizedComponent } from './components/shared/authorized/authorized.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { AuthorizedComponent } from './components/shared/authorized/authorized.c
     CommentsComponent,
     PrivacyPolicyComponent,
     TermsConditionsComponent,
-    AuthorizedComponent
+    AuthorizedComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
