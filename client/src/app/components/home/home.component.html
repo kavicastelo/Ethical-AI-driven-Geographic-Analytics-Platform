@@ -1,0 +1,114 @@
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-8">
+          <div class="content-loader">
+            <div class="top-carousal">
+              <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./assets/images/home/carousal-1.jpg" class="d-block w-100" alt="banner">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/images/home/carousal-2.jpg" class="d-block w-100" alt="banner">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/images/home/carousal-3.jpg" class="d-block w-100" alt="banner">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <h3>AIR QUALITY FORECASTS</h3>
+            <div class="card-container">
+              <div class="card" *ngFor="let f of forecastData">
+                <div class="card-body">
+                  <h4>{{f.title}}</h4>
+                  <h5>Issued at {{f.dateTime}}</h5>
+                  <p [innerHTML]="f.description"></p>
+                </div>
+                <div class="card-bottom">
+                  <button class="button-1" style="margin: 0 0 10px 10px" (click)="like()"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{isLiked?'Liked':'Like'}} {{f.likes}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="map-loader">
+            <div><h3>MAP AREA</h3></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="title-1">SATELLITE IMAGES</div>
+            <div class="hr-1"></div>
+            <div class="image-wrapper">
+              <a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=ha5" target="_blank">
+                <img src="./assets/images/home/satellite.jpg" class="img-fluid" alt="satellite">
+              </a>
+              <span>Courtesy of Himawari Satellite</span>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="title-1">LAST 24 HOURS</div>
+            <div class="hr-1"></div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3"></div>
+          <div class="col-12 col-sm-6 col-md-3"></div>
+        </div>
+
+        <div class="content">
+          <div class="title-1">QUICK LINKS</div>
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="title-2">WEATHER FORECAST</div>
+              <div class="image-wrapper">
+                <a href="https://www.meteo.gov.lk/index.php?lang=en" target="_blank">
+                  <img src="./assets/images/home/forecast.jpg" class="img-fluid" alt="forecast">
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="title-2">WEATHER MAP</div>
+              <div class="image-wrapper">
+                <a href="https://www.meteo.gov.lk/index.php?option=com_content&view=article&id=102&Itemid=360&lang=en" target="_blank">
+                  <img src="./assets/images/home/weathermap.jpg" class="img-fluid" alt="forecast">
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="title-2">SRI LANKA CLIMATE</div>
+              <div class="image-wrapper">
+                <a href="https://www.meteo.gov.lk/index.php?option=com_content&view=article&id=94&Itemid=310&lang=en" target="_blank">
+                  <img src="./assets/images/home/climate.jpg" class="img-fluid" alt="forecast">
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="title-2">AGRO BULLETIN</div>
+              <div class="image-wrapper">
+                <a href="https://www.meteo.gov.lk/index.php?option=com_content&view=article&id=28&Itemid=301&lang=en" target="_blank">
+                  <img src="./assets/images/home/agro.jpg" class="img-fluid" alt="forecast">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
