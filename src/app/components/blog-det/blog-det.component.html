@@ -75,7 +75,7 @@
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="d-flex align-items-center justify-content-between">
-                  <p (click)="like(c.id)"><i class="fa fa-thumbs-up" aria-hidden="true" [style]="{'color':isLiked?'var(--color-primary-200)':'var(--color-text-200)'}"></i> Like {{c.like}}</p>
+                  <p (click)="like(c.id)"><i class="fa fa-thumbs-up" aria-hidden="true" [style]="{'color':isLikedComment(c.id)?'var(--color-primary-200)':'var(--color-text-200)'}"></i> Like {{c.like}}</p>
                   <p (click)="replyPopup(c.id)">Reply</p>
                   <p>Share <i class="fa fa-share" aria-hidden="true"></i></p>
                 </div>

@@ -28,6 +28,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   selectedCommentId: any;
 
   isLiked: boolean = false
+  likedComments: Set<string> = new Set();
 
   userProfile: any = [
     {
@@ -69,7 +70,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         // Reload the page when the route changes
         window.location.reload();
-        window.scrollTo(0, 0);
       });
 
     if (!this.cookieService.isUserProfileName()) {
@@ -82,8 +82,6 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     this.userProfile.family_name = this.cookieService.profileFamilyName();
     this.userProfile.email = this.cookieService.profileEmail();
     this.userProfile.picture = this.cookieService.profilePicture();
-
-    this.checkLike();
   }
 
   ngOnDestroy() {
@@ -213,7 +211,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   }
 
   like(id: any) {
-    this.isLiked = !this.isLiked
+    this.isLiked = this.likedComments.has(id)
     let count: number = 0;
     let selectedComment;
 
@@ -226,11 +224,13 @@ export class BlogDetComponent implements OnInit, OnDestroy {
 
         count = parseInt(selectedComment.like)
 
-        if (this.isLiked) {
+        if (!this.isLiked) {
+          this.likedComments.add(id)
           localStorage.setItem(selectedComment.id+'comment-like', JSON.stringify(true))
           count++
         }
         else {
+          this.likedComments.delete(id)
           localStorage.setItem(selectedComment.id+'comment-like', JSON.stringify(false))
           count = count - 1
         }
@@ -262,16 +262,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     })
   }
 
-  checkLike() {
-    this.commentService.getAllComments().subscribe(data => {
-      data.forEach((comment: any) => {
-        if (comment.blogId == this.blogData.id) {
-          if (localStorage.getItem(comment.id+'comment-like') == 'true') {
-            this.isLiked = true
-          }
-        }
-      })
-    })
+  isLikedComment(id: any) {
+    return localStorage.getItem(id + 'comment-like') == 'true';
   }
 
   openSnackBar(message: string, action: string) {
