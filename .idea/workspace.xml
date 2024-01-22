@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dbac477d-e538-4c89-9bae-0f4b3baeaa35" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Ethical-AI-driven-Geographic-Analytics-Platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ethical-AI-driven-Geographic-Analytics-Platform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/air_quality.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/design/air quality.fig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/contact/banner-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/contact/banner-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/contact/bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/faq/banner-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/faq/banner-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/agro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/carousal-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/carousal-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/carousal-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/climate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/forecast.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/satellite.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/home/weathermap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/list-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/list-2-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/list-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/icons/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/shared/author.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/shared/coming-soon.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/shared/logo-extended.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/shared/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/assets/images/shared/sub-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/bg-1.4f2e76ed3df4a76a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/list-1.5f39ff16e3ba4868.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/logo-extended.e93b92e96c570a30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/main.b8add3f242d2b618.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/polyfills.4709fd955acb2242.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/runtime.7ae29a296d479790.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/styles.314993408e96994a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/sub-banner.9c39ba1e7a22c4c5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/about/about.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/about/about.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/about/about.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/about/about.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/admin-login/admin-login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/admin-login/admin-login.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/admin-login/admin-login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/admin-login/admin-login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-policy/admin-settings-policy.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-privacy/admin-settings-privacy.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-policy/admin-settings-user-policy.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings-user-terms/admin-settings-user-terms.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/admin-settings/admin-settings.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/administration.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/administration.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/administration.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/administration.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-edit/blogs-edit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-edit/blogs-edit.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-edit/blogs-edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-edit/blogs-edit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-list/blogs-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-list/blogs-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-list/blogs-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-list/blogs-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-new/blogs-new.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-new/blogs-new.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-new/blogs-new.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs-new/blogs-new.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/blogs/blogs.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/comments/comments.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/comments/comments.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/comments/comments.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/comments/comments.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-edit/faqs-edit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-edit/faqs-edit.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-edit/faqs-edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-edit/faqs-edit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-list/faqs-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-list/faqs-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-list/faqs-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-list/faqs-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-new/faqs-new.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-new/faqs-new.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-new/faqs-new.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs-new/faqs-new.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/faqs/faqs.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/feedbacks/feedbacks.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/feedbacks/feedbacks.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/feedbacks/feedbacks.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/feedbacks/feedbacks.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-new/forecast-new.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-new/forecast-new.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-new/forecast-new.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast-new/forecast-new.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/forecast/forecast.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-admins/users-admins.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-admins/users-admins.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-admins/users-admins.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-admins/users-admins.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-list/users-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-list/users-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-list/users-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-list/users-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-new-admin/users-new-admin.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-new-admin/users-new-admin.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-new-admin/users-new-admin.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-new-admin/users-new-admin.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-requests/users-requests.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-requests/users-requests.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-requests/users-requests.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users-requests/users-requests.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/administration/users/users.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog-det/blog-det.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog-det/blog-det.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog-det/blog-det.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog-det/blog-det.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog/blog.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog/blog.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog/blog.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/blog/blog.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact/contact.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact/contact.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact/contact.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact/contact.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/dashbord/dashbord.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/dashbord/dashbord.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/dashbord/dashbord.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/dashbord/dashbord.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/faq/faq.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/faq/faq.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/faq/faq.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/faq/faq.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feedback/feedback.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feedback/feedback.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feedback/feedback.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feedback/feedback.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/login/login.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/privacy-policy/privacy-policy.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/privacy-policy/privacy-policy.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/privacy-policy/privacy-policy.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/privacy-policy/privacy-policy.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/references/references.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/references/references.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/references/references.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/references/references.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/authorized/authorized.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/authorized/authorized.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/authorized/authorized.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/authorized/authorized.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/coming-soon/coming-soon.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/coming-soon/coming-soon.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/coming-soon/coming-soon.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/coming-soon/coming-soon.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/contact-form/contact-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/contact-form/contact-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/contact-form/contact-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/contact-form/contact-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/forbidden/forbidden.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/forbidden/forbidden.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/forbidden/forbidden.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/forbidden/forbidden.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/sign-up/sign-up.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/sign-up/sign-up.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/sign-up/sign-up.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/sign-up/sign-up.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signin-form/signin-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signin-form/signin-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signin-form/signin-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signin-form/signin-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signup-form/signup-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signup-form/signup-form.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signup-form/signup-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/shared/signup-form/signup-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/terms-conditions/terms-conditions.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/terms-conditions/terms-conditions.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/terms-conditions/terms-conditions.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/terms-conditions/terms-conditions.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/guards/admin-auth.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/guards/auth.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/guards/feedback.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/admin.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/blog.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/comment.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/contact.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/credential.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/faq.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/feedback.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/forecast.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/location.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/scroll.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/theme.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/user-policy.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/user-terms.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Admins.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Auth.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Blog.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Comment.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Country.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/FAQ.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Feedback.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Forecast.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Location.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/UserPolicy.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/UserTerms.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/model/Users.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/admin-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/auth-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/blog-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/comment-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/country-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/faq-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/feedback-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/forecast-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/location-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/user-policy-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/user-terms-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/store/users-data-store.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme/mat-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/contact/banner-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/contact/banner-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/contact/bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/faq/banner-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/faq/banner-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/agro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/carousal-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/carousal-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/carousal-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/climate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/forecast.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/satellite.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/home/weathermap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/light.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/list-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/list-2-dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/list-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/icons/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/shared/author.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/shared/coming-soon.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/shared/logo-extended.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/shared/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/shared/sub-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/release notes v-1-0-0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/release notes v-1-1-0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/release notes v-1-2-0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/release notes v-1-3-0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/release notes v-1-4-0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.development.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.spec.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2bJOQOelcCNGJXaqVrAMJvrRY8W" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "ts.external.directory.path": "E:\\PROJECTS\\HTML\\Ethical-AI-driven-Geographic-Analytics-Platform\\client\\node_modules\\typescript\\lib"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbac477d-e538-4c89-9bae-0f4b3baeaa35" name="Changes" comment="" />
+      <created>1705929697477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705929697477</updated>
+      <workItem from="1705929699639" duration="404000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

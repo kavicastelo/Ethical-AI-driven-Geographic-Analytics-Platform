@@ -52,6 +52,7 @@ import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy
 import {TermsConditionsComponent} from "./components/terms-conditions/terms-conditions.component";
 import {AuthorizedComponent} from "./components/shared/authorized/authorized.component";
 import {FeedbackGuard} from "./guards/feedback.guard";
+import {LoadingComponent} from "./components/shared/loading/loading.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -62,6 +63,7 @@ const routes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'blog-det/:id', component: BlogDetComponent},
   {path: 'authorize', component: AuthorizedComponent},
+  {path: 'loading', component: LoadingComponent},
   {
     path: 'login', component: LoginComponent, children: [
       {path: '', redirectTo: '/login/signin', pathMatch: 'full'},
