@@ -138,7 +138,8 @@ public class AIModel {
         try {
             String venvPath = "./venv";
             String pythonExecutablePath = venvPath + "/Scripts/python.exe";
-            String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py";
+//            String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py"; // for localhost
+            String pythonScriptPath = "src/main/java/com/api/air_quality/python/" + file + ".py";
 //            StringBuilder command = new StringBuilder(pythonExecutablePath + " " + pythonScriptPath); // for localhost
             StringBuilder command = new StringBuilder("python3 " + pythonScriptPath);
 
