@@ -32,9 +32,7 @@ RUN python3 -m venv venv && \
     pip3 install --upgrade pip && \
     pip3 install -r requirements.txt
 
-COPY src/main/java/com/api/air_quality/python /app/src/main/java/com/api/air_quality/python
-
-COPY venv /app/venv
+COPY src/main/java/com/api/air_quality /app/src/main/java/com/api/air_quality
 
 # Expose ports
 EXPOSE 3269
