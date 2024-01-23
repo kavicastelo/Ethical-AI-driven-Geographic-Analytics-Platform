@@ -19,8 +19,8 @@ WORKDIR /app
 # Copy the Spring Boot JAR file
 COPY --from=build /app/target/*.jar /app/app.jar
 
-# Install Python dependencies
-RUN apt-get update && apt-get install -y python3 python3-pip
+# Install Python and virtual environment package
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
 # Set the working directory for Python scripts
 WORKDIR /app
