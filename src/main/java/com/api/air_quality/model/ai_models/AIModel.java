@@ -137,7 +137,7 @@ public class AIModel {
     public void runScript(String file){
 
         try {
-            File dir = new File(".");
+            File dir = new File("./src/main/java/com/api/air_quality/python/" + file + ".py");
             System.out.println("Current directory: " + dir.getAbsolutePath());
 
             String venvPath = "./venv";
