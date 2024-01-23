@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import py4j.GatewayServer;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.atomic.AtomicReference;
@@ -136,10 +137,13 @@ public class AIModel {
     public void runScript(String file){
 
         try {
+            File dir = new File(".");
+            System.out.println("Current directory: " + dir.getAbsolutePath());
+
             String venvPath = "./venv";
             String pythonExecutablePath = venvPath + "/Scripts/python.exe";
 //            String pythonScriptPath = "./src/main/java/com/api/air_quality/python/" + file + ".py"; // for localhost
-            String pythonScriptPath = file + ".py";
+            String pythonScriptPath = "/app/src/main/java/com/api/air_quality/python/" + file + ".py";
 //            StringBuilder command = new StringBuilder(pythonExecutablePath + " " + pythonScriptPath); // for localhost
             StringBuilder command = new StringBuilder("python3 " + pythonScriptPath);
 
