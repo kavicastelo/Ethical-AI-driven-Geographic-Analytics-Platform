@@ -16,20 +16,21 @@ FROM openjdk:17.0.1-jdk-slim
 # Set working directory
 WORKDIR /app
 
-# Install Python and venv package
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
-
-# Create and activate virtual environment
-RUN python3 -m venv venv
-RUN . venv/bin/activate
-
 # Copy the Spring Boot JAR file
 COPY --from=build /app/target/*.jar /app/app.jar
 
-# Copy and install Python dependencies
-COPY requirements.txt /app
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
+# Install Python dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Set the working directory for Python scripts
+WORKDIR /app
+
+# Copy requirements.txt and install Python packages
+COPY requirements.txt /app/requirements.txt
+RUN python3 -m venv venv && \
+    . venv/bin/activate && \
+    pip3 install --upgrade pip && \
+    pip3 install -r requirements.txt
 
 # Expose ports
 EXPOSE 3269
