@@ -2,6 +2,10 @@ package com.api.air_quality.controller;
 
 import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.model.AdminModel;
+<<<<<<< HEAD
+=======
+import com.api.air_quality.model.UserModel;
+>>>>>>> backend
 import com.api.air_quality.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
