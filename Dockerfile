@@ -34,6 +34,8 @@ RUN python3 -m venv venv && \
 
 COPY src/main/java/com/api/air_quality /app/src/main/java/com/api/air_quality
 
+RUN pip3 install python-dotenv
+
 # Expose ports
 EXPOSE 3269
 
