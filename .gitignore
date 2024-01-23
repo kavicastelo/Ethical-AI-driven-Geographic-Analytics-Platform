@@ -1,4 +1,8 @@
 HELP.md
+
+### Python ###
+venv/
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -31,6 +35,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### python libraries ###
-venv
