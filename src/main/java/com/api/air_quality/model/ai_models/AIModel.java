@@ -137,7 +137,7 @@ public class AIModel {
     public void runScript(String file){
 
         try {
-            File scriptFile = new File("./src/main/java/com/api/air_quality/python/No2ModelPython.py");
+            File scriptFile = new File("/app/src");
             System.out.println("File exists: " + scriptFile.exists());
 
             String venvPath = "./venv";
