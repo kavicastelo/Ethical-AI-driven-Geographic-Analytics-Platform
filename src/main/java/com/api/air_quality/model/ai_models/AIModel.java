@@ -137,7 +137,7 @@ public class AIModel {
     public void runScript(String file){
 
         try {
-            File scriptFile = new File("/app/python");
+            File scriptFile = new File("/app/"+file+".py");
             System.out.println("File exists: " + scriptFile.exists());
 
             String venvPath = "./venv";
