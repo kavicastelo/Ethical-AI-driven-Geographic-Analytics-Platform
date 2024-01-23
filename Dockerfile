@@ -34,6 +34,8 @@ RUN python3 -m venv venv && \
 
 COPY src/main/java/com/api/air_quality/python /app/src/main/java/com/api/air_quality/python
 
+COPY venv /app/venv
+
 # Expose ports
 EXPOSE 3269
 
