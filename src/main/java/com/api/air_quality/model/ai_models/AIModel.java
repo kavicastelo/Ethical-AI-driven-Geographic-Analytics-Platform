@@ -137,8 +137,8 @@ public class AIModel {
     public void runScript(String file){
 
         try {
-            File dir = new File("./src/main/java/com/api/air_quality/python/" + file + ".py");
-            System.out.println("Current directory: " + dir.getAbsolutePath());
+            File scriptFile = new File("/app/src/main/java/com/api/air_quality/python/No2ModelPython.py");
+            System.out.println("File exists: " + scriptFile.exists());
 
             String venvPath = "./venv";
             String pythonExecutablePath = venvPath + "/Scripts/python.exe";
