@@ -21,9 +21,12 @@ COPY --from=build /app/target/*.jar /app/app.jar
 
 # Install Python dependencies
 RUN apt-get update && apt-get install -y python3 python3-pip
+RUN python3 -m venv venv
+RUN source venv/bin/activate
 COPY requirements.txt /app
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
+RUN deactivate
 
 # Expose ports
 EXPOSE 3269
