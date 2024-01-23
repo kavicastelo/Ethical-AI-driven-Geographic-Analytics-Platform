@@ -35,6 +35,12 @@ RUN python3 -m venv venv && \
 COPY src/main/java/com/api/air_quality /app/src/main/java/com/api/air_quality
 
 RUN pip3 install python-dotenv
+RUN pip3 install py4j
+RUN pip3 install joblib
+RUN pip3 install requests
+RUN pip3 install numpy
+RUN pip3 install pandas
+RUN pip3 install scikit-learn
 
 # Expose ports
 EXPOSE 3269
