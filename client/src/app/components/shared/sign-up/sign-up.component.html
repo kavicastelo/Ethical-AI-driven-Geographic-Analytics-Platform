@@ -1,0 +1,53 @@
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+      <h3 style="padding: 50px 0 0 20px">Sign Up</h3>
+
+    <mat-dialog-content class="mat-typography">
+      <p>Are you willing to join the Ethical AI-driven Geographic Analytics Platform, Here is your opportunity. You can
+        join us if you're a weather enthusiast, researcher, or someone passionate about environmental awareness. Submit
+        the registration form below. Our administration will accept your request as soon as possible.</p><br>
+      <form class="signup-form" [formGroup]="signupForm">
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Ex. kavindu kokila">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Ex. sample@gmail.com">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" placeholder="Ex. 0762343567">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Country</mat-label>
+              <mat-select class="example-full-width field" formControlName="country">
+                <mat-option value="" disabled selected>Select Country &ast;</mat-option>
+                <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Remarks (Optional)</mat-label>
+              <textarea matInput formControlName="remarks" placeholder="Ex. I'm a university student"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <div class="col-12">
+        <button class="button-1" type="submit" (click)="submit()">Request</button>
+      </div>
+    </mat-dialog-actions>
+  </div>
+</div>

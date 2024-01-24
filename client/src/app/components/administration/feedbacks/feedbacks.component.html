@@ -1,0 +1,23 @@
+<div class="container">
+  <h4 style="margin-bottom: 20px">Delete unwanted feedbacks</h4>
+
+  <div class="feedback-wrapper" *ngFor="let f of feedbacks">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="feedback-writer">
+        <div class="profile-wrapper">
+          <img src="{{f.picture}}" alt="{{f.family_name}}" width="40" height="40">
+        </div>
+        <div>
+          <p class="username">{{f.name}}</p>
+          <p class="post-date">{{f.date}}</p>
+        </div>
+      </div>
+      <div>
+        <button class="button-2" (click)="deleteFeedback(f.id)">Delete</button>
+      </div>
+    </div>
+    <div class="feedback">
+      {{f.feedback}}
+    </div>
+  </div>
+</div>
