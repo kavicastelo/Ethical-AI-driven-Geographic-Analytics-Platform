@@ -17,7 +17,7 @@ class No2ModelPython:
     def __init__(self):
         self.gateway = JavaGateway()
         self.java_model = self.gateway.entry_point
-        with open("./AI_Models/no2_model.pkl", 'rb') as f:
+        with open("/app/AI_Models/no2_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_no2(self, features):
