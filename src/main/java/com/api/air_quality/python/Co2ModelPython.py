@@ -17,7 +17,7 @@ class Co2ModelPython:
     def __init__(self):
         self.gateway = JavaGateway()
         self.java_model = self.gateway.entry_point
-        with open("./AI_Models/co2_model.pkl", 'rb') as f:
+        with open("/app/AI_Models/co2_model.pkl", 'rb') as f:
             self.model = pickle.load(f)
 
     def predict_co2(self, features):
