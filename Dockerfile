@@ -34,6 +34,8 @@ RUN python3 -m venv venv && \
 
 COPY src/main/java/com/api/air_quality /app/src/main/java/com/api/air_quality
 
+COPY AI_Models /app/AI_Models
+
 RUN pip3 install python-dotenv
 RUN pip3 install py4j
 RUN pip3 install joblib
