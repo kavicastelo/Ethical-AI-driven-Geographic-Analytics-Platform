@@ -8,6 +8,9 @@ You have to change few files to run the project locally.
 2. All Python models except AIModelPython.py (*./src/main/java/com/api/air_quality/python/\*.py*)
     - Replace all file paths in `class *ModelPython:` classes with actual file paths.
     - Ex: `"/app/AI_Models/airHumidity_model.pkl"` to `"./AI_Models/airHumidity_model.pkl"`
+3. CorsConfig.java (*./src/main/java/com/api/air_quality/CorsConfig.java*)
+    - Uncomment line **17** and **29**.
+    - Comment out line **18** and **30**.
 
 If you need to use your own localhost database,
 - Create `.env` file in the root directory of the project.
