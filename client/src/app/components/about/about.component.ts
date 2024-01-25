@@ -3,7 +3,7 @@ import {Subscription} from "rxjs";
 import {ThemeService} from "../../services/theme.service";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
-import {NgClass, NgFor} from "@angular/common";
+import {NgClass, NgFor, NgIf} from "@angular/common";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -46,7 +46,7 @@ export class AboutComponent implements OnDestroy {
   selector: 'app-sign-up',
   templateUrl: '../shared/sign-up/sign-up.component.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, NgClass, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSelectModule, NgFor],
+  imports: [MatDialogModule, MatButtonModule, NgClass, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSelectModule, NgFor, NgIf],
 })
 export class SignUpComponent {
 
@@ -72,6 +72,8 @@ export class SignUpComponent {
     remarks: new FormControl(null)
   })
 
+  isLoading: boolean = false;
+
   constructor(private themeService: ThemeService, public dialog: MatDialog, private matSnackBar: MatSnackBar, private userService: UserService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
@@ -79,8 +81,10 @@ export class SignUpComponent {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.signupForm.valid) {
       this.userService.getAllUsers().subscribe(res => {
+        this.isLoading = false;
         let selectedUser = res.find((user:any) => user.email === this.signupForm.value.email);
         if (selectedUser) {
           this.openSnackbar("User Already Requested")
@@ -96,6 +100,7 @@ export class SignUpComponent {
             remarks: this.signupForm.value.remarks,
             active: false
           }).subscribe( res => {
+            this.isLoading = false;
             this.signupForm.reset();
             this.openSnackbar("User Requested Successfully")
           })
