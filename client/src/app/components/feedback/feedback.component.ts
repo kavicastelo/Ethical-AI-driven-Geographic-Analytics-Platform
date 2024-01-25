@@ -22,6 +22,7 @@ export class FeedbackComponent implements OnInit {
     }
   ];
   feedbacks: any;
+  isLoading = true;
 
   feedbackForm = new FormGroup({
     feedback: new FormControl(null,[
@@ -55,6 +56,7 @@ export class FeedbackComponent implements OnInit {
   loadFeedback() {
     this.feedbackService.getAllFeedback().subscribe(
       (data) => {
+        this.isLoading = false;
         this.feedbacks = data;
       }, (error) => {
         console.log(error)
@@ -68,6 +70,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.feedbackForm.valid){
       if(this.userProfile.name !== undefined && this.userProfile.name !== null) {
         if (this.userProfile.name !== 'undefined'){
@@ -80,10 +83,12 @@ export class FeedbackComponent implements OnInit {
             feedback: this.feedbackForm.value.feedback,
             date: this.loadDate()
           }).subscribe(res => {
+            this.isLoading = false;
             this.openSnackBar('Feedback submitted successfully', 'OK');
             this.feedbackForm.reset();
             this.loadFeedback();
           }, error => {
+            this.isLoading = false;
             this.openSnackBar('Something went wrong', 'OK');
           })
         }
