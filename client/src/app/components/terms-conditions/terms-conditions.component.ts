@@ -10,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class TermsConditionsComponent implements OnInit {
   terms:any;
+  isLoading = true;
 
   constructor(private termsService: UserTermsService, private matSnackBar: MatSnackBar) {
 
@@ -25,6 +26,7 @@ export class TermsConditionsComponent implements OnInit {
 
   loadUserTerms() {
     this.termsService.getAllUserTerms().subscribe((data) => {
+      this.isLoading = false;
       if (data.length > 0) {
         this.terms = data;
       }
