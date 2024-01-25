@@ -26,6 +26,7 @@ export class ContactFormComponent {
       Validators.required
     ])
   })
+  isLoading: boolean = false;
 
   constructor(private themeService: ThemeService, private contactService: ContactService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -41,8 +42,10 @@ export class ContactFormComponent {
   }
 
   submit() {
+    this.isLoading = true
     if (this.contactForm.valid) {
       this.contactService.sendMessage(this.contactForm.value.name, this.contactForm.value.email, this.contactForm.value.message).subscribe( res => {
+        this.isLoading = false
         this.contactForm.reset();
         this.openSnackbar("Message Sent Successfully")
       });

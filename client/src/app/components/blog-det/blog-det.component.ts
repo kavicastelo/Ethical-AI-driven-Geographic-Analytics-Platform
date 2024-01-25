@@ -50,6 +50,8 @@ export class BlogDetComponent implements OnInit, OnDestroy {
     ])
   })
 
+  isLoading: boolean = false;
+
   constructor(
     private themeService: ThemeService,
     private route: ActivatedRoute,
@@ -89,7 +91,9 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   }
 
   loadBlog() {
+    this.isLoading = true;
     this.blogService.getAllBlogs().subscribe((blogs: any) => {
+      this.isLoading = false;
       this.blogData = blogs;
       this.route.paramMap.subscribe(params => {
         this.blogId = params.get('id');
@@ -122,6 +126,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   }
 
   submitReply() {
+    this.isLoading = true;
     let selectedComment;
     if (this.replyForm.valid) {
       this.commentService.getAllComments().subscribe((comments: any) => {
@@ -149,8 +154,10 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             }],
             like: selectedComment.like
           }).subscribe(res => {
+            this.isLoading = false;
             location.reload();
           }, error => {
+            this.isLoading = false;
             this.openSnackBar(error.message, 'Close');
           });
         } else {
@@ -170,6 +177,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
   }
 
   comment() {
+    this.isLoading = true;
     if (this.commentForm.valid) {
       if (this.userProfile.name !== undefined && this.userProfile.name !== null) {
         if (this.userProfile.name !== 'undefined') {
@@ -193,11 +201,13 @@ export class BlogDetComponent implements OnInit, OnDestroy {
             like: 0
           }).subscribe(
             (data) => {
+              this.isLoading = false;
               this.commentData.push(data);
               this.commentForm.reset();
               this.loadBlog();
               location.reload();
             }, (error) => {
+              this.isLoading = false;
               this.openSnackBar(error.message, 'Close');
             }
           )

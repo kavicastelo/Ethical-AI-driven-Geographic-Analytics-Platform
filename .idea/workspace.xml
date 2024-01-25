@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/about/about.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/about/about.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/sign-up/sign-up.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/sign-up/sign-up.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/blog-det/blog-det.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/blog-det/blog-det.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/blog-det/blog-det.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/blog-det/blog-det.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

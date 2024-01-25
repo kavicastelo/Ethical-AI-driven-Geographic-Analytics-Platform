@@ -17,6 +17,7 @@ export class BlogComponent {
   isDarkMode: boolean | undefined;
 
   blogData:any;
+  isLoading: boolean = true;
 
   constructor(private themeService: ThemeService, private router: Router, private scrollService: ScrollService, private blogService: BlogService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -41,6 +42,7 @@ export class BlogComponent {
 
   loadBlogs() {
     this.blogService.getAllBlogs().subscribe((data: any) => {
+      this.isLoading = false;
       this.blogData = data;
     }, (error: any) => {
       this.openSnackBar('Error loading blogs', 'Close');

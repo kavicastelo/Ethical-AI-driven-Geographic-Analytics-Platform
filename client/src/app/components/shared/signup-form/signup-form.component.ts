@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 })
 export class SignupFormComponent implements OnInit {
   countries: any = countries;
+  isLoading: boolean = false;
 
   signupForm = new FormGroup({
     name: new FormControl(null, [
@@ -42,8 +43,10 @@ export class SignupFormComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.signupForm.valid) {
       this.userService.getAllUsers().subscribe(res => {
+        this.isLoading = false;
         for (let i = 0; i < res.length; i++) {
           if (res[i].email === this.signupForm.get('email')?.value) {
             this.openSnackbar("User Already Exists")
@@ -62,6 +65,7 @@ export class SignupFormComponent implements OnInit {
           active: false}
         ).subscribe((res) => {
           this.cookieService.createUser(this.signupForm.get('email')?.value);
+          this.isLoading = false;
           this.signupForm.reset();
           this.router.navigate(['/dashboard']);
           this.openSnackbar("User Requested Successfully")
