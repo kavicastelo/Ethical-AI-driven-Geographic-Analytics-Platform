@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLiked: boolean = false
 
   forecastData:any;
+  isLoading: boolean = false;
 
   constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   loadForecast() {
+    this.isLoading = true
     this.forecastService.getForecast().subscribe(data => {
       if (data.length > 0 && data[0].visible == true) {
         this.forecastData = data
@@ -56,6 +58,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         ]
       }
     })
+    this.isLoading = false
   }
 
   like() {

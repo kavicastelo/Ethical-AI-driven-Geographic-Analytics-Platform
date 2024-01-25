@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/dist/client/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/client/3rdpartylicenses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/dist/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/dist/client/main.b8add3f242d2b618.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/dist/client/styles.314993408e96994a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/authorized/authorized.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/authorized/authorized.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
