@@ -93,4 +93,12 @@ export class AuthService {
     return this.cookieService.get('profile-token').toString();
   }
 
+  public deleteUserProfile() {
+    this.cookieService.delete('profile-token');
+    this.cookieService.delete('profile-name');
+    this.cookieService.delete('profile-email');
+    this.cookieService.delete('profile-picture');
+    this.cookieService.delete('profile-family-name');
+  }
+
 }

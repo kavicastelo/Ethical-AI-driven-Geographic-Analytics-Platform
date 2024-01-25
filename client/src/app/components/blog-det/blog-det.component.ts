@@ -203,6 +203,7 @@ export class BlogDetComponent implements OnInit, OnDestroy {
           )
         } else {
           this.openSnackBar('Something wrong with your email. Please try again with proper email', 'Close');
+          this.cookieService.deleteUserProfile();
         }
       } else {
         this.openSnackBar('Please login to comment', 'Close');
