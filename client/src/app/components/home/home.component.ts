@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.loadForecast();
     this.checkLike();
   }
