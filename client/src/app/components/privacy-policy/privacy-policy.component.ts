@@ -10,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class PrivacyPolicyComponent implements OnInit {
   policy: any;
+  isLoading = true;
 
   constructor(private userPolicyService: UserPolicyService, private matSnackBar: MatSnackBar) {
 
@@ -26,6 +27,7 @@ export class PrivacyPolicyComponent implements OnInit {
   loadUserPolicy(){
     this.userPolicyService.getAllUserPolicies().subscribe(
       (data: any) => {
+        this.isLoading = false;
         if (data.length > 0){
           this.policy = data;
         }

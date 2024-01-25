@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/contact-form/contact-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/contact-form/contact-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/contact-form/contact-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/contact-form/contact-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/terms-conditions/terms-conditions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/terms-conditions/terms-conditions.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/terms-conditions/terms-conditions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/terms-conditions/terms-conditions.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
