@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLiked: boolean = false
 
   forecastData:any;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isLoading = true
     this.loadForecast();
     this.checkLike();
   }
@@ -44,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   loadForecast() {
     this.isLoading = true
     this.forecastService.getForecast().subscribe(data => {
+      this.isLoading = false
       if (data.length > 0 && data[0].visible == true) {
         this.forecastData = data
         this.forecastData.description = this.sanitizer.bypassSecurityTrustHtml(this.forecastData.description);
@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         ]
       }
     })
-    this.isLoading = false
   }
 
   like() {

@@ -32,6 +32,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     ]),
     remarks: new FormControl(null)
   })
+  isLoading: boolean = false;
 
   constructor(private themeService: ThemeService, private userService: UserService, private matSnackBar: MatSnackBar) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -47,8 +48,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.signupForm.valid) {
       this.userService.getAllUsers().subscribe(res => {
+        this.isLoading = false;
         for (let i = 0; i < res.length; i++) {
           if (res[i].email === this.signupForm.value.email) {
             this.openSnackbar("User Already Requested")
@@ -64,6 +67,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
               remarks: this.signupForm.value.remarks,
               active: false
             }).subscribe( res => {
+              this.isLoading = false;
               this.signupForm.reset();
               this.openSnackbar("User Requested Successfully")
             })
