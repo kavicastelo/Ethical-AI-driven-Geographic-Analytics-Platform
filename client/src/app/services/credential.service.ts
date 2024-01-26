@@ -15,13 +15,14 @@ export class CredentialService {
 
   public setCredentials(c: AuthModel): Observable<any> {
     return this.http.post(this.baseUrl + 'login/save', {
+      id: c.id,
       email: c.email,
       password: c.password
     })
   }
 
-  public deleteCredentials(): Observable<any> {
-    return this.http.delete(this.baseUrl + 'login/delete')
+  public deleteCredentials(id:any): Observable<any> {
+    return this.http.delete(this.baseUrl + 'login/delete/' + id);
   }
 
   public getCredentials(): Observable<any> {
