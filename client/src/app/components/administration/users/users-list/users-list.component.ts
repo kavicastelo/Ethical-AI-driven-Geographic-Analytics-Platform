@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {usersDataStore} from "../../../../shared/store/users-data-store";
 import {UserService} from "../../../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {CredentialService} from "../../../../services/credential.service";
 
 @Component({
   selector: 'app-users-list',
@@ -12,7 +13,7 @@ export class UsersListComponent implements OnInit {
   users: any;
   isLoading: boolean = false;
 
-  constructor(private userService: UserService, private matSnackbar: MatSnackBar) {
+  constructor(private userService: UserService, private matSnackbar: MatSnackBar, private credentialService: CredentialService) {
   }
 
   ngOnInit(): void {
@@ -45,6 +46,13 @@ export class UsersListComponent implements OnInit {
         this.isLoading = false;
         this.openSnackbar('Failed to delete user', 'Close');
       })
+      this.credentialService.deleteCredentials(id).subscribe(res => {
+        this.isLoading = false;
+        this.openSnackbar('Credentials deleted successfully', 'Close');
+      }, error => {
+        this.isLoading = false;
+        this.openSnackbar('Failed to delete user credentials', 'Close');
+      });
     }
 
   }

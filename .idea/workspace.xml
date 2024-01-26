@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/dist/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/dist/client/main.1ee9250daa0d375b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-list/users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-list/users-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-requests/users-requests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-requests/users-requests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706258920356</updated>
-      <workItem from="1706258925726" duration="13739000" />
+      <workItem from="1706258925726" duration="16709000" />
     </task>
     <servers />
   </component>

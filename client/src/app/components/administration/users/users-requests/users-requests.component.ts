@@ -46,6 +46,13 @@ export class UsersRequestsComponent implements OnInit {
       }, error => {
         this.openSnackbar('Failed to delete user', 'Close');
       })
+      this.credentialService.deleteCredentials(id).subscribe((data: any) => {
+        this.isLoading = false;
+        this.openSnackbar('User deleted successfully', 'Close');
+      }, error => {
+        this.isLoading = false;
+        this.openSnackbar('Failed to delete user', 'Close');
+      })
     }
   }
 
