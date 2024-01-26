@@ -10,6 +10,8 @@ import {FeedbackService} from "../../../services/feedback.service";
 })
 export class FeedbacksComponent implements OnInit{
   feedbacks: any;
+  isLoading = true;
+
   constructor(private feedbackService: FeedbackService, private matSnackBar: MatSnackBar) {
   }
   ngOnInit(): void {
@@ -18,17 +20,22 @@ export class FeedbacksComponent implements OnInit{
 
   loadFeedbacks() {
     this.feedbackService.getAllFeedback().subscribe(res => {
+      this.isLoading = false;
       this.feedbacks = res
     });
   }
 
   deleteFeedback(id: any) {
-    this.feedbackService.deleteFeedback(id).subscribe(() => {
-      this.loadFeedbacks();
-      this.openSnackBar('Feedback deleted successfully', 'Close');
-    }, error => {
-      this.openSnackBar('Error deleting feedback', 'Close');
-    })
+    if (confirm('Are you sure you want to delete this feedback?')) {
+      this.isLoading = true;
+      this.feedbackService.deleteFeedback(id).subscribe(() => {
+        this.loadFeedbacks();
+        this.isLoading = false;
+        this.openSnackBar('Feedback deleted successfully', 'Close');
+      }, error => {
+        this.openSnackBar('Error deleting feedback', 'Close');
+      })
+    }
   }
 
   openSnackBar(message: string, action: string) {
