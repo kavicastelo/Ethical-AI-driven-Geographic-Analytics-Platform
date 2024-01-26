@@ -26,6 +26,8 @@ export class UsersNewAdminComponent implements OnInit {
     ])
   })
 
+  isLoading: boolean = false;
+
   constructor(private adminService: AdminService, private matSnackbar: MatSnackBar) {
   }
 
@@ -33,6 +35,7 @@ export class UsersNewAdminComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     this.adminService.createAdmin({
       id: null,
       name: this.adminForm.value.name,
@@ -40,6 +43,7 @@ export class UsersNewAdminComponent implements OnInit {
       phone: this.adminForm.value.phone,
       password: this.adminForm.value.password
     }).subscribe(res => {
+      this.isLoading = false;
       this.openSnackbar('Admin created successfully', 'Close');
       this.adminForm.reset();
     })
