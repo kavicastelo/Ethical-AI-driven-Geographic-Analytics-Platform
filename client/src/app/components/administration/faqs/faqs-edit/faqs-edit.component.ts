@@ -13,6 +13,7 @@ import {Subject, takeUntil} from "rxjs";
 export class FaqsEditComponent implements OnInit {
   faqs:any;
   selectedFAQ: any
+  isLoading: boolean = false;
 
   faqForm = new FormGroup({
     question: new FormControl(null,[
@@ -60,19 +61,26 @@ export class FaqsEditComponent implements OnInit {
   }
 
   updateFAQ() {
+    this.isLoading = true;
     if (this.faqForm.valid) {
       this.faqService.updateFAQ({
         id: this.selectedFAQ.id,
         question: this.faqForm.value.question,
         answer: this.faqForm.value.answer
       }).subscribe((data: any) => {
+        this.isLoading = false;
         if (data) {
           this.loadFaqs();
           this.openSnackBar('FAQ updated successfully', 'Close');
         }
       }, error => {
+        this.isLoading = false;
         this.openSnackBar('Error updating FAQ', 'Close');
       })
+    }
+    else {
+      this.isLoading = false;
+      this.openSnackBar('Please fill in all required fields', 'Close');
     }
   }
 

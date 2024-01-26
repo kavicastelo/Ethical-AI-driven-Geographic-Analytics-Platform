@@ -11,6 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class FaqsListComponent implements OnInit {
 
   faqs:any;
+  isLoading: boolean = true;
 
   constructor(private faqService: FaqService, private matSnackBar: MatSnackBar) {
   }
@@ -21,6 +22,7 @@ export class FaqsListComponent implements OnInit {
 
   loadFaqs() {
     this.faqService.getAllFAQs().subscribe((data: any) => {
+      this.isLoading = false;
       if (data) {
         this.faqs = data;
       }
@@ -29,8 +31,10 @@ export class FaqsListComponent implements OnInit {
 
   delete(id: any) {
     if (confirm('Are you sure you want to delete this FAQ?')) {
+      this.isLoading = true;
       this.faqService.deleteFAQ(id).subscribe((data: any) => {
         this.loadFaqs();
+        this.isLoading = false;
         this.openSnackBar('FAQ deleted', 'Close');
       }, error => {
         this.openSnackBar('Error deleting FAQ', 'Close');

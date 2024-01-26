@@ -19,6 +19,8 @@ export class FaqsNewComponent implements OnInit {
     ])
   })
 
+  isLoading:boolean = false;
+
   constructor(private faqsService: FaqService, private matSnackBar: MatSnackBar) {
   }
 
@@ -26,19 +28,23 @@ export class FaqsNewComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.faqForm.valid) {
       this.faqsService.createFAQ({
         id: null,
         question: this.faqForm.value.question,
         answer: this.faqForm.value.answer
     }).subscribe(data => {
+        this.isLoading = false;
         this.openSnackBar('FAQ created', 'Close');
         this.faqForm.reset();
       }, error => {
+        this.isLoading = false;
         this.openSnackBar('Error creating FAQ', 'Close');
       });
     }
     else {
+      this.isLoading = false;
       this.openSnackBar('Please fill all required fields', 'Close');
     }
   }

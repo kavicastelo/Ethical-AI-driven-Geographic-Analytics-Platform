@@ -11,6 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ForecastNewComponent implements OnInit {
   draftItem: any;
+  isLoading: boolean = false;
 
   constructor(private sanitizer: DomSanitizer, private forecastService: ForecastService, private snackBar: MatSnackBar) { }
 
@@ -44,6 +45,7 @@ export class ForecastNewComponent implements OnInit {
   }
 
   saveForecast() {
+    this.isLoading = true;
     this.forecastService.getForecast().subscribe(res => {
       if (res != null && res.length > 0){
         this.forecastService.deleteForecast(1).subscribe(res => {
@@ -55,11 +57,14 @@ export class ForecastNewComponent implements OnInit {
             likes: 0,
             visible: true
           }).subscribe(res => {
+            this.isLoading = false;
             this.openSnackBar("Forecast Created",'OK');
           }, err => {
+            this.isLoading = false;
             this.openSnackBar(err.error.message,'OK');
           })
         }, err => {
+          this.isLoading = false;
           this.openSnackBar(err.error.message,'OK');
         })
       }
@@ -72,8 +77,10 @@ export class ForecastNewComponent implements OnInit {
           likes: 0,
           visible: true
         }).subscribe(res => {
+          this.isLoading = false;
           this.openSnackBar("Forecast Created",'OK');
         }, err => {
+          this.isLoading = false;
           this.openSnackBar(err.error.message,'OK');
         })
       }

@@ -13,6 +13,8 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
   markdownData: any;
   saveBtnDisabled: boolean = false
 
+  isLoading: boolean = false;
+
   constructor(private userPolicyService: UserPolicyService, private matSnackBar: MatSnackBar) {
   }
 
@@ -44,11 +46,13 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
       this.openSnackBar('Already have a policy in que. Try to update!', 'Close');
     }
     else {
+      this.isLoading = true;
       this.userPolicyService.createUserPolicy({
         id: 0,
         markdownContent: this.markdownContent,
         date: this.loadDate()
       }).subscribe(res => {
+        this.isLoading = false;
         this.openSnackBar('Policy saved successfully', 'Close');
       }, error => {
         this.openSnackBar('Error saving policy', 'Close');
@@ -57,12 +61,14 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
   }
 
   updatePolicy() {
+    this.isLoading = true;
     if (this.markdownData.length > 0) {
       this.userPolicyService.updateUserPolicy({
         id: this.markdownData[0].id,
         markdownContent: this.markdownContent,
         date: this.loadDate()
       }).subscribe(res => {
+        this.isLoading = false;
         this.openSnackBar('Policy updated successfully', 'Close');
         this.loadUserPolicy()
       }, error => {
@@ -70,6 +76,7 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
       })
     }
     else {
+      this.isLoading = false;
       this.openSnackBar('No policy to update. Create one first!', 'Close');
     }
   }

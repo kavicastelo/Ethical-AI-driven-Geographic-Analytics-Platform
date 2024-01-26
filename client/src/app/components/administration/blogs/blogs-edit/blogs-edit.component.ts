@@ -20,6 +20,8 @@ export class BlogsEditComponent implements OnInit {
 
   private destroy$ = new Subject<void>();
 
+  isLoading: boolean = false;
+
   constructor(private fb: FormBuilder, private blogService: BlogService, private matSnackBar: MatSnackBar) {}
 
   ngOnInit() {
@@ -82,6 +84,7 @@ export class BlogsEditComponent implements OnInit {
     // Get the form values
     const formData: BlogModel = this.blogForm?.value;
 
+    this.isLoading = true;
     if (this.blogForm.valid){
       this.blogService.updateBlog({
         id: this.selectedBlog.id,
@@ -95,6 +98,7 @@ export class BlogsEditComponent implements OnInit {
         author: null
       }).subscribe(
         (data: any) => {
+          this.isLoading = false;
           this.openSnackBar('Blog updated successfully', 'Close');
           this.loadBlogs();
           this.blogForm.reset();
@@ -103,6 +107,10 @@ export class BlogsEditComponent implements OnInit {
           console.log(error);
         }
       )
+    }
+    else {
+      this.isLoading = false;
+      this.openSnackBar('Please fill all required fields', 'Close');
     }
   }
 

@@ -14,6 +14,7 @@ export class ForecastEditComponent implements OnInit {
   draftItem: any;
   forecast: any;
   visibility: any;
+  isLoading: boolean = false;
 
   constructor(private sanitizer: DomSanitizer, private forecastService: ForecastService, private snackBar: MatSnackBar) { }
 
@@ -28,8 +29,10 @@ export class ForecastEditComponent implements OnInit {
   }
 
   loadCurrentForecast() {
+    this.isLoading = true;
     this.forecastService.getForecast().subscribe(
       res => {
+        this.isLoading = false;
         if (res != null && res.length > 0){
           this.forecast = res[0];
           this.visibility = this.forecast.visible
@@ -48,6 +51,7 @@ export class ForecastEditComponent implements OnInit {
   }
 
   updateForecast() {
+    this.isLoading = true
     if (this.editForecastForm.valid) {
       this.forecastService.updateForecast({
         id: 1,
@@ -58,11 +62,17 @@ export class ForecastEditComponent implements OnInit {
         visible: true
       }).subscribe(
         res => {
+          this.isLoading = false
           this.openSnackBar("Forecast Updated",'OK');
         }, err => {
+          this.isLoading = false
           this.openSnackBar(err.error.message,'OK');
         }
       )
+    }
+    else {
+      this.isLoading = false
+      this.openSnackBar("Please fill all required fields",'OK');
     }
     this.loadCurrentForecast()
   }
@@ -97,8 +107,10 @@ export class ForecastEditComponent implements OnInit {
   deleteForecast() {
     const msg = "Are you sure you want to delete this forecast?";
     if (confirm(msg)) {
+      this.isLoading = true
       this.forecastService.deleteForecast(1).subscribe(
         res => {
+          this.isLoading = false
           this.openSnackBar("Forecast Deleted",'OK');
         }, err => {
           this.openSnackBar(err.error.message,'OK');

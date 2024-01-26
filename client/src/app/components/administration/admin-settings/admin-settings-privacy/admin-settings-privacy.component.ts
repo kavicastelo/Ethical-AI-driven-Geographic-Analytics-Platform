@@ -21,6 +21,8 @@ export class AdminSettingsPrivacyComponent implements OnInit {
     ])
   })
 
+  isLoading:boolean = false;
+
   constructor(private cookieService: AuthService, private adminService: AdminService, private matSnackBar: MatSnackBar, private router: Router) {
   }
 
@@ -33,9 +35,11 @@ export class AdminSettingsPrivacyComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     if (this.passwordForm.valid) {
       this.adminService.getAdminByEmail(this.loadAdmin()).subscribe(
         (data) => {
+          this.isLoading = false;
           if (data.password === this.passwordForm.value.currentPassword) {
             this.adminService.updateAdminPassword({
               id: data.id,
@@ -59,8 +63,10 @@ export class AdminSettingsPrivacyComponent implements OnInit {
 
   deleteAccount() {
     if (confirm("Are you sure you want to delete your account?")) {
+      this.isLoading = true;
       this.adminService.deleteAdminByEmail(this.loadAdmin()).subscribe(res => {
         this.cookieService.logoutAdmin();
+        this.isLoading = false;
         this.router.navigate(['/login']);
         this.openSnackBar('Account deleted successfully', 'Close');
       }, error => {

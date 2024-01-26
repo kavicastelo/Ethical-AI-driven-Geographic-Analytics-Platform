@@ -10,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class BlogsListComponent implements OnInit {
   blogs: any;
+  isLoading = true;
 
   constructor(private blogService: BlogService, private matSnackBar: MatSnackBar) {
   }
@@ -20,14 +21,17 @@ export class BlogsListComponent implements OnInit {
 
   loadBlogs() {
     this.blogService.getAllBlogs().subscribe((data: any) => {
+      this.isLoading = false;
       this.blogs = data;
     })
   }
 
   deleteBlog(id:any) {
     if (confirm('Are you sure you want to delete this blog?')) {
+      this.isLoading = true;
       this.blogService.deleteBlog(id).subscribe(() => {
         this.loadBlogs();
+        this.isLoading = false;
         this.openSnackBar('Blog deleted successfully', 'Close');
       }, error => {
         this.openSnackBar('Error deleting blog', 'Close');

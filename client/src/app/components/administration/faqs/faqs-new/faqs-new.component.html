@@ -1,3 +1,9 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
 <div class="container">
   <h4>Add new FA Question</h4>
   <form class="contact-form" [formGroup]="faqForm">
