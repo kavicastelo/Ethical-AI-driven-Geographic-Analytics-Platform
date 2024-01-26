@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/admin.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/client/main.1ee9250daa0d375b.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706258920356</updated>
-      <workItem from="1706258925726" duration="12889000" />
+      <workItem from="1706258925726" duration="13739000" />
     </task>
     <servers />
   </component>
