@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/forecast/forecast-edit/forecast-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-new-admin/users-new-admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-new-admin/users-new-admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-new-admin/users-new-admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-new-admin/users-new-admin.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706258920356</updated>
-      <workItem from="1706258925726" duration="2310000" />
+      <workItem from="1706258925726" duration="2625000" />
     </task>
     <servers />
   </component>

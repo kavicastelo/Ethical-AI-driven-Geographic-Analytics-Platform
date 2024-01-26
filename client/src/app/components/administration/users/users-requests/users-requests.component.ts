@@ -11,6 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class UsersRequestsComponent implements OnInit {
 
   users:any;
+  isLoading: boolean = true;
 
   constructor(private userService: UserService, private matSnackbar: MatSnackBar) {
   }
@@ -21,6 +22,7 @@ export class UsersRequestsComponent implements OnInit {
 
   loadUsers() {
     this.userService.getAllUsers().subscribe((data: any) => {
+      this.isLoading = false;
       if (data) {
         this.users = data.filter((user: any) => user.active === false);
       }
@@ -32,7 +34,9 @@ export class UsersRequestsComponent implements OnInit {
       return;
     }
     else{
+      this.isLoading = true;
       this.userService.deleteUser(id).subscribe((data: any) => {
+        this.isLoading = false;
         if (data) {
           this.openSnackbar('User deleted successfully', 'Close');
           this.loadUsers();
@@ -44,7 +48,9 @@ export class UsersRequestsComponent implements OnInit {
   }
 
   approveUser(id:any) {
+    this.isLoading = true;
     this.userService.approveUser(id).subscribe(res => {
+      this.isLoading = false;
       this.openSnackbar('User approved successfully', 'Close');
       this.loadUsers();
     }, error => {
