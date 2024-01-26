@@ -10,6 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class UsersAdminsComponent implements OnInit {
   admins: any;
+  isLoading: boolean = true;
 
   constructor(private adminService: AdminService, private matSnackbar: MatSnackBar) {
   }
@@ -21,6 +22,7 @@ export class UsersAdminsComponent implements OnInit {
   loadAdmins() {
     this.adminService.getAllAdmins().subscribe(
       (response) => {
+        this.isLoading = false;
         this.admins = response;
       }
     )
