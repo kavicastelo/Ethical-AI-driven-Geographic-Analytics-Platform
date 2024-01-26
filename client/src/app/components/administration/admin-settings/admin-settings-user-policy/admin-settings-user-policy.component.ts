@@ -76,6 +76,7 @@ export class AdminSettingsUserPolicyComponent implements OnInit {
       })
     }
     else {
+      this.isLoading = false;
       this.openSnackBar('No policy to update. Create one first!', 'Close');
     }
   }
