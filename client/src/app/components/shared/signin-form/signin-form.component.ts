@@ -101,16 +101,44 @@ export class SigninFormComponent implements OnInit{
       })
     }
     else if (this.urlState === '/dashboard/administration/signin') {
-      const email:any = this.signInForm.get('email')?.value;
-      const password:any = this.signInForm.get('password')?.value;
-      const testEmail = 'john23@gmail.com';
-      const testPassword = '1234';
-
-      if (email === testEmail && password === testPassword) {
-        this.cookieService.createAdmin(email);
-        this.router.navigate(['/admin']);
-        this.openSnackBar('Admin Found','OK')
-      }
+      this.isLoading = true;
+      this.adminService.getAllAdmins().subscribe((data: any) => {
+        this.isLoading = false;
+        if (data.length === 0) {
+          this.adminService.createAdmin({
+            id: null,
+            name: 'test admin',
+            email: 'test-admin@gmail.com',
+            phone: null,
+            password: '1234'
+          }).subscribe(res => {
+            this.openSnackBar('Default Admin Created','OK')
+            this.cookieService.createAdmin('test-admin@gmail.com');
+            this.openSnackBar('Congratulations! Default Admin Created','OK')
+          })
+        }
+        else{
+          this.adminService.getAdminByEmail(this.signInForm.get('email')?.value).subscribe((data: any) => {
+            this.isLoading = false;
+            if (data.email === this.signInForm.get('email')?.value) {
+              if (data.password === this.signInForm.get('password')?.value) {
+                this.cookieService.createAdmin(data.email);
+                this.isLoading = false;
+                this.router.navigate(['/admin']);
+                this.openSnackBar('Admin Found','OK')
+              }
+              else {
+                this.isLoading = false;
+                this.openSnackBar('Password Incorrect','OK')
+              }
+            }
+            else{
+              this.isLoading = false;
+              this.openSnackBar('Admin Not Found','OK')
+            }
+          })
+        }
+      })
     }
   }
 

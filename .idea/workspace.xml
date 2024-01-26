@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6c598a-d8a8-4a6a-b1e4-c04de0659ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-list/users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-list/users-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/administration/users/users-requests/users-requests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/administration/users/users-requests/users-requests.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/signin-form/signin-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/admin.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706258920356</updated>
-      <workItem from="1706258925726" duration="11730000" />
+      <workItem from="1706258925726" duration="12889000" />
     </task>
     <servers />
   </component>
