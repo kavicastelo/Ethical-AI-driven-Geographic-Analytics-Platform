@@ -4,6 +4,9 @@ import {AuthService} from "../../../services/auth.service";
 import {authDataStore} from "../../../shared/store/auth-data-store";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";
+import {AdminService} from "../../../services/admin.service";
+import {CredentialService} from "../../../services/credential.service";
 
 @Component({
   selector: 'app-signin-form',
@@ -12,10 +15,13 @@ import {Router} from "@angular/router";
 })
 export class SigninFormComponent implements OnInit{
 
-  authData:any = authDataStore;
+  authData:any;
+  verifiedUsers:any;
   urlState:string = this.router.url;
 
-  constructor(private cookieService: AuthService, private snackBar: MatSnackBar, private router: Router) {
+  isLoading:boolean = false;
+
+  constructor(private cookieService: AuthService, private snackBar: MatSnackBar, private router: Router, private userService: UserService, private adminService: AdminService, private credentialService: CredentialService) {
   }
 
   ngOnInit(): void {
@@ -33,20 +39,64 @@ export class SigninFormComponent implements OnInit{
 
   submit() {
     if(this.urlState === '/login/signin') {
-      this.authData.forEach((item:any) => {
-        if (item !== null && item !== undefined) {
-          if (item.email === this.signInForm.get('email')?.value) {
-            if (item.password === this.signInForm.get('password')?.value) {
-              this.cookieService.createUser(this.authData.email);
-              this.router.navigate(['/dashboard']);
+      this.credentialService.getCredentials().subscribe(res => {
+        if (res.length === 0) {
+          this.userService.createUser({
+            id: null,
+            name: 'test user',
+            email: 'tester@gmail.com',
+            phone: null,
+            country: null,
+            remarks: null,
+            active: true
+          }).subscribe(res => {
+            this.openSnackBar('Default User Created','OK')
+          })
+          this.credentialService.setCredentials({
+            id: null,
+            email: 'tester@gmail.com',
+            password: '1234'
+          }).subscribe(res => {
+            this.openSnackBar('Default Credentials Created','OK')
+          })
+          this.cookieService.createAdmin('tester@gmail.com');
+          this.openSnackBar("Congratulations! You are the first user of this site and you are on tester mode. please change your credentials",'OK')
+          this.router.navigate(['/dashboard']);
+        }
+        else {
+          this.isLoading = true;
+          this.userService.getUserByEmail(this.signInForm.get('email')?.value).subscribe((data: any) => {
+            if (data === null) {
+              this.isLoading = false;
+              this.openSnackBar('User Not Found','OK')
             }
             else {
-              this.openSnackBar('Password Incorrect','OK')
+              if (data.active === false) {
+                this.isLoading = false;
+                this.openSnackBar('User Not Verified','OK')
+              }
+              else {
+                this.credentialService.getCredentialByEmail(this.signInForm.get('email')?.value).subscribe((data: any) => {
+                  if (data.email === this.signInForm.get('email')?.value) {
+                    if (data.password === this.signInForm.get('password')?.value) {
+                      this.cookieService.createUser(data.email);
+                      this.isLoading = false;
+                      this.router.navigate(['/dashboard']);
+                    }
+                    else {
+                      this.isLoading = false;
+                      this.openSnackBar('Password Incorrect','OK')
+                    }
+                  }
+                  else{
+                    this.isLoading = false;
+                    this.openSnackBar('User Not Found','OK')
+                  }
+                })
+              }
             }
-          }
-          else{
-            this.openSnackBar('User Not Found','OK')
-          }
+            this.authData = data
+          })
         }
       })
     }

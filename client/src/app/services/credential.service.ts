@@ -28,6 +28,10 @@ export class CredentialService {
     return this.http.get(this.baseUrl + 'login/get')
   }
 
+  public getCredentialByEmail(email: any): Observable<any> {
+    return this.http.get(this.baseUrl + 'login/email/' + email);
+  }
+
   public updateCredentialsByEmail(c: AuthModel): Observable<any> {
     return this.http.put(this.baseUrl + 'login/update', {
       email: c.email,

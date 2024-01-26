@@ -1,3 +1,9 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
 <form class="signIn-form" [formGroup]="signInForm">
   <div class="row">
     <div class="col-12">
