@@ -18,6 +18,8 @@ export class BlogsNewComponent implements OnInit {
   author = '';
   tags: any = ["Seed", "Sprout", "Root"];
 
+  isLoading: boolean = false;
+
   constructor(private fb: FormBuilder, private blogService: BlogService, private matSnackBar: MatSnackBar, private cookieService: AuthService, private adminService: AdminService) {}
 
   ngOnInit() {
@@ -78,6 +80,7 @@ export class BlogsNewComponent implements OnInit {
       else {
         tag = 'Seed';
       }
+      this.isLoading = true;
       this.blogService.createBlog({
         id: null,
         title: formData.title,
@@ -90,6 +93,7 @@ export class BlogsNewComponent implements OnInit {
         author: author
       }).subscribe(
         (data) => {
+          this.isLoading = false;
           this.openSnackBar('Blog created successfully', 'Close');
           this.blogForm.reset();
         },
