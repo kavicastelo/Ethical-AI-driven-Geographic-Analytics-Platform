@@ -16,7 +16,7 @@ export class AdministrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userEmail = this.cookieService.userEmail().toString()
+    this.userEmail = this.cookieService.adminEmail().toString()
     this.profileLetter = this.userEmail[0];
   }
 
