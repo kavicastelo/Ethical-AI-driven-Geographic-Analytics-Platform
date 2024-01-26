@@ -10,7 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class UsersListComponent implements OnInit {
   users: any;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
   constructor(private userService: UserService, private matSnackbar: MatSnackBar) {
   }
@@ -20,7 +20,9 @@ export class UsersListComponent implements OnInit {
   }
 
   loadUsers() {
+    this.isLoading = true;
     this.userService.getAllUsers().subscribe((data: any) => {
+      this.isLoading = false;
       if (data) {
         this.users = data.filter((user: any) => user.active);
       }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {usersDataStore} from "../../../../shared/store/users-data-store";
 import {UserService} from "../../../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {CredentialService} from "../../../../services/credential.service";
 
 @Component({
   selector: 'app-users-requests',
@@ -11,9 +12,9 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class UsersRequestsComponent implements OnInit {
 
   users:any;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
-  constructor(private userService: UserService, private matSnackbar: MatSnackBar) {
+  constructor(private userService: UserService, private matSnackbar: MatSnackBar, private credentialService: CredentialService) {
   }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class UsersRequestsComponent implements OnInit {
   }
 
   loadUsers() {
+    this.isLoading = true;
     this.userService.getAllUsers().subscribe((data: any) => {
       this.isLoading = false;
       if (data) {
@@ -48,6 +50,15 @@ export class UsersRequestsComponent implements OnInit {
   }
 
   approveUser(id:any) {
+    let password = Math.random().toString(36).slice(-8);
+    this.credentialService.setCredentials({
+      id: id,
+      email: this.users.find((user: any) => user.id === id).email,
+      password: password
+    }).subscribe((data: any) => {
+      this.openSnackbar('User approved successfully', 'Close');
+      this.loadUsers();
+    })
     this.isLoading = true;
     this.userService.approveUser(id).subscribe(res => {
       this.isLoading = false;

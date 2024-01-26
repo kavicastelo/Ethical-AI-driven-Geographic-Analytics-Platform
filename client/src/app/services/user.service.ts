@@ -20,7 +20,7 @@ export class UserService {
       phone: u.phone,
       country: u.country,
       remarks: u.remarks,
-      active: false
+      active: u.active
     });
   }
 
@@ -32,7 +32,7 @@ export class UserService {
     return this.http.get(this.baseUrl + 'user/' + id);
   }
 
-  public getUserByEmail(email: string): Observable<any> {
+  public getUserByEmail(email: any): Observable<any> {
     return this.http.get(this.baseUrl + 'user/email/' + email);
   }
 
