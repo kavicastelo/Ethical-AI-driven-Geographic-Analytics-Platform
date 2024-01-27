@@ -12,6 +12,7 @@ Welcome to the documentation for the Air Quality and Meteorological Data APIs. T
     - [Meteorological API](#metrological-api)
     - [Land Use API](#land-use-api)
     - [System API](#system-api-not-recommend-for-users)
+    - [Client API](#client-api)
 - [Error Handling](#error-handling)
 - [Contact](#contact-us)
 
@@ -2024,6 +2025,107 @@ Authorization: Bearer YOUR_API_KEY
     ```json
     {
     "message": "Blog updated successfully"
+    }
+    ```
+   
+#### Comment
+1. #### Create comment
+    - **Endpoint:** `/comment/save`
+    - **Method:** `POST`
+    - **Description:** Create a new comment
+    - **Request:**
+    ```json
+    {
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "",
+    "like": 0
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment created successfully"
+    }
+    ```
+   
+2. #### Get all comments
+    - **Endpoint:** `/comment/all`
+    - **Method:** `GET`
+    - **Description:** Get all comments
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "comments": [
+        {
+        "blog_id": "1",
+        "name": "user",
+        "email": "user@gmail.com",
+        "profile": "https://example.com/image.jpg",
+        "date": "2024.01.27",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "reply": "",
+        "like": 0
+        }
+      ]
+    }
+    ```
+   
+3. #### Update Comment
+    - **Endpoint:** `/comment/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update comment by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "lorem",
+    "like": 0
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment updated successfully"
+    }
+    ```
+   
+4. #### Like Comment
+    - **Endpoint:** `/comment/like/{id}`
+    - **Method:** `PUT`
+    - **Description:** Like comment by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "",
+    "like": 1
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment liked successfully"
     }
     ```
    
