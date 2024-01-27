@@ -1842,6 +1842,103 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
    
+#### Credentials
+1. #### Get credentials by email address
+    - **Endpoint:** `/login/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get credentials by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+   
+2. Save credentials
+    - **Endpoint:** `/login/save`
+    - **Method:** `POST`
+    - **Description:** Save credentials
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials saved successfully"
+    }
+    ```
+   
+3. #### Update credentials
+    - **Endpoint:** `/login/update/{email}`
+    - **Method:** `PUT`
+    - **Description:** Update credentials
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials updated successfully"
+    }
+    ```
+   
+4. #### Delete credentials
+    - **Endpoint:** `/login/delete/{email}`
+    - **Method:** `DELETE`
+    - **Description:** Delete credentials by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials deleted successfully"
+    }
+    ```
+   
+5. Get all credentials
+    - **Endpoint:** `/login/get`
+    - **Method:** `GET`
+    - **Description:** Get all credentials
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "credentials": [
+        {
+        "email": "user@gmail.com",
+        "password": "dskjd53b24"
+        }
+      ]
+    }
+    ```
+   
+#### Credentials
+   
+3. #### Update credentials
+    - **Endpoint:** `/credentials/email/{email}`
+   
 ## Error Handling
 - ### HTTP Status Codes:
   - **200 OK:** Successful request.
