@@ -1633,6 +1633,106 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
+    
+### Client API
+#### Admin
+1. #### Save admin
+    - **Endpoint:** `/admin`
+    - **Method:** `POST`
+    - **Description:** Save admin
+    - **Request:**
+    ```json
+    {
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin saved successfully"
+    }
+    ```
+   
+2. #### Update admin credentials
+    - **Endpoint:** `/admin/password/{adminId}`
+    - **Method:** `PUT`
+    - **Description:** Update admin password
+    - **Request:**
+    ```json
+    {
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin updated successfully"
+    }
+    ```
+   
+3. #### Delete admin
+    - **Endpoint:** `/admin/delete/email/{email}`
+    - **Method:** `DELETE`
+    - **Description:** Delete admin by email address
+    - **Request:**
+    ```json
+    {
+    "email": "admin@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin deleted successfully"
+    }
+    ```
+   
+4. #### Get admin
+    - **Endpoint:** `/admin/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get admin by email address
+    - **Request:**
+    ```json
+    {
+    "email": "admin@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "admin@gmail.com",
+    "name": "admin",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+   
+5. #### Get all admins
+    - **Endpoint:** `/admin/all`
+    - **Method:** `GET`
+    - **Description:** Get all admins
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "admins": [
+        {
+        "email": "admin@gmail.com",
+        "name": "admin",
+        "phone": "1234567890",
+        "password": "admin"
+        }
+    ]
+    }
    
 ## Error Handling
 - ### HTTP Status Codes:
