@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ThemeService} from "./services/theme.service";
 import { Router, NavigationEnd } from '@angular/router';
 import {locationDataStore} from "./shared/store/location-data-store";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,14 @@ export class AppComponent implements OnInit {
   title = 'Ethical AI driven Geographic Analytics Platform';
   isNavbar: boolean = true;
   locations = locationDataStore
+  isCookieBarOpen: boolean = true;
 
-  constructor(public themeService: ThemeService, private router: Router) {}
+  constructor(public themeService: ThemeService, private router: Router, private cookieService: AuthService) {}
 
   ngOnInit() {
+    if (this.cookieService.isCookiesAccepted()) {
+      this.isCookieBarOpen = false;
+    }
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // Logic to update active class based on the current route
@@ -47,5 +52,15 @@ export class AppComponent implements OnInit {
 
   isActive(s: string) {
     return this.router.url === s;
+  }
+
+  acceptAllCookies() {
+    this.cookieService.acceptAllCookies();
+    this.isCookieBarOpen = false;
+  }
+
+  necessaryCookiesOnly() {
+    this.cookieService.necessaryCookiesOnly();
+    this.isCookieBarOpen = false;
   }
 }
