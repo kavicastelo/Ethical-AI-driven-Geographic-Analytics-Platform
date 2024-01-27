@@ -1734,6 +1734,114 @@ Authorization: Bearer YOUR_API_KEY
     ]
     }
    
+#### User
+1. #### Request user
+    - **Endpoint:** `/user/request`
+    - **Method:** `POST`
+    - **Description:** Request user to the system for get credentials
+    - **Request:**
+    ```json
+    {
+    "name": "user",
+    "email": "user@gmail.com",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": false
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User Requested successfully"
+    }
+    ```
+   
+2. #### Get user
+    - **Endpoint:** `/user/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get user by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "name": "user",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": false
+    }
+    ```
+   
+3. #### Get all users
+    - **Endpoint:** `/user/all`
+    - **Method:** `GET`
+    - **Description:** Get all users
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "users": [
+        {
+        "email": "user@gmail.com",
+        "name": "user",
+        "phone": "1234567890",
+        "country": "India",
+        "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "active": false
+        }
+      ]
+    }
+   ```
+   
+4. #### Approve User
+    - **Endpoint:** `/user/avvrove/{id}`
+    - **Method:** `PUT`
+    - **Description:** Approve user request
+    - **Request:**
+    ```json
+    {
+    "name": "user",
+    "email": "user@gmail.com",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User approved successfully"
+    }
+    ```
+   
+5. #### Delete user
+    - **Endpoint:** `/user/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete user by id
+    - **Request:**
+    ```json
+    {
+    "email": "2csk623f2442b"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User deleted successfully"
+    }
+    ```
+   
 ## Error Handling
 - ### HTTP Status Codes:
   - **200 OK:** Successful request.
