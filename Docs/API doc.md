@@ -1914,7 +1914,7 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
    
-5. Get all credentials
+5. #### Get all credentials
     - **Endpoint:** `/login/get`
     - **Method:** `GET`
     - **Description:** Get all credentials
@@ -1934,10 +1934,98 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
    
-#### Credentials
+#### Blog
+1. #### Create blog
+    - **Endpoint:** `/blog/create`
+    - **Method:** `POST`
+    - **Description:** Create a new blog
+    - **Request:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "image": "https://example.com/image.jpg",
+    "tags": "Technology",
+    "created_at": "2024.01.27",
+    "updated_at": "2024.01.27",
+    "author": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog created successfully"
+    }
+    ```
    
-3. #### Update credentials
-    - **Endpoint:** `/credentials/email/{email}`
+2. #### Get all blogs
+    - **Endpoint:** `/blog/all`
+    - **Method:** `GET`
+    - **Description:** Get all blogs
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "blogs": [
+        {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "image": "https://example.com/image.jpg",
+        "tags": "Technology",
+        "created_at": "2024.01.27",
+        "updated_at": "2024.01.27",
+        "author": "admin"
+        }
+      ]
+    }
+    ```
+   
+3. #### Delete blog
+    - **Endpoint:** `/blog/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete blog by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog deleted successfully"
+    }
+    ```
+   
+4. #### Update blog
+    - **Endpoint:** `/blog/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update blog by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "image": "https://example.com/image.jpg",
+    "tags": "Technology",
+    "created_at": "2024.01.27",
+    "updated_at": "2024.01.27",
+    "author": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog updated successfully"
+    }
+    ```
    
 ## Error Handling
 - ### HTTP Status Codes:
