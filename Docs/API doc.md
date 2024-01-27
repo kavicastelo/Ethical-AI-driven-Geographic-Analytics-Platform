@@ -2437,6 +2437,59 @@ Authorization: Bearer YOUR_API_KEY
     "message": "User policy created successfully"
     }
     ```
+   
+#### Terms and Conditions
+1. #### Get  all Terms and Conditions
+    - **Endpoint:** `/UserTerms`
+    - **Method:** `GET`
+    - **Description:** Get terms and conditions data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+   
+2. #### Update Terms and Conditions
+    - **Endpoint:** `/UserTerms/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update terms and conditions data
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Terms and conditions updated successfully"
+    }
+    ```
+   
+3. #### Create Terms and Conditions
+    - **Endpoint:** `/UserTerms/save`
+    - **Method:** `POST`
+    - **Description:** Create a new Terms and Conditions
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Terms and conditions created successfully"
+    }
+    ```
 
 ## Error Handling
 
