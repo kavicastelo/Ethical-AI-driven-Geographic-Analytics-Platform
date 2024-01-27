@@ -2385,9 +2385,58 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
    
-6. #### Unlike Forecast
-    - **Endpoint:** `/forecast/unlike/{id}`
+#### User Policy
+1. #### Get  all User Policy
+    - **Endpoint:** `/userpolicy`
+    - **Method:** `GET`
+    - **Description:** Get user policy data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+   
+2. #### Update User Policy
+    - **Endpoint:** `/userpolicy/update/{id}`
     - **Method:** `PUT`
+    - **Description:** Update user policy data
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User policy updated successfully"
+    }
+    ```
+   
+3. #### Create User Policy
+    - **Endpoint:** `/userpolicy/save`
+    - **Method:** `POST`
+    - **Description:** Create a new User Policy
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User policy created successfully"
+    }
+    ```
 
 ## Error Handling
 
