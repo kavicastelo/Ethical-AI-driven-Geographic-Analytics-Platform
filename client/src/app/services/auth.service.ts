@@ -101,4 +101,17 @@ export class AuthService {
     this.cookieService.delete('profile-family-name');
   }
 
+  public acceptAllCookies() {
+    this.cookieService.set('cookies-accepted', 'true', 60*60*24*20);
+  }
+
+  public necessaryCookiesOnly() {
+    this.cookieService.set('cookies-accepted', 'false', 60*60*24*20);
+  }
+
+  public isCookiesAccepted() {
+    let cookie = this.cookieService.get('cookies-accepted');
+    return cookie.length !== 0;
+  }
+
 }
