@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/docs/release notes v-1-6-0.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/client/main.fcf1edbcdf35581b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +54,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\client\src\docs" />
       <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\.idea" />
     </key>
   </component>
@@ -80,7 +84,7 @@
       <updated>1706258920356</updated>
       <workItem from="1706258925726" duration="18138000" />
       <workItem from="1706298697082" duration="930000" />
-      <workItem from="1706348862114" duration="16019000" />
+      <workItem from="1706348862114" duration="16364000" />
     </task>
     <servers />
   </component>
