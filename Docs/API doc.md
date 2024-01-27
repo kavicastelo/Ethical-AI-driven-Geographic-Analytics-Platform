@@ -2129,6 +2129,81 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
    
+#### FAQ
+1. #### Create FAQ
+    - **Endpoint:** `/faq`
+    - **Method:** `POST`
+    - **Description:** Create a new FAQ
+    - **Request:**
+    ```json
+    {
+    "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ created successfully"
+    }
+    ```
+   
+2. #### Get all FAQs
+    - **Endpoint:** `/faq/all`
+    - **Method:** `GET`
+    - **Description:** Get all FAQs
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "faqs": [
+        {
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+        }
+      ]
+    }
+    ```
+   
+3. #### Update FAQ
+    - **Endpoint:** `/faq/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update FAQ by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ updated successfully"
+    }
+    ```
+   
+4. #### Delete FAQ
+    - **Endpoint:** `/faq/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete FAQ by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ deleted successfully"
+    }
+    ```
+   
 ## Error Handling
 - ### HTTP Status Codes:
   - **200 OK:** Successful request.
