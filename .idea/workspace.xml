@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Docs/API doc.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/API doc.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/docs/release notes v-1-6-0.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/PROJECTS/HTML/Ethical-AI-driven-Geographic-Analytics-Platform/client/src/docs",
     "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "d5f73674f4485e14aac5b80b81aca5c3",
     "ts.external.directory.path": "E:\\PROJECTS\\HTML\\Ethical-AI-driven-Geographic-Analytics-Platform\\client\\node_modules\\typescript\\lib"
@@ -79,7 +80,7 @@
       <updated>1706258920356</updated>
       <workItem from="1706258925726" duration="18138000" />
       <workItem from="1706298697082" duration="930000" />
-      <workItem from="1706348862114" duration="15637000" />
+      <workItem from="1706348862114" duration="16019000" />
     </task>
     <servers />
   </component>
