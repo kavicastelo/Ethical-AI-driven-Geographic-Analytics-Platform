@@ -2282,6 +2282,112 @@ Authorization: Bearer YOUR_API_KEY
     "message": "Feedback deleted successfully"
     }
     ```
+   
+#### Forecast
+1. #### Get  all Forecast
+    - **Endpoint:** `/forecast/all`
+    - **Method:** `GET`
+    - **Description:** Get forecast data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+   
+2. #### Create Forecast
+    - **Endpoint:** `/forecast`
+    - **Method:** `POST`
+    - **Description:** Create a new Forecast
+    - **Request:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast created successfully"
+    }
+    ```
+   
+3. #### Update Forecast
+    - **Endpoint:** `/forecast/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast updated successfully"
+    }
+    ```
+   
+4. #### Delete Forecast
+    - **Endpoint:** `/forecast/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast deleted successfully"
+    }
+    ```
+   
+5. #### Like Forecast
+    - **Endpoint:** `/forecast/like/{id}`
+    - **Method:** `PUT`
+    - **Description:** Like Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 3,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast liked successfully"
+    }
+    ```
+   
+6. #### Unlike Forecast
+    - **Endpoint:** `/forecast/unlike/{id}`
+    - **Method:** `PUT`
 
 ## Error Handling
 
