@@ -69,6 +69,7 @@ import { TermsConditionsComponent } from './components/terms-conditions/terms-co
 import { AuthorizedComponent } from './components/shared/authorized/authorized.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { UserSettingsComponent } from './components/dashbord/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -118,7 +119,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     TermsConditionsComponent,
     AuthorizedComponent,
     LoadingComponent,
-    FooterComponent
+    FooterComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,
