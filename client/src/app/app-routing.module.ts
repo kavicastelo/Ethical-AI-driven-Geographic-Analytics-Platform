@@ -53,6 +53,7 @@ import {TermsConditionsComponent} from "./components/terms-conditions/terms-cond
 import {AuthorizedComponent} from "./components/shared/authorized/authorized.component";
 import {FeedbackGuard} from "./guards/feedback.guard";
 import {LoadingComponent} from "./components/shared/loading/loading.component";
+import {UserSettingsComponent} from "./components/dashbord/user-settings/user-settings.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -77,6 +78,7 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
+      {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
           {path: '', redirectTo: '/dashboard/administration/signin', pathMatch: 'full'},
