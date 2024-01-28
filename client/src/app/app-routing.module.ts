@@ -54,6 +54,7 @@ import {AuthorizedComponent} from "./components/shared/authorized/authorized.com
 import {FeedbackGuard} from "./guards/feedback.guard";
 import {LoadingComponent} from "./components/shared/loading/loading.component";
 import {UserSettingsComponent} from "./components/dashbord/user-settings/user-settings.component";
+import {WelcomeComponent} from "./components/shared/welcome/welcome.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -78,6 +79,7 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
+      {path: '', component: WelcomeComponent},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
