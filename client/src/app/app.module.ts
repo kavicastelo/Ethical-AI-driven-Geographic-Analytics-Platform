@@ -68,6 +68,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { AuthorizedComponent } from './components/shared/authorized/authorized.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     PrivacyPolicyComponent,
     TermsConditionsComponent,
     AuthorizedComponent,
-    LoadingComponent
+    LoadingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
