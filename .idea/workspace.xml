@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/shared/grid-bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/shared/welcome/welcome.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +81,7 @@
       <workItem from="1706298697082" duration="930000" />
       <workItem from="1706348862114" duration="16538000" />
       <workItem from="1706417091253" duration="2484000" />
-      <workItem from="1706446598198" duration="8486000" />
+      <workItem from="1706446598198" duration="8746000" />
     </task>
     <servers />
   </component>
