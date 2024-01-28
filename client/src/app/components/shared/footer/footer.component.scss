@@ -24,6 +24,41 @@
 
     li{
       list-style: none;
+
+      a{
+        color: #d5d5d5;
+        text-decoration: none;
+        transition: all .3s ease-in-out;
+
+        &:hover{
+          color: white;
+        }
+      }
+
+      i{
+        margin-right: 10px;
+      }
+
+      &:first-child{
+        i{
+          color: #382bf0;
+        }
+      }
+      &:nth-child(2){
+        i{
+          color: #bc2a8d;
+        }
+      }
+      &:nth-child(3){
+        i{
+          color: #00acee;
+        }
+      }
+      &:last-child{
+        i{
+          color: #0e76a8;
+        }
+      }
     }
   }
 }
