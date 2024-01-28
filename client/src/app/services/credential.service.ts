@@ -34,7 +34,7 @@ export class CredentialService {
   }
 
   public updateCredentialsByEmail(c: AuthModel): Observable<any> {
-    return this.http.put(this.baseUrl + 'login/update', {
+    return this.http.put(this.baseUrl + 'login/update/' + c.email, {
       email: c.email,
       password: c.password
     })

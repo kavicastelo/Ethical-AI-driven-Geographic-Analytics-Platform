@@ -1,1 +1,33 @@
-<p>user-settings works!</p>
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
+<div class="container">
+  <h4>Change Password</h4>
+  <div class="d-flex align-items-center">
+    <div class="password-form">
+      <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="password-form-full-width" appearance="outline" color="accent">
+          <mat-label>Current Password</mat-label>
+          <input matInput formControlName="currentPassword" placeholder="Current Password" required>
+        </mat-form-field>
+        <mat-form-field class="password-form-full-width" appearance="outline" color="accent">
+          <mat-label>New Password</mat-label>
+          <input matInput formControlName="newPassword" placeholder="New Password" required>
+        </mat-form-field>
+        <button type="submit" class="button-1">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr style="color: var(--color-primary-600)">
+
+  <h4>Delete Account</h4>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <p style="margin-bottom: 0">If you delete your account it will be permanently delete. Are you sure you want to delete it?</p>
+    </div>
+    <button class="button-2" (click)="deleteAccount()" style="margin-right: 5px">Delete</button>
+  </div>
+</div>
