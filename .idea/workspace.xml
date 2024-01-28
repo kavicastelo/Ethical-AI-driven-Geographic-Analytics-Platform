@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/user-settings/user-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/credential.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,7 @@
       <workItem from="1706298697082" duration="930000" />
       <workItem from="1706348862114" duration="16538000" />
       <workItem from="1706417091253" duration="2484000" />
-      <workItem from="1706446598198" duration="3275000" />
+      <workItem from="1706446598198" duration="3939000" />
     </task>
     <servers />
   </component>

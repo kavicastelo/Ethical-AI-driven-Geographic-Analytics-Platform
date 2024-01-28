@@ -70,6 +70,7 @@ import { AuthorizedComponent } from './components/shared/authorized/authorized.c
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { UserSettingsComponent } from './components/dashbord/user-settings/user-settings.component';
+import { WelcomeComponent } from './components/shared/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { UserSettingsComponent } from './components/dashbord/user-settings/user-
     AuthorizedComponent,
     LoadingComponent,
     FooterComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
