@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" afterDir="false" />
     </list>
-    <list default="true" id="dd061fb1-a8ba-45ec-a63f-baee5af96023" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,22 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/PROJECTS/HTML/Ethical-AI-driven-Geographic-Analytics-Platform/client/src/docs",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "d5f73674f4485e14aac5b80b81aca5c3",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/PROJECTS/HTML/Ethical-AI-driven-Geographic-Analytics-Platform/client/src/docs&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d5f73674f4485e14aac5b80b81aca5c3&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\client\src\docs" />
       <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\.idea" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.api.air_quality.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AirQualityApplication">
