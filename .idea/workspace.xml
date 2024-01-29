@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
