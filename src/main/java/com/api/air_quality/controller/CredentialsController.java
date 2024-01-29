@@ -64,9 +64,9 @@ public class CredentialsController {
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/api/v1/login/update/{id}")
-    public ResponseEntity<ApiResponse> updateUser(@PathVariable String id, @RequestBody CredentialsModel credentialsModel) {
-        Optional<CredentialsModel> selectedUser = credentialsRepository.findById(id);
+    @PutMapping("/api/v1/login/update/{email}")
+    public ResponseEntity<ApiResponse> updateUser(@PathVariable String email, @RequestBody CredentialsModel credentialsModel) {
+        Optional<CredentialsModel> selectedUser = credentialsRepository.findOneByEmail(email);
 
         if (selectedUser.isPresent()) {
             CredentialsModel user = selectedUser.get();
@@ -75,7 +75,7 @@ public class CredentialsController {
             credentialsRepository.save(user);
         }
 
-        ApiResponse response = new ApiResponse("Updated Code:" + id + " successfully");
+        ApiResponse response = new ApiResponse("Updated Code:" + email + " successfully");
         return ResponseEntity.ok(response);
     }
 }
