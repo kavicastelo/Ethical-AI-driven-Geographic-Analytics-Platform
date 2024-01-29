@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="pm25" [class.active]="isActive('/dashboard/monitor/pm25')">PM25</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="pm10" [class.active]="isActive('/dashboard/monitor/pm10')">PM10</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="co2" [class.active]="isActive('/dashboard/monitor/co2')">CO2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="ozone" [class.active]="isActive('/dashboard/monitor/ozone')">OZONE</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>

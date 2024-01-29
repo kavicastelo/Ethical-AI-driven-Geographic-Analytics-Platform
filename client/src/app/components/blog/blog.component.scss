@@ -1,0 +1,17 @@
+.blog-div{
+  .card{
+    max-width: 640px;
+    background-color: var(--color-surface-mixed-100);
+
+    .card-body{
+      .card-title{
+        color: var(--color-text-200);
+      }
+      .card-text{
+        .text-body-secondary{
+          color: var(--color-text-300) !important;
+        }
+      }
+    }
+  }
+}

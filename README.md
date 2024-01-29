@@ -183,3 +183,65 @@
    - /api/v1/metrological/predict/res/humidity
    - /api/v1/metrological/predict/res/windSpeed
    - /api/v1/metrological/predict/res/precipitation
+
+### Client Side
+1. Admin
+   - /api/v1/admin
+   - /api/v1/admin/all
+   - /api/v1/admin/email/{email}
+   - /api/v1/admin/password/{id}
+   - /api/v1/admin/delete/email/{email}
+
+2. User
+   - /api/v1/user/request
+   - /api/v1/user/all
+   - /api/v1/user/email/{email}
+   - /api/v1/user/delete/{id}
+   - /api/v1/user/approve/{id}
+
+3. Credential
+   - /api/v1/login/save
+   - /api/v1/login/get
+   - /api/v1/login/delete/{id}
+   - /api/v1/login/update/{id}
+   - /api/v1/login/email/{email}
+
+4. Blog
+   - /api/v1/blog/create
+   - /api/v1/blog/all
+   - /api/v1/blog/delete/{id}
+   - /api/v1/blog/update/{id}
+
+5. Comment
+   - /api/v1/comment/save
+   - /api/v1/comment/all
+   - /api/v1/comment/update/{id}
+   - /api/v1/comment/like/{id}
+
+6. FAQ
+   - /api/v1/faq
+   - /api/v1/faq/all
+   - /api/v1/faq/delete/{id}
+   - /api/v1/faq/update/{id}
+
+7. Feedback
+   - /api/v1/feedback/save
+   - /api/v1/feedback/all
+   - /api/v1/feedback/delete/{id}
+
+8. Forecasting
+   - /api/v1/forecast
+   - /api/v1/forecast/all
+   - /api/v1/forecast/delete/{id}
+   - /api/v1/forecast/{id}
+   - /api/v1/forecast/like/{id}
+
+9. User Policy
+   - /api/v1/UserPolicy
+   - /api/v1/UserPolicy/save
+   - /api/v1/UserPolicy/update/{id}
+
+10. Terms and conditions
+    - /api/v1/UserTerms
+    - /api/v1/UserTerms/save
+    - /api/v1/UserTerms/update/{id}
