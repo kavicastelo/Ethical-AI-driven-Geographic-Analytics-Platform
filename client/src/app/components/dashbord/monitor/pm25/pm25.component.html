@@ -1,1 +1,18 @@
-<p>pm25 works!</p>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Location</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of airQuality">
+      <td>{{a.timestamp}}</td>
+      <td>{{a.location}}</td>
+      <td>{{a.pm25}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
