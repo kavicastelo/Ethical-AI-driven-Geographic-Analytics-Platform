@@ -71,6 +71,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { UserSettingsComponent } from './components/dashbord/user-settings/user-settings.component';
 import { WelcomeComponent } from './components/shared/welcome/welcome.component';
+import { MonitorComponent } from './components/dashbord/monitor/monitor.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { WelcomeComponent } from './components/shared/welcome/welcome.component'
     LoadingComponent,
     FooterComponent,
     UserSettingsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MonitorComponent
   ],
   imports: [
     BrowserModule,
