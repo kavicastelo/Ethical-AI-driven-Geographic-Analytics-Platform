@@ -9,15 +9,16 @@ import {AirQualityService} from "../../../../services/air-quality.service";
 export class Pm25Component implements OnInit{
 
   airQuality: any
+  isExpanded: boolean = false
 
   constructor(private airQualityService: AirQualityService) {
   }
 
   ngOnInit(): void {
-    this.loadAllAirQuality()
+    this.loadLatestAirQuality()
   }
 
-  loadAllAirQuality(){
+  loadLatestAirQuality(){
     this.airQualityService.getAllAirQuality().subscribe(res => {
       if(res){
         let filteredLast10Values = res.slice(-10);
@@ -27,4 +28,21 @@ export class Pm25Component implements OnInit{
     })
   }
 
+  loadAllAirQuality(){
+    this.airQualityService.getAllAirQuality().subscribe(res => {
+      if(res){
+        return this.airQuality = res;
+      }
+    })
+  }
+
+  seeMore() {
+    this.isExpanded = !this.isExpanded
+    if (this.isExpanded) {
+      this.loadAllAirQuality()
+    }
+    else {
+      this.loadLatestAirQuality()
+    }
+  }
 }
