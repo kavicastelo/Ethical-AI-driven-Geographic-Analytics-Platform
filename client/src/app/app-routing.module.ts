@@ -86,7 +86,6 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
       {path: '', component: WelcomeComponent},
-      {path: 'monitor', component: MonitorComponent},
       {path: 'monitor', component: MonitorComponent, children: [
         {path: '', redirectTo: '/dashboard/monitor/pm25', pathMatch: 'full'},
         {path: 'pm25', component: Pm25Component},
