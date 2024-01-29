@@ -1,0 +1,46 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
+<div class="container">
+  <div class="d-flex align-items-center justify-content-end w-100">
+    <button class="button-1" (click)="saveDraft()">save draft</button>
+    <button class="button-1" (click)="discardDraft()" style="margin-left: 5px">discard</button>
+  </div>
+  <div class="forecast-add-form-wrapper">
+    <div class="forecast-form-wrapper-top">
+      <h6>New Forecast</h6>
+      <i class="fa fa-info-circle" aria-hidden="true" matTooltip="use <Html> tags for get better experience.  example: <b>bold</b>"></i>
+    </div>
+    <div class="container">
+      <form class="feedback-form" [formGroup]="addForecastForm">
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field class="contact-form-full-width" appearance="outline" color="accent">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" placeholder="Title here...">
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field class="feedback-form-full-width" appearance="outline" color="accent">
+              <mat-label>Forecast</mat-label>
+              <textarea matInput formControlName="cont" placeholder="Hello this is <b>bold</b> and<br>I'm second para..." style="min-height: 220px"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="d-sm-flex justify-content-end align-items-center">
+            <button class="button-1" type="submit" (click)="saveForecast()">save</button>
+            <button class="button-1" style="margin-left: 5px" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">preview</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="collapse" id="collapseExample">
+        <h2>{{draftItem.title}}</h2>
+        <p [innerHTML]="draftItem.cont"></p>
+      </div>
+
+    </div>
+  </div>
+</div>
