@@ -20,8 +20,9 @@ export class Pm25Component implements OnInit{
   loadAllAirQuality(){
     this.airQualityService.getAllAirQuality().subscribe(res => {
       if(res){
+        let filteredLast10Values = res.slice(-10);
         res.splice(0, 1);
-        return this.airQuality = res;
+        return this.airQuality = filteredLast10Values;
       }
     })
   }
