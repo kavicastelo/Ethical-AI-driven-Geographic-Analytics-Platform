@@ -4,6 +4,7 @@ import com.api.air_quality.model.AirQualityModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import java.time.Instant;
 import java.util.List;
 
 public interface AirQualityRepository extends MongoRepository<AirQualityModel, String> {
@@ -117,4 +118,6 @@ public interface AirQualityRepository extends MongoRepository<AirQualityModel, S
 
     @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'humidity': 1, 'windSpeed': 1}")
     List<AirQualityModel> findAllByHumidityAndWindSpeed();
+
+    void deleteByTimestampBefore(Instant cutoffTimestamp);
 }
