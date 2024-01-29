@@ -1,1 +1,17 @@
-<p>monitor works!</p>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="user-policy" [class.active]="isActive('/dashboard/monitor/user-policy')">PM25</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="user-terms" [class.active]="isActive('/dashboard/monitor/user-terms')">PM10</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="policy" [class.active]="isActive('/dashboard/monitor/policy')">CO2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="privacy" [class.active]="isActive('/dashboard/monitor/privacy')">OZONE</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>
