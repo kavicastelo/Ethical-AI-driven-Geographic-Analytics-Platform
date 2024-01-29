@@ -1,0 +1,71 @@
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>Contact Us</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="d-md-flex justify-content-center align-items-center">
+        <div class="con-column">
+          <h4>General Inquiries</h4>
+          <p>If you have any general inquiries or feedback regarding our platform, please don't hesitate to reach out to
+            us. We appreciate your thoughts and suggestions!</p>
+          <div class="d-flex align-items-center">
+            <span>Email: </span>&nbsp;
+            <a href="mailto:contact@analytics-platform.com">contact@analytics-platform.com</a>
+          </div>
+          <div class="d-flex align-items-center">
+            <span>Phone: </span>&nbsp;
+            <a href="tel:+94 77 343 1660">+94 (77) 343 1660</a>
+          </div>
+        </div>
+        <div class="con-column">
+          <img src="./assets/images/contact/banner-1.jpg" alt="banner">
+        </div>
+      </div>
+      <div class="d-md-flex justify-content-center align-items-center flex-row-reverse">
+        <div class="con-column">
+          <h4>Business Inquiries</h4>
+          <p>For business-related inquiries, partnerships, or collaborations, please contact our business development team.</p>
+          <div class="d-flex align-items-center">
+            <span>Email: </span>&nbsp;
+            <a href="mailto:business@analytics-platform.com">business@analytics-platform.com</a>
+          </div>
+        </div>
+        <div class="con-column">
+          <img src="./assets/images/contact/banner-2.jpg" alt="banner">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h3>Send your inquiries..</h3>
+      <app-contact-form></app-contact-form>
+    </div>
+    <div class="contact-social-wrapper">
+      <div class="contact-social-div">
+        <div class="container" style="padding-left: 22px">
+          <h2>Get in touch</h2>
+          <p>Follow Us On...</p>
+          <ul>
+            <li><a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;- Facebook</a></li>
+            <li><a href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;- Twitter</a></li>
+            <li><a href="https://www.linkein.com"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;- Linkedin</a></li>
+            <li><a href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;- Instagram</a></li>
+          </ul>
+          <p>Visit us at our headquarters:</p>
+          <p>123 Innovation Street, Suite 456<br>
+            Sri Lanka, 21377</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

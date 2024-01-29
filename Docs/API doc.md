@@ -2,9 +2,11 @@
 
 ## Introduction
 
-Welcome to the documentation for the Air Quality and Meteorological Data APIs. This set of APIs provides functionalities for managing air quality, meteorological data, land use information, and various statistical analyses.
+Welcome to the documentation for the Air Quality and Meteorological Data APIs. This set of APIs provides functionalities
+for managing air quality, meteorological data, land use information, and various statistical analyses.
 
 ## Table Of Contents
+
 - [Base URL](#base-url)
 - [Authentication](#authentication)
 - [API Endpoints](#api-endpoints)
@@ -12,16 +14,17 @@ Welcome to the documentation for the Air Quality and Meteorological Data APIs. T
     - [Meteorological API](#metrological-api)
     - [Land Use API](#land-use-api)
     - [System API](#system-api-not-recommend-for-users)
+    - [Client API](#client-api)
 - [Error Handling](#error-handling)
 - [Contact](#contact-us)
 
 ## Base URL
 
 All endpoints are relative to the base URL:
+
 ```markdown
 https://your-api-base-url.com/api/v1
 ```
-
 
 ## Authentication
 
@@ -32,12 +35,14 @@ Authorization: Bearer YOUR_API_KEY
 ```
 
 ## API Endpoints
+
 ### Air Quality API
+
 1. #### Save Air Quality Data
-   - **Endpoint:** `/saveAirQuality`
-   - **Method:** `POST`
-   - **Description:** Save air quality data.
-   - **Request:**
+    - **Endpoint:** `/saveAirQuality`
+    - **Method:** `POST`
+    - **Description:** Save air quality data.
+    - **Request:**
     ```json
     {
     "timestamp": "2023-01-01T12:00:00Z",
@@ -51,7 +56,7 @@ Authorization: Bearer YOUR_API_KEY
     "windSpeed": 10.0
     }
     ```
-   - **Response:**
+    - **Response:**
     ```json
     {
     "message": "Data saved successfully"
@@ -79,16 +84,16 @@ Authorization: Bearer YOUR_API_KEY
       }
     ]
     ```
-   
+
 3. #### Get Air Quality Data By ID
     - **Endpoint:** `/getAirQualityById/{id}`
     - **Method:** `GET`
     - **Description:** Retrieve one air quality data row by id
-    - **Request:** 
+    - **Request:**
     ```http request
    https://your-api-base-url.com/api/v1/getAirQualityById/id=123
     ```
-    - **Response:** 
+    - **Response:**
     ```json
     [
       {
@@ -105,7 +110,7 @@ Authorization: Bearer YOUR_API_KEY
       }
     ]
     ```
-   
+
 4. #### Delete Air Quality Data By ID
     - **Endpoint:** `/deleteAirQuality/{id}`
     - **Method:** `DELETE`
@@ -120,7 +125,7 @@ Authorization: Bearer YOUR_API_KEY
     "message": "123 Data Deleted"
     }
     ```
-   
+
 5. #### Update Air Quality Data By ID
     - **Endpoint:** `/updateAirQuality/{id}`
     - **Method:** `PUT`
@@ -135,7 +140,7 @@ Authorization: Bearer YOUR_API_KEY
     "message": "123 Data Updated"
     }
     ```
-   
+
 6. #### Bulk import Air Quality Data
     - **Endpoint:** `/importAirQuality`
     - **Method:** `POST`
@@ -150,7 +155,7 @@ Authorization: Bearer YOUR_API_KEY
     "message": "Data Imported Successfully"
     }
     ```
-   
+
 7. #### Get Mean Value of Air Quality Pm25 column by Date Range
     - **Endpoint:** `/getAQAveragePm25ByDateRange`
     - **Method:** `GET`
@@ -168,7 +173,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-   
+
 8. #### Get Mean Value of Air Quality Pm10 column by Date Range
     - **Endpoint:** `/getAQAveragePm10ByDateRange`
     - **Method:** `GET`
@@ -186,7 +191,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-   
+
 9. #### Get Mean Value of Air Quality Co2 column by Date Range
     - **Endpoint:** `/getAQAverageCo2ByDateRange`
     - **Method:** `GET`
@@ -204,7 +209,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-   
+
 10. #### Get Mean Value of Air Quality Ozone column by Date Range
     - **Endpoint:** `/getAQAverageOzoneByDateRange`
     - **Method:** `GET`
@@ -222,7 +227,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-    
+
 11. #### Get Mean Value of Air Quality No2 column by Date Range
     - **Endpoint:** `/getAQAverageNo2ByDateRange`
     - **Method:** `GET`
@@ -481,7 +486,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
- 
+
 32. #### Get Air Quality Correlation Between Pm25 and Co2
     - **Endpoint:** `/airQuality/correlation/pm25AndCo2`
     - **Method:** `GET`
@@ -514,7 +519,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 35. #### Get Air Quality Correlation Between Pm25 and Temperature
     - **Endpoint:** `/airQuality/correlation/pm25AndTemperature`
     - **Method:** `GET`
@@ -525,7 +530,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 36. #### Get Air Quality Correlation Between Pm25 and Humidity
     - **Endpoint:** `/airQuality/correlation/pm25AndHumidity`
     - **Method:** `GET`
@@ -536,7 +541,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 37. #### Get Air Quality Correlation Between Pm25 and WindSpeed
     - **Endpoint:** `/airQuality/correlation/pm25AndWindSpeed`
     - **Method:** `GET`
@@ -547,7 +552,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 38. #### Get Air Quality Correlation Between Pm10 and Co2
     - **Endpoint:** `/airQuality/correlation/pm10AndCo2`
     - **Method:** `GET`
@@ -569,7 +574,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 40. #### Get Air Quality Correlation Between Pm10 and No2
     - **Endpoint:** `/airQuality/correlation/pm10AndNo2`
     - **Method:** `GET`
@@ -580,7 +585,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 41. #### Get Air Quality Correlation Between Pm10 and Temperature
     - **Endpoint:** `/airQuality/correlation/pm10AndTemperature`
     - **Method:** `GET`
@@ -591,7 +596,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 42. #### Get Air Quality Correlation Between Pm10 and Humidity
     - **Endpoint:** `/airQuality/correlation/pm10AndHumidity`
     - **Method:** `GET`
@@ -602,7 +607,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 43. #### Get Air Quality Correlation Between Pm10 and WindSpeed
     - **Endpoint:** `/airQuality/correlation/pm10AndWindSpeed`
     - **Method:** `GET`
@@ -613,7 +618,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 44. #### Get Air Quality Correlation Between Co2 and Ozone
     - **Endpoint:** `/airQuality/correlation/co2AndOzone`
     - **Method:** `GET`
@@ -624,7 +629,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 45. #### Get Air Quality Correlation Between Pm10 and No2
     - **Endpoint:** `/airQuality/correlation/pm10AndNo2`
     - **Method:** `GET`
@@ -635,7 +640,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 46. #### Get Air Quality Correlation Between Pm10 and Temperature
     - **Endpoint:** `/airQuality/correlation/pm10AndTemperature`
     - **Method:** `GET`
@@ -646,7 +651,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 47. #### Get Air Quality Correlation Between Pm10 and Humidity
     - **Endpoint:** `/airQuality/correlation/pm10AndHumidity`
     - **Method:** `GET`
@@ -657,7 +662,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 48. #### Get Air Quality Correlation Between Pm10 and WindSpeed
     - **Endpoint:** `/airQuality/correlation/pm10AndWindSpeed`
     - **Method:** `GET`
@@ -668,7 +673,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 49. #### Get Air Quality Correlation Between Ozone and No2
     - **Endpoint:** `/airQuality/correlation/ozoneAndNo2`
     - **Method:** `GET`
@@ -690,7 +695,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 51. #### Get Air Quality Correlation Between Ozone and Humidity
     - **Endpoint:** `/airQuality/correlation/ozoneAndHumidity`
     - **Method:** `GET`
@@ -701,7 +706,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 52. #### Get Air Quality Correlation Between Ozone and WindSpeed
     - **Endpoint:** `/airQuality/correlation/ozoneAndWindSpeed`
     - **Method:** `GET`
@@ -712,7 +717,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 53. #### Get Air Quality Correlation Between No2 and Temperature
     - **Endpoint:** `/airQuality/correlation/no2AndTemperature`
     - **Method:** `GET`
@@ -734,7 +739,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 55. #### Get Air Quality Correlation Between No2 and WindSpeed
     - **Endpoint:** `/airQuality/correlation/no2AndWindSpeed`
     - **Method:** `GET`
@@ -745,7 +750,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 56. #### Get Air Quality Correlation Between Temperature and Humidity
     - **Endpoint:** `/airQuality/correlation/temperatureAndHumidity`
     - **Method:** `GET`
@@ -767,7 +772,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 58. #### Get Air Quality Correlation Between Humidity and WindSpeed
     - **Endpoint:** `/airQuality/correlation/humidityAndWindSpeed`
     - **Method:** `GET`
@@ -778,7 +783,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 59. #### Get All Air Quality Data by Date Range
     - **Endpoint:** `/getAirQualityByDate`
     - **Method:** `GET`
@@ -823,7 +828,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 61. #### Get pm10 prediction
     - **Endpoint:** `/airQuality/predict/pm10`
     - **Method:** `POST`
@@ -836,7 +841,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 62. #### Get co2 prediction
     - **Endpoint:** `/airQuality/predict/co2`
     - **Method:** `POST`
@@ -849,7 +854,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 63. #### Get ozone prediction
     - **Endpoint:** `/airQuality/predict/ozone`
     - **Method:** `POST`
@@ -862,7 +867,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 64. #### Get no2 prediction
     - **Endpoint:** `/airQuality/predict/no2`
     - **Method:** `POST`
@@ -875,7 +880,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 65. #### Get temperature prediction
     - **Endpoint:** `/airQuality/predict/airTemperature`
     - **Method:** `POST`
@@ -888,7 +893,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 66. #### Get humidity prediction
     - **Endpoint:** `/airQuality/predict/airHumidity`
     - **Method:** `POST`
@@ -901,7 +906,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 67. #### Get windSpeed prediction
     - **Endpoint:** `/airQuality/predict/airWindSpeed`
     - **Method:** `POST`
@@ -914,8 +919,9 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 ### Metrological API
+
 1. #### Save Metrological Data
     - **Endpoint:** `/saveMetrological`
     - **Method:** `POST`
@@ -1039,7 +1045,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-   
+
 8. #### Get Mean Value of Metrological Humidity column by Date Range
     - **Endpoint:** `/getAverageHumidityByDateRange`
     - **Method:** `GET`
@@ -1057,7 +1063,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "50.5676436"
     }
     ```
-   
+
 9. #### Get Mean Value of Metrological WindSpeed column by Date Range
     - **Endpoint:** `/getAverageWindSpeedByDateRange`
     - **Method:** `GET`
@@ -1075,7 +1081,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "10.5676436"
     }
     ```
-   
+
 10. #### Get Mean Value of Metrological Precipitation column by Date Range
     - **Endpoint:** `/getAveragePrecipitationByDateRange`
     - **Method:** `GET`
@@ -1104,7 +1110,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-    
+
 12. #### Get Median Value of Metrological Humidity column
     - **Endpoint:** `/getMedianMetrologicalHumidity`
     - **Method:** `GET`
@@ -1115,7 +1121,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "50.5676436"
     }
     ```
-    
+
 13. #### Get Median Value of Metrological WindSpeed column
     - **Endpoint:** `/getMedianMetrologicalWindSpeed`
     - **Method:** `GET`
@@ -1126,7 +1132,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "10.5676436"
     }
     ```
-    
+
 14. #### Get Median Value of Metrological Precipitation column
     - **Endpoint:** `/getMedianMetrologicalPrecipitation`
     - **Method:** `GET`
@@ -1148,7 +1154,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "24.5676436"
     }
     ```
-    
+
 16. #### Get Mode Value of Metrological Humidity column
     - **Endpoint:** `/getModeMetrologicalHumidity`
     - **Method:** `GET`
@@ -1159,7 +1165,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "50.5676436"
     }
     ```
-    
+
 17. #### Get Mode Value of Metrological WindSpeed column
     - **Endpoint:** `/getModeMetrologicalWindSpeed`
     - **Method:** `GET`
@@ -1170,7 +1176,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "10.5676436"
     }
     ```
-    
+
 18. #### Get Mode Value of Metrological Precipitation column
     - **Endpoint:** `/getModeMetrologicalPrecipitation`
     - **Method:** `GET`
@@ -1192,7 +1198,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 20. #### Get Metrological Correlation Between Temperature and WindSpeed
     - **Endpoint:** `/metrological/correlation/temperatureAndWindSpeed`
     - **Method:** `GET`
@@ -1203,7 +1209,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 21. #### Get Metrological Correlation Between Temperature and Precipitation
     - **Endpoint:** `/metrological/correlation/temperatureAndPrecipitation`
     - **Method:** `GET`
@@ -1225,7 +1231,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 23. #### Get Metrological Correlation Between Humidity and Precipitation
     - **Endpoint:** `/metrological/correlation/humidityAndPrecipitation`
     - **Method:** `GET`
@@ -1236,7 +1242,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 24. #### Get Metrological Correlation Between WindSpeed and Precipitation
     - **Endpoint:** `/metrological/correlation/windSpeedAndPrecipitation`
     - **Method:** `GET`
@@ -1247,7 +1253,7 @@ Authorization: Bearer YOUR_API_KEY
     "data": "0.84358380"
     }
     ```
-    
+
 25. #### Get All Metrological Data by Date Range
     - **Endpoint:** `/getMetrologicalByDate`
     - **Method:** `GET`
@@ -1275,7 +1281,7 @@ Authorization: Bearer YOUR_API_KEY
     ]
     }
     ```
-    
+
 26. #### Get Temperature Prediction
     - **Endpoint:** `/airQuality/predict/temperature`
     - **Method:** `POST`
@@ -1288,7 +1294,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 27. #### Get Humidity Prediction
     - **Endpoint:** `/airQuality/predict/humidity`
     - **Method:** `POST`
@@ -1301,7 +1307,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 28. #### Get WindSpeed Prediction
     - **Endpoint:** `/airQuality/predict/windSpeed`
     - **Method:** `POST`
@@ -1314,7 +1320,7 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 29. #### Get Precipitation Prediction
     - **Endpoint:** `/airQuality/predict/precipitation`
     - **Method:** `POST`
@@ -1327,8 +1333,9 @@ Authorization: Bearer YOUR_API_KEY
     ```md
     Processed result: 4.602289711583845
     ```
-    
+
 ### Land Use API
+
 1. #### Save Land Use Data
     - **Endpoint:** `/saveLandUse`
     - **Method:** `POST`
@@ -1428,8 +1435,9 @@ Authorization: Bearer YOUR_API_KEY
     "message": "Data Imported Successfully"
     }
     ```
-   
+
 ### System API (Not Recommend for users)
+
 1. #### Send pm 25 predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/pm25`
     - **Method:** `POST`
@@ -1446,7 +1454,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 2. #### Send pm 10 predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/pm10`
     - **Method:** `POST`
@@ -1463,7 +1471,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 3. #### Send co2 predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/co2`
     - **Method:** `POST`
@@ -1480,7 +1488,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 4. #### Send ozone predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/ozone`
     - **Method:** `POST`
@@ -1497,7 +1505,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 5. #### Send no2 predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/no2`
     - **Method:** `POST`
@@ -1514,7 +1522,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 6. #### Send airTemperature predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/airTemperature`
     - **Method:** `POST`
@@ -1531,7 +1539,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 7. #### Send airHumidity predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/airHumidity`
     - **Method:** `POST`
@@ -1548,7 +1556,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 8. #### Send airWindSpeed predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/airWindSpeed`
     - **Method:** `POST`
@@ -1565,7 +1573,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 9. #### Send temperature predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/temperature`
     - **Method:** `POST`
@@ -1582,7 +1590,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 10. #### Send humidity predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/humidity`
     - **Method:** `POST`
@@ -1599,7 +1607,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 11. #### Send windSpeed predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/windSpeed`
     - **Method:** `POST`
@@ -1616,7 +1624,7 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
-   
+
 12. #### Send precipitation predicted value to the server
     - **Endpoint:** `/airQuality/predict/res/precipitation`
     - **Method:** `POST`
@@ -1633,22 +1641,874 @@ Authorization: Bearer YOUR_API_KEY
     "Processed result": "4.602289711583845"
     }
     ```
+
+### Client API
+
+#### Admin
+
+1. #### Save admin
+    - **Endpoint:** `/admin`
+    - **Method:** `POST`
+    - **Description:** Save admin
+    - **Request:**
+    ```json
+    {
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin saved successfully"
+    }
+    ```
+
+2. #### Update admin credentials
+    - **Endpoint:** `/admin/password/{adminId}`
+    - **Method:** `PUT`
+    - **Description:** Update admin password
+    - **Request:**
+    ```json
+    {
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin updated successfully"
+    }
+    ```
+
+3. #### Delete admin
+    - **Endpoint:** `/admin/delete/email/{email}`
+    - **Method:** `DELETE`
+    - **Description:** Delete admin by email address
+    - **Request:**
+    ```json
+    {
+    "email": "admin@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Admin deleted successfully"
+    }
+    ```
+
+4. #### Get admin
+    - **Endpoint:** `/admin/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get admin by email address
+    - **Request:**
+    ```json
+    {
+    "email": "admin@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "admin@gmail.com",
+    "name": "admin",
+    "phone": "1234567890",
+    "password": "admin"
+    }
+    ```
+
+5. #### Get all admins
+    - **Endpoint:** `/admin/all`
+    - **Method:** `GET`
+    - **Description:** Get all admins
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "admins": [
+        {
+        "email": "admin@gmail.com",
+        "name": "admin",
+        "phone": "1234567890",
+        "password": "admin"
+        }
+    ]
+    }
+
+#### User
+
+1. #### Request user
+    - **Endpoint:** `/user/request`
+    - **Method:** `POST`
+    - **Description:** Request user to the system for get credentials
+    - **Request:**
+    ```json
+    {
+    "name": "user",
+    "email": "user@gmail.com",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": false
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User Requested successfully"
+    }
+    ```
+
+2. #### Get user
+    - **Endpoint:** `/user/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get user by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "name": "user",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": false
+    }
+    ```
+
+3. #### Get all users
+    - **Endpoint:** `/user/all`
+    - **Method:** `GET`
+    - **Description:** Get all users
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "users": [
+        {
+        "email": "user@gmail.com",
+        "name": "user",
+        "phone": "1234567890",
+        "country": "India",
+        "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "active": false
+        }
+      ]
+    }
+   ```
+
+4. #### Approve User
+    - **Endpoint:** `/user/avvrove/{id}`
+    - **Method:** `PUT`
+    - **Description:** Approve user request
+    - **Request:**
+    ```json
+    {
+    "name": "user",
+    "email": "user@gmail.com",
+    "phone": "1234567890",
+    "country": "India",
+    "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "active": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User approved successfully"
+    }
+    ```
+
+5. #### Delete user
+    - **Endpoint:** `/user/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete user by id
+    - **Request:**
+    ```json
+    {
+    "email": "2csk623f2442b"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User deleted successfully"
+    }
+    ```
+
+#### Credentials
+
+1. #### Get credentials by email address
+    - **Endpoint:** `/login/email/{email}`
+    - **Method:** `GET`
+    - **Description:** Get credentials by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+
+2. Save credentials
+    - **Endpoint:** `/login/save`
+    - **Method:** `POST`
+    - **Description:** Save credentials
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials saved successfully"
+    }
+    ```
+
+3. #### Update credentials
+    - **Endpoint:** `/login/update/{email}`
+    - **Method:** `PUT`
+    - **Description:** Update credentials
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com",
+    "password": "dskjd53b24"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials updated successfully"
+    }
+    ```
+
+4. #### Delete credentials
+    - **Endpoint:** `/login/delete/{email}`
+    - **Method:** `DELETE`
+    - **Description:** Delete credentials by email address
+    - **Request:**
+    ```json
+    {
+    "email": "user@gmail.com"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Credentials deleted successfully"
+    }
+    ```
+
+5. #### Get all credentials
+    - **Endpoint:** `/login/get`
+    - **Method:** `GET`
+    - **Description:** Get all credentials
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "credentials": [
+        {
+        "email": "user@gmail.com",
+        "password": "dskjd53b24"
+        }
+      ]
+    }
+    ```
+
+#### Blog
+
+1. #### Create blog
+    - **Endpoint:** `/blog/create`
+    - **Method:** `POST`
+    - **Description:** Create a new blog
+    - **Request:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "image": "https://example.com/image.jpg",
+    "tags": "Technology",
+    "created_at": "2024.01.27",
+    "updated_at": "2024.01.27",
+    "author": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog created successfully"
+    }
+    ```
+
+2. #### Get all blogs
+    - **Endpoint:** `/blog/all`
+    - **Method:** `GET`
+    - **Description:** Get all blogs
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "blogs": [
+        {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "image": "https://example.com/image.jpg",
+        "tags": "Technology",
+        "created_at": "2024.01.27",
+        "updated_at": "2024.01.27",
+        "author": "admin"
+        }
+      ]
+    }
+    ```
+
+3. #### Delete blog
+    - **Endpoint:** `/blog/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete blog by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog deleted successfully"
+    }
+    ```
+
+4. #### Update blog
+    - **Endpoint:** `/blog/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update blog by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "image": "https://example.com/image.jpg",
+    "tags": "Technology",
+    "created_at": "2024.01.27",
+    "updated_at": "2024.01.27",
+    "author": "admin"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Blog updated successfully"
+    }
+    ```
+
+#### Comment
+
+1. #### Create comment
+    - **Endpoint:** `/comment/save`
+    - **Method:** `POST`
+    - **Description:** Create a new comment
+    - **Request:**
+    ```json
+    {
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "",
+    "like": 0
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment created successfully"
+    }
+    ```
+
+2. #### Get all comments
+    - **Endpoint:** `/comment/all`
+    - **Method:** `GET`
+    - **Description:** Get all comments
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "comments": [
+        {
+        "blog_id": "1",
+        "name": "user",
+        "email": "user@gmail.com",
+        "profile": "https://example.com/image.jpg",
+        "date": "2024.01.27",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "reply": "",
+        "like": 0
+        }
+      ]
+    }
+    ```
+
+3. #### Update Comment
+    - **Endpoint:** `/comment/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update comment by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "lorem",
+    "like": 0
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment updated successfully"
+    }
+    ```
+
+4. #### Like Comment
+    - **Endpoint:** `/comment/like/{id}`
+    - **Method:** `PUT`
+    - **Description:** Like comment by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "blog_id": "1",
+    "name": "user",
+    "email": "user@gmail.com",
+    "profile": "https://example.com/image.jpg",
+    "date": "2024.01.27",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "reply": "",
+    "like": 1
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Comment liked successfully"
+    }
+    ```
+
+#### FAQ
+
+1. #### Create FAQ
+    - **Endpoint:** `/faq`
+    - **Method:** `POST`
+    - **Description:** Create a new FAQ
+    - **Request:**
+    ```json
+    {
+    "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ created successfully"
+    }
+    ```
+
+2. #### Get all FAQs
+    - **Endpoint:** `/faq/all`
+    - **Method:** `GET`
+    - **Description:** Get all FAQs
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "faqs": [
+        {
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+        }
+      ]
+    }
+    ```
+
+3. #### Update FAQ
+    - **Endpoint:** `/faq/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update FAQ by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl."
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ updated successfully"
+    }
+    ```
+
+4. #### Delete FAQ
+    - **Endpoint:** `/faq/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete FAQ by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "FAQ deleted successfully"
+    }
+    ```
+
+#### Feedback
+
+1. #### Create Feedback
+    - **Endpoint:** `/feedback/save`
+    - **Method:** `POST`
+    - **Description:** Create a new feedback
+    - **Request:**
+    ```json
+    {
+    "name":"user",
+    "family_name":"user 1",
+    "email":"user@gmail.com",
+    "picture":"https://example.com/image.jpg",
+    "feedback":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date":"2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Feedback created successfully"
+    }
+    ```
+
+2. #### Get all feedbacks
+    - **Endpoint:** `/feedback/all`
+    - **Method:** `GET`
+    - **Description:** Get all feedbacks
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "feedbacks": [
+        {
+        "name":"user",
+        "family_name":"user 1",
+        "email":"user@gmail.com",
+        "picture":"https://example.com/image.jpg",
+        "feedback":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+        "date":"2022.01.27"
+        }
+      ]
+    }
+    ```
    
+3. Delete Feedback
+    - **Endpoint:** `/feedback/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete feedback by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Feedback deleted successfully"
+    }
+    ```
+   
+#### Forecast
+1. #### Get  all Forecast
+    - **Endpoint:** `/forecast/all`
+    - **Method:** `GET`
+    - **Description:** Get forecast data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+   
+2. #### Create Forecast
+    - **Endpoint:** `/forecast`
+    - **Method:** `POST`
+    - **Description:** Create a new Forecast
+    - **Request:**
+    ```json
+    {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast created successfully"
+    }
+    ```
+   
+3. #### Update Forecast
+    - **Endpoint:** `/forecast/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 2,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast updated successfully"
+    }
+    ```
+   
+4. #### Delete Forecast
+    - **Endpoint:** `/forecast/delete/{id}`
+    - **Method:** `DELETE`
+    - **Description:** Delete Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast deleted successfully"
+    }
+    ```
+   
+5. #### Like Forecast
+    - **Endpoint:** `/forecast/like/{id}`
+    - **Method:** `PUT`
+    - **Description:** Like Forecast by id
+    - **Request:**
+    ```json
+    {
+    "id": "1",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "dateTime": "2022.01.27",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "likes": 3,
+    "visible": true
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Forecast liked successfully"
+    }
+    ```
+   
+#### User Policy
+1. #### Get  all User Policy
+    - **Endpoint:** `/userpolicy`
+    - **Method:** `GET`
+    - **Description:** Get user policy data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+   
+2. #### Update User Policy
+    - **Endpoint:** `/userpolicy/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update user policy data
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User policy updated successfully"
+    }
+    ```
+   
+3. #### Create User Policy
+    - **Endpoint:** `/userpolicy/save`
+    - **Method:** `POST`
+    - **Description:** Create a new User Policy
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "User policy created successfully"
+    }
+    ```
+   
+#### Terms and Conditions
+1. #### Get  all Terms and Conditions
+    - **Endpoint:** `/UserTerms`
+    - **Method:** `GET`
+    - **Description:** Get terms and conditions data
+    - **Request:**
+    ```json
+    {}
+    ```
+    - **Response:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+   
+2. #### Update Terms and Conditions
+    - **Endpoint:** `/UserTerms/update/{id}`
+    - **Method:** `PUT`
+    - **Description:** Update terms and conditions data
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Terms and conditions updated successfully"
+    }
+    ```
+   
+3. #### Create Terms and Conditions
+    - **Endpoint:** `/UserTerms/save`
+    - **Method:** `POST`
+    - **Description:** Create a new Terms and Conditions
+    - **Request:**
+    ```json
+    {
+    "markdownContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt lacinia, nisl nisl aliquet nisl, eget aliquet nisl nisl vel nisl.",
+    "date": "2022.01.27"
+    }
+    ```
+    - **Response:**
+    ```json
+    {
+    "message": "Terms and conditions created successfully"
+    }
+    ```
+
 ## Error Handling
+
 - ### HTTP Status Codes:
-  - **200 OK:** Successful request.
-  - **400 Bad Request:** Malformed request.
-  - **401 Unauthorized:** Authentication failure.
-  - **403 Forbidden:** Insufficient permissions.
-  - **404 Not Found:** Resource not found.
-  - **500 Internal Server Error:** Unexpected server error.
+    - **200 OK:** Successful request.
+    - **400 Bad Request:** Malformed request.
+    - **401 Unauthorized:** Authentication failure.
+    - **403 Forbidden:** Insufficient permissions.
+    - **404 Not Found:** Resource not found.
+    - **500 Internal Server Error:** Unexpected server error.
 
 - ### Error Codes:
-  - **E001:** Invalid request.
-  - **E002:** Authentication failure.
-  - **E003:** Insufficient permissions.
-  - **E004:** Resource not found.
-  - **E005:** Unexpected server error.
+    - **E001:** Invalid request.
+    - **E002:** Authentication failure.
+    - **E003:** Insufficient permissions.
+    - **E004:** Resource not found.
+    - **E005:** Unexpected server error.
 
 ## Contact Us
-If you have any questions or concerns, please contact us at [kavindu.kokila.info@gmail.com](mailto:kavindu.kokila.info@gmail.com).
+
+If you have any questions or concerns, please contact us
+at [kavindu.kokila.info@gmail.com](mailto:kavindu.kokila.info@gmail.com).

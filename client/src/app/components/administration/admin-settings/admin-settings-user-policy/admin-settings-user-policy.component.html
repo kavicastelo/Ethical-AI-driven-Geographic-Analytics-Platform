@@ -1,0 +1,26 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
+<div class="container">
+  <div class="markdown-editor">
+    <div class="d-md-flex align-items-start justify-content-between">
+      <div class="w-100">
+        <h6>Write area (Markdown Support)</h6>
+        <div class="input-area">
+          <textarea [(ngModel)]="markdownContent" placeholder="Type your Markdown here..."></textarea>
+        </div>
+      </div>
+      <div class="w-100">
+        <h6>Preview area</h6>
+        <div class="preview-area" [innerHTML]="markdownContent | markdown"></div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="button-1" (click)="savePolicy()" style="margin-right: 5px" [disabled]="saveBtnDisabled">Save</button>
+      <button class="button-1" (click)="updatePolicy()">Update</button>
+    </div>
+  </div>
+</div>

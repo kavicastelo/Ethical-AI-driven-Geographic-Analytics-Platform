@@ -1,0 +1,173 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+
+<div [ngClass]="{'theme-light': !isDarkMode, 'theme-dark': isDarkMode}">
+  <div class="bg">
+    <div class="sub-banner">
+      <div class="shadow-layer"></div>
+      <div class="banner-content">
+        <div>
+          <h1>{{blogData.title}}</h1>
+        </div>
+        <div class="banner-route-div">
+          <a routerLink="/home">Home</a> /
+          <a routerLink="/blog-det/{{blogData.id}}">{{blogData.title}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="position: relative">
+      <div class="d-md-flex align-items-start justify-content-between">
+        <div class="blog-content-wrapper">
+          <div class="blog-top-details">
+            <div class="d-flex align-items-center justify-content-between">
+              <div style="min-width: 50%; display: flex; align-items: center; justify-content: flex-start">
+                <div>
+                  <img src="https://cdn1.iconfinder.com/data/icons/heroicons-solid/20/user-circle-512.png" alt="author" height="50">
+                </div>
+                <div>
+                  <span>Author : {{blogData.author}}</span><br>
+                  <span>Created at : {{blogData.created_at}}</span>
+                </div>
+              </div>
+              <span>Tags : {{blogData.tags}}</span>
+            </div>
+          </div>
+          <hr style="color: var(--color-primary-600)">
+          <h2>{{blogData.content.mainTitle}}</h2>
+          <p [innerHTML]="blogData.content.mainContent"></p>
+        </div>
+        <div class="blog-content-wrapper">
+          <img src="{{blogData.image}}" alt="{{blogData.title}}">
+        </div>
+      </div>
+      <div class="blog-content-wrapper">
+        <div [innerHTML]="blogData.content.subContent | markdown"></div>
+      </div>
+      <div class="blog-content-wrapper">
+        <div class="blog-bottom-details">
+          <span>Last update at : {{blogData.updated_at}}</span>
+        </div>
+      </div>
+
+      <div>
+<!--        <div id="g_id_onload"-->
+<!--             data-client_id="224343102685-g87ri6br0gfhv2724chsngpcs52s7rrm.apps.googleusercontent.com"-->
+<!--             data-context="use"-->
+<!--             data-login_uri="http://localhost:3269/api/v1/feedback"-->
+<!--             data-auto_select="true"-->
+<!--             data-itp_support="true"-->
+<!--             data-callback="handleCredentialResponse">-->
+<!--        </div>-->
+      </div>
+
+      <div class="comment-section">
+        <div class="comment-wrapper" *ngFor="let c of sortedComments">
+          <div class="commenter">
+            <div class="profile">
+              <img src="{{c.profile}}" alt="{{c.name}}">
+            </div>
+            <div class="name-tag">
+              <p class="name">{{c.name}}</p>
+              <p class="date">{{c.date}}</p>
+            </div>
+          </div>
+          <div class="comment-content">
+            <p>{{c.comment}}</p>
+          </div>
+          <div class="comment-btns-wrapper">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center justify-content-between">
+                  <p (click)="like(c.id)"><i class="fa fa-thumbs-up" aria-hidden="true" [style]="{'color':isLikedComment(c.id)?'var(--color-primary-200)':'var(--color-text-200)'}"></i> Like {{c.like}}</p>
+                  <p (click)="replyPopup(c.id)">Reply</p>
+                  <p>Share <i class="fa fa-share" aria-hidden="true"></i></p>
+                </div>
+              </div>
+            </div>
+            <hr style="color: var(--color-primary-400)">
+          </div>
+
+          <div class="reply-wrapper" *ngFor="let r of c.reply">
+            <div class="commenter">
+              <div class="profile">
+                <img src="{{r.profile}}" alt="{{r.name}}">
+              </div>
+              <div class="name-tag">
+                <p class="name">{{r.name}}</p>
+                <p class="date">{{r.date}}</p>
+              </div>
+            </div>
+            <div class="comment-content">
+              <p>{{r.replyComment}}</p>
+            </div>
+            <hr style="color: var(--color-primary-400)">
+          </div>
+        </div>
+      </div>
+
+      <div class="reply-comment" *ngIf="isReplyFormVisible">
+        <form class="feedback-form" [formGroup]="replyForm">
+          <div class="close-btn-div">
+            <button (click)="closeReplyForm()" type="reset">x</button>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <mat-form-field class="feedback-form-full-width" appearance="outline" color="accent">
+                <mat-label>Reply</mat-label>
+                <textarea matInput formControlName="reply" placeholder="Your reply here.."></textarea>
+              </mat-form-field>
+            </div>
+            <div class="d-sm-flex justify-content-between">
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start">
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-shape="pill"
+                     data-theme="outline"
+                     data-text="signin_with"
+                     data-size="large"
+                     data-logo_alignment="left">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-end">
+                <button class="button-1" type="submit" (click)="submitReply()">Reply</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="write-comment">
+        <form class="feedback-form" [formGroup]="commentForm">
+          <div class="row">
+            <div class="col-12">
+              <mat-form-field class="feedback-form-full-width" appearance="outline" color="accent">
+                <mat-label>Comment</mat-label>
+                <textarea matInput formControlName="comment" placeholder="Your comment here.."></textarea>
+              </mat-form-field>
+            </div>
+            <div class="d-sm-flex justify-content-between">
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-start">
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-shape="pill"
+                     data-theme="outline"
+                     data-text="signin_with"
+                     data-size="large"
+                     data-logo_alignment="left">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-end">
+                <button class="button-1" type="submit" (click)="comment()">Add Comment</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
