@@ -203,7 +203,7 @@
    - /api/v1/login/save
    - /api/v1/login/get
    - /api/v1/login/delete/{id}
-   - /api/v1/login/update/{id}
+   - /api/v1/login/update/{email}
    - /api/v1/login/email/{email}
 
 4. Blog
