@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/monitor.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/monitor.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +88,7 @@
       <workItem from="1706417091253" duration="2484000" />
       <workItem from="1706446598198" duration="9066000" />
       <workItem from="1706522063931" duration="3875000" />
+      <workItem from="1706545234718" duration="1208000" />
     </task>
     <servers />
   </component>
