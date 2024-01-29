@@ -56,11 +56,6 @@ import {LoadingComponent} from "./components/shared/loading/loading.component";
 import {UserSettingsComponent} from "./components/dashbord/user-settings/user-settings.component";
 import {WelcomeComponent} from "./components/shared/welcome/welcome.component";
 import {MonitorComponent} from "./components/dashbord/monitor/monitor.component";
-import {Pm25Component} from "./components/dashbord/monitor/pm25/pm25.component";
-import {Pm10Component} from "./components/dashbord/monitor/pm10/pm10.component";
-import {Co2Component} from "./components/dashbord/monitor/co2/co2.component";
-import {OzoneComponent} from "./components/dashbord/monitor/ozone/ozone.component";
-import {No2Component} from "./components/dashbord/monitor/no2/no2.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -86,16 +81,7 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
       {path: '', component: WelcomeComponent},
-      {
-        path: 'monitor', component: MonitorComponent, children: [
-          {path: '', redirectTo: '/dashboard/monitor/pm25', pathMatch: 'full'},
-          {path: 'pm25', component: Pm25Component},
-          {path: 'pm10', component: Pm10Component},
-          {path: 'co2', component: Co2Component},
-          {path: 'ozone', component: OzoneComponent},
-          {path: 'no2', component: No2Component}
-        ]
-      },
+      {path: 'monitor', component: MonitorComponent},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [

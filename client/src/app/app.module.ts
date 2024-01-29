@@ -72,11 +72,6 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { UserSettingsComponent } from './components/dashbord/user-settings/user-settings.component';
 import { WelcomeComponent } from './components/shared/welcome/welcome.component';
 import { MonitorComponent } from './components/dashbord/monitor/monitor.component';
-import { Pm25Component } from './components/dashbord/monitor/pm25/pm25.component';
-import { Pm10Component } from './components/dashbord/monitor/pm10/pm10.component';
-import { Co2Component } from './components/dashbord/monitor/co2/co2.component';
-import { OzoneComponent } from './components/dashbord/monitor/ozone/ozone.component';
-import { No2Component } from './components/dashbord/monitor/no2/no2.component';
 
 @NgModule({
   declarations: [
@@ -129,12 +124,7 @@ import { No2Component } from './components/dashbord/monitor/no2/no2.component';
     FooterComponent,
     UserSettingsComponent,
     WelcomeComponent,
-    MonitorComponent,
-    Pm25Component,
-    Pm10Component,
-    Co2Component,
-    OzoneComponent,
-    No2Component
+    MonitorComponent
   ],
   imports: [
     BrowserModule,
