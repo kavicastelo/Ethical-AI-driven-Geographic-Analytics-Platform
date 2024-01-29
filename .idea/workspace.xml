@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
