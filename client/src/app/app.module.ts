@@ -129,6 +129,7 @@ import { No2Component } from './components/dashbord/monitor/no2/no2.component';
     FooterComponent,
     UserSettingsComponent,
     WelcomeComponent,
+    MonitorComponent
     MonitorComponent,
     Pm25Component,
     Pm10Component,

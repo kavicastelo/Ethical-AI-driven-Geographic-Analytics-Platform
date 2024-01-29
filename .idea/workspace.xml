@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/monitor/pm25/pm25.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/air_quality/AirQualityApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +52,16 @@
     &quot;last_opened_file_path&quot;: &quot;E:/PROJECTS/HTML/Ethical-AI-driven-Geographic-Analytics-Platform/client/src/docs&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d5f73674f4485e14aac5b80b81aca5c3&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\PROJECTS\\HTML\\Ethical-AI-driven-Geographic-Analytics-Platform\\client\\node_modules\\typescript\\lib&quot;
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\client\src\docs" />
       <recent name="E:\PROJECTS\HTML\Ethical-AI-driven-Geographic-Analytics-Platform\.idea" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.api.air_quality.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AirQualityApplication">
