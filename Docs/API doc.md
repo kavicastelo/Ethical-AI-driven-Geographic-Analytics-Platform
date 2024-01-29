@@ -1873,7 +1873,7 @@ Authorization: Bearer YOUR_API_KEY
     }
     ```
 
-2. Save credentials
+2. #### Save credentials
     - **Endpoint:** `/login/save`
     - **Method:** `POST`
     - **Description:** Save credentials
