@@ -11,6 +11,7 @@ export class Pm10Component implements OnInit{
 
   airQuality: any
   isExpanded: boolean = false
+  isLoading: boolean = true
 
   filterForm = new FormGroup({
     filter: new FormControl(null)
@@ -25,6 +26,7 @@ export class Pm10Component implements OnInit{
 
   loadLatestAirQuality(){
     this.airQualityService.getAllAirQuality().subscribe(res => {
+      this.isLoading = false
       if(res){
         let filteredLast10Values = res.slice(-10);
         res.splice(0, 1);

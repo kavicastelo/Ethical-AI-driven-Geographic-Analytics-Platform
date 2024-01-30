@@ -11,7 +11,7 @@ export class OzoneComponent implements OnInit{
 
   airQuality: any
   isExpanded: boolean = false
-  isLoading: boolean = false
+  isLoading: boolean = true
 
   filterForm = new FormGroup({
     filter: new FormControl(null)
