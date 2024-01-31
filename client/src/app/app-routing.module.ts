@@ -61,6 +61,7 @@ import {Pm10Component} from "./components/dashbord/monitor/pm10/pm10.component";
 import {Co2Component} from "./components/dashbord/monitor/co2/co2.component";
 import {OzoneComponent} from "./components/dashbord/monitor/ozone/ozone.component";
 import {No2Component} from "./components/dashbord/monitor/no2/no2.component";
+import {MetrologicalDataComponent} from "./components/dashbord/metrological-data/metrological-data.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -94,6 +95,7 @@ const routes: Routes = [
         {path: 'ozone', component: OzoneComponent},
         {path: 'no2', component: No2Component}
       ]},
+      {path: 'metrological-data', component: MetrologicalDataComponent},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [

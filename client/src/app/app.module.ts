@@ -77,6 +77,7 @@ import { Pm10Component } from './components/dashbord/monitor/pm10/pm10.component
 import { Co2Component } from './components/dashbord/monitor/co2/co2.component';
 import { OzoneComponent } from './components/dashbord/monitor/ozone/ozone.component';
 import { No2Component } from './components/dashbord/monitor/no2/no2.component';
+import { MetrologicalDataComponent } from './components/dashbord/metrological-data/metrological-data.component';
 
 @NgModule({
   declarations: [
@@ -134,7 +135,8 @@ import { No2Component } from './components/dashbord/monitor/no2/no2.component';
     Pm10Component,
     Co2Component,
     OzoneComponent,
-    No2Component
+    No2Component,
+    MetrologicalDataComponent
   ],
   imports: [
     BrowserModule,
