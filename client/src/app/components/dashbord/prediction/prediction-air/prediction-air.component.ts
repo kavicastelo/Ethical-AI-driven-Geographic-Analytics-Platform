@@ -10,84 +10,82 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class PredictionAirComponent implements OnInit {
   isLoading: boolean = false;
 
-  factors: any[] = ['pm25','pm10','co2','ozone','no2']
+  factors: any[] = ['pm25', 'pm10', 'co2', 'ozone', 'no2']
 
   filterForm = new FormGroup({
     filter: new FormControl(''),
-    pm25: new FormControl(0,[
+    pm25: new FormControl(0, [
       Validators.required
     ]),
-    pm10: new FormControl(0,[
+    pm10: new FormControl(0, [
       Validators.required
     ]),
-    co2: new FormControl(0,[
+    co2: new FormControl(0, [
       Validators.required
     ]),
-    ozone: new FormControl(0,[
+    ozone: new FormControl(0, [
       Validators.required
     ]),
-    no2: new FormControl(0,[
+    no2: new FormControl(0, [
       Validators.required
     ]),
-    temperature: new FormControl(0,[
+    temperature: new FormControl(0, [
       Validators.required
     ]),
-    humidity: new FormControl(0,[
+    humidity: new FormControl(0, [
       Validators.required
     ]),
-    windSpeed: new FormControl(0,[
+    windSpeed: new FormControl(0, [
       Validators.required
     ])
   })
 
   constructor(private airQualityService: AirQualityService) {
   }
+
   ngOnInit(): void {
     this.changeFactor()
   }
 
   changeFactor() {
-    if (this.filterForm.get('filter')?.value === '') {
-      this.filterForm.controls['pm25'].disable();
-      this.filterForm.controls['pm10'].disable();
-      this.filterForm.controls['co2'].disable();
-      this.filterForm.controls['ozone'].disable();
-      this.filterForm.controls['no2'].disable();
-      this.filterForm.controls['temperature'].disable();
-      this.filterForm.controls['humidity'].disable();
-      this.filterForm.controls['windSpeed'].disable();
-    }
-    else if(this.filterForm.get('filter')?.value === 'pm25'){
-      this.filterForm.enable();
-      this.filterForm.controls['pm25'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'pm10'){
-      this.filterForm.enable();
-      this.filterForm.controls['pm10'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'co2'){
-      this.filterForm.enable();
-      this.filterForm.controls['co2'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'ozone'){
-      this.filterForm.enable();
-      this.filterForm.controls['ozone'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'no2'){
-      this.filterForm.enable();
-      this.filterForm.controls['no2'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'temperature'){
-      this.filterForm.enable();
-      this.filterForm.controls['temperature'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'humidity'){
-      this.filterForm.enable();
-      this.filterForm.controls['humidity'].disable();
-    }
-    else if(this.filterForm.controls['filter']?.value === 'windSpeed'){
-      this.filterForm.enable();
-      this.filterForm.controls['windSpeed'].disable();
+    let filterValue = this.filterForm.get('filter')?.value;
+    switch (filterValue) {
+      case 'pm25':
+        this.filterForm.enable();
+        this.filterForm.controls['pm25'].disable();
+        break;
+      case 'pm10':
+        this.filterForm.enable();
+        this.filterForm.controls['pm10'].disable();
+        break;
+      case 'co2':
+        this.filterForm.enable();
+        this.filterForm.controls['co2'].disable();
+        break;
+      case 'ozone':
+        this.filterForm.enable();
+        this.filterForm.controls['ozone'].disable();
+        break;
+      case 'no2':
+        this.filterForm.enable();
+        this.filterForm.controls['no2'].disable();
+        break;
+      case 'temperature':
+        this.filterForm.enable();
+        this.filterForm.controls['temperature'].disable();
+        break;
+      case 'humidity':
+        this.filterForm.enable();
+        this.filterForm.controls['humidity'].disable();
+        break;
+      case 'windSpeed':
+        this.filterForm.enable();
+        this.filterForm.controls['windSpeed'].disable();
+        break;
+      default:
+        this.filterForm.disable();
+        this.filterForm.controls['filter'].enable();
+        break;
     }
   }
 
