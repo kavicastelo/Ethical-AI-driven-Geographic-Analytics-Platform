@@ -1,1 +1,26 @@
-<p>prediction works!</p>
+<div class="container">
+  <div class="title-wrapper">
+    <img src="./assets/images/shared/robot-1.png" alt="robot">
+    <h1>Predict Measurements</h1>
+  </div>
+  <p>
+    This feature was implemented to predict air quality and meteorological data by AI. You can use this feature for
+    analysis purposes. This AI prediction model is trained after deep analysis of how measurements work in selected
+    areas. You can use this feature to get unknown factor values using known factor values. This feature is recommended
+    for experienced analyzers. Start your prediction below!
+  </p>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="guide" [class.active]="isActive('/dashboard/prediction/guide')">GUIDE</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="airQuality" [class.active]="isActive('/dashboard/prediction/airQuality')">AIR QUALITY</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="metrological" [class.active]="isActive('/dashboard/prediction/metrological')">METROLOGICAL</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>
