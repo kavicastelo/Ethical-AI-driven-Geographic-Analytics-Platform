@@ -78,6 +78,10 @@ import { Co2Component } from './components/dashbord/monitor/co2/co2.component';
 import { OzoneComponent } from './components/dashbord/monitor/ozone/ozone.component';
 import { No2Component } from './components/dashbord/monitor/no2/no2.component';
 import { MetrologicalDataComponent } from './components/dashbord/metrological-data/metrological-data.component';
+import { TemperatureComponent } from './components/dashbord/metrological-data/temperature/temperature.component';
+import { HumidityComponent } from './components/dashbord/metrological-data/humidity/humidity.component';
+import { WindSpeedComponent } from './components/dashbord/metrological-data/wind-speed/wind-speed.component';
+import { PrecipitationComponent } from './components/dashbord/metrological-data/precipitation/precipitation.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +140,11 @@ import { MetrologicalDataComponent } from './components/dashbord/metrological-da
     Co2Component,
     OzoneComponent,
     No2Component,
-    MetrologicalDataComponent
+    MetrologicalDataComponent,
+    TemperatureComponent,
+    HumidityComponent,
+    WindSpeedComponent,
+    PrecipitationComponent
   ],
   imports: [
     BrowserModule,
