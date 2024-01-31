@@ -83,6 +83,9 @@ import { HumidityComponent } from './components/dashbord/metrological-data/humid
 import { WindSpeedComponent } from './components/dashbord/metrological-data/wind-speed/wind-speed.component';
 import { PrecipitationComponent } from './components/dashbord/metrological-data/precipitation/precipitation.component';
 import { PredictionComponent } from './components/dashbord/prediction/prediction.component';
+import { PredictionGuideComponent } from './components/dashbord/prediction/prediction-guide/prediction-guide.component';
+import { PredictionAirComponent } from './components/dashbord/prediction/prediction-air/prediction-air.component';
+import { PredictionMetroComponent } from './components/dashbord/prediction/prediction-metro/prediction-metro.component';
 
 @NgModule({
   declarations: [
@@ -146,7 +149,10 @@ import { PredictionComponent } from './components/dashbord/prediction/prediction
     HumidityComponent,
     WindSpeedComponent,
     PrecipitationComponent,
-    PredictionComponent
+    PredictionComponent,
+    PredictionGuideComponent,
+    PredictionAirComponent,
+    PredictionMetroComponent
   ],
   imports: [
     BrowserModule,
