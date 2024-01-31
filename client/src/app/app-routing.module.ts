@@ -67,6 +67,9 @@ import {HumidityComponent} from "./components/dashbord/metrological-data/humidit
 import {WindSpeedComponent} from "./components/dashbord/metrological-data/wind-speed/wind-speed.component";
 import {PrecipitationComponent} from "./components/dashbord/metrological-data/precipitation/precipitation.component";
 import {PredictionComponent} from "./components/dashbord/prediction/prediction.component";
+import {PredictionGuideComponent} from "./components/dashbord/prediction/prediction-guide/prediction-guide.component";
+import {PredictionAirComponent} from "./components/dashbord/prediction/prediction-air/prediction-air.component";
+import {PredictionMetroComponent} from "./components/dashbord/prediction/prediction-metro/prediction-metro.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -107,7 +110,12 @@ const routes: Routes = [
         {path: 'wind-speed', component: WindSpeedComponent},
         {path: 'precipitation', component: PrecipitationComponent},
       ]},
-      {path: 'prediction', component: PredictionComponent},
+      {path: 'prediction', component: PredictionComponent, children: [
+        {path: '', redirectTo: '/dashboard/prediction/guide', pathMatch: 'full'},
+        {path: 'guide', component: PredictionGuideComponent},
+        {path: 'airQuality', component: PredictionAirComponent},
+        {path: 'metrological', component: PredictionMetroComponent}
+      ]},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
