@@ -82,6 +82,7 @@ import { TemperatureComponent } from './components/dashbord/metrological-data/te
 import { HumidityComponent } from './components/dashbord/metrological-data/humidity/humidity.component';
 import { WindSpeedComponent } from './components/dashbord/metrological-data/wind-speed/wind-speed.component';
 import { PrecipitationComponent } from './components/dashbord/metrological-data/precipitation/precipitation.component';
+import { PredictionComponent } from './components/dashbord/prediction/prediction.component';
 
 @NgModule({
   declarations: [
@@ -144,7 +145,8 @@ import { PrecipitationComponent } from './components/dashbord/metrological-data/
     TemperatureComponent,
     HumidityComponent,
     WindSpeedComponent,
-    PrecipitationComponent
+    PrecipitationComponent,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,

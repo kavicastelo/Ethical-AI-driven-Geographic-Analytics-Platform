@@ -66,6 +66,7 @@ import {TemperatureComponent} from "./components/dashbord/metrological-data/temp
 import {HumidityComponent} from "./components/dashbord/metrological-data/humidity/humidity.component";
 import {WindSpeedComponent} from "./components/dashbord/metrological-data/wind-speed/wind-speed.component";
 import {PrecipitationComponent} from "./components/dashbord/metrological-data/precipitation/precipitation.component";
+import {PredictionComponent} from "./components/dashbord/prediction/prediction.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -106,6 +107,7 @@ const routes: Routes = [
         {path: 'wind-speed', component: WindSpeedComponent},
         {path: 'precipitation', component: PrecipitationComponent},
       ]},
+      {path: 'prediction', component: PredictionComponent},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
