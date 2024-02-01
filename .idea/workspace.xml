@@ -7,6 +7,7 @@
     <list default="true" id="1b74e0a6-bc86-4c44-930a-d1d3078118d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/air_quality/controller/PredictionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/air_quality/controller/PredictionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Config Guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Config Guide.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +102,7 @@
       <workItem from="1706684662891" duration="18039000" />
       <workItem from="1706727502846" duration="1805000" />
       <workItem from="1706784168645" duration="14559000" />
+      <workItem from="1706784168645" duration="5562000" />
     </task>
     <servers />
   </component>

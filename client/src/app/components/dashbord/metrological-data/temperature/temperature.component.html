@@ -1,0 +1,55 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+<div class="container" style="overflow-x: auto">
+  <div class="filter-wrapper">
+    <form class="signup-form" [formGroup]="filterForm">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Filter</mat-label>
+            <mat-select class="example-full-width field" formArrayName="filter">
+              <mat-option value="All" (onSelectionChange)="filterValue('All')">All</mat-option>
+              <mat-option value="Colombo" (onSelectionChange)="filterValue('Colombo')">Colombo</mat-option>
+              <mat-option value="Galle" (onSelectionChange)="filterValue('Galle')">Galle</mat-option>
+              <mat-option value="Matara" (onSelectionChange)="filterValue('Matara')">Matara</mat-option>
+              <mat-option value="Hambantota" (onSelectionChange)="filterValue('Hambantota')">Hambantota</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Order</mat-label>
+            <mat-select class="example-full-width field">
+              <mat-option value="asc">Ascending</mat-option>
+              <mat-option value="desc">Descending</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Location</th>
+      <th>Received Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of airQuality">
+      <td>{{a.timestamp}}</td>
+      <td>{{a.location}}</td>
+      <td>{{a.temperature}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="hr-div"></div>
+    <div class="see-more" (click)="seeMore()"><p>{{isExpanded?'See less':'See more'}}</p></div>
+    <div class="hr-div"></div>
+  </div>
+</div>

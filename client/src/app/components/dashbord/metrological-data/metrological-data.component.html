@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="temperature" [class.active]="isActive('/dashboard/metrological-data/temperature')">TEMPERATURE</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="humidity" [class.active]="isActive('/dashboard/metrological-data/humidity')">HUMIDITY</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="wind-speed" [class.active]="isActive('/dashboard/metrological-data/wind-speed')">WIND SPEED</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="precipitation" [class.active]="isActive('/dashboard/metrological-data/precipitation')">PRECIPITATION</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>
