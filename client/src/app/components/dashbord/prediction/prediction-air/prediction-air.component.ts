@@ -88,20 +88,76 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.controls['filter'].enable();
         break;
     }
+    let result = document.getElementById('result');
+    result!.innerHTML = 'Result will appear here'
   }
 
   predict() {
     let result = document.getElementById('result');
-    this.airQualityService.predictPm25([
-      this.filterForm.value.pm10,
-      this.filterForm.value.co2,
-      this.filterForm.value.ozone,
-      this.filterForm.value.no2,
-      this.filterForm.value.temperature,
-      this.filterForm.value.humidity,
-      this.filterForm.value.windSpeed
-    ]).subscribe(res => {
-      result!.innerHTML = res.message
-    })
+    if (this.filterForm.get('filter')?.value == 'pm25') {
+      this.airQualityService.predictPm25([
+        this.filterForm.value.pm10,
+        this.filterForm.value.co2,
+        this.filterForm.value.ozone,
+        this.filterForm.value.no2,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'pm10') {
+      this.airQualityService.predictPm10([
+        this.filterForm.value.pm25,
+        this.filterForm.value.co2,
+        this.filterForm.value.ozone,
+        this.filterForm.value.no2,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'co2') {
+      this.airQualityService.predictCo2([
+        this.filterForm.value.pm25,
+        this.filterForm.value.pm10,
+        this.filterForm.value.ozone,
+        this.filterForm.value.no2,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'ozone') {
+      this.airQualityService.predictOzone([
+        this.filterForm.value.pm25,
+        this.filterForm.value.pm10,
+        this.filterForm.value.co2,
+        this.filterForm.value.no2,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'no2') {
+      this.airQualityService.predictNo2([
+        this.filterForm.value.pm25,
+        this.filterForm.value.pm10,
+        this.filterForm.value.co2,
+        this.filterForm.value.ozone,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
   }
 }
