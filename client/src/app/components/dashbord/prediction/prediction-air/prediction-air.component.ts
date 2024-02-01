@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AirQualityService} from "../../../../services/air-quality.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Parser} from "@angular/compiler";
 
 @Component({
   selector: 'app-prediction-air',
@@ -90,6 +91,16 @@ export class PredictionAirComponent implements OnInit {
   }
 
   predict() {
-    console.log(this.filterForm.value)
+    this.airQualityService.predictPm25({
+      pm10: this.filterForm.value.pm10,
+      co2: this.filterForm.value.co2,
+      ozone: this.filterForm.value.ozone,
+      no2: this.filterForm.value.no2,
+      temperature: this.filterForm.value.temperature,
+      humidity: this.filterForm.value.humidity,
+      windSpeed: this.filterForm.value.windSpeed
+    }).subscribe(res => {
+      console.log(res)
+    })
   }
 }
