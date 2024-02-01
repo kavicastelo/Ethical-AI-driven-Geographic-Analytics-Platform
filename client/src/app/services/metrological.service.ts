@@ -17,18 +17,18 @@ export class MetrologicalService {
   }
 
   public predictTemperature(data:any[]): Observable<any>{
-    return this.http.post(this.baseUrl + 'metrological/predict/temperature', data)
+    return this.http.post(this.baseUrl + 'airQuality/predict/temperature', data)
   }
 
   public predictHumidity(data:any[]): Observable<any>{
-    return this.http.post(this.baseUrl + 'metrological/predict/humidity', data)
+    return this.http.post(this.baseUrl + 'airQuality/predict/humidity', data)
   }
 
   public predictWindSpeed(data:any[]): Observable<any>{
-    return this.http.post(this.baseUrl + 'metrological/predict/windSpeed', data)
+    return this.http.post(this.baseUrl + 'airQuality/predict/windSpeed', data)
   }
 
   public predictPrecipitation(data:any[]): Observable<any>{
-    return this.http.post(this.baseUrl + 'metrological/predict/precipitation', data)
+    return this.http.post(this.baseUrl + 'airQuality/predict/precipitation', data)
   }
 }

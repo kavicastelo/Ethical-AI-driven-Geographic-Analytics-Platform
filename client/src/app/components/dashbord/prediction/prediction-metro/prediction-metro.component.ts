@@ -59,9 +59,46 @@ export class PredictionMetroComponent implements OnInit {
         this.filterForm.controls['filter'].enable();
         break;
     }
+    let result = document.getElementById('result');
+    result!.innerHTML = 'Result will appear here'
   }
 
   predict() {
-
+    let result = document.getElementById('result');
+    if (this.filterForm.get('filter')?.value == 'temperature') {
+      this.metrologicalService.predictTemperature([
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed,
+        this.filterForm.value.precipitation
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    } else if (this.filterForm.get('filter')?.value == 'humidity') {
+      this.metrologicalService.predictHumidity([
+        this.filterForm.value.temperature,
+        this.filterForm.value.windSpeed,
+        this.filterForm.value.precipitation
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'windSpeed') {
+      this.metrologicalService.predictWindSpeed([
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.precipitation
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
+    else if (this.filterForm.get('filter')?.value == 'precipitation') {
+      this.metrologicalService.predictPrecipitation([
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
   }
 }
