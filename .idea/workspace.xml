@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="" />
+    <list default="true" id="1b74e0a6-bc86-4c44-930a-d1d3078118d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/air_quality/controller/PredictionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/air_quality/controller/PredictionController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +15,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +54,7 @@
     &quot;last_opened_file_path&quot;: &quot;E:/PROJECTS/HTML/Ethical-AI-driven-Geographic-Analytics-Platform/client/src/docs&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d5f73674f4485e14aac5b80b81aca5c3&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
+    &quot;ts.external.directory.path&quot;: &quot;E:\\PROJECTS\\HTML\\Ethical-AI-driven-Geographic-Analytics-Platform\\client\\node_modules\\typescript\\lib&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -75,7 +85,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6ebc6506-7fef-4db7-b54e-805db81d2983" name="Changes" comment="" />
+      <changelist id="1b74e0a6-bc86-4c44-930a-d1d3078118d2" name="Changes" comment="" />
       <created>1706258920356</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -86,7 +96,11 @@
       <workItem from="1706417091253" duration="2484000" />
       <workItem from="1706446598198" duration="9066000" />
       <workItem from="1706522063931" duration="3875000" />
-      <workItem from="1706545234718" duration="3052000" />
+      <workItem from="1706545234718" duration="3530000" />
+      <workItem from="1706613303031" duration="6179000" />
+      <workItem from="1706684662891" duration="18039000" />
+      <workItem from="1706727502846" duration="1805000" />
+      <workItem from="1706784168645" duration="14559000" />
     </task>
     <servers />
   </component>
