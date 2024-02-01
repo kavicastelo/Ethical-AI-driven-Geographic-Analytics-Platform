@@ -92,16 +92,18 @@ export class PredictionAirComponent implements OnInit {
 
   predict() {
     let result = document.getElementById('result');
-    this.airQualityService.predictPm25([
-      this.filterForm.value.pm10,
-      this.filterForm.value.co2,
-      this.filterForm.value.ozone,
-      this.filterForm.value.no2,
-      this.filterForm.value.temperature,
-      this.filterForm.value.humidity,
-      this.filterForm.value.windSpeed
-    ]).subscribe(res => {
-      result!.innerHTML = res.message
-    })
+    if (this.filterForm.get('filter')?.value == 'pm25') {
+      this.airQualityService.predictPm25([
+        this.filterForm.value.pm10,
+        this.filterForm.value.co2,
+        this.filterForm.value.ozone,
+        this.filterForm.value.no2,
+        this.filterForm.value.temperature,
+        this.filterForm.value.humidity,
+        this.filterForm.value.windSpeed
+      ]).subscribe(res => {
+        result!.innerHTML = res.message
+      })
+    }
   }
 }
