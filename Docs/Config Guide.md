@@ -23,8 +23,8 @@ If you need to use your own localhost database,
 
 Add Environment for Python Models.
 - <python.exe path to computer drive> -m venv venv
-- source venv/bin/activate (Linux or Mac)
-- ./venv/Scripts/activate (Windows)
+- source venv\bin\activate (Linux or Mac)
+- .\venv\Scripts\activate (Windows)
 - pip install -r requirements.txt (recommended)
 - venv\Scripts\python.exe -m pip install -r requirements.txt (only if **not working** `pip install -r requirements.txt`)
 - deactivate
