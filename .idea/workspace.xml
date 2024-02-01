@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b74e0a6-bc86-4c44-930a-d1d3078118d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/app/shared/model/AirQualityPredict.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/dashbord.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/dashbord.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/prediction/prediction-air/prediction-air.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/prediction/prediction-air/prediction-air.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/services/air-quality.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/air-quality.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.development.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,7 +104,8 @@
       <workItem from="1706545234718" duration="3530000" />
       <workItem from="1706613303031" duration="6179000" />
       <workItem from="1706684662891" duration="18039000" />
-      <workItem from="1706727502846" duration="1052000" />
+      <workItem from="1706727502846" duration="1805000" />
+      <workItem from="1706784168645" duration="3811000" />
     </task>
     <servers />
   </component>
