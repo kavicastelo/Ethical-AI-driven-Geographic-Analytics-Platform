@@ -27,6 +27,11 @@ export class StatsAirComponent implements OnInit {
       Validators.required
     ])
   })
+  modeForm = new FormGroup({
+    mode: new FormControl('', [
+      Validators.required
+    ])
+  })
 
   ngOnInit(): void {
   }
@@ -36,11 +41,31 @@ export class StatsAirComponent implements OnInit {
     result!.innerHTML = 'RESULT'
   }
 
+  changeModeFactor() {
+    let result = document.getElementById('mode-result')
+    result!.innerHTML = 'RESULT'
+  }
+
   calculateMedian() {
     let factor = this.medianForm.get('median')?.value
     let result = document.getElementById('median-result')
     if (this.medianForm.valid) {
       this.airQualityService.calculateMedian(factor).subscribe({
+        next: (res) => {
+          result!.innerHTML = res
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+  }
+
+  calculateMode() {
+    let factor = this.modeForm.get('mode')?.value
+    let result = document.getElementById('mode-result')
+    if (this.modeForm.valid) {
+      this.airQualityService.calculateMode(factor).subscribe({
         next: (res) => {
           result!.innerHTML = res
         },
