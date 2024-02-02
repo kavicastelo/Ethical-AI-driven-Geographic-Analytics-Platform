@@ -87,6 +87,8 @@ import { PredictionGuideComponent } from './components/dashbord/prediction/predi
 import { PredictionAirComponent } from './components/dashbord/prediction/prediction-air/prediction-air.component';
 import { PredictionMetroComponent } from './components/dashbord/prediction/prediction-metro/prediction-metro.component';
 import { StatsComponent } from './components/dashbord/stats/stats.component';
+import { StatsAirComponent } from './components/dashbord/stats/stats-air/stats-air.component';
+import { StatsMetroComponent } from './components/dashbord/stats/stats-metro/stats-metro.component';
 
 @NgModule({
   declarations: [
@@ -154,7 +156,9 @@ import { StatsComponent } from './components/dashbord/stats/stats.component';
     PredictionGuideComponent,
     PredictionAirComponent,
     PredictionMetroComponent,
-    StatsComponent
+    StatsComponent,
+    StatsAirComponent,
+    StatsMetroComponent
   ],
   imports: [
     BrowserModule,
