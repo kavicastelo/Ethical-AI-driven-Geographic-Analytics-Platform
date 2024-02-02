@@ -39,4 +39,8 @@ export class AirQualityService {
   public calculateMedian(data:any): Observable<any>{
     return this.http.get(this.baseUrl + 'getMedianAirQuality'+data)
   }
+
+  public calculateMode(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getModeAirQuality'+data)
+  }
 }

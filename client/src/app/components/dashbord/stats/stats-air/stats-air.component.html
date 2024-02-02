@@ -22,4 +22,28 @@
     </div>
   </form>
   <hr style="color: var(--color-primary-600)">
+
+  <h3>Get Mode(Average mode)</h3>
+  <form class="signup-form" [formGroup]="modeForm">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+          <mat-label>Select a Factor to Predict</mat-label>
+          <mat-select class="example-full-width field" formControlName="mode" (selectionChange)="changeModeFactor()">
+            <mat-option value="" disabled>Select a Factor</mat-option>
+            <mat-option *ngFor="let f of factors" [value]="f">{{f}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6 col-md-4">
+        <button class="button-1" (click)="calculateMode()">Calculate</button>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="result-div">
+          <h5 id="mode-result">RESULT</h5>
+        </div>
+      </div>
+    </div>
+  </form>
+  <hr style="color: var(--color-primary-600)">
 </div>
