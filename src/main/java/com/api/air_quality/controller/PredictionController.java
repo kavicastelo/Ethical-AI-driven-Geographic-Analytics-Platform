@@ -1,4 +1,5 @@
 package com.api.air_quality.controller;
+import com.api.air_quality.dto.ApiResponse;
 import com.api.air_quality.service.ai_services.PythonIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,16 +42,18 @@ public class PredictionController {
     }
 
     @PostMapping("/pm25")
-    public ResponseEntity<String> predictAndReceivePm25(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceivePm25(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictPm25(predictRequest);
             ResponseEntity<String> responseEntity = receivePm25Prediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing pm25 prediction");
+            ApiResponse response = new ApiResponse("Error processing pm25 prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/pm25")
@@ -62,16 +65,18 @@ public class PredictionController {
     }
 
     @PostMapping("/pm10")
-    public ResponseEntity<String> predictAndReceivePm10(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceivePm10(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictPm10(predictRequest);
             ResponseEntity<String> responseEntity = receivePm10Prediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing pm10 prediction");
+            ApiResponse response = new ApiResponse("Error processing pm10 prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/pm10")
@@ -83,16 +88,18 @@ public class PredictionController {
     }
 
     @PostMapping("/co2")
-    public ResponseEntity<String> predictAndReceiveCo2(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveCo2(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictCo2(predictRequest);
             ResponseEntity<String> responseEntity = receiveCo2Prediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing co2 prediction");
+            ApiResponse response = new ApiResponse("Error processing co2 prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/co2")
@@ -104,16 +111,18 @@ public class PredictionController {
     }
 
     @PostMapping("/ozone")
-    public ResponseEntity<String> predictAndReceiveOzone(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveOzone(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictOzone(predictRequest);
             ResponseEntity<String> responseEntity = receiveOzonePrediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing ozone prediction");
+            ApiResponse response = new ApiResponse("Error processing ozone prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/ozone")
@@ -125,16 +134,18 @@ public class PredictionController {
     }
 
     @PostMapping("/no2")
-    public ResponseEntity<String> predictAndReceiveNo2(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveNo2(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictNo2(predictRequest);
             ResponseEntity<String> responseEntity = receiveNo2Prediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing no2 prediction");
+            ApiResponse response = new ApiResponse("Error processing no2 prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/no2")
@@ -188,16 +199,18 @@ public class PredictionController {
     }
 
     @PostMapping("/temperature")
-    public ResponseEntity<String> predictAndReceiveTemperature(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveTemperature(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictTemperature(predictRequest);
             ResponseEntity<String> responseEntity = receiveTemperaturePrediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing temperature prediction");
+            ApiResponse response = new ApiResponse("Error processing temperature prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/temperature")
@@ -209,16 +222,18 @@ public class PredictionController {
     }
 
     @PostMapping("/windSpeed")
-    public ResponseEntity<String> predictAndReceiveWindSpeed(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveWindSpeed(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictWindSpeed(predictRequest);
             ResponseEntity<String> responseEntity = receiveWindSpeedPrediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing wind speed prediction");
+            ApiResponse response = new ApiResponse("Error processing wind speed prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/windSpeed")
@@ -230,16 +245,18 @@ public class PredictionController {
     }
 
     @PostMapping("/humidity")
-    public ResponseEntity<String> predictAndReceiveHumidity(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceiveHumidity(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictHumidity(predictRequest);
             ResponseEntity<String> responseEntity = receiveHumidityPrediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing humidity prediction");
+            ApiResponse response = new ApiResponse("Error processing humidity prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/humidity")
@@ -251,16 +268,18 @@ public class PredictionController {
     }
 
     @PostMapping("/precipitation")
-    public ResponseEntity<String> predictAndReceivePrecipitation(@RequestBody Double[] predictRequest) {
+    public ResponseEntity<ApiResponse> predictAndReceivePrecipitation(@RequestBody Double[] predictRequest) {
         try {
             pythonIntegrationService.predictPrecipitation(predictRequest);
             ResponseEntity<String> responseEntity = receivePrecipitationPrediction(receivedDataCache.get());
             String processedResult = responseEntity.getBody();
-            return ResponseEntity.ok(processedResult);
+            ApiResponse response = new ApiResponse(processedResult);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             // Log the exception for debugging purposes
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing precipitation prediction");
+            ApiResponse response = new ApiResponse("Error processing precipitation prediction");
+            return ResponseEntity.badRequest().body(response);
         }
     }
     @PostMapping("/res/precipitation")
