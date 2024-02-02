@@ -119,5 +119,8 @@ public interface AirQualityRepository extends MongoRepository<AirQualityModel, S
     @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'humidity': 1, 'windSpeed': 1}")
     List<AirQualityModel> findAllByHumidityAndWindSpeed();
 
-    void deleteByTimestampBefore(Instant cutoffTimestamp);
+    @Query("{ 'timestamp' : { $lt : ?0 } }")
+    List<AirQualityModel> findOldRecords(String cutoffTimestamp);
+
+    void deleteByTimestampBefore(String cutoffTimestamp);
 }
