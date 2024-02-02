@@ -51,20 +51,33 @@
   <form class="signup-form" [formGroup]="avgForm">
     <div class="row">
       <div class="col-6 col-md-4">
-        <mat-form-field class="example-form-field">
-          <mat-label>Mean Date Range</mat-label>
-          <mat-date-range-input
-            [rangePicker]="avgPicker"
-            [comparisonStart]="avgForm.value.start"
-            [comparisonEnd]="avgForm.value.end"
-          >
-            <input matStartDate placeholder="Start date" formControlName="start">
-            <input matEndDate placeholder="End date" formControlName="end">
-          </mat-date-range-input>
-          <mat-hint>{{ formatDateRangeHint(avgForm.value.start, avgForm.value.end) }}</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="avgPicker"></mat-datepicker-toggle>
-          <mat-date-range-picker #avgPicker></mat-date-range-picker>
-        </mat-form-field>
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+              <mat-label>Select a Factor to Predict</mat-label>
+              <mat-select class="example-full-width field" formControlName="mean" (selectionChange)="changeMeanFactor()">
+                <mat-option value="" disabled>Select a Factor</mat-option>
+                <mat-option *ngFor="let f of factors" [value]="f">{{f}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-lg-6">
+            <mat-form-field class="signup-form-full-width">
+              <mat-label>Mean Date Range</mat-label>
+              <mat-date-range-input
+                [rangePicker]="avgPicker"
+                [comparisonStart]="avgForm.value.start"
+                [comparisonEnd]="avgForm.value.end"
+              >
+                <input matStartDate placeholder="Start date" formControlName="start">
+                <input matEndDate placeholder="End date" formControlName="end">
+              </mat-date-range-input>
+              <mat-hint>{{ formatDateRangeHint(avgForm.value.start, avgForm.value.end) }}</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="avgPicker"></mat-datepicker-toggle>
+              <mat-date-range-picker #avgPicker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+        </div>
 
       </div>
       <div class="col-6 col-md-4">
