@@ -295,6 +295,13 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-primary-100) !important;
 }
 
+.mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper{
+  background-color: transparent!important;
+}
+.mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align::before{
+  color: var(--color-text-200)!important;
+}
+
 // admin
 @keyframes popout {
   0%{

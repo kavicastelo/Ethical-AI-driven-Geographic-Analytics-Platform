@@ -89,6 +89,8 @@ import { PredictionMetroComponent } from './components/dashbord/prediction/predi
 import { StatsComponent } from './components/dashbord/stats/stats.component';
 import { StatsAirComponent } from './components/dashbord/stats/stats-air/stats-air.component';
 import { StatsMetroComponent } from './components/dashbord/stats/stats-metro/stats-metro.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -176,6 +178,8 @@ import { StatsMetroComponent } from './components/dashbord/stats/stats-metro/sta
     MatTooltipModule,
     FormsModule,
     MarkdownModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
