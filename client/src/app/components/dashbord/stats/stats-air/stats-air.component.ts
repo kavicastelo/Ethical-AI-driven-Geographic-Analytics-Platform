@@ -36,6 +36,9 @@ export class StatsAirComponent implements OnInit {
   })
 
   avgForm = new FormGroup({
+    mean: new FormControl('', [
+      Validators.required
+    ]),
     start: new FormControl(new Date(2023, 1, 15)),
     end: new FormControl(new Date(2024, 1, 19)),
   });
@@ -50,6 +53,11 @@ export class StatsAirComponent implements OnInit {
 
   changeModeFactor() {
     let result = document.getElementById('mode-result')
+    result!.innerHTML = 'RESULT'
+  }
+
+  changeMeanFactor() {
+    let result = document.getElementById('mean-result')
     result!.innerHTML = 'RESULT'
   }
 
@@ -101,7 +109,7 @@ export class StatsAirComponent implements OnInit {
     let result = document.getElementById('mean-result')
     if (this.avgForm.valid) {
       this.airQualityService.calculateAvgByDateRange({
-        factor: 'Pm25',
+        factor: this.avgForm.get('mean')?.value,
         dateRange: this.formatDateRange(startDate, endDate)
       }).subscribe({
         next: (res) => {
