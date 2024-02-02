@@ -70,6 +70,7 @@ import {PredictionComponent} from "./components/dashbord/prediction/prediction.c
 import {PredictionGuideComponent} from "./components/dashbord/prediction/prediction-guide/prediction-guide.component";
 import {PredictionAirComponent} from "./components/dashbord/prediction/prediction-air/prediction-air.component";
 import {PredictionMetroComponent} from "./components/dashbord/prediction/prediction-metro/prediction-metro.component";
+import {StatsComponent} from "./components/dashbord/stats/stats.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -116,6 +117,7 @@ const routes: Routes = [
         {path: 'airQuality', component: PredictionAirComponent},
         {path: 'metrological', component: PredictionMetroComponent}
       ]},
+      {path: 'stats', component: StatsComponent},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
