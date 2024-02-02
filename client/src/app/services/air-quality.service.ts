@@ -43,4 +43,8 @@ export class AirQualityService {
   public calculateMode(data:any): Observable<any>{
     return this.http.get(this.baseUrl + 'getModeAirQuality'+data)
   }
+
+  public calculateAvgByDateRange(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getAQAverage'+data.factor+'ByDateRange?'+data.dateRange)
+  }
 }
