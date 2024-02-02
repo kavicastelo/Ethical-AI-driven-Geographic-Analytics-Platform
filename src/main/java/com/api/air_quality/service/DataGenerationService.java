@@ -7,12 +7,12 @@ import com.api.air_quality.repository.AirQualityRepository;
 import com.api.air_quality.repository.LandUseRepository;
 import com.api.air_quality.repository.MetrologicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 @Service
@@ -29,7 +29,7 @@ public class DataGenerationService {
 
     private final Random random = new Random();
 
-    @Scheduled(fixedRate = 1800000) // Run every 30 minutes
+    @Scheduled(fixedRate = 180000) // Run every 3 minutes
     public void generateAndSaveRandomValues() {
         generateAndSaveAirQualityData();
         generateAndSaveMeteorologicalData();
@@ -101,8 +101,13 @@ public class DataGenerationService {
         long currentRowCount = airQualityRepository.count();
 
         if (currentRowCount > limit) {
-            Instant cutoffTimestamp = Instant.now().minus(Duration.ofDays(30));
-            airQualityRepository.deleteByTimestampBefore(cutoffTimestamp);
+            LocalDateTime cutoffLocalDateTime = LocalDateTime.now().minusDays(30);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            String stringCutoffLocalDateTime = String.valueOf(cutoffLocalDateTime);
+
+            airQualityRepository.deleteByTimestampBefore(stringCutoffLocalDateTime);
         }
     }
 
@@ -112,13 +117,22 @@ public class DataGenerationService {
         long currentRowCount = meteorologicalRepository.count();
 
         if (currentRowCount > limit) {
-            Instant cutoffTimestamp = Instant.now().minus(Duration.ofDays(30));
-            meteorologicalRepository.deleteByTimestampBefore(cutoffTimestamp);
+            LocalDateTime cutoffLocalDateTime = LocalDateTime.now().minusDays(30);
+
+            String stringCutoffLocalDateTime = String.valueOf(cutoffLocalDateTime);
+            meteorologicalRepository.deleteByTimestampBefore(stringCutoffLocalDateTime);
         }
     }
 
     private String generateTimestamp() {
-        return new Date().toString();
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+
+        // Define the desired date-time format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // Format the current date and time using the formatter
+        return now.format(formatter);
     }
 
     private double generateRandomValue(double min, double max) {
