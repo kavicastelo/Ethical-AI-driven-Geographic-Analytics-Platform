@@ -61,6 +61,15 @@ import {Pm10Component} from "./components/dashbord/monitor/pm10/pm10.component";
 import {Co2Component} from "./components/dashbord/monitor/co2/co2.component";
 import {OzoneComponent} from "./components/dashbord/monitor/ozone/ozone.component";
 import {No2Component} from "./components/dashbord/monitor/no2/no2.component";
+import {MetrologicalDataComponent} from "./components/dashbord/metrological-data/metrological-data.component";
+import {TemperatureComponent} from "./components/dashbord/metrological-data/temperature/temperature.component";
+import {HumidityComponent} from "./components/dashbord/metrological-data/humidity/humidity.component";
+import {WindSpeedComponent} from "./components/dashbord/metrological-data/wind-speed/wind-speed.component";
+import {PrecipitationComponent} from "./components/dashbord/metrological-data/precipitation/precipitation.component";
+import {PredictionComponent} from "./components/dashbord/prediction/prediction.component";
+import {PredictionGuideComponent} from "./components/dashbord/prediction/prediction-guide/prediction-guide.component";
+import {PredictionAirComponent} from "./components/dashbord/prediction/prediction-air/prediction-air.component";
+import {PredictionMetroComponent} from "./components/dashbord/prediction/prediction-metro/prediction-metro.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -86,7 +95,6 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashbordComponent, canActivate: [AuthGuard], children: [
       {path: '', component: WelcomeComponent},
-      {path: 'monitor', component: MonitorComponent},
       {path: 'monitor', component: MonitorComponent, children: [
         {path: '', redirectTo: '/dashboard/monitor/pm25', pathMatch: 'full'},
         {path: 'pm25', component: Pm25Component},
@@ -94,6 +102,19 @@ const routes: Routes = [
         {path: 'co2', component: Co2Component},
         {path: 'ozone', component: OzoneComponent},
         {path: 'no2', component: No2Component}
+      ]},
+      {path: 'metrological-data', component: MetrologicalDataComponent, children: [
+        {path: '', redirectTo: '/dashboard/metrological-data/temperature', pathMatch: 'full'},
+        {path: 'temperature', component: TemperatureComponent},
+        {path: 'humidity', component: HumidityComponent},
+        {path: 'wind-speed', component: WindSpeedComponent},
+        {path: 'precipitation', component: PrecipitationComponent},
+      ]},
+      {path: 'prediction', component: PredictionComponent, children: [
+        {path: '', redirectTo: '/dashboard/prediction/guide', pathMatch: 'full'},
+        {path: 'guide', component: PredictionGuideComponent},
+        {path: 'airQuality', component: PredictionAirComponent},
+        {path: 'metrological', component: PredictionMetroComponent}
       ]},
       {path: 'settings', component: UserSettingsComponent},
       {

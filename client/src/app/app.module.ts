@@ -77,6 +77,15 @@ import { Pm10Component } from './components/dashbord/monitor/pm10/pm10.component
 import { Co2Component } from './components/dashbord/monitor/co2/co2.component';
 import { OzoneComponent } from './components/dashbord/monitor/ozone/ozone.component';
 import { No2Component } from './components/dashbord/monitor/no2/no2.component';
+import { MetrologicalDataComponent } from './components/dashbord/metrological-data/metrological-data.component';
+import { TemperatureComponent } from './components/dashbord/metrological-data/temperature/temperature.component';
+import { HumidityComponent } from './components/dashbord/metrological-data/humidity/humidity.component';
+import { WindSpeedComponent } from './components/dashbord/metrological-data/wind-speed/wind-speed.component';
+import { PrecipitationComponent } from './components/dashbord/metrological-data/precipitation/precipitation.component';
+import { PredictionComponent } from './components/dashbord/prediction/prediction.component';
+import { PredictionGuideComponent } from './components/dashbord/prediction/prediction-guide/prediction-guide.component';
+import { PredictionAirComponent } from './components/dashbord/prediction/prediction-air/prediction-air.component';
+import { PredictionMetroComponent } from './components/dashbord/prediction/prediction-metro/prediction-metro.component';
 
 @NgModule({
   declarations: [
@@ -129,13 +138,21 @@ import { No2Component } from './components/dashbord/monitor/no2/no2.component';
     FooterComponent,
     UserSettingsComponent,
     WelcomeComponent,
-    MonitorComponent
     MonitorComponent,
     Pm25Component,
     Pm10Component,
     Co2Component,
     OzoneComponent,
-    No2Component
+    No2Component,
+    MetrologicalDataComponent,
+    TemperatureComponent,
+    HumidityComponent,
+    WindSpeedComponent,
+    PrecipitationComponent,
+    PredictionComponent,
+    PredictionGuideComponent,
+    PredictionAirComponent,
+    PredictionMetroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,56 @@
+<div class="loading-screen" *ngIf="isLoading">
+  <img src="./assets/images/shared/loading.gif" alt="loading...">
+  <h2>Please wait a moment...</h2>
+  <p>Starts server configuration</p>
+</div>
+<div class="container" style="overflow-x: auto">
+  <div class="filter-wrapper">
+    <form class="signup-form" [formGroup]="filterForm">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Select a Factor to Predict</mat-label>
+            <mat-select class="example-full-width field" formControlName="filter" (selectionChange)="changeFactor()">
+              <mat-option value="" disabled>Select a Factor</mat-option>
+              <mat-option *ngFor="let f of factors" [value]="f">{{f}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div></div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Temperature</mat-label>
+            <input matInput formControlName="temperature" placeholder="21.345574326" type="number">
+          </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Humidity</mat-label>
+            <input matInput formControlName="humidity" placeholder="21.345574326" type="number">
+          </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Wind Speed</mat-label>
+            <input matInput formControlName="windSpeed" placeholder="21.345574326" type="number">
+          </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Precipitation</mat-label>
+            <input matInput formControlName="precipitation" placeholder="21.345574326" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <button class="button-1" (click)="predict()">Predict</button>
+        </div>
+      </div>
+    </form>
+    <div class="result-div">
+      <h1 id="result">Result will appear here</h1>
+    </div>
+  </div>
+</div>
+
