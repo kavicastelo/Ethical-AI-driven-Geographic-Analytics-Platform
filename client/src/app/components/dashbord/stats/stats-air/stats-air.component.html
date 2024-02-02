@@ -1,1 +1,25 @@
-<p>stats-air works!</p>
+<div class="container" style="margin-top: 15px">
+  <h3>Get Median</h3>
+  <form class="signup-form" [formGroup]="medianForm">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+          <mat-label>Select a Factor to Predict</mat-label>
+          <mat-select class="example-full-width field" formControlName="median" (selectionChange)="changeMedianFactor()">
+            <mat-option value="" disabled>Select a Factor</mat-option>
+            <mat-option *ngFor="let f of factors" [value]="f">{{f}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6 col-md-4">
+        <button class="button-1" (click)="calculateMedian()">Calculate</button>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="result-div">
+          <h5 id="median-result">RESULT</h5>
+        </div>
+      </div>
+    </div>
+  </form>
+  <hr style="color: var(--color-primary-600)">
+</div>
