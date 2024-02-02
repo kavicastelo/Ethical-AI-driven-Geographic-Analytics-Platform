@@ -31,4 +31,16 @@ export class MetrologicalService {
   public predictPrecipitation(data:any[]): Observable<any>{
     return this.http.post(this.baseUrl + 'airQuality/predict/precipitation', data)
   }
+
+  public calculateMedian(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getMedianMetrological'+data)
+  }
+
+  public calculateMode(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getModeMetrological'+data)
+  }
+
+  public calculateAvgByDateRange(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getAverage'+data.factor+'ByDateRange?'+data.dateRange)
+  }
 }
