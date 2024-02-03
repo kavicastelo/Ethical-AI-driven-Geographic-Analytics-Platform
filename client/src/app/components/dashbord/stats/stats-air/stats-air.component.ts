@@ -137,7 +137,6 @@ export class StatsAirComponent implements OnInit {
         const request = this.airQualityService.getCorrelation(`${factor1}And${factor2}`).pipe(
           map(data => parseFloat(data)),
           catchError(error => {
-            console.log(`Error fetching correlation data for ${factor1} and ${factor2}`);
             return of(1); // Set a default value in case of an error
           })
         );

@@ -3,6 +3,7 @@ import {AirQualityService} from "../../../../services/air-quality.service";
 import {DatePipe} from "@angular/common";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MetrologicalService} from "../../../../services/metrological.service";
+import {catchError, forkJoin, map, of} from "rxjs";
 
 @Component({
   selector: 'app-stats-metro',
@@ -18,6 +19,8 @@ export class StatsMetroComponent implements OnInit {
     'WindSpeed',
     'Precipitation',
   ]
+
+  correlationMatrix: any[][] = [];
 
   avgForm = new FormGroup({
     mean: new FormControl('', [
@@ -42,6 +45,7 @@ export class StatsMetroComponent implements OnInit {
   constructor(private metrologicalService: MetrologicalService, private datePipe: DatePipe) {
   }
   ngOnInit(): void {
+    this.loadCorrelationMatrix()
   }
 
   changeMeanFactor() {
@@ -118,6 +122,38 @@ export class StatsMetroComponent implements OnInit {
     const formattedStartDate = this.datePipe.transform(startDate, 'yyyy-MM-dd') || '';
     const formattedEndDate = this.datePipe.transform(endDate, 'yyyy-MM-dd') || '';
     return `${formattedStartDate} - ${formattedEndDate}`;
+  }
+
+  loadCorrelationMatrix() {
+    const requests = [];
+
+    for (let i = 0; i < this.factors.length; i++) {
+      for (let j = 0; j < this.factors.length; j++) {
+        const factor1 = this.factors[i];
+        const factor2 = this.factors[j];
+
+        const request = this.metrologicalService.getCorrelation(`${factor1}And${factor2}`).pipe(
+          map(res => parseFloat(res)),
+          catchError(err => {
+            return of(1);
+          })
+        );
+
+        requests.push(request);
+      }
+    }
+
+    forkJoin(requests).subscribe(data => {
+      let index = 0;
+      for (let i = 0; i < this.factors.length; i++) {
+        const row = [];
+        for (let j = 0; j < this.factors.length; j++) {
+          row.push(data[index]);
+          index++;
+        }
+        this.correlationMatrix.push(row);
+      }
+    });
   }
 
 }
