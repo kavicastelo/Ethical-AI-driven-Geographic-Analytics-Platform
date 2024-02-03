@@ -35,4 +35,16 @@ export class AirQualityService {
   public predictNo2(data:any[]): Observable<any>{
     return this.http.post(this.baseUrl + 'airQuality/predict/no2', data)
   }
+
+  public calculateMedian(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getMedianAirQuality'+data)
+  }
+
+  public calculateMode(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getModeAirQuality'+data)
+  }
+
+  public calculateAvgByDateRange(data:any): Observable<any>{
+    return this.http.get(this.baseUrl + 'getAQAverage'+data.factor+'ByDateRange?'+data.dateRange)
+  }
 }

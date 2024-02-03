@@ -86,6 +86,11 @@ import { PredictionComponent } from './components/dashbord/prediction/prediction
 import { PredictionGuideComponent } from './components/dashbord/prediction/prediction-guide/prediction-guide.component';
 import { PredictionAirComponent } from './components/dashbord/prediction/prediction-air/prediction-air.component';
 import { PredictionMetroComponent } from './components/dashbord/prediction/prediction-metro/prediction-metro.component';
+import { StatsComponent } from './components/dashbord/stats/stats.component';
+import { StatsAirComponent } from './components/dashbord/stats/stats-air/stats-air.component';
+import { StatsMetroComponent } from './components/dashbord/stats/stats-metro/stats-metro.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -152,7 +157,10 @@ import { PredictionMetroComponent } from './components/dashbord/prediction/predi
     PredictionComponent,
     PredictionGuideComponent,
     PredictionAirComponent,
-    PredictionMetroComponent
+    PredictionMetroComponent,
+    StatsComponent,
+    StatsAirComponent,
+    StatsMetroComponent
   ],
   imports: [
     BrowserModule,
@@ -170,6 +178,8 @@ import { PredictionMetroComponent } from './components/dashbord/prediction/predi
     MatTooltipModule,
     FormsModule,
     MarkdownModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
