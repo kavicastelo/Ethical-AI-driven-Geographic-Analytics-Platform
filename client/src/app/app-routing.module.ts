@@ -74,6 +74,8 @@ import {StatsComponent} from "./components/dashbord/stats/stats.component";
 import {StatsAirComponent} from "./components/dashbord/stats/stats-air/stats-air.component";
 import {StatsMetroComponent} from "./components/dashbord/stats/stats-metro/stats-metro.component";
 import {GraphsComponent} from "./components/dashbord/graphs/graphs.component";
+import {GraphsAirComponent} from "./components/dashbord/graphs/graphs-air/graphs-air.component";
+import {GraphsMetroComponent} from "./components/dashbord/graphs/graphs-metro/graphs-metro.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -125,7 +127,11 @@ const routes: Routes = [
         {path: 'airQuality', component: StatsAirComponent},
         {path: 'metrological', component: StatsMetroComponent}
       ]},
-      {path: 'graphs', component: GraphsComponent},
+      {path: 'graphs', component: GraphsComponent, children: [
+        {path: '', redirectTo: '/dashboard/graphs/air', pathMatch: 'full'},
+        {path: 'air', component: GraphsAirComponent},
+        {path: 'metro', component: GraphsMetroComponent}
+      ]},
       {path: 'settings', component: UserSettingsComponent},
       {
         path: 'administration', component: AdminLoginComponent, children: [
