@@ -198,34 +198,66 @@ public class MetrologicalController {
     // get mode
 
     // correlations
-    @GetMapping("/api/v1/metrological/correlation/temperatureAndHumidity")
+    @GetMapping("/api/v1/metrological/correlation/TemperatureAndHumidity")
     public List<Double> correlationTemperatureAndHumidity() {
         return metrologicalService.calculateCorrelationTemperatureAndHumidity();
     }
 
-    @GetMapping("/api/v1/metrological/correlation/temperatureAndWindSpeed")
+    @GetMapping("/api/v1/metrological/correlation/TemperatureAndWindSpeed")
     public List<Double> correlationTemperatureAndWindSpeed() {
         return metrologicalService.calculateCorrelationTemperatureAndWindSpeed();
     }
 
-    @GetMapping("/api/v1/metrological/correlation/temperatureAndPrecipitation")
+    @GetMapping("/api/v1/metrological/correlation/TemperatureAndPrecipitation")
     public List<Double> correlationTemperatureAndPrecipitation() {
         return metrologicalService.calculateCorrelationTemperatureAndPrecipitation();
     }
 
-    @GetMapping("/api/v1/metrological/correlation/humidityAndWindSpeed")
+    @GetMapping("/api/v1/metrological/correlation/HumidityAndWindSpeed")
     public List<Double> correlationHumidityAndWindSpeed() {
         return metrologicalService.calculateCorrelationHumidityAndWindSpeed();
     }
 
-    @GetMapping("/api/v1/metrological/correlation/humidityAndPrecipitation")
+    @GetMapping("/api/v1/metrological/correlation/HumidityAndPrecipitation")
     public List<Double> correlationHumidityAndPrecipitation() {
         return metrologicalService.calculateCorrelationHumidityAndPrecipitation();
     }
 
-    @GetMapping("/api/v1/metrological/correlation/windSpeedAndPrecipitation")
+    @GetMapping("/api/v1/metrological/correlation/WindSpeedAndPrecipitation")
     public List<Double> correlationWindSpeedAndPrecipitation() {
         return metrologicalService.calculateCorrelationWindSpeedAndPrecipitation();
     }
     // correlations
+
+    // correlations reverse
+    @GetMapping("/api/v1/metrological/correlation/HumidityAndTemperature")
+    public List<Double> correlationTemperatureAndHumidityReverse() {
+        return metrologicalService.calculateCorrelationTemperatureAndHumidity();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/WindSpeedAndTemperature")
+    public List<Double> correlationTemperatureAndWindSpeedReverse() {
+        return metrologicalService.calculateCorrelationTemperatureAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/PrecipitationAndTemperature")
+    public List<Double> correlationTemperatureAndPrecipitationReverse() {
+        return metrologicalService.calculateCorrelationTemperatureAndPrecipitation();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/WindSpeedAndHumidity")
+    public List<Double> correlationHumidityAndWindSpeedReverse() {
+        return metrologicalService.calculateCorrelationHumidityAndWindSpeed();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/PrecipitationAndHumidity")
+    public List<Double> correlationHumidityAndPrecipitationReverse() {
+        return metrologicalService.calculateCorrelationHumidityAndPrecipitation();
+    }
+
+    @GetMapping("/api/v1/metrological/correlation/PrecipitationAndWindSpeed")
+    public List<Double> correlationWindSpeedAndPrecipitationReverse() {
+        return metrologicalService.calculateCorrelationWindSpeedAndPrecipitation();
+    }
+    // correlations reverse
 }
