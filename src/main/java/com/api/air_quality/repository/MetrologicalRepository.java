@@ -1,5 +1,6 @@
 package com.api.air_quality.repository;
 
+import com.api.air_quality.model.AirQualityModel;
 import com.api.air_quality.model.MetrologicalModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
@@ -41,5 +42,8 @@ public interface MetrologicalRepository extends MongoRepository<MetrologicalMode
     @Query(value = "{ 'timestamp' : { $exists : true }}", fields = "{'windSpeed': 1, 'precipitation': 1}")
     List<MetrologicalModel> findAllByWindSpeedAndPrecipitation();
 
-    void deleteByTimestampBefore(Instant cutoffTimestamp);
+    @Query("{ 'timestamp' : { $lt : ?0 } }")
+    List<AirQualityModel> findOldRecords(String cutoffTimestamp);
+
+    void deleteByTimestampBefore(String cutoffTimestamp);
 }
