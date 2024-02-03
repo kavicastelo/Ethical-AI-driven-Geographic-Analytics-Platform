@@ -11,29 +11,16 @@ Chart.register(...registerables);
 })
 export class GraphsAirComponent implements OnInit {
   airQuality: any;
-  factors: any[] = [
-    'pm25',
-    'pm10',
-    'co2',
-    'ozone',
-    'no2',
-  ];
+  factors: any[] = ['pm25', 'pm10', 'co2', 'ozone', 'no2'];
   labels: any[] = [];
   data: any[] = [];
+  chartCanvas: any;
 
-  filterForm: any = new FormGroup(
-    {
-      factor: new FormControl(null,[
-        Validators.required
-      ]),
-      size: new FormControl(null,[
-        Validators.required
-      ]),
-      type: new FormControl(null,[
-        Validators.required
-      ])
-    }
-  );
+  filterForm: any = new FormGroup({
+    factor: new FormControl(null, [Validators.required]),
+    size: new FormControl(null, [Validators.required]),
+    type: new FormControl(null, [Validators.required])
+  });
 
   constructor(private airQualityService: AirQualityService) {
   }
@@ -42,84 +29,94 @@ export class GraphsAirComponent implements OnInit {
   }
 
   getAllAirQuality() {
-    if (this.filterForm.valid){
+    const size = parseInt(this.filterForm.value.size);
+    const selectedFactor = this.filterForm.value.factor;
+    const type = this.filterForm.value.type;
+
+    if (this.filterForm.valid) {
       this.airQualityService.getAllAirQuality().subscribe(res => {
         if (res) {
-          let size = parseInt(this.filterForm.value.size);
-          let selectedFactor = this.filterForm.value.factor;
-          let type = this.filterForm.value.type;
-
           this.airQuality = res.slice(-size);
 
-          for (let i = 0; i < this.airQuality.length; i++) {
-            this.labels.push(this.airQuality[i].location);
-            switch (selectedFactor) {
-              case 'pm25':
-                this.data.push(this.airQuality[i].pm25);
-                break;
-              case 'pm10':
-                this.data.push(this.airQuality[i].pm10);
-                break;
-              case 'co2':
-                this.data.push(this.airQuality[i].co2);
-                break;
-              case 'ozone':
-                this.data.push(this.airQuality[i].ozone);
-                break;
-              case 'no2':
-                this.data.push(this.airQuality[i].no2);
-                break;
-              default:
-                this.data.push(this.airQuality[i].$selectedFactor);
-                break;
-            }
+          this.labels = this.airQuality.map((item:any) => item.location);
+
+          switch (selectedFactor) {
+            case 'pm25':
+              this.data = this.airQuality.map((item:any) => item.pm25);
+              break;
+            case 'pm10':
+              this.data = this.airQuality.map((item:any) => item.pm10);
+              break;
+            case 'co2':
+              this.data = this.airQuality.map((item:any) => item.co2);
+              break;
+            case 'ozone':
+              this.data = this.airQuality.map((item:any) => item.ozone);
+              break;
+            case 'no2':
+              this.data = this.airQuality.map((item:any) => item.no2);
+              break;
+            default:
+              // Handle other factors if needed
+              break;
           }
 
-          this.renderChart(this.labels, this.data, selectedFactor,type);
+          this.renderChart(selectedFactor, type);
         }
       }, error => {
         console.log(error);
-      })
-    }
-    else{
-
+      });
     }
   }
 
-  renderChart(labeldata:any,maindata:any, factor:any, chartType:any) {
-    const myChart = new Chart("chart", {
-      type: chartType,
-      data: {
-        labels: labeldata,
-        datasets: [{
-          label: factor,
-          data: maindata,
-          backgroundColor: "blue",
-          borderColor: [
-            'rgba(255, 99, 132, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+  renderChart(factor: any, chartType: any) {
+    if (this.chartCanvas) {
+      this.chartCanvas.data.labels = this.labels;
+      this.chartCanvas.data.datasets[0].data = this.data;
+      this.chartCanvas.data.datasets[0].label = factor;
+      this.chartCanvas.config.type = chartType;
+      this.chartCanvas.update();
+    } else {
+      this.chartCanvas = new Chart("chart", {
+        type: chartType,
+        data: {
+          labels: this.labels,
+          datasets: [{
+            label: factor,
+            data: this.data,
+            backgroundColor: "blue",
+            borderColor: [
+              'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+  }
+
+  updateChart() {
+    if (this.filterForm.valid) {
+      this.getAllAirQuality();
+    }
   }
 
   changeFactor() {
-    this.getAllAirQuality()
+    this.updateChart();
   }
 
   changeSize() {
-    this.getAllAirQuality()
+    this.updateChart();
   }
 
   changeType() {
-    this.getAllAirQuality()
+    this.updateChart();
   }
 }
