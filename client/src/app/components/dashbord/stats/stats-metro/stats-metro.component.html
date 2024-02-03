@@ -91,4 +91,22 @@
     </div>
   </form>
   <hr style="color: var(--color-primary-600)">
+
+  <h3>Correlations</h3>
+  <div style="width: 100%; overflow-x: auto">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th *ngFor="let f of factors">{{ f }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of correlationMatrix; let i = index">
+        <td style="font-weight: bold">{{ factors[i] }}</td>
+        <td *ngFor="let value of row">{{ value | number: '1.2-5' }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

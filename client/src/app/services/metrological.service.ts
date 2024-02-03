@@ -43,4 +43,9 @@ export class MetrologicalService {
   public calculateAvgByDateRange(data:any): Observable<any>{
     return this.http.get(this.baseUrl + 'getAverage'+data.factor+'ByDateRange?'+data.dateRange)
   }
+
+  public getCorrelation(apiEndpoint: string): Observable<any> {
+    const url = `${this.baseUrl}metrological/correlation/${apiEndpoint}`;
+    return this.http.get<any>(url);
+  }
 }
