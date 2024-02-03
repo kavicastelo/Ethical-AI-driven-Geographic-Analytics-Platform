@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AirQualityService} from "../../../../services/air-quality.service";
 import {DatePipe} from "@angular/common";
+import {catchError, forkJoin, map, of} from "rxjs";
 
 @Component({
   selector: 'app-stats-air',
@@ -24,6 +25,8 @@ export class StatsAirComponent implements OnInit {
     'WindSpeed'
   ]
 
+  correlationMatrix: any[][] = [];
+
   medianForm = new FormGroup({
     median: new FormControl('', [
       Validators.required
@@ -44,6 +47,7 @@ export class StatsAirComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.loadCorrelationMatrix()
   }
 
   changeMedianFactor() {
@@ -120,5 +124,38 @@ export class StatsAirComponent implements OnInit {
         }
       })
     }
+  }
+
+  loadCorrelationMatrix() {
+    const requests = [];
+
+    for (let i = 0; i < this.factors.length; i++) {
+      for (let j = 0; j < this.factors.length; j++) {
+        const factor1 = this.factors[i];
+        const factor2 = this.factors[j];
+
+        const request = this.airQualityService.getCorrelation(`${factor1}And${factor2}`).pipe(
+          map(data => parseFloat(data)),
+          catchError(error => {
+            console.log(`Error fetching correlation data for ${factor1} and ${factor2}`);
+            return of(1); // Set a default value in case of an error
+          })
+        );
+
+        requests.push(request);
+      }
+    }
+
+    forkJoin(requests).subscribe(data => {
+      let index = 0;
+      for (let i = 0; i < this.factors.length; i++) {
+        const row: number[] = [];
+        for (let j = 0; j < this.factors.length; j++) {
+          row.push(data[index]);
+          index++;
+        }
+        this.correlationMatrix.push(row);
+      }
+    });
   }
 }
