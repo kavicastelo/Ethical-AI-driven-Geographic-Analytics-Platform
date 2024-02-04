@@ -3,4 +3,5 @@ export interface LocationModel {
   name: string;
   code: string;
   type: string;
+  url: string;
 }

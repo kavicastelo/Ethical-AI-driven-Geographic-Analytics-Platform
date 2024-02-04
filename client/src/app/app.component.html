@@ -69,7 +69,7 @@
                   Location
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let l of locations"><a class="nav-link" routerLink="/{{l.code}}"
+                  <li *ngFor="let l of locations"><a href="{{l.url}}" class="nav-link" target="_blank"
                                                      [class.active]="isActive('/')">{{l.name}}</a>
                   </li>
                 </ul>
