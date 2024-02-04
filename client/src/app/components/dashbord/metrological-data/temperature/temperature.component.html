@@ -10,12 +10,8 @@
         <div class="col-6">
           <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
             <mat-label>Filter</mat-label>
-            <mat-select class="example-full-width field" formArrayName="filter">
-              <mat-option value="All" (onSelectionChange)="filterValue('All')">All</mat-option>
-              <mat-option value="Colombo" (onSelectionChange)="filterValue('Colombo')">Colombo</mat-option>
-              <mat-option value="Galle" (onSelectionChange)="filterValue('Galle')">Galle</mat-option>
-              <mat-option value="Matara" (onSelectionChange)="filterValue('Matara')">Matara</mat-option>
-              <mat-option value="Hambantota" (onSelectionChange)="filterValue('Hambantota')">Hambantota</mat-option>
+            <mat-select class="example-full-width field" formControlName="filter" (selectionChange)="filterValue()">
+              <mat-option *ngFor="let l of locations" [value]="l">{{l}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
