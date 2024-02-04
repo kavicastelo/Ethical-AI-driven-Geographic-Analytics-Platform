@@ -66,39 +66,58 @@ export class PredictionMetroComponent implements OnInit {
   predict() {
     let result = document.getElementById('result');
     if (this.filterForm.get('filter')?.value == 'temperature') {
+      this.loading()
       this.metrologicalService.predictTemperature([
         this.filterForm.value.humidity,
         this.filterForm.value.windSpeed,
         this.filterForm.value.precipitation
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     } else if (this.filterForm.get('filter')?.value == 'humidity') {
+      this.loading()
       this.metrologicalService.predictHumidity([
         this.filterForm.value.temperature,
         this.filterForm.value.windSpeed,
         this.filterForm.value.precipitation
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'windSpeed') {
+      this.loading()
       this.metrologicalService.predictWindSpeed([
         this.filterForm.value.temperature,
         this.filterForm.value.humidity,
         this.filterForm.value.precipitation
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'precipitation') {
+      this.loading()
       this.metrologicalService.predictPrecipitation([
         this.filterForm.value.temperature,
         this.filterForm.value.humidity,
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
+    }
+  }
+
+  loading() {
+    this.isLoading = !this.isLoading
+    let element = document.getElementById('predict') as HTMLElement;
+    if (this.isLoading) {
+      element.innerHTML = '<img src="./assets/images/shared/loading-circle.gif" alt="loading" width="30" height="30">'
+    }
+    else {
+      element.innerHTML = 'Predict'
     }
   }
 }

@@ -92,9 +92,21 @@ export class PredictionAirComponent implements OnInit {
     result!.innerHTML = 'Result will appear here'
   }
 
+  loading() {
+    this.isLoading = !this.isLoading
+    let element = document.getElementById('predict') as HTMLElement;
+    if (this.isLoading) {
+      element.innerHTML = '<img src="./assets/images/shared/loading-circle.gif" alt="loading" width="30" height="30">'
+    }
+    else {
+      element.innerHTML = 'Predict'
+    }
+  }
+
   predict() {
     let result = document.getElementById('result');
     if (this.filterForm.get('filter')?.value == 'pm25') {
+      this.loading()
       this.airQualityService.predictPm25([
         this.filterForm.value.pm10,
         this.filterForm.value.co2,
@@ -105,9 +117,11 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'pm10') {
+      this.loading()
       this.airQualityService.predictPm10([
         this.filterForm.value.pm25,
         this.filterForm.value.co2,
@@ -118,9 +132,11 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'co2') {
+      this.loading()
       this.airQualityService.predictCo2([
         this.filterForm.value.pm25,
         this.filterForm.value.pm10,
@@ -131,9 +147,11 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'ozone') {
+      this.loading()
       this.airQualityService.predictOzone([
         this.filterForm.value.pm25,
         this.filterForm.value.pm10,
@@ -144,9 +162,11 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
     else if (this.filterForm.get('filter')?.value == 'no2') {
+      this.loading()
       this.airQualityService.predictNo2([
         this.filterForm.value.pm25,
         this.filterForm.value.pm10,
@@ -157,6 +177,7 @@ export class PredictionAirComponent implements OnInit {
         this.filterForm.value.windSpeed
       ]).subscribe(res => {
         result!.innerHTML = res.message
+        this.loading()
       })
     }
   }

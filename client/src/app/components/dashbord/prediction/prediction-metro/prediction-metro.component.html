@@ -1,8 +1,8 @@
-<div class="loading-screen" *ngIf="isLoading">
-  <img src="./assets/images/shared/loading.gif" alt="loading...">
-  <h2>Please wait a moment...</h2>
-  <p>Starts server configuration</p>
-</div>
+<!--<div class="loading-screen" *ngIf="isLoading">-->
+<!--  <img src="./assets/images/shared/loading.gif" alt="loading...">-->
+<!--  <h2>Please wait a moment...</h2>-->
+<!--  <p>Starts server configuration</p>-->
+<!--</div>-->
 <div class="container" style="overflow-x: auto">
   <div class="filter-wrapper">
     <form class="signup-form" [formGroup]="filterForm">
@@ -44,7 +44,7 @@
       </div>
       <div class="row">
         <div class="col-12 col-md-6">
-          <button class="button-1" (click)="predict()">Predict</button>
+          <button class="button-1" id="predict" (click)="predict()">Predict</button>
         </div>
       </div>
     </form>
