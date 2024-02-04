@@ -14,6 +14,7 @@ import {catchError, forkJoin, map, of} from "rxjs";
 export class StatsMetroComponent implements OnInit {
 
   isLoading: boolean = false
+  isLoadingLg: boolean = false
 
   factors: any[] = [
     'Temperature',
@@ -154,12 +155,14 @@ export class StatsMetroComponent implements OnInit {
         const factor1 = this.factors[i];
         const factor2 = this.factors[j];
 
+        this.isLoadingLg = true;
         const request = this.metrologicalService.getCorrelation(`${factor1}And${factor2}`).pipe(
           map(res => parseFloat(res)),
           catchError(err => {
             return of(1);
           })
         );
+        this.isLoadingLg = false;
 
         requests.push(request);
       }

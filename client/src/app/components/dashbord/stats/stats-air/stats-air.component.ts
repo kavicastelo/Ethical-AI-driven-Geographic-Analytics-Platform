@@ -13,6 +13,7 @@ import {catchError, forkJoin, map, of} from "rxjs";
 export class StatsAirComponent implements OnInit {
 
   isLoading: boolean = false
+  isLoadingLg: boolean = false
 
   constructor(private airQualityService: AirQualityService, private datePipe: DatePipe) {
   }
@@ -156,12 +157,14 @@ export class StatsAirComponent implements OnInit {
         const factor1 = this.factors[i];
         const factor2 = this.factors[j];
 
+        this.isLoadingLg = true
         const request = this.airQualityService.getCorrelation(`${factor1}And${factor2}`).pipe(
           map(data => parseFloat(data)),
           catchError(error => {
             return of(1); // Set a default value in case of an error
           })
         );
+        this.isLoadingLg = false
 
         requests.push(request);
       }

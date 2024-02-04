@@ -93,7 +93,12 @@
   <hr style="color: var(--color-primary-600)">
 
   <h3>Correlations</h3>
-  <div style="width: 100%; overflow-x: auto">
+  <div style="width: 100%; overflow-x: auto; position: relative">
+    <div class="loading-screen" *ngIf="isLoadingLg">
+      <img src="./assets/images/shared/loading.gif" alt="loading...">
+      <h2>Please wait a moment...</h2>
+      <p>Data Retrieving Starts...</p>
+    </div>
     <table class="table table-hover">
       <thead>
       <tr>
