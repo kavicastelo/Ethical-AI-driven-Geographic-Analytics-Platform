@@ -13,6 +13,8 @@ import {catchError, forkJoin, map, of} from "rxjs";
 })
 export class StatsMetroComponent implements OnInit {
 
+  isLoading: boolean = false
+
   factors: any[] = [
     'Temperature',
     'Humidity',
@@ -48,6 +50,17 @@ export class StatsMetroComponent implements OnInit {
     this.loadCorrelationMatrix()
   }
 
+  loading(id: string) {
+    this.isLoading = !this.isLoading
+    let element = document.getElementById(id) as HTMLElement;
+    if (this.isLoading) {
+      element.innerHTML = '<img src="./assets/images/shared/loading-circle.gif" alt="loading" width="30" height="30">'
+    }
+    else {
+      element.innerHTML = 'Calculate'
+    }
+  }
+
   changeMeanFactor() {
     let result = document.getElementById('mean-result')
     result!.innerHTML = 'RESULT'
@@ -67,11 +80,14 @@ export class StatsMetroComponent implements OnInit {
     let factor = this.medianForm.get('median')?.value
     let result = document.getElementById('median-result')
     if (this.medianForm.valid) {
+      this.loading('median')
       this.metrologicalService.calculateMedian(factor).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('median')
         },
         error: (err) => {
+          this.loading('median')
           console.log(err)
         }
       })
@@ -82,11 +98,14 @@ export class StatsMetroComponent implements OnInit {
     let factor = this.modeForm.get('mode')?.value
     let result = document.getElementById('mode-result')
     if (this.modeForm.valid) {
+      this.loading('mode')
       this.metrologicalService.calculateMode(factor).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('mode')
         },
         error: (err) => {
+          this.loading('mode')
           console.log(err)
         }
       })
@@ -98,14 +117,17 @@ export class StatsMetroComponent implements OnInit {
     let endDate = this.avgForm.get('end')?.value
     let result = document.getElementById('mean-result')
     if (this.avgForm.valid) {
+      this.loading('avg')
       this.metrologicalService.calculateAvgByDateRange({
         factor: this.avgForm.get('mean')?.value,
         dateRange: this.formatDateRange(startDate, endDate)
       }).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('avg')
         },
         error: (err) => {
+          this.loading('avg')
           console.log(err)
         }
       })
