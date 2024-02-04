@@ -28,12 +28,11 @@
             <mat-select class="example-full-width field" formControlName="type" (selectionChange)="changeType()">
               <mat-option value="bar">Bar</mat-option>
               <mat-option value="line">Line</mat-option>
-              <mat-option value="bubble">Bubble</mat-option>
-              <mat-option value="doughnut">Doughnut</mat-option>
-              <mat-option value="pie">Pie</mat-option>
-              <mat-option value="polarArea">Polar Area</mat-option>
-              <mat-option value="radar">Radar</mat-option>
-              <mat-option value="scatter">Scatter</mat-option>
+              <mat-option class="d-none d-md-flex" value="doughnut">Doughnut</mat-option>
+              <mat-option class="d-none d-md-flex" value="pie">Pie</mat-option>
+              <mat-option class="d-none d-md-flex" value="polarArea">Polar Area</mat-option>
+              <mat-option class="d-none d-md-flex" value="radar">Radar</mat-option>
+              <mat-option class="d-none d-md-flex" value="scatter">Scatter</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
