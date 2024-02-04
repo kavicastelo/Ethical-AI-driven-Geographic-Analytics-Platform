@@ -17,6 +17,8 @@ export class OzoneComponent implements OnInit{
     filter: new FormControl(null)
   })
 
+  locations = ['All', 'Colombo', 'Galle', 'Matara', 'Hambantota']
+
   constructor(private airQualityService: AirQualityService) {
   }
 
@@ -53,35 +55,23 @@ export class OzoneComponent implements OnInit{
     }
   }
 
-  filterByLocation(location: string) {
+  filterByLocation() {
+    let location = this.filterForm.controls['filter'].value
     this.airQualityService.getAllAirQuality().subscribe(res => {
       if (res){
         let filteredColomboValues = res.filter((a: any) => a.location === location);
+        if (filteredColomboValues.length === 0) {
+          this.loadLatestAirQuality()
+        }
         return this.airQuality = filteredColomboValues;
+      }
+      else {
+        this.loadLatestAirQuality()
       }
     })
   }
 
-  filterValue(value: string) {
-    switch (value) {
-      case 'All':
-        this.loadLatestAirQuality();
-        break;
-      case 'Colombo':
-        this.filterByLocation('Colombo');
-        break;
-      case 'Galle':
-        this.filterByLocation('Galle');
-        break;
-      case 'Matara':
-        this.filterByLocation('Matara');
-        break;
-      case 'Hambantota':
-        this.filterByLocation('Hambantota');
-        break;
-      default:
-        this.loadLatestAirQuality();
-        break;
-    }
+  filterValue() {
+    this.filterByLocation()
   }
 }
