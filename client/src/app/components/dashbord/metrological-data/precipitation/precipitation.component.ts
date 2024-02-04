@@ -16,6 +16,8 @@ export class PrecipitationComponent implements OnInit {
     filter: new FormControl(null)
   })
 
+  locations = ['All', 'Industrial', 'Residential', 'Commercial', 'Park']
+
   constructor(private metrologicalService: MetrologicalService) {
   }
   ngOnInit(): void {
@@ -50,36 +52,22 @@ export class PrecipitationComponent implements OnInit {
     }
   }
 
-  filterByLocation(location: string) {
+  filterByLocation() {
+    let location = this.filterForm.controls['filter'].value
     this.metrologicalService.getAllMetrological().subscribe(res => {
       if (res) {
         let filteredColomboValues = res.filter((a: any) => a.location === location);
+        if (filteredColomboValues.length === 0) {
+          this.loadLatestMetrological()
+        }
         return this.metrological = filteredColomboValues;
       }
+      this.loadLatestMetrological()
     })
   }
 
-  filterValue(value: string) {
-    switch (value) {
-      case 'All':
-        this.loadLatestMetrological();
-        break;
-      case 'Colombo':
-        this.filterByLocation('Colombo');
-        break;
-      case 'Galle':
-        this.filterByLocation('Galle');
-        break;
-      case 'Matara':
-        this.filterByLocation('Matara');
-        break;
-      case 'Hambantota':
-        this.filterByLocation('Hambantota');
-        break;
-      default:
-        this.loadLatestMetrological()
-        break;
-    }
+  filterValue() {
+    this.filterByLocation()
   }
 
 }
