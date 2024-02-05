@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLoading: boolean = true;
 
   avgTemperature: number = 0
+  avgHumidity: number = 0
 
   constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar, private metrologicalService: MetrologicalService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.loadForecast();
     this.checkLike();
     this.calculateTemperature()
+    this.calculateHumidity()
   }
 
   loadDate() {
@@ -116,5 +118,21 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.avgTemperature = temperature
     })
     return this.avgTemperature
+  }
+
+  calculateHumidity(): number {
+    let humidity:any = 0;
+    this.metrologicalService.getAllMetrological().subscribe(data => {
+      let temp = data.map((item: any) => item.humidity).splice(-100)
+
+      temp.forEach((item: any) => {
+        let floatItem = parseFloat(item)
+        humidity += floatItem
+      })
+
+      humidity = humidity / temp.length;
+      this.avgHumidity = humidity
+    })
+    return this.avgHumidity
   }
 }
