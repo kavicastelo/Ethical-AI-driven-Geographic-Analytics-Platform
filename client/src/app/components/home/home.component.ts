@@ -50,9 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadForecast();
     this.checkLike();
-    this.calculateTemperature()
-    this.calculateHumidity()
-    this.calculateWindSpeed()
+    this.loadAverageValues();
   }
 
   loadDate() {
@@ -116,6 +114,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.matSnackBar.open(message, action, {
       duration: 1500
     });
+  }
+
+  loadAverageValues() {
+    this.calculateTemperature()
+    this.calculateHumidity()
+    this.calculateWindSpeed()
+    this.calculateCo2()
+    this.calculatePm10()
+    this.calculatePm25()
+    this.calculateO3()
+    this.calculateNo2()
   }
 
   calculateTemperature(): number {
@@ -217,7 +226,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   calculateO3(): number {
     let o3:any = 0;
     this.airQualityService.getAllAirQuality().subscribe(data => {
-      let temp = data.map((item: any) => item.o3).splice(-100)
+      let temp = data.map((item: any) => item.ozone).splice(-100)
 
       temp.forEach((item: any) => {
         let floatItem = parseFloat(item)
