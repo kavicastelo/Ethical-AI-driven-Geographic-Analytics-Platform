@@ -86,6 +86,21 @@
     }
   }
 
+  .summary-stats{
+    padding: 0 25px;
+    .icon{
+      margin-right: 30px;
+
+      img{
+        width: 100%;
+      }
+    }
+
+    p{
+      margin: 0;
+    }
+  }
+
   @media screen and (max-width: 576px) {
     .title-1{
       margin-top: 10px;
