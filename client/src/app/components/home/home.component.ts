@@ -229,4 +229,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
     return this.avgO3
   }
+
+  calculateNo2(): number {
+    let no2:any = 0;
+    this.airQualityService.getAllAirQuality().subscribe(data => {
+      let temp = data.map((item: any) => item.no2).splice(-100)
+
+      temp.forEach((item: any) => {
+        let floatItem = parseFloat(item)
+        no2 += floatItem
+      })
+
+      no2 = no2 / temp.length;
+      this.avgNo2 = no2
+    })
+    return this.avgNo2
+  }
 }
