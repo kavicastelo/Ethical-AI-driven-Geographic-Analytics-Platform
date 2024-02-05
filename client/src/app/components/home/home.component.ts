@@ -7,6 +7,7 @@ import {ForecastService} from "../../services/forecast.service";
 import {Parser} from "@angular/compiler";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MetrologicalService} from "../../services/metrological.service";
+import {AirQualityService} from "../../services/air-quality.service";
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   avgO3: number = 0;
   avgNo2: number = 0;
 
-  constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar, private metrologicalService: MetrologicalService) {
+  constructor(
+    private themeService: ThemeService,
+    private sanitizer: DomSanitizer,
+    private forecastService: ForecastService,
+    private matSnackBar: MatSnackBar,
+    private airQualityService: AirQualityService,
+    private metrologicalService: MetrologicalService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -157,5 +164,21 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.avgWindSpeed = windSpeed
     })
     return this.avgWindSpeed
+  }
+
+  calculateCo2(): number {
+    let co2:any = 0;
+    this.airQualityService.getAllAirQuality().subscribe(data => {
+      let temp = data.map((item: any) => item.co2).splice(-100)
+
+      temp.forEach((item: any) => {
+        let floatItem = parseFloat(item)
+        co2 += floatItem
+      })
+
+      co2 = co2 / temp.length;
+      this.avgCo2 = co2
+    })
+    return this.avgCo2
   }
 }
