@@ -94,7 +94,7 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 import { GraphsComponent } from './components/dashbord/graphs/graphs.component';
 import { GraphsAirComponent } from './components/dashbord/graphs/graphs-air/graphs-air.component';
 import { GraphsMetroComponent } from './components/dashbord/graphs/graphs-metro/graphs-metro.component';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './components/shared/map/map.component';
 
 @NgModule({
   declarations: [
