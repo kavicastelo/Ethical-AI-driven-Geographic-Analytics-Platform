@@ -6,6 +6,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {ForecastService} from "../../services/forecast.service";
 import {Parser} from "@angular/compiler";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MetrologicalService} from "../../services/metrological.service";
 
 @Component({
   selector: 'app-home',
@@ -17,10 +18,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   isDarkMode: boolean | undefined;
   isLiked: boolean = false
 
-  forecastData:any;
+  forecastData: any;
   isLoading: boolean = true;
 
-  constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar) {
+  avgTemperature: number = 0
+
+  constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar, private metrologicalService: MetrologicalService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
       this.isDarkMode = isDarkMode;
     });
@@ -33,11 +36,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadForecast();
     this.checkLike();
+    this.calculateTemperature()
   }
 
   loadDate() {
     const date = new Date().toString();
-    return date.split(' ').slice(1,4).join(' ');
+    return date.split(' ').slice(1, 4).join(' ');
   }
 
   loadForecast() {
@@ -70,8 +74,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       if (this.isLiked) {
         localStorage.setItem('forecast-like', JSON.stringify(true))
         count++
-      }
-      else {
+      } else {
         localStorage.setItem('forecast-like', JSON.stringify(false))
         count = count - 1
       }
@@ -83,7 +86,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         likes: count,
         visible: data.visible
       }).subscribe(data => {
-        this.matSnackBar.open(this.isLiked?'Liked Forecast':'Disliked Forecast', 'OK',{duration: 1500})
+        this.matSnackBar.open(this.isLiked ? 'Liked Forecast' : 'Disliked Forecast', 'OK', {duration: 1500})
         this.loadForecast()
       })
     })
@@ -97,5 +100,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.matSnackBar.open(message, action, {
       duration: 1500
     });
+  }
+
+  calculateTemperature(): number {
+    let temperature:any = 0;
+    this.metrologicalService.getAllMetrological().subscribe(data => {
+      let temp = data.map((item: any) => item.temperature).splice(-100)
+
+      temp.forEach((item: any) => {
+        let floatItem = parseFloat(item)
+        temperature += floatItem
+      })
+
+      temperature = temperature / temp.length;
+      this.avgTemperature = temperature
+    })
+    return this.avgTemperature
   }
 }
