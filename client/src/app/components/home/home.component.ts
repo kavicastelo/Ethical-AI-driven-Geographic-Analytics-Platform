@@ -181,4 +181,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
     return this.avgCo2
   }
+
+  calculatePm10(): number {
+    let pm10:any = 0;
+    this.airQualityService.getAllAirQuality().subscribe(data => {
+      let temp = data.map((item: any) => item.pm10).splice(-100)
+
+      temp.forEach((item: any) => {
+        let floatItem = parseFloat(item)
+        pm10 += floatItem
+      })
+
+      pm10 = pm10 / temp.length;
+      this.avgPm10 = pm10
+    })
+    return this.avgPm10
+  }
 }
