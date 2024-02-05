@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   avgTemperature: number = 0
   avgHumidity: number = 0
   avgWindSpeed: number = 0
+  avgCo2: number = 0;
+  avgPm10: number = 0;
+  avgPm25: number = 0;
+  avgO3: number = 0;
+  avgNo2: number = 0;
 
   constructor(private themeService: ThemeService, private sanitizer: DomSanitizer, private forecastService: ForecastService, private matSnackBar: MatSnackBar, private metrologicalService: MetrologicalService) {
     this.themeSubscription = this.themeService.getThemeObservable().subscribe((isDarkMode) => {
