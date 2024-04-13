@@ -279,3 +279,12 @@
     - /api/v1/UserTerms
     - /api/v1/UserTerms/save
     - /api/v1/UserTerms/update/{id}
+
+---
+## Repo's Stats
+![code lines](https://tokei.rs/b1/github/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform)
+![files](https://tokei.rs/b1/github/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?category=files) </br>
+![repo size](https://img.shields.io/github/repo-size/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?label=Repo%20Size&style=for-the-badge&labelColor=black&color=20bf6b)
+![GitHub forks](https://img.shields.io/github/forks/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?&labelColor=black&color=0fb9b1&style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?&labelColor=black&color=f7b731&style=for-the-badge)
+![GitHub LastCommit](https://img.shields.io/github/last-commit/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?logo=github&labelColor=black&color=d1d8e0&style=for-the-badge)
