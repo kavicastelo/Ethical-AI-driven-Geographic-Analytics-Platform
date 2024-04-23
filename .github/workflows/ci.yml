@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd client
-          npm install
+          npm install --force
 
       - name: Build frontend
         run: npm run build -- --prod
