@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ContactModel {
     @Id
     private String id;
-    private String sender;
-    private String senderEmail;
+    private String name;
+    private String email;
     private String message;
 }
