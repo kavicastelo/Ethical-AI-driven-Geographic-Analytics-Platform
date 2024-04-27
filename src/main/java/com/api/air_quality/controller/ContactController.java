@@ -23,14 +23,14 @@ public class ContactController {
     public ResponseEntity<ApiResponse> sendMail(@RequestBody ContactModel contactModel){
         emailService.sendSimpleEmail("kavindu.kokila.info@gmail.com","Urban air quality platform - contact","" +
                 "Dear Administration,"+"\n" +
-                "You got an contact email from: "+contactModel.getSender()+"\n" +
-                "Email Address: "+contactModel.getSenderEmail()+"\n\n" +
+                "You got an contact email from: "+contactModel.getName()+"\n" +
+                "Email Address: "+contactModel.getEmail()+"\n\n" +
                 ""+contactModel.getMessage()+"\n\n" +
                 "Client is waiting for your response. Reply ASAP\n\n\n" +
                 "System Automated Email - Urban Air Quality Platform");
 
-        emailService.sendSimpleEmail(contactModel.getSenderEmail(),"Urban air quality platform - contact","" +
-                "Dear "+contactModel.getSender()+","+"\n" +
+        emailService.sendSimpleEmail(contactModel.getEmail(),"Urban air quality platform - contact","" +
+                "Dear "+contactModel.getName()+","+"\n" +
                 "We got your contact message. Our agent will be contact you ASAP. Thank you for contacting with us! \n\n" +
                 "Sincerely,\n" +
                 "Urban Air Quality Platform.\n\n" +
