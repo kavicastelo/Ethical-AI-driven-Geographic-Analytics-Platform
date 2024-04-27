@@ -91,6 +91,10 @@ import { StatsAirComponent } from './components/dashbord/stats/stats-air/stats-a
 import { StatsMetroComponent } from './components/dashbord/stats/stats-metro/stats-metro.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import { GraphsComponent } from './components/dashbord/graphs/graphs.component';
+import { GraphsAirComponent } from './components/dashbord/graphs/graphs-air/graphs-air.component';
+import { GraphsMetroComponent } from './components/dashbord/graphs/graphs-metro/graphs-metro.component';
+import { MapComponent } from './components/shared/map/map.component';
 
 @NgModule({
   declarations: [
@@ -160,7 +164,11 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
     PredictionMetroComponent,
     StatsComponent,
     StatsAirComponent,
-    StatsMetroComponent
+    StatsMetroComponent,
+    GraphsComponent,
+    GraphsAirComponent,
+    GraphsMetroComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

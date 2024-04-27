@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  overflow: hidden;
 }
 
 .content-loader{
@@ -83,6 +83,21 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  .summary-stats{
+    padding: 0 25px;
+    .icon{
+      margin-right: 30px;
+
+      img{
+        width: 100%;
+      }
+    }
+
+    p{
+      margin: 0;
     }
   }
 

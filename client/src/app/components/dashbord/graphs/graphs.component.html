@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="air" [class.active]="isActive('/dashboard/graphs/air')">AIR QUALITY</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" routerLink="metro" [class.active]="isActive('/dashboard/graphs/metro')">METROLOGICAL DATA</a>
+  </li>
+</ul>
+<div class="admin-sub-page-loader">
+  <router-outlet></router-outlet>
+</div>

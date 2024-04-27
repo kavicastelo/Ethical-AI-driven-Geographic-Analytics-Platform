@@ -12,7 +12,7 @@
         </mat-form-field>
       </div>
       <div class="col-6 col-md-4">
-        <button class="button-1" (click)="calculateMedian()">Calculate</button>
+        <button class="button-1" id="median" (click)="calculateMedian()">Calculate</button>
       </div>
       <div class="col-12 col-md-4">
         <div class="result-div">
@@ -36,7 +36,7 @@
         </mat-form-field>
       </div>
       <div class="col-6 col-md-4">
-        <button class="button-1" (click)="calculateMode()">Calculate</button>
+        <button class="button-1" id="mode" (click)="calculateMode()">Calculate</button>
       </div>
       <div class="col-12 col-md-4">
         <div class="result-div">
@@ -81,7 +81,7 @@
 
       </div>
       <div class="col-6 col-md-4">
-        <button class="button-1" (click)="calculateAvg()">Calculate</button>
+        <button class="button-1" id="avg" (click)="calculateAvg()">Calculate</button>
       </div>
       <div class="col-12 col-md-4">
         <div class="result-div">
@@ -91,4 +91,27 @@
     </div>
   </form>
   <hr style="color: var(--color-primary-600)">
+
+  <h3>Correlations</h3>
+  <div style="width: 100%; overflow-x: auto; position: relative">
+    <div class="loading-screen" *ngIf="isLoadingLg">
+      <img src="./assets/images/shared/loading.gif" alt="loading...">
+      <h2>Please wait a moment...</h2>
+      <p>Data Retrieving Starts...</p>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th *ngFor="let f of factors">{{ f }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of correlationMatrix; let i = index">
+        <td style="font-weight: bold">{{ factors[i] }}</td>
+        <td *ngFor="let value of row">{{ value | number: '1.2-5' }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

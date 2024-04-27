@@ -47,4 +47,9 @@ export class AirQualityService {
   public calculateAvgByDateRange(data:any): Observable<any>{
     return this.http.get(this.baseUrl + 'getAQAverage'+data.factor+'ByDateRange?'+data.dateRange)
   }
+
+  getCorrelation(apiEndpoint: string): Observable<any> {
+    const url = `${this.baseUrl}airQuality/correlation/${apiEndpoint}`;
+    return this.http.get<any>(url);
+  }
 }

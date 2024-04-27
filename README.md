@@ -114,41 +114,75 @@
 
 ### Get Correlations
 1. Air Quality
-   - /api/v1/airQuality/correlation/pm25AndPm10
-   - /api/v1/airQuality/correlation/pm25AndCo2
-   - /api/v1/airQuality/correlation/pm25AndOzone
-   - /api/v1/airQuality/correlation/pm25AndNo2
-   - /api/v1/airQuality/correlation/pm25AndTemperature
-   - /api/v1/airQuality/correlation/pm25AndHumidity
-   - /api/v1/airQuality/correlation/pm25AndWindSpeed
-   - /api/v1/airQuality/correlation/pm10AndCo2
-   - /api/v1/airQuality/correlation/pm10AndOzone
-   - /api/v1/airQuality/correlation/pm10AndNo2
-   - /api/v1/airQuality/correlation/pm10AndTemperature
-   - /api/v1/airQuality/correlation/pm10AndHumidity
-   - /api/v1/airQuality/correlation/pm10AndWindSpeed
-   - /api/v1/airQuality/correlation/co2AndOzone
-   - /api/v1/airQuality/correlation/co2AndNo2
-   - /api/v1/airQuality/correlation/co2AndTemperature
-   - /api/v1/airQuality/correlation/co2AndHumidity
-   - /api/v1/airQuality/correlation/co2AndWindSpeed
-   - /api/v1/airQuality/correlation/ozoneAndNo2
-   - /api/v1/airQuality/correlation/ozoneAndTemperature
-   - /api/v1/airQuality/correlation/ozoneAndHumidity
-   - /api/v1/airQuality/correlation/ozoneAndWindSpeed
-   - /api/v1/airQuality/correlation/no2AndTemperature
-   - /api/v1/airQuality/correlation/no2AndHumidity
-   - /api/v1/airQuality/correlation/no2AndWindSpeed
-   - /api/v1/airQuality/correlation/temperatureAndHumidity
-   - /api/v1/airQuality/correlation/temperatureAndWindSpeed
-   - /api/v1/airQuality/correlation/humidityAndWindSpeed
+   - /api/v1/airQuality/correlation/Pm25AndPm10
+   - /api/v1/airQuality/correlation/Pm25AndCo2
+   - /api/v1/airQuality/correlation/Pm25AndOzone
+   - /api/v1/airQuality/correlation/Pm25AndNo2
+   - /api/v1/airQuality/correlation/Pm25AndTemperature
+   - /api/v1/airQuality/correlation/Pm25AndHumidity
+   - /api/v1/airQuality/correlation/Pm25AndWindSpeed
+   - /api/v1/airQuality/correlation/Pm10AndCo2
+   - /api/v1/airQuality/correlation/Pm10AndOzone
+   - /api/v1/airQuality/correlation/Pm10AndNo2
+   - /api/v1/airQuality/correlation/Pm10AndTemperature
+   - /api/v1/airQuality/correlation/Pm10AndHumidity
+   - /api/v1/airQuality/correlation/Pm10AndWindSpeed
+   - /api/v1/airQuality/correlation/Co2AndOzone
+   - /api/v1/airQuality/correlation/Co2AndNo2
+   - /api/v1/airQuality/correlation/Co2AndTemperature
+   - /api/v1/airQuality/correlation/Co2AndHumidity
+   - /api/v1/airQuality/correlation/Co2AndWindSpeed
+   - /api/v1/airQuality/correlation/OzoneAndNo2
+   - /api/v1/airQuality/correlation/OzoneAndTemperature
+   - /api/v1/airQuality/correlation/OzoneAndHumidity
+   - /api/v1/airQuality/correlation/OzoneAndWindSpeed
+   - /api/v1/airQuality/correlation/No2AndTemperature
+   - /api/v1/airQuality/correlation/No2AndHumidity
+   - /api/v1/airQuality/correlation/No2AndWindSpeed
+   - /api/v1/airQuality/correlation/TemperatureAndHumidity
+   - /api/v1/airQuality/correlation/TemperatureAndWindSpeed
+   - /api/v1/airQuality/correlation/HumidityAndWindSpeed
+   - /api/v1/airQuality/correlation/Pm10AndPm25
+   - /api/v1/airQuality/correlation/Co2AndPm25
+   - /api/v1/airQuality/correlation/OzoneAndPm25
+   - /api/v1/airQuality/correlation/No2AndPm25
+   - /api/v1/airQuality/correlation/TemperatureAndPm25
+   - /api/v1/airQuality/correlation/HumidityAndPm25
+   - /api/v1/airQuality/correlation/WindSpeedAndPm25
+   - /api/v1/airQuality/correlation/Co2AndPm10
+   - /api/v1/airQuality/correlation/OzoneAndPm10
+   - /api/v1/airQuality/correlation/No2AndPm10
+   - /api/v1/airQuality/correlation/TemperatureAndPm10
+   - /api/v1/airQuality/correlation/HumidityAndPm10
+   - /api/v1/airQuality/correlation/WindSpeedAndPm10
+   - /api/v1/airQuality/correlation/OzoneAndCo2
+   - /api/v1/airQuality/correlation/No2AndCo2
+   - /api/v1/airQuality/correlation/TemperatureAndCo2
+   - /api/v1/airQuality/correlation/HumidityAndCo2
+   - /api/v1/airQuality/correlation/WindSpeedAndCo2
+   - /api/v1/airQuality/correlation/No2AndOzone
+   - /api/v1/airQuality/correlation/TemperatureAndOzone
+   - /api/v1/airQuality/correlation/HumidityAndOzone
+   - /api/v1/airQuality/correlation/WindSpeedAndOzone
+   - /api/v1/airQuality/correlation/TemperatureAndNo2
+   - /api/v1/airQuality/correlation/HumidityAndNo2
+   - /api/v1/airQuality/correlation/WindSpeedAndNo2
+   - /api/v1/airQuality/correlation/HumidityAndTemperature
+   - /api/v1/airQuality/correlation/WindSpeedAndTemperature
+   - /api/v1/airQuality/correlation/WindSpeedAndHumidity
 2. Metrological
-   - /api/v1/metrological/correlation/temperatureAndHumidity
-   - /api/v1/metrological/correlation/temperatureAndWindSpeed
-   - /api/v1/metrological/correlation/temperatureAndPrecipitation
-   - /api/v1/metrological/correlation/humidityAndWindSpeed
-   - /api/v1/metrological/correlation/humidityAndPrecipitation
-   - /api/v1/metrological/correlation/windSpeedAndPrecipitation
+   - /api/v1/metrological/correlation/TemperatureAndHumidity
+   - /api/v1/metrological/correlation/TemperatureAndWindSpeed
+   - /api/v1/metrological/correlation/TemperatureAndPrecipitation
+   - /api/v1/metrological/correlation/HumidityAndWindSpeed
+   - /api/v1/metrological/correlation/HumidityAndPrecipitation
+   - /api/v1/metrological/correlation/WindSpeedAndPrecipitation
+   - /api/v1/metrological/correlation/HumidityAndTemperature
+   - /api/v1/metrological/correlation/WindSpeedAndTemperature
+   - /api/v1/metrological/correlation/PrecipitationAndTemperature
+   - /api/v1/metrological/correlation/WindSpeedAndHumidity
+   - /api/v1/metrological/correlation/PrecipitationAndHumidity
+   - /api/v1/metrological/correlation/PrecipitationAndWindSpeed
 
 ### Make Prediction
 1. Air Quality
@@ -245,3 +279,12 @@
     - /api/v1/UserTerms
     - /api/v1/UserTerms/save
     - /api/v1/UserTerms/update/{id}
+
+---
+## Repo's Stats
+![code lines](https://tokei.rs/b1/github/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform)
+![files](https://tokei.rs/b1/github/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?category=files) </br>
+![repo size](https://img.shields.io/github/repo-size/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?label=Repo%20Size&style=for-the-badge&labelColor=black&color=20bf6b)
+![GitHub forks](https://img.shields.io/github/forks/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?&labelColor=black&color=0fb9b1&style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?&labelColor=black&color=f7b731&style=for-the-badge)
+![GitHub LastCommit](https://img.shields.io/github/last-commit/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform?logo=github&labelColor=black&color=d1d8e0&style=for-the-badge)

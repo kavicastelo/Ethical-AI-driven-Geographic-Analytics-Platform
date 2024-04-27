@@ -1,0 +1,45 @@
+<div class="main-outer">
+  <div class="container">
+    <form class="signup-form" [formGroup]="filterForm">
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Select a Factor</mat-label>
+            <mat-select class="example-full-width field" formControlName="factor" (selectionChange)="changeFactor()">
+              <mat-option *ngFor="let f of factors" [value]="f">{{f}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6 col-md-4">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Select Data Size</mat-label>
+            <mat-select class="example-full-width field" formControlName="size" (selectionChange)="changeSize()">
+              <mat-option value="10">10</mat-option>
+              <mat-option value="20">20</mat-option>
+              <mat-option value="30">30</mat-option>
+              <mat-option value="40">40</mat-option>
+              <mat-option value="50">50</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6 col-md-4">
+          <mat-form-field class="signup-form-full-width" appearance="outline" color="accent">
+            <mat-label>Select Graph Type</mat-label>
+            <mat-select class="example-full-width field" formControlName="type" (selectionChange)="changeType()">
+              <mat-option value="bar">Bar</mat-option>
+              <mat-option value="line">Line</mat-option>
+              <mat-option class="d-none d-md-flex" value="doughnut">Doughnut</mat-option>
+              <mat-option class="d-none d-md-flex" value="pie">Pie</mat-option>
+              <mat-option class="d-none d-md-flex" value="polarArea">Polar Area</mat-option>
+              <mat-option class="d-none d-md-flex" value="radar">Radar</mat-option>
+              <mat-option class="d-none d-md-flex" value="scatter">Scatter</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <div class="chart-div" style="width: 100%; overflow-x: auto">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+</div>

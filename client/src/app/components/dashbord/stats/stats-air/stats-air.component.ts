@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AirQualityService} from "../../../../services/air-quality.service";
 import {DatePipe} from "@angular/common";
+import {catchError, forkJoin, map, of} from "rxjs";
 
 @Component({
   selector: 'app-stats-air',
@@ -10,6 +11,9 @@ import {DatePipe} from "@angular/common";
   providers: [DatePipe]
 })
 export class StatsAirComponent implements OnInit {
+
+  isLoading: boolean = false
+  isLoadingLg: boolean = false
 
   constructor(private airQualityService: AirQualityService, private datePipe: DatePipe) {
   }
@@ -23,6 +27,8 @@ export class StatsAirComponent implements OnInit {
     'Humidity',
     'WindSpeed'
   ]
+
+  correlationMatrix: any[][] = [];
 
   medianForm = new FormGroup({
     median: new FormControl('', [
@@ -44,6 +50,18 @@ export class StatsAirComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.loadCorrelationMatrix()
+  }
+
+  loading(id: string) {
+    this.isLoading = !this.isLoading
+    let element = document.getElementById(id) as HTMLElement;
+    if (this.isLoading) {
+      element.innerHTML = '<img src="./assets/images/shared/loading-circle.gif" alt="loading" width="30" height="30">'
+    }
+    else {
+      element.innerHTML = 'Calculate'
+    }
   }
 
   changeMedianFactor() {
@@ -65,11 +83,14 @@ export class StatsAirComponent implements OnInit {
     let factor = this.medianForm.get('median')?.value
     let result = document.getElementById('median-result')
     if (this.medianForm.valid) {
+      this.loading('median')
       this.airQualityService.calculateMedian(factor).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('median')
         },
         error: (err) => {
+          this.loading('median')
           console.log(err)
         }
       })
@@ -80,11 +101,14 @@ export class StatsAirComponent implements OnInit {
     let factor = this.modeForm.get('mode')?.value
     let result = document.getElementById('mode-result')
     if (this.modeForm.valid) {
+      this.loading('mode')
       this.airQualityService.calculateMode(factor).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('mode')
         },
         error: (err) => {
+          this.loading('mode')
           console.log(err)
         }
       })
@@ -108,17 +132,54 @@ export class StatsAirComponent implements OnInit {
     let endDate = this.avgForm.get('end')?.value
     let result = document.getElementById('mean-result')
     if (this.avgForm.valid) {
+      this.loading('avg')
       this.airQualityService.calculateAvgByDateRange({
         factor: this.avgForm.get('mean')?.value,
         dateRange: this.formatDateRange(startDate, endDate)
       }).subscribe({
         next: (res) => {
           result!.innerHTML = res
+          this.loading('avg')
         },
         error: (err) => {
+          this.loading('avg')
           console.log(err)
         }
       })
     }
+  }
+
+  loadCorrelationMatrix() {
+    const requests = [];
+
+    for (let i = 0; i < this.factors.length; i++) {
+      for (let j = 0; j < this.factors.length; j++) {
+        const factor1 = this.factors[i];
+        const factor2 = this.factors[j];
+
+        this.isLoadingLg = true
+        const request = this.airQualityService.getCorrelation(`${factor1}And${factor2}`).pipe(
+          map(data => parseFloat(data)),
+          catchError(error => {
+            return of(1); // Set a default value in case of an error
+          })
+        );
+        this.isLoadingLg = false
+
+        requests.push(request);
+      }
+    }
+
+    forkJoin(requests).subscribe(data => {
+      let index = 0;
+      for (let i = 0; i < this.factors.length; i++) {
+        const row: number[] = [];
+        for (let j = 0; j < this.factors.length; j++) {
+          row.push(data[index]);
+          index++;
+        }
+        this.correlationMatrix.push(row);
+      }
+    });
   }
 }
