@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b092ee41-c077-498f-bce5-460d7a6fbea3" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-air/graphs-air.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-air/graphs-air.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-air/graphs-air.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-air/graphs-air.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-metro/graphs-metro.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-metro/graphs-metro.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-metro/graphs-metro.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs-metro/graphs-metro.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-=======
-    <list default="true" id="4a36a721-f3b9-4dac-a630-bdf244605597" name="Changes" comment="">
-    <list default="true" id="1b74e0a6-bc86-4c44-930a-d1d3078118d2" name="Changes" comment="">
->>>>>>> cbcae96abf9c046e3883394b4a83b21886fc237e
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/dashbord/graphs/graphs.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Config Guide.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Config Guide.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +51,10 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -82,6 +72,13 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.api.air_quality.service" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.AirQualityApplication">
     <configuration name="AirQualityApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
