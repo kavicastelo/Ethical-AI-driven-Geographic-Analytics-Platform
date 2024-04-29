@@ -36,8 +36,10 @@ https://github.com/kavicastelo/Ethical-AI-driven-Geographic-Analytics-Platform.g
 - Navigates to `src\environment\environment.development.ts`
 - Commented out the production base url and uncomment the local (`port 3269 is recommended and default`)
 - Move to the client directory in terminal and run `npm install --force` command
-  > [!IMPORTANT]
-  > Use --force for install deprecated packages. don't use --legacy-peers
+
+> [!IMPORTANT]
+> Use --force for install deprecated packages. don't use --legacy-peers
+
 - Run `ng serve` command to start the development server
 - Project starts to run on `localhost:4200/` port
 
